@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   config = {
@@ -9,6 +9,14 @@
       vimAlias = true;
       viAlias = true;
       vimdiffAlias = true;
+
+      extraPackages = with pkgs; [
+        python3
+        nodejs_21
+        cargo
+        unzip
+        gcc
+      ];
     };
 
     # Lua config

@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -16,7 +17,7 @@
 
   # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   # time.timeZone = "Europe/Amsterdam";
@@ -40,13 +41,13 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-  
+
   users.users."colet" = {
     isNormalUser = true;
     initialPassword = "1";
     extraGroups = [ "wheel" ];
     packages = with pkgs; [
-        firefox
+      firefox
     ];
   };
 
@@ -76,7 +77,7 @@
   '';
 
   fileSystems."/persist".neededForBoot = true;
-environment.persistence."/persist/system" = {
+  environment.persistence."/persist/system" = {
     hideMounts = true;
     directories = [
       "/var/log"
@@ -93,11 +94,13 @@ environment.persistence."/persist/system" = {
 
   programs.fuse.userAllowOther = true;
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = { inherit inputs; };
     users = {
       "colet" = import ./home.nix;
     };
   };
+
+  programs.nix-ld.enable = true;
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -126,9 +129,8 @@ environment.persistence."/persist/system" = {
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-      git
-      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #   wget
+    git
+    vim
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

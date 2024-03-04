@@ -1,6 +1,6 @@
 {
   description = "Nixos config flake";
-     
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -19,19 +19,19 @@
     };
   };
 
-  outputs = {nixpkgs, ...} @ inputs:
-  {
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        inputs.disko.nixosModules.default
-        (import ./disko.nix { device = "/dev/nvme0n1"; })
+  outputs = { nixpkgs, ... } @ inputs:
+    {
+      nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          inputs.disko.nixosModules.default
+          (import ./disko.nix { device = "/dev/nvme0n1"; })
 
-        ./configuration.nix
-              
-        inputs.home-manager.nixosModules.default
-        inputs.impermanence.nixosModules.impermanence
-      ];
+          ./configuration.nix
+
+          inputs.home-manager.nixosModules.default
+          inputs.impermanence.nixosModules.impermanence
+        ];
+      };
     };
-  };
 }

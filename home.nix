@@ -51,7 +51,7 @@
 
   # gpgKey = "56CA6B8E58EB0E7B";
 
- home.persistence."/persist/home" = {
+  home.persistence."/persist/home" = {
     directories = [
       "Downloads"
       "Music"
