@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, inputs, pkgs, ... }:
+{ lib, inputs, pkgs, ... }:
 
 {
   imports =
@@ -48,6 +48,13 @@
     isNormalUser = true;
     hashedPasswordFile = "/persist/secrets/passwords/colet";
     extraGroups = [ "wheel" ];
+  };
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    gamescopeSession.enable = true;
   };
 
   boot.initrd.postDeviceCommands = lib.mkAfter ''
@@ -143,6 +150,8 @@
   environment.systemPackages = with pkgs; [
     git
     vim
+    steam-run
+    ntfs3g
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -191,5 +200,7 @@
     experimental-features = [ "nix-command" "flakes" "repl-flake" ];
     warn-dirty = false;
   };
+
+  nixpkgs.config.allowUnfree = true;
 }
 

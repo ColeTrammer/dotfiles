@@ -71,6 +71,10 @@
         directory = ".local/share/Steam";
         method = "symlink";
       }
+      {
+        directory = ".local/share/Celeste";
+        method = "symlink";
+      }
       ".local/state/nvim"
       ".local/share/nvim"
       ".local/share/zoxide"
