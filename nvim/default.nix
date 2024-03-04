@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   config = {
@@ -12,6 +12,7 @@
 
       extraPackages = with pkgs; [
         python3
+        gnumake
         nodejs_21
         cargo
         unzip
@@ -19,7 +20,8 @@
       ];
     };
 
-    # Lua config
-    xdg.configFile.nvim.source = ./.;
+    # Out of store symlink so config is modifiable.
+    xdg.configFile.nvim.source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/Workspace/nix/dotfiles/nvim";
   };
 }

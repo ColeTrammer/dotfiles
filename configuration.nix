@@ -20,35 +20,34 @@
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-  # time.timeZone = "Europe/Amsterdam";
+  time.timeZone = "America/LosAngeles";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  # Bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
 
-  # Enable the GNOME Desktop Environment.
+  # Enable Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.displayManager.sddm.wayland.enable = true;
+  services.xserver.desktopManager.plasma6.enable = true;
 
   users.users."colet" = {
     isNormalUser = true;
-    initialPassword = "1";
+    hashedPasswordFile = "/persist/secrets/passwords/colet";
     extraGroups = [ "wheel" ];
-    packages = with pkgs; [
-      firefox
-    ];
   };
 
   boot.initrd.postDeviceCommands = lib.mkAfter ''
@@ -91,6 +90,11 @@
       "/etc/machine-id"
     ];
   };
+  systemd.tmpfiles.rules = [
+    "L /var/lib/NetworkManager/secret_key - - - - /persist/var/lib/NetworkManager/secret_key"
+    "L /var/lib/NetworkManager/seen-bssids - - - - /persist/var/lib/NetworkManager/seen-bssids"
+    "L /var/lib/NetworkManager/timestamps - - - - /persist/var/lib/NetworkManager/timestamps"
+  ];
 
   programs.fuse.userAllowOther = true;
   home-manager = {
@@ -112,6 +116,14 @@
   # Enable sound.
   # sound.enable = true;
   # hardware.pulseaudio.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -175,5 +187,9 @@
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "23.11"; # Did you read the comment?
 
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+    warn-dirty = false;
+  };
 }
 

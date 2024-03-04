@@ -8,8 +8,8 @@
     ./tmux.nix
   ];
 
-  # home.username = "colet";
-  # home.homeDirectory = "/home/colet";
+  home.username = "colet";
+  home.homeDirectory = "/home/colet";
 
   home.stateVersion = "23.11";
 
@@ -51,6 +51,8 @@
 
   # gpgKey = "56CA6B8E58EB0E7B";
 
+  programs.firefox.enable = true;
+
   home.persistence."/persist/home" = {
     directories = [
       "Downloads"
@@ -64,10 +66,18 @@
       ".nixops"
       ".local/share/keyrings"
       ".local/share/direnv"
+      ".local/share/kwalletd"
       {
         directory = ".local/share/Steam";
         method = "symlink";
       }
+      ".local/state/nvim"
+      ".local/share/nvim"
+      ".local/share/zoxide"
+      ".mozilla"
+    ];
+    files = [
+      ".bash_history"
     ];
     allowOther = true;
   };

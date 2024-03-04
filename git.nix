@@ -29,5 +29,12 @@
 
     # Enable GitHub CLI for authenticatation
     programs.gh.enable = true;
+    home.file.".config/gh/hosts.yml".text = ''
+      github.com:
+        git_protocol: https
+        users:
+          ColeTrammer
+        user: ColeTrammer
+    '';
   };
 }
