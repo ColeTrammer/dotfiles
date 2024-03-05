@@ -5,6 +5,7 @@
     inputs.impermanence.nixosModules.home-manager.impermanence
     ./git.nix
     ./nvim
+    ./kitty.nix
     ./tmux.nix
   ];
 
@@ -16,6 +17,7 @@
   # Packages
   home.packages = [
     pkgs.fd
+    pkgs.discord
   ];
 
   # Bash
@@ -49,7 +51,12 @@
     BROWSER = "firefox";
   };
 
-  # gpgKey = "56CA6B8E58EB0E7B";
+  programs.gpg.enable = true;
+  services.gpg-agent = {
+    enable = true;
+    pinentryFlavor = "qt";
+  };
+  gpgKey = "F4321DDD44C5514E";
 
   programs.firefox.enable = true;
 
@@ -75,6 +82,10 @@
         directory = ".local/share/Celeste";
         method = "symlink";
       }
+      {
+        directory = ".config/discord";
+        method = "symlink";
+      }
       ".local/state/nvim"
       ".local/share/nvim"
       ".local/share/zoxide"
@@ -87,4 +98,6 @@
   };
 
   programs.home-manager.enable = true;
+
+  nixpkgs.config.allowUnfree = true;
 }
