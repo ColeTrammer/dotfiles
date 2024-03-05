@@ -29,8 +29,14 @@
   '';
 
   programs.bat.enable = true;
-  programs.eza.enable = true;
-  programs.eza.enableAliases = true;
+  programs.eza = {
+    enable = true;
+    enableAliases = true;
+    extraOptions = [
+      "--group-directories-first"
+      "--hyperlink"
+    ];
+  };
   programs.fzf.enable = true;
   programs.ripgrep.enable = true;
   programs.starship = {
@@ -56,7 +62,6 @@
     enable = true;
     pinentryFlavor = "qt";
   };
-  gpgKey = "F4321DDD44C5514E";
 
   programs.firefox.enable = true;
 
