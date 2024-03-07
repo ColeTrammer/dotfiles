@@ -151,7 +151,6 @@
       ".nixops"
       ".local/share/keyrings"
       ".local/share/direnv"
-      ".local/share/kwalletd"
       {
         directory = ".local/share/Steam";
         method = "symlink";
