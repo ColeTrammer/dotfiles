@@ -20,7 +20,7 @@
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-  time.timeZone = "America/LosAngeles";
+  time.timeZone = "America/Los_Angeles";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -42,7 +42,13 @@
   # Enable Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.displayManager.sddm.wayland.enable = true;
-  services.xserver.desktopManager.plasma6.enable = true;
+
+  # Hyprland
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  };
+
 
   users.users."colet" = {
     isNormalUser = true;
@@ -89,9 +95,9 @@
       "/var/log"
       "/var/lib/bluetooth"
       "/var/lib/nixos"
+      "/var/db/sudo/lectured"
       "/var/lib/systemd/coredump"
       "/etc/NetworkManager/system-connections"
-      { directory = "/var/lib/colord"; user = "colord"; group = "colord"; mode = "u=rwx,g=rx,o="; }
     ];
     files = [
       "/etc/machine-id"
@@ -131,6 +137,8 @@
     pulse.enable = true;
     jack.enable = true;
   };
+
+  services.blueman.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -199,6 +207,8 @@
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" "repl-flake" ];
     warn-dirty = false;
+    substituters = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
   };
 
   nixpkgs.config.allowUnfree = true;

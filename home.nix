@@ -47,6 +47,79 @@
   };
   programs.zoxide.enable = true;
 
+  # Hyprland
+  wayland.windowManager.hyprland = {
+    enable = true;
+    settings = {
+      "$mod" = "SUPER";
+      monitor = [
+        "DP-1, 3840x2160, 0x0, 1.5"
+        "DP-2, 3840x2160, 2560x0, 1.5"
+      ];
+      input = {
+        kb_layout = "us";
+        follow_mouse = 1;
+      };
+      misc = {
+        disable_splash_rendering = true;
+      };
+      bind =
+        [
+          "$mod, return, exec, kitty"
+          "$mod, O, exec, firefox"
+          "$mod, Q, killactive,"
+          "$mod, M, exit,"
+          "$mod, V, togglefloating,"
+          "$mod, H, movefocus, l"
+          "$mod, J, movefocus, d"
+          "$mod, K, movefocus, u"
+          "$mod, L, movefocus, r"
+        ]
+        ++ (
+          # workspaces
+          # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
+          builtins.concatLists (builtins.genList
+            (
+              x:
+              let
+                ws =
+                  let
+                    c = (x + 1) / 10;
+                  in
+                  builtins.toString (x + 1 - (c * 10));
+              in
+              [
+                "$mod, ${ws}, workspace, ${toString (x + 1)}"
+                "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+              ]
+            )
+            10)
+        );
+    };
+  };
+
+  programs.waybar = {
+    enable = true;
+    systemd = {
+      enable = true;
+      target = "hyprland-session.target";
+    };
+    settings = {
+      mainBar = {
+        layer = "top";
+        modules-left = [
+          "hyprland/workspaces"
+        ];
+        modules-center = [
+          "hyprland/window"
+        ];
+      };
+    };
+  };
+
+  services.blueman-applet.enable = true;
+  services.network-manager-applet.enable = true;
+
   # Shell aliases.
   home.shellAliases = {
     cat = "bat";
