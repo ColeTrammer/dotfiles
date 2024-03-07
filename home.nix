@@ -18,6 +18,7 @@
   home.packages = [
     pkgs.fd
     pkgs.discord
+    pkgs.spotify
   ];
 
   # Bash
@@ -56,6 +57,9 @@
         "DP-1, 3840x2160, 0x0, 1.5"
         "DP-2, 3840x2160, 2560x0, 1.5"
       ];
+      xwayland = {
+        force_zero_scale = true;
+      };
       input = {
         kb_layout = "us";
         follow_mouse = 1;
@@ -161,6 +165,10 @@
       }
       {
         directory = ".config/discord";
+        method = "symlink";
+      }
+      {
+        directory = ".config/spotify";
         method = "symlink";
       }
       ".local/state/nvim"
