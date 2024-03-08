@@ -58,7 +58,7 @@
         "DP-2, 3840x2160, 2560x0, 1.5"
       ];
       xwayland = {
-        force_zero_scale = true;
+        force_zero_scaling = true;
       };
       input = {
         kb_layout = "us";
@@ -70,6 +70,7 @@
       bind =
         [
           "$mod, return, exec, kitty"
+          "$mod, D, exec, rofi -show drun"
           "$mod, O, exec, firefox"
           "$mod, Q, killactive,"
           "$mod, M, exit,"
@@ -119,6 +120,17 @@
         ];
       };
     };
+  };
+
+  programs.rofi = {
+    enable = true;
+    package = pkgs.rofi-wayland;
+    font = "Fira Code Nerd Font";
+    theme = "Arc-Dark";
+  };
+
+  services.mako = {
+    enable = true;
   };
 
   services.blueman-applet.enable = true;
