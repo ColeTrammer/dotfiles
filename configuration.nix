@@ -37,17 +37,29 @@
 
   programs.nano.enable = false;
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
   services.xserver.desktopManager.xterm.enable = false;
-
-  # Enable Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.displayManager.sddm.wayland.enable = true;
 
   security.pam.services.sddm.enableGnomeKeyring = true;
   security.pam.services.login.enableGnomeKeyring = true;
   services.gnome.gnome-keyring.enable = true;
+
+  # Greetd
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session.command = ''
+        ${pkgs.greetd.tuigreet}/bin/tuigreet \
+          --time \
+          --asterisks \
+          --user-menu \
+          --cmd Hyprland
+      '';
+    };
+  };
+  environment.etc."greetd/environments".text = ''
+    Hyprland
+    bash
+  '';
 
   # Hyprland
   programs.hyprland = {
@@ -166,6 +178,7 @@
     vim
     steam-run
     ntfs3g
+    libsForQt5.qt5.qtwayland
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

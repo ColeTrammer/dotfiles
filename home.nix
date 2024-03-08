@@ -49,6 +49,35 @@
   };
   programs.zoxide.enable = true;
 
+  home.pointerCursor = {
+    package = pkgs.phinger-cursors;
+    name = "phinger-cursors";
+    size = 32;
+    gtk.enable = true;
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      package = pkgs.gnome.gnome-themes-extra;
+      name = "Adwaita Dark";
+    };
+
+    iconTheme = {
+      package = pkgs.gnome.adwaita-icon-theme;
+      name = "Adwaita Dark";
+    };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "gtk3";
+    style = {
+      package = pkgs.adwaita-qt;
+      name = "adwaita-dark";
+    };
+  };
+
   # Hyprland
   wayland.windowManager.hyprland = {
     enable = true;
