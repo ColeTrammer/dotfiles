@@ -15,10 +15,11 @@
   home.stateVersion = "23.11";
 
   # Packages
-  home.packages = [
-    pkgs.fd
-    pkgs.discord
-    pkgs.spotify
+  home.packages = with pkgs; [
+    fd
+    discord
+    spotify
+    wl-clipboard
   ];
 
   # Bash
@@ -118,6 +119,9 @@
         modules-center = [
           "hyprland/window"
         ];
+        modules-right = [
+          "tray"
+        ];
       };
     };
   };
@@ -151,6 +155,7 @@
     enable = true;
     pinentryFlavor = "qt";
   };
+  gpgKey = "60DCAA3C4B6F51E3";
 
   programs.firefox.enable = true;
 
