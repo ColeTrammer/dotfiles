@@ -47,18 +47,20 @@
   services.greetd = {
     enable = true;
     settings = {
-      default_session.command = ''
-        ${pkgs.greetd.tuigreet}/bin/tuigreet \
-          --time \
-          --asterisks \
-          --user-menu \
-          --cmd Hyprland
-      '';
+      default_session = {
+        command = ''
+          ${pkgs.greetd.tuigreet}/bin/tuigreet \
+            --time \
+            --asterisks \
+            --user-menu \
+            --cmd Hyprland
+        '';
+        user = "greeter";
+      };
     };
   };
   environment.etc."greetd/environments".text = ''
     Hyprland
-    bash
   '';
 
   # Hyprland
@@ -112,6 +114,7 @@
     directories = [
       "/var/log"
       "/var/lib/bluetooth"
+      "/var/lib/blueman"
       "/var/lib/nixos"
       "/var/db/sudo/lectured"
       "/var/lib/systemd/coredump"
@@ -131,7 +134,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
-      "colet" = import ./home.nix;
+      "colet" = import ../../home/home.nix;
     };
   };
 
