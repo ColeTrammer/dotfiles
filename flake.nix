@@ -25,16 +25,10 @@
 
   outputs = { nixpkgs, ... } @ inputs:
     {
-      nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
-          inputs.disko.nixosModules.default
-          (import ./system/disko.nix { device = "/dev/nvme0n1"; })
-
           ./hosts/desktop/configuration.nix
-
-          inputs.home-manager.nixosModules.default
-          inputs.impermanence.nixosModules.impermanence
         ];
       };
     };
