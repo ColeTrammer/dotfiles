@@ -39,7 +39,6 @@
 
   services.xserver.desktopManager.xterm.enable = false;
 
-  security.pam.services.sddm.enableGnomeKeyring = true;
   security.pam.services.login.enableGnomeKeyring = true;
   services.gnome.gnome-keyring.enable = true;
 
@@ -134,7 +133,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
-      "colet" = import ../../home/home.nix;
+      "colet" = import ../../home/configurations/colet-desktop.nix;
     };
   };
 
@@ -179,9 +178,7 @@
   environment.systemPackages = with pkgs; [
     git
     vim
-    steam-run
     ntfs3g
-    libsForQt5.qt5.qtwayland
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
