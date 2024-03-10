@@ -21,6 +21,23 @@
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
+
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
+    hyprlock = {
+      url = "github:hyprwm/hyprlock";
+    };
+
+    hypridle = {
+      url = "github:hyprwm/hypridle";
+    };
+
+    hyprpaper = {
+      url = "github:hyprwm/hyprpaper";
+    };
   };
 
   outputs = { nixpkgs, ... } @ inputs:

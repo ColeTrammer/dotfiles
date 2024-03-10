@@ -23,6 +23,13 @@
         misc = {
           disable_splash_rendering = true;
         };
+        windowrulev2 = [
+          # Hide xwaylandvideobridge
+          "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
+          "noanim,class:^(xwaylandvideobridge)$"
+          "nofocus,class:^(xwaylandvideobridge)$"
+          "noinitialfocus,class:^(xwaylandvideobridge)$"
+        ];
         bind =
           [
             "$mod, return, exec, kitty"
@@ -33,6 +40,7 @@
             "$mod, V, togglefloating,"
             "$mod, Z, togglesplit,"
             "$mod, X, swapsplit,"
+            "$mod, F, fullscreen,"
             "$mod, S, togglegroup,"
             "$mod, H, movefocus, l"
             "$mod, J, movefocus, d"
@@ -72,6 +80,10 @@
           ", XF86AudioPrev, exec, playerctl previous"
           ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ];
+        bindm = [
+          "$mod, mouse:272, movewindow"
+          "$mod, mouse:273, resizewindow"
+        ];
         bindle = [
           ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
           ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
@@ -82,10 +94,10 @@
         bind = $mod, R, submap, resize
 
         submap = resize
-        binde = , l, resizeactive, 10 0
-        binde = , h, resizeactive, -10 0
-        binde = , k, resizeactive, 0 -10
-        binde = , j, resizeactive, 0 10
+        binde = , l, resizeactive, 20 0
+        binde = , h, resizeactive, -20 0
+        binde = , k, resizeactive, 0 -20
+        binde = , j, resizeactive, 0 20
         bind = , escape, submap, reset
         bind = $mod, c, submap, reset
         submap = reset
