@@ -3,6 +3,7 @@
 {
   imports = [
     ./cursor.nix
+    ./gammastep.nix
     ./gpg.nix
     ./gtk.nix
     ./hyprland.nix

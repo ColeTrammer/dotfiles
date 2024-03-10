@@ -7,6 +7,7 @@
     inputs.impermanence.nixosModules.impermanence
     ./audio.nix
     ./greetd.nix
+    ./geoclue.nix
     ./hyprland.nix
     ./i18n.nix
     ./impermenence.nix
