@@ -1,10 +1,12 @@
-{ inputs, pkgs, ... }:
-
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
-  security.pam.services.hyprlock = { };
+  security.pam.services.hyprlock = {};
 }

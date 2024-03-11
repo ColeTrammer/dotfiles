@@ -1,6 +1,8 @@
-{ lib, config, ... }:
-
 {
+  lib,
+  config,
+  ...
+}: {
   options = {
     gpgKey = lib.mkOption {
       type = lib.types.str;
@@ -15,7 +17,10 @@
       lfs.enable = true;
       signing = {
         signByDefault = builtins.stringLength config.gpgKey > 0;
-        key = if (builtins.stringLength config.gpgKey > 0) then config.gpgKey else null;
+        key =
+          if (builtins.stringLength config.gpgKey > 0)
+          then config.gpgKey
+          else null;
       };
       userEmail = "cole.trammer@gmail.com";
       userName = "ColeTrammer";

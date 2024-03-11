@@ -10,3 +10,6 @@ vim.filetype.add({
 -- line width and indentation
 vim.opt.textwidth = 120
 vim.opt.shiftwidth = 4
+
+-- swap files cause frequent editor freezes...
+vim.opt.swapfile = false

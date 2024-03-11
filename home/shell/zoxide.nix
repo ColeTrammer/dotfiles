@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   programs.zoxide = {
     enable = true;
   };
@@ -11,6 +9,6 @@
 
   home.persistence."/persist/home" = {
     allowOther = true;
-    directories = [ ".local/share/zoxide" ];
+    directories = [".local/share/zoxide"];
   };
 }

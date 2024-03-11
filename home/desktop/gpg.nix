@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   programs.gpg.enable = true;
   services.gpg-agent = {
     enable = true;
@@ -9,6 +7,6 @@
 
   home.persistence."/persist/home" = {
     allowOther = true;
-    directories = [ ".gnupg" ];
+    directories = [".gnupg"];
   };
 }

@@ -16,7 +16,18 @@ return {
       servers = {
         nil_ls = {
           settings = {
-            ["nil"] = { formatting = { command = { "nixpkgs-fmt" } } }, -- Your settings here
+            ["nil"] = {
+              formatting = {
+                command = { "alejandra" },
+              },
+              nix = {
+                maxMemoryMB = 16 * 1024,
+                flake = {
+                  autoArchive = true,
+                  autoEvalInputs = true,
+                },
+              },
+            },
           },
         },
       },

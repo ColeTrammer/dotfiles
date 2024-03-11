@@ -1,12 +1,9 @@
-{ inputs, ... }:
-
-{
-  imports =
-    [
-      (import ../../system/btrfs-luks.nix { device = "/dev/nvme0n1"; })
-      ./hardware-configuration.nix
-      ../../system
-    ];
+{inputs, ...}: {
+  imports = [
+    (import ../../system/btrfs-luks.nix {device = "/dev/nvme0n1";})
+    ./hardware-configuration.nix
+    ../../system
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -14,11 +11,11 @@
   users.users."colet" = {
     isNormalUser = true;
     hashedPasswordFile = "/persist/secrets/passwords/colet";
-    extraGroups = [ "wheel" ];
+    extraGroups = ["wheel"];
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users = {
       "colet" = import ../../home/configurations/colet-desktop.nix;
     };
@@ -30,4 +27,3 @@
 
   nixpkgs.config.allowUnfree = true;
 }
-

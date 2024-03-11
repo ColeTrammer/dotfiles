@@ -1,6 +1,4 @@
-{ lib, ... }:
-
-{
+{lib, ...}: {
   # Delete root volumes on boot.
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir /btrfs_tmp

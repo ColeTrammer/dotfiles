@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   programs.waybar = {
     enable = true;
     systemd = {
@@ -22,7 +20,7 @@
         ];
         clock = {
           interval = 60;
-          format = "{:%H:%M}";
+          format = "{:%I:%M %p}";
           max-length = 25;
         };
       };

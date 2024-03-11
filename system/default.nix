@@ -1,6 +1,8 @@
-{ inputs, pkgs, ... }:
-
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     inputs.disko.nixosModules.default
     inputs.home-manager.nixosModules.default
@@ -20,6 +22,7 @@
   environment.systemPackages = with pkgs; [
     git
     vim
+    nix-ld
   ];
 
   programs.nano.enable = false;
