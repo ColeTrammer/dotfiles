@@ -13,6 +13,7 @@
     ./rofi.nix
     ./udiskie.nix
     ./waybar.nix
+    ./wlogout.nix
   ];
 
   home.packages = with pkgs; [

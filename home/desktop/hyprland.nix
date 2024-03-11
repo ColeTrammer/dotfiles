@@ -21,6 +21,9 @@
         misc = {
           disable_splash_rendering = true;
         };
+        exec-once = [
+          "xwaylandvideobridge"
+        ];
         windowrulev2 = [
           # Hide xwaylandvideobridge
           "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
@@ -34,6 +37,7 @@
             "$mod, D, exec, rofi -show drun"
             "$mod, O, exec, firefox"
             "$mod, Q, killactive,"
+            "$mod, W, exec, wlogout"
             "$mod, M, exit,"
             "$mod, V, togglefloating,"
             "$mod, Z, togglesplit,"
