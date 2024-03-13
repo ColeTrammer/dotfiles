@@ -8,6 +8,7 @@
   home.persistence."/persist/home" = {
     directories = [
       ".cache"
+      ".ccache"
       "Downloads"
       "Music"
       "Pictures"

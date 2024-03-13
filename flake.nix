@@ -100,7 +100,7 @@
               pkgs.taplo
               (pkgs.writeShellScriptBin
                 "vscode-json-language-server"
-                ''${pkgs.nodePackages_latest.vscode-json-languageserver}/bin/vscode-json-languageserver'')
+                ''${pkgs.nodePackages_latest.vscode-json-languageserver}/bin/vscode-json-languageserver "$@"'')
             ]
             ++ builtins.attrValues config.treefmt.build.programs;
         };
