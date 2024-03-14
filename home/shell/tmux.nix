@@ -1,8 +1,14 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
   programs.tmux = {
     enable = true;
     baseIndex = 1;
     clock24 = true;
+    historyLimit = 50000;
     customPaneNavigationAndResize = true;
     disableConfirmationPrompt = true;
     mouse = true;
@@ -14,9 +20,6 @@
       # Terminal features
       set-option -sa terminal-overrides ",xterm*:Tc"
       set-option -sa terminal-features ",xterm*:RGB"
-
-      # Color scheme
-      source ${pkgs.vimPlugins.tokyonight-nvim}/extras/tmux/tokyonight_night.tmux
 
       # Renumber windows
       set-option -g renumber-windows on
@@ -42,6 +45,45 @@
     plugins = with pkgs; [
       tmuxPlugins.vim-tmux-navigator
       tmuxPlugins.yank
+      {
+        plugin = tmuxPlugins.resurrect;
+        extraConfig = ''
+          set -g @resurrect-strategy-nvim 'session'
+        '';
+      }
+      {
+        plugin = tmuxPlugins.continuum;
+        extraConfig = ''
+          # The color scheme must come first so that it doesn't overwrite the status bar.
+          source ${pkgs.vimPlugins.tokyonight-nvim}/extras/tmux/tokyonight_night.tmux
+          set -g @continuum-restore 'on'
+          set -g @continuum-save-interval '15'
+        '';
+      }
     ];
+  };
+
+  home.persistence."/persist/home" = {
+    allowOther = true;
+    directories = [".tmux"];
+  };
+
+  programs.bash.initExtra = lib.mkOrder 10000 ''
+    [ -z "$TMUX" ] && { tmux attach || exec tmux new-session && exit; }
+  '';
+
+  systemd.user.services.tmux = {
+    Unit = {
+      Description = "Tmux";
+      After = ["graphical-session.target"];
+    };
+
+    Service = {
+      Type = "forking";
+      ExecStart = "${config.programs.tmux.package}/bin/tmux start-server";
+      ExecStop = "${config.programs.tmux.package}/bin/tmux kill-server";
+    };
+
+    Install.WantedBy = ["default.target"];
   };
 }
