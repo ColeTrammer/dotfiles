@@ -17,6 +17,7 @@
     ./nix.nix
     ./steam.nix
     ./udisks.nix
+    ./warp.nix
   ];
 
   environment.systemPackages = with pkgs; [

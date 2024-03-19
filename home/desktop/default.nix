@@ -12,6 +12,7 @@
     ./qt.nix
     ./rofi.nix
     ./udiskie.nix
+    ./warp.nix
     ./waybar.nix
     ./wlogout.nix
   ];
