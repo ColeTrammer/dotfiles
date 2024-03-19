@@ -1,8 +1,8 @@
-{...}: {
+{pkgs, ...}: {
   programs.gpg.enable = true;
   services.gpg-agent = {
     enable = true;
-    pinentryFlavor = "qt";
+    pinentryPackage = pkgs.pinentry-qt;
   };
 
   home.persistence."/persist/home" = {
