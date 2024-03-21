@@ -34,7 +34,7 @@
         ];
         bind =
           [
-            "$mod, return, exec, kitty"
+            "$mod, return, exec, wezterm"
             "$mod, D, exec, rofi -show drun"
             "$mod, O, exec, firefox"
             "$mod, Q, killactive,"

@@ -133,7 +133,7 @@
   },
   "neoconf.nvim": {
     "branch": "main",
-    "commit": "8137a976a5eb55d8d1a4950f7afe28861affa3db"
+    "commit": "4eaf28d053c3d17fedb0fc2971bad261a7457d5e"
   },
   "neodev.nvim": {
     "branch": "main",
@@ -233,7 +233,7 @@
   },
   "telescope.nvim": {
     "branch": "master",
-    "commit": "f06eeb79e14d5c95745558927c5b1f341c0a3a28"
+    "commit": "221778e93bfaa58bce4be4e055ed2edecc26f799"
   },
   "todo-comments.nvim": {
     "branch": "main",

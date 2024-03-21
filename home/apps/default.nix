@@ -5,5 +5,6 @@
     ./kitty.nix
     ./spotify.nix
     ./steam.nix
+    ./wezterm.nix
   ];
 }

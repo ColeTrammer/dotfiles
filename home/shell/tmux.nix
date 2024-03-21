@@ -40,6 +40,9 @@
       # Sensible split window shortcuts
       bind '-' split-window -v -c "#{pane_current_path}"
       bind '|' split-window -h -c "#{pane_current_path}"
+
+      # Passthrough
+      set -g allow-passthrough on
     '';
 
     plugins = with pkgs; [
