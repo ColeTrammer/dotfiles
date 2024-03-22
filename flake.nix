@@ -76,11 +76,10 @@
           ];
         };
 
-        homeConfigurations.eloc = home-manager.lib.homeManagerConfiguration {
-          inherit (nixpkgs.legacyPackages."x86_64-linux") pkgs;
-
+        nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit inputs;};
           modules = [
-            ./home/configurations/eloc-laptop.nix
+            ./hosts/laptop/configuration.nix
           ];
         };
       };

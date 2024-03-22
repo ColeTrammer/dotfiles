@@ -5,6 +5,7 @@
       settings = {
         "$mod" = "SUPER";
         monitor = [
+          ",preferred,auto,1"
           "DP-1, 3840x2160, 0x0, 1.5"
           "DP-2, 3840x2160, 2560x0, 1.5"
         ];
