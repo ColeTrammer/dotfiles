@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     (import ../../system/btrfs-luks.nix {device = "/dev/nvme0n1";})
     ./hardware-configuration.nix
@@ -11,8 +15,11 @@
   users.users."colet" = {
     isNormalUser = true;
     hashedPasswordFile = "/persist/secrets/passwords/colet";
+    shell = pkgs.zsh;
     extraGroups = ["wheel"];
   };
+
+  programs.zsh.enable = true;
 
   home-manager = {
     extraSpecialArgs = {inherit inputs;};

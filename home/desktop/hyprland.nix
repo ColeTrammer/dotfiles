@@ -14,7 +14,7 @@
         input = {
           kb_layout = "us";
           follow_mouse = 1;
-          # kb_options = "caps:swapescape";
+          kb_options = "caps:swapescape";
         };
         dwindle = {
           preserve_split = true;

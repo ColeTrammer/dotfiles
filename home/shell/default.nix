@@ -8,6 +8,7 @@
     ./starship.nix
     ./tmux.nix
     ./zoxide.nix
+    ./zsh.nix
   ];
 
   home.packages = with pkgs; [

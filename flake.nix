@@ -87,6 +87,7 @@
           programs.alejandra.enable = true;
           programs.prettier.enable = true;
           programs.stylua.enable = true;
+          programs.shfmt.enable = true;
         };
 
         devShells.default = pkgs.mkShell {

@@ -66,12 +66,23 @@
     ];
   };
 
+  programs.fzf.tmux = {
+    enableShellIntegration = true;
+    shellIntegrationOptions = [
+      "-p"
+    ];
+  };
+
   home.persistence."/persist/home" = {
     allowOther = true;
     directories = [".tmux"];
   };
 
   programs.bash.initExtra = lib.mkOrder 10000 ''
+    [ -z "$TMUX" ] && { tmux attach || exec tmux new-session && exit; }
+  '';
+
+  programs.zsh.initExtraFirst = lib.mkOrder 0 ''
     [ -z "$TMUX" ] && { tmux attach || exec tmux new-session && exit; }
   '';
 

@@ -13,7 +13,7 @@
   },
   "SchemaStore.nvim": {
     "branch": "main",
-    "commit": "4d798fd5b692c8fce77268aba8f6f926b0c9f835"
+    "commit": "9ad2209d3fe54f99e3df2c26fadd6f4a3ecae44c"
   },
   "bufferline.nvim": {
     "branch": "main",
@@ -21,7 +21,7 @@
   },
   "catppuccin": {
     "branch": "main",
-    "commit": "045e3499d9ec8d84635fb08877ae44fd33f6a38d"
+    "commit": "56fb98218d22d5c326387bf9e4076227e7372e6b"
   },
   "clangd_extensions.nvim": {
     "branch": "main",
@@ -101,7 +101,7 @@
   },
   "lualine.nvim": {
     "branch": "master",
-    "commit": "af4c3cf17206810880d2a93562e0a4c0d901c684"
+    "commit": "b5e8bb642138f787a2c1c5aedc2a78cb2cebbd67"
   },
   "markdown-preview.nvim": {
     "branch": "master",
@@ -129,11 +129,11 @@
   },
   "neo-tree.nvim": {
     "branch": "v3.x",
-    "commit": "742db4e60c74e5fbcc596aaf9e7575e1342dfd09"
+    "commit": "8afbb06081ce1e4beb5b18945d14a608b10babeb"
   },
   "neoconf.nvim": {
     "branch": "main",
-    "commit": "4eaf28d053c3d17fedb0fc2971bad261a7457d5e"
+    "commit": "9a419c4fa772c4c61839a8f7fdd8e863679a8c94"
   },
   "neodev.nvim": {
     "branch": "main",
@@ -153,7 +153,7 @@
   },
   "none-ls.nvim": {
     "branch": "main",
-    "commit": "72e25ed4162474ef5d666525853f8a42bffd97c5"
+    "commit": "18910d09d21d7df339805343bfe4a2b2e41c057b"
   },
   "nui.nvim": {
     "branch": "main",
@@ -161,7 +161,7 @@
   },
   "nvim-cmp": {
     "branch": "main",
-    "commit": "04e0ca376d6abdbfc8b52180f8ea236cbfddf782"
+    "commit": "43b460a2bd02fd898e67f5f1f65dfd1cce26203a"
   },
   "nvim-lint": {
     "branch": "master",
@@ -173,7 +173,7 @@
   },
   "nvim-nio": {
     "branch": "master",
-    "commit": "ed70af8ad9d4dafdb55539ed2b4454aac2a2a0c3"
+    "commit": "7054695117581bdb0183b8d27d8d82b4a2ac8958"
   },
   "nvim-notify": {
     "branch": "master",
@@ -185,7 +185,7 @@
   },
   "nvim-treesitter": {
     "branch": "master",
-    "commit": "4d76587eeca434a47f460fb7f1c900de49400688"
+    "commit": "722617e6726c1508adadf83d531f54987c703be0"
   },
   "nvim-treesitter-context": {
     "branch": "master",
