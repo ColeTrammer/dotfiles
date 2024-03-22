@@ -3,6 +3,7 @@
     ../default.nix
     ../apps
     ../desktop
+    ../shell/git.nix
   ];
 
   home.username = "colet";

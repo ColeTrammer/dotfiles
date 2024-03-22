@@ -4,7 +4,6 @@
     ./bash.nix
     ./direnv.nix
     ./eza.nix
-    ./git.nix
     ./starship.nix
     ./tmux.nix
     ./zoxide.nix
