@@ -22,9 +22,9 @@
   };
 
   # Out of store symlink so config is modifiable.
-  xdg.configFile.nvim.source =
-    config.lib.file.mkOutOfStoreSymlink
-    "${config.home.homeDirectory}/Workspace/nix/dotfiles/home/nvim";
+  xdg.configFile.nvim.source = ./.;
+  #    config.lib.file.mkOutOfStoreSymlink
+  #    "${config.home.homeDirectory}/Workspace/nix/dotfiles/home/nvim";
 
   # Persist nvim data. .local/share/nvim is only needed for the Lazy and Mason package managers.
   home.persistence."/persist/home" = {

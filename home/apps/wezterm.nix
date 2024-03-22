@@ -9,6 +9,10 @@
     extraConfig = builtins.readFile ./wezterm.lua;
   };
 
+  home.packages = with pkgs; [
+    fira-code-nerdfont
+  ];
+
   programs.bash.initExtra = lib.mkOrder 9999 ''
     source ${pkgs.wezterm}/etc/profile.d/wezterm.sh
   '';

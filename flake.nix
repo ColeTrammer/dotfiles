@@ -54,6 +54,7 @@
 
   outputs = {
     flake-parts,
+    home-manager,
     nixpkgs,
     ...
   } @ inputs:
@@ -72,6 +73,14 @@
           specialArgs = {inherit inputs;};
           modules = [
             ./hosts/desktop/configuration.nix
+          ];
+        };
+
+        homeConfigurations.eloc = home-manager.lib.homeManagerConfiguration {
+          inherit (nixpkgs.legacyPackages."x86_64-linux") pkgs;
+
+          modules = [
+            ./home/configurations/eloc-laptop.nix
           ];
         };
       };
