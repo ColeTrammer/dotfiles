@@ -8,6 +8,7 @@
     inputs.home-manager.nixosModules.default
     inputs.impermanence.nixosModules.impermanence
     ./audio.nix
+    ./docker.nix
     ./greetd.nix
     ./hyprland.nix
     ./i18n.nix
