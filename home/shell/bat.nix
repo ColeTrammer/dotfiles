@@ -15,11 +15,11 @@
   };
 
   home.shellAliases = {
-    cat = "bat";
+    cat = "bat -p";
     man = "batman";
   };
 
   home.sessionVariables = {
-    PAGER = "bat";
+    PAGER = "bat --paging=always";
   };
 }

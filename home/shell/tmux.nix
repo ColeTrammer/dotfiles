@@ -79,11 +79,11 @@
   };
 
   programs.bash.initExtra = lib.mkOrder 10000 ''
-    [ -z "$TMUX" ] && { tmux attach || exec tmux new-session && exit; }
+    [ -z "$TMUX" ] && { tmux attach || exec tmux new-session; }
   '';
 
   programs.zsh.initExtraFirst = lib.mkOrder 0 ''
-    [ -z "$TMUX" ] && { tmux attach || exec tmux new-session && exit; }
+    [ -z "$TMUX" ] && { tmux attach || exec tmux new-session; }
   '';
 
   systemd.user.services.tmux = {

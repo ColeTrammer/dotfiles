@@ -23,7 +23,7 @@ zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 ###
 
 # zsh autosuggestion
-bindkey '^M' autosuggest-execute
+bindkey '^^' autosuggest-execute
 bindkey '^ ' autosuggest-accept
 bindkey '^E' autosuggest-clear
 

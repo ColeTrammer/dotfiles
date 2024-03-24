@@ -13,7 +13,7 @@
   },
   "SchemaStore.nvim": {
     "branch": "main",
-    "commit": "ed3f891a5deefcd94c62c8e375d1efb1ce53464b"
+    "commit": "290e692d568e55be475f6af4579fea434e20ba0c"
   },
   "bufferline.nvim": {
     "branch": "main",
@@ -185,7 +185,7 @@
   },
   "nvim-treesitter": {
     "branch": "master",
-    "commit": "a951dcb7ec253544b0150251008de8b06a0874cd"
+    "commit": "8532b1d941b5859b4844310fa71d6db0f633be33"
   },
   "nvim-treesitter-context": {
     "branch": "master",
@@ -205,7 +205,7 @@
   },
   "nvim-web-devicons": {
     "branch": "master",
-    "commit": "cb0c967c9723a76ccb1be0cc3a9a10e577d2f6ec"
+    "commit": "6ed787740a3b275b748328eb2dc7dd22dae1c064"
   },
   "outline.nvim": {
     "branch": "main",
@@ -221,7 +221,7 @@
   },
   "rustaceanvim": {
     "branch": "master",
-    "commit": "b0548ff58d34caa220f8806c518fedb6453fc48e"
+    "commit": "9209b189ae082023480181a524168202595b1f55"
   },
   "symbols-outline.nvim": {
     "branch": "master",
@@ -233,7 +233,7 @@
   },
   "telescope.nvim": {
     "branch": "master",
-    "commit": "221778e93bfaa58bce4be4e055ed2edecc26f799"
+    "commit": "c2b8311dfacd08b3056b8f0249025d633a4e71a8"
   },
   "todo-comments.nvim": {
     "branch": "main",
@@ -241,7 +241,7 @@
   },
   "tokyonight.nvim": {
     "branch": "main",
-    "commit": "fbe3a27378fdd51a8ddd04f57012455436916a62"
+    "commit": "092f86550bd83d54c9c6f05e9e2af33a59586aa8"
   },
   "trouble.nvim": {
     "branch": "main",

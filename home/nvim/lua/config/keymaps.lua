@@ -28,3 +28,5 @@ end
 copilot_toggle()
 
 vim.keymap.set("n", "<leader>cp", copilot_toggle, { noremap = true, desc = "Toggle GitHub Copilot" })
+
+vim.keymap.set({ "i", "s" }, "<C-^>", "<C-m>")
