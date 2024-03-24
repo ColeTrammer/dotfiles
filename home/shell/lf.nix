@@ -84,6 +84,14 @@
   xdg.configFile."lf/icons".source = ./lf-icons.txt;
   xdg.configFile."lf/colors".source = ./lf-colors.txt;
 
+  programs.zsh.initExtra = ''
+    lfcd() {
+      cd "$(command lf -print-last-dir "$@")"
+    }
+
+    bindkey -s '^o' 'lfcd\n'
+  '';
+
   home.persistence."/persist/home" = {
     allowOther = true;
     directories = [
