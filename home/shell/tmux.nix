@@ -24,6 +24,12 @@
       # Renumber windows
       set-option -g renumber-windows on
 
+      # Disable confirmation prompt when killing panes
+      bind-key x kill-pane
+
+      # Stay in tmux unless explicitly detaching
+      set -g detach-on-destroy off
+
       # Shift arrow to switch windows
       bind -n S-Left  previous-window
       bind -n S-Right next-window
@@ -43,11 +49,20 @@
 
       # Passthrough
       set -g allow-passthrough on
+
+      # Status bar on topset -g status-position top
+      set -g status-position top
+
+      # Reload config
+      bind R source-file ~/.config/tmux/tmux.conf
     '';
 
     plugins = with pkgs; [
       tmuxPlugins.vim-tmux-navigator
       tmuxPlugins.yank
+      tmuxPlugins.tmux-fzf
+      tmuxPlugins.sessionist
+      tmuxPlugins.session-wizard
       {
         plugin = tmuxPlugins.resurrect;
         extraConfig = ''
