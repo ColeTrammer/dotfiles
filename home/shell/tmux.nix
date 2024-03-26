@@ -15,6 +15,7 @@
     escapeTime = 0;
     keyMode = "vi";
     shortcut = "a";
+    shell = "${pkgs.zsh}/bin/zsh";
 
     extraConfig = ''
       # Terminal features
