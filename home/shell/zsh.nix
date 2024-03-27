@@ -25,6 +25,13 @@
 
       source ~/.config/zsh/zsh-settings.sh
     '';
+    plugins = [
+      {
+        name = "zsh-nix-shell";
+        file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
+        src = pkgs.zsh-nix-shell;
+      }
+    ];
   };
 
   home.file.".config/zsh/zsh-settings.sh".source = ./zsh-settings.sh;

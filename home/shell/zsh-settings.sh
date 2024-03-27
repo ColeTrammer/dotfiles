@@ -39,6 +39,9 @@ bindkey "^W" backward-kill-word
 bindkey "^[[OH" beginning-of-line
 bindkey "^[[OF" end-of-line
 
+# shortcuts
+bindkey -s '^E' 'nvim\n'
+
 ###
 ### FZF
 ###
