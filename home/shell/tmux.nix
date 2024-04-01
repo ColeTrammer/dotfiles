@@ -6,8 +6,8 @@
 }: {
   programs.tmux = {
     enable = true;
+    aggressiveResize = true;
     baseIndex = 1;
-    clock24 = true;
     historyLimit = 50000;
     customPaneNavigationAndResize = true;
     disableConfirmationPrompt = true;
@@ -16,10 +16,12 @@
     keyMode = "vi";
     shortcut = "a";
     shell = "${pkgs.zsh}/bin/zsh";
+    terminal = "tmux-256color";
 
     extraConfig = ''
       # Terminal features
       set-option -sa terminal-overrides ",xterm*:Tc"
+      set -as terminal-overrides ",alacritty*:Tc"
       set-option -sa terminal-features ",xterm*:RGB"
 
       # Renumber windows
