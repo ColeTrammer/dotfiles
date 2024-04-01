@@ -28,7 +28,7 @@
     updateLinks = ''
       export ROOT="${config.home.homeDirectory}/Workspace/nix/dotfiles"
       mkdir -p .config
-      ln -sf "$ROOT/home/nvim" .config/nvim
+      rm -f .config/nvim && ln -sf "$ROOT/home/nvim" .config/nvim
     '';
   };
 
