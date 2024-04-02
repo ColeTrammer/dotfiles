@@ -1,16 +1,30 @@
-{...}: {
-  programs.firefox = {
-    enable = true;
+{
+  config,
+  lib,
+  ...
+}: {
+  options = {
+    apps.firefox.enable =
+      lib.mkEnableOption "Firefox"
+      // {
+        default = config.apps.enable;
+      };
   };
 
-  home.sessionVariables = {
-    BROWSER = "firefox";
-  };
+  config = lib.mkIf config.apps.firefox.enable {
+    programs.firefox = {
+      enable = true;
+    };
 
-  home.persistence."/persist/home" = {
-    allowOther = true;
-    directories = [
-      ".mozilla"
-    ];
+    home.sessionVariables = {
+      BROWSER = "firefox";
+    };
+
+    home.persistence."/persist/home" = {
+      allowOther = true;
+      directories = [
+        ".mozilla"
+      ];
+    };
   };
 }

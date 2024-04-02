@@ -1,22 +1,33 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    steam-run
-    gamescope
-    mangohud
-    gamemode
-  ];
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  options = {
+    apps.steam.enable = lib.mkEnableOption "Steam";
+  };
 
-  home.persistence."/persist/home" = {
-    allowOther = true;
-    directories = [
-      {
-        directory = ".local/share/Steam";
-        method = "symlink";
-      }
-      {
-        directory = ".local/share/Celeste";
-        method = "symlink";
-      }
+  config = lib.mkIf config.apps.steam.enable {
+    home.packages = with pkgs; [
+      steam-run
+      gamescope
+      mangohud
+      gamemode
     ];
+
+    home.persistence."/persist/home" = {
+      allowOther = true;
+      directories = [
+        {
+          directory = ".local/share/Steam";
+          method = "symlink";
+        }
+        {
+          directory = ".local/share/Celeste";
+          method = "symlink";
+        }
+      ];
+    };
   };
 }

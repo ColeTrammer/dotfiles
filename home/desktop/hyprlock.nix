@@ -1,29 +1,44 @@
-{inputs, ...}: {
+{
+  config,
+  inputs,
+  lib,
+  ...
+}: {
   imports = [
     inputs.hyprlock.homeManagerModules.default
   ];
 
-  programs.hyprlock = {
-    enable = true;
+  options = {
+    desktop.hyprlock.enable =
+      lib.mkEnableOption "Hyprlock"
+      // {
+        default = config.desktop.enable;
+      };
+  };
 
-    backgrounds = [
-      {
-        monitor = "";
-        path = "";
-        color = "rgba(0, 0, 0, 1)";
-      }
-    ];
+  config = lib.mkIf config.desktop.hyprlock.enable {
+    programs.hyprlock = {
+      enable = true;
 
-    input-fields = [
-      {
-        monitor = "";
-      }
-    ];
+      backgrounds = [
+        {
+          monitor = "";
+          path = "";
+          color = "rgba(0, 0, 0, 1)";
+        }
+      ];
 
-    labels = [
-      {
-        monitor = "";
-      }
-    ];
+      input-fields = [
+        {
+          monitor = "";
+        }
+      ];
+
+      labels = [
+        {
+          monitor = "";
+        }
+      ];
+    };
   };
 }

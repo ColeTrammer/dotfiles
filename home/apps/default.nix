@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   imports = [
     ./alacritty.nix
     ./discord.nix
@@ -9,4 +9,12 @@
     ./vscode.nix
     ./wezterm.nix
   ];
+
+  options = {
+    apps.enable =
+      lib.mkEnableOption "GUI Applications"
+      // {
+        default = false;
+      };
+  };
 }

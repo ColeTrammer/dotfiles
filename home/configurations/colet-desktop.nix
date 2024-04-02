@@ -2,17 +2,23 @@
   imports = [
     inputs.impermanence.nixosModules.home-manager.impermanence
     ../default.nix
-    ../apps
-    ../desktop
-    ../shell/git.nix
   ];
 
-  home.username = "colet";
-  home.homeDirectory = "/home/colet";
+  home = {
+    username = "colet";
+    homeDirectory = "/home/colet";
+    stateVersion = "23.11";
+  };
 
-  home.stateVersion = "23.11";
+  apps = {
+    enable = true;
+    kitty.enable = true;
+    steam.enable = true;
+    wezterm.enable = true;
+  };
 
-  gpgKey = "60DCAA3C4B6F51E3";
+  desktop.enable = true;
+  shell.git.gpgKey = "60DCAA3C4B6F51E3";
 
   nixpkgs.config.allowUnfree = true;
 }

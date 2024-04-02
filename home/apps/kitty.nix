@@ -1,5 +1,14 @@
-{pkgs, ...}: {
-  config = {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  options = {
+    apps.kitty.enable = lib.mkEnableOption "Kitty";
+  };
+
+  config = lib.mkIf config.apps.kitty.enable {
     programs.kitty = {
       enable = true;
       font = {

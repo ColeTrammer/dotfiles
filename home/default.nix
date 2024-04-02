@@ -1,5 +1,7 @@
 {...}: {
   imports = [
+    ./apps
+    ./desktop
     ./nvim
     ./shell
   ];

@@ -1,5 +1,17 @@
-{...}: {
-  config = {
+{
+  config,
+  lib,
+  ...
+}: {
+  options = {
+    desktop.hyprland.enable =
+      lib.mkEnableOption "Hyprland"
+      // {
+        default = config.desktop.enable;
+      };
+  };
+
+  config = lib.mkIf config.desktop.hyprland.enable {
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {

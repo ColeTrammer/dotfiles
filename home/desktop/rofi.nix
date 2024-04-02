@@ -1,8 +1,23 @@
-{pkgs, ...}: {
-  programs.rofi = {
-    enable = true;
-    package = pkgs.rofi-wayland;
-    font = "FiraCode Nerd Font";
-    theme = "Arc-Dark";
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  options = {
+    desktop.rofi.enable =
+      lib.mkEnableOption "Rofi"
+      // {
+        default = config.desktop.enable;
+      };
+  };
+
+  config = lib.mkIf config.desktop.rofi.enable {
+    programs.rofi = {
+      enable = true;
+      package = pkgs.rofi-wayland;
+      font = "FiraCode Nerd Font";
+      theme = "Arc-Dark";
+    };
   };
 }

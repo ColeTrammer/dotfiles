@@ -1,14 +1,28 @@
-{...}: {
-  programs.zoxide = {
-    enable = true;
+{
+  config,
+  lib,
+  ...
+}: {
+  options = {
+    shell.zoxide.enable =
+      lib.mkEnableOption "zoxide"
+      // {
+        default = config.shell.enable;
+      };
   };
 
-  home.shellAliases = {
-    cd = "z";
-  };
+  config = lib.mkIf config.shell.zoxide.enable {
+    programs.zoxide = {
+      enable = true;
+    };
 
-  home.persistence."/persist/home" = {
-    allowOther = true;
-    directories = [".local/share/zoxide"];
+    home.shellAliases = {
+      cd = "z";
+    };
+
+    home.persistence."/persist/home" = {
+      allowOther = true;
+      directories = [".local/share/zoxide"];
+    };
   };
 }

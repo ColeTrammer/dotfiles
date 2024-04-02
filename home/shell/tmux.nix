@@ -5,7 +5,14 @@
   ...
 }: {
   options = {
-    tmux = {
+    shell.tmux = {
+      enable =
+        lib.mkEnableOption "tmux"
+        // {
+          default =
+            config.shell.enable;
+        };
+
       autostart =
         lib.mkEnableOption "tmux autostart"
         // {
@@ -14,7 +21,7 @@
     };
   };
 
-  config = {
+  config = lib.mkIf config.shell.tmux.enable {
     programs.tmux = {
       enable = true;
       aggressiveResize = true;
@@ -108,14 +115,14 @@
     };
 
     programs.bash.initExtra =
-      lib.mkIf config.tmux.autostart
+      lib.mkIf config.shell.tmux.autostart
       (lib.mkOrder
         10000 ''
           [ -z "$TMUX" ] && { tmux attach || exec tmux new-session; }
         '');
 
     programs.zsh.initExtraFirst =
-      lib.mkIf config.tmux.autostart
+      lib.mkIf config.shell.tmux.autostart
       (lib.mkOrder
         0 ''
           [ -z "$TMUX" ] && { tmux attach || exec tmux new-session; }
