@@ -2,7 +2,7 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
-    font = "Fira Code Nerd Font";
+    font = "FiraCode Nerd Font";
     theme = "Arc-Dark";
   };
 }
