@@ -20,6 +20,7 @@
   };
 
   programs.zsh.enable = true;
+  steam.enable = true;
 
   home-manager = {
     extraSpecialArgs = {inherit inputs;};

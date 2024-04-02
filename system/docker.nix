@@ -1,12 +1,22 @@
-{...}: {
-  virtualisation.docker = {
-    enable = true;
+{
+  config,
+  lib,
+  ...
+}: {
+  options = {
+    docker.enable = lib.mkEnableOption "Docker";
   };
 
-  environment.persistence."/persist/system" = {
-    hideMounts = true;
-    directories = [
-      "/var/lib/docker"
-    ];
+  config = lib.mkIf config.docker.enable {
+    virtualisation.docker = {
+      enable = true;
+    };
+
+    environment.persistence."/persist/system" = {
+      hideMounts = true;
+      directories = [
+        "/var/lib/docker"
+      ];
+    };
   };
 }
