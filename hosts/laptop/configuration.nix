@@ -25,7 +25,7 @@
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {
-      "colet" = import ../../home/configurations/colet-laptop.nix;
+      "colet" = import (../../home/configurations/x86_64-linux + "/colet@laptop.nix");
     };
   };
 

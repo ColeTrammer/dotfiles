@@ -70,6 +70,7 @@
         inputs.treefmt-nix.flakeModule
         inputs.flake-root.flakeModule
         hosts/flake-module.nix
+        home/configurations/flake-module.nix
       ];
 
       perSystem = {
