@@ -69,23 +69,8 @@
       imports = [
         inputs.treefmt-nix.flakeModule
         inputs.flake-root.flakeModule
+        hosts/flake-module.nix
       ];
-
-      flake = {
-        nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs;};
-          modules = [
-            ./hosts/desktop/configuration.nix
-          ];
-        };
-
-        nixosConfigurations.laptop = nixpkgs.lib.nixosSystem {
-          specialArgs = {inherit inputs;};
-          modules = [
-            ./hosts/laptop/configuration.nix
-          ];
-        };
-      };
 
       perSystem = {
         config,

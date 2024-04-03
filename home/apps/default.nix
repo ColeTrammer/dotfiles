@@ -12,9 +12,6 @@
 
   options = {
     apps.enable =
-      lib.mkEnableOption "GUI Applications"
-      // {
-        default = false;
-      };
+      lib.mkEnableOption "GUI Applications";
   };
 }
