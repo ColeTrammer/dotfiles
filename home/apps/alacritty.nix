@@ -19,6 +19,7 @@
         import = [
           "${pkgs.vimPlugins.tokyonight-nvim}/extras/alacritty/tokyonight_night.toml"
         ];
+        shell = config.preferences.shell;
         window = {
           padding = {
             x = 0;
@@ -27,10 +28,10 @@
         };
         font = {
           normal = {
-            family = "FiraCode Nerd Font";
+            family = config.preferences.font.name;
             style = "Regular";
           };
-          size = 12.0;
+          size = config.preferences.font.size;
         };
         mouse = {
           hide_when_typing = true;

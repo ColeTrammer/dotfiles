@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: {
   options = {
@@ -12,9 +11,9 @@
     programs.kitty = {
       enable = true;
       font = {
-        name = "FiraCode Nerd Font";
-        package = pkgs.fira-code-nerdfont;
-        size = 12;
+        name = config.preferences.font.name;
+        package = config.preferences.font.package;
+        size = config.preferences.font.size;
       };
       theme = "Tokyo Night";
       settings = {
@@ -23,6 +22,7 @@
         cursor = "none";
         enable_audio_bell = false;
         update_check_interval = 0;
+        shell = config.preferences.shell;
       };
       keybindings = {
         "ctrl+backspace" = "send_text \\u0017";

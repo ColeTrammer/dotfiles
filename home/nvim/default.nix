@@ -5,11 +5,13 @@
   ...
 }: {
   options = {
-    nvim.enable =
-      lib.mkEnableOption "nvim"
-      // {
-        default = true;
-      };
+    nvim = {
+      enable =
+        lib.mkEnableOption "nvim"
+        // {
+          default = true;
+        };
+    };
   };
 
   config = lib.mkIf config.nvim.enable {
@@ -35,7 +37,7 @@
     # see https://github.com/nix-community/home-manager/issues/4692
     home.activation = {
       updateLinks = ''
-        export ROOT="${config.home.homeDirectory}/Workspace/nix/dotfiles"
+        export ROOT="${config.preferences.dotfilesPath}"
         mkdir -p .config
         rm -f .config/nvim && ln -sf "$ROOT/home/nvim" .config/nvim
       '';

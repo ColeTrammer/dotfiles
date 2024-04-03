@@ -33,7 +33,7 @@
       escapeTime = 0;
       keyMode = "vi";
       shortcut = "a";
-      shell = "${pkgs.zsh}/bin/zsh";
+      shell = "${config.preferences.shell}";
       terminal = "tmux-256color";
 
       extraConfig = ''

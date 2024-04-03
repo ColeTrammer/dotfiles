@@ -32,9 +32,5 @@
       cat = "bat -p";
       man = "batman";
     };
-
-    home.sessionVariables = {
-      PAGER = "bat --paging=always";
-    };
   };
 }

@@ -47,7 +47,7 @@
         ];
         bind =
           [
-            "$mod, return, exec, alacritty"
+            "$mod, return, exec, ${config.preferences.terminal}"
             "$mod, D, exec, rofi -show drun"
             "$mod, O, exec, firefox"
             "$mod, Q, killactive,"
