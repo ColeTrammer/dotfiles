@@ -20,7 +20,7 @@
 
       pager = lib.mkOption {
         type = lib.types.str;
-        default = "${pkgs.bat}/bin/bat --paging=always";
+        default = "${pkgs.bat}/bin/bat -p --paging=always";
         description = ''Default terminal pager'';
       };
 

@@ -32,5 +32,9 @@
       cat = "bat -p";
       man = "batman";
     };
+
+    home.sessionVariables = {
+      BAT_PAGER = "less";
+    };
   };
 }

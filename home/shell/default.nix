@@ -2,11 +2,15 @@
   imports = [
     ./bat.nix
     ./bash.nix
+    ./bottom.nix
+    ./delta.nix
     ./direnv.nix
+    ./duf.nix
     ./eza.nix
     ./fd.nix
     ./fzf.nix
     ./git.nix
+    ./hyperfine.nix
     ./lf.nix
     ./nix.nix
     ./ripgrep.nix
