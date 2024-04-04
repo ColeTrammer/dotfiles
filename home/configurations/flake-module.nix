@@ -6,7 +6,7 @@
   dirs = lib.attrsets.filterAttrs (_: type: type == "directory") (builtins.readDir ./.);
   systems = builtins.attrNames dirs;
   getNames = system: builtins.attrNames (builtins.readDir ./${system});
-  getName = path: builtins.head (builtins.split "\\." path);
+  getName = path: builtins.head (builtins.split "\\.nix" path);
   mkHome = system: path: let
     name = getName path;
   in {
