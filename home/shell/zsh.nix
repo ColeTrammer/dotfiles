@@ -33,7 +33,7 @@
       initExtra = ''
         source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
 
-        source ~/.config/zsh/zsh-settings.sh
+        source ~/.config/zsh/zsh-settings.zsh
       '';
       plugins = [
         {
@@ -44,7 +44,7 @@
       ];
     };
 
-    home.file.".config/zsh/zsh-settings.sh".source = ./zsh-settings.sh;
+    home.file.".config/zsh/zsh-settings.zsh".source = ./zsh-settings.zsh;
 
     home.persistence."/persist/home" = {
       allowOther = true;
