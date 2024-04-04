@@ -1,17 +1,15 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
+{lib, ...}: {
   imports = [
     ./bat.nix
     ./bash.nix
     ./direnv.nix
     ./eza.nix
+    ./fd.nix
+    ./fzf.nix
     ./git.nix
     ./lf.nix
     ./nix.nix
+    ./ripgrep.nix
     ./starship.nix
     ./tmux.nix
     ./zoxide.nix
@@ -24,16 +22,5 @@
       // {
         default = true;
       };
-  };
-
-  config = lib.mkIf config.shell.enable {
-    home.packages = with pkgs; [
-      fd
-    ];
-
-    programs = {
-      fzf.enable = true;
-      ripgrep.enable = true;
-    };
   };
 }
