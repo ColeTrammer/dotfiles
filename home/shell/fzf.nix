@@ -17,11 +17,11 @@
       enable = true;
     };
 
-    programs.bash.initExtra = lib.mkOrder 50 ''
+    programs.bash.initExtra = lib.mkOrder 0 ''
       source ${pkgs.vimPlugins.tokyonight-nvim}/extras/fzf/tokyonight_night.zsh
     '';
 
-    programs.zsh.initExtra = lib.mkOrder 50 ''
+    programs.zsh.initExtra = lib.mkOrder 0 ''
       source ${pkgs.vimPlugins.tokyonight-nvim}/extras/fzf/tokyonight_night.zsh
     '';
   };

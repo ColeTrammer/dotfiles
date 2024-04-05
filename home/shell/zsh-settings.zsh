@@ -31,19 +31,33 @@ bindkey '^E' autosuggest-clear
 bindkey '^P' up-history
 bindkey '^N' down-history
 
-# "normal editor keybindings"
+# normal editor keybindings
 bindkey "^[[1;5C" forward-word
+bindkey "^[[1;3C" forward-word
 bindkey "^[[1;5D" backward-word
+bindkey "^[[1;3D" backward-word
 bindkey "^[[3;5~" kill-word
+bindkey "^[[3;3~" kill-word
 bindkey "^[[3~" delete-char
+bindkey "^[[5~" beginning-of-buffer-or-history
+bindkey "^[[6~" end-of-buffer-or-history
 bindkey "^W" backward-kill-word
-bindkey "^[[OH" beginning-of-line
-bindkey "^[[OF" end-of-line
+bindkey "^[[H" beginning-of-line
+bindkey "^[OH" beginning-of-line
+bindkey "^[[F" end-of-line
+bindkey "^[OF" end-of-line
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
 
 # shortcuts
-bindkey -s '^E' 'nvim\n'
+bindkey -s '^O' '^U nvim\n'
+bindkey -s '^[l' '^U clear\n'
+bindkey -s '^B' '^U btm\n'
+
+# control+d to exit
+exit_zsh() { exit }
+zle -N exit_zsh
+bindkey '^D' exit_zsh
 
 ###
 ### FZF

@@ -103,7 +103,7 @@
         cd "$(command lf -print-last-dir "$@")"
       }
 
-      bindkey -s '^o' 'lfcd\n'
+      bindkey -s '^F' '^U lfcd\n'
     '';
 
     home.persistence."/persist/home" = {

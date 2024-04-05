@@ -124,7 +124,7 @@
     programs.zsh.initExtraFirst =
       lib.mkIf config.shell.tmux.autostart
       (lib.mkOrder
-        0 ''
+        5 ''
           [ -z "$TMUX" ] && { tmux attach || exec tmux new-session; }
         '');
 
