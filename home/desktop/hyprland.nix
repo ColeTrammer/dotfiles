@@ -35,6 +35,18 @@
         misc = {
           disable_splash_rendering = true;
         };
+        general = {
+          gaps_in = 10;
+          gaps_out = 14;
+          border_size = 0;
+        };
+        decoration = {
+          rounding = 10;
+          drop_shadow = true;
+          shadow_range = 30;
+          shadow_render_power = 3;
+          "col.shadow" = "0x66000000";
+        };
         exec-once = [
           "xwaylandvideobridge"
         ];

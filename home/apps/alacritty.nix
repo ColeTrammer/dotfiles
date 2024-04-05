@@ -23,7 +23,7 @@
         window = {
           padding = {
             x = 0;
-            y = 4;
+            y = 0;
           };
         };
         font = {
