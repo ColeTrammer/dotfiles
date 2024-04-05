@@ -21,7 +21,7 @@
       source ${pkgs.vimPlugins.tokyonight-nvim}/extras/fzf/tokyonight_night.zsh
     '';
 
-    programs.zsh.initExtra = lib.mkOrder 0 ''
+    programs.zsh.initExtraFirst = lib.mkOrder 0 ''
       source ${pkgs.vimPlugins.tokyonight-nvim}/extras/fzf/tokyonight_night.zsh
     '';
   };
