@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  inputs,
   pkgs,
   ...
 }: {
@@ -15,8 +16,15 @@
   };
 
   config = lib.mkIf config.nvim.enable {
+    nixpkgs = {
+      overlays = [
+        inputs.neovim-nightly-overlay.overlay
+      ];
+    };
+
     programs.neovim = {
       enable = true;
+      package = pkgs.neovim-nightly;
       defaultEditor = true;
       vimAlias = true;
       viAlias = true;

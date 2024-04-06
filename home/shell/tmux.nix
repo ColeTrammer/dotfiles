@@ -71,6 +71,9 @@
         # Passthrough
         set -g allow-passthrough on
 
+        # Clipboard
+        set -s clipboard on
+
         # Status bar on topset -g status-position top
         set -g status-position top
 
