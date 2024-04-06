@@ -13,3 +13,6 @@ vim.opt.shiftwidth = 4
 
 -- swap files cause frequent editor freezes...
 vim.opt.swapfile = false
+
+-- always enable system clipboard (this works even remotely thanks to tmux)
+vim.opt.clipboard = "unnamedplus"
