@@ -26,6 +26,7 @@
             y = 0;
           };
           option_as_alt = "Both";
+          decorations = "None";
         };
         font = {
           normal = {
@@ -33,6 +34,15 @@
             style = "Regular";
           };
           size = config.preferences.font.size;
+        };
+        scrolling = {
+          history = 100000;
+        };
+        selection = {
+          save_to_clipboard = true;
+        };
+        terminal = {
+          osc52 = "CopyPaste";
         };
         mouse = {
           hide_when_typing = true;

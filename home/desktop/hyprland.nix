@@ -1,6 +1,8 @@
 {
   config,
+  inputs,
   lib,
+  pkgs,
   ...
 }: {
   options = {
@@ -14,6 +16,7 @@
   config = lib.mkIf config.desktop.hyprland.enable {
     wayland.windowManager.hyprland = {
       enable = true;
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       settings = {
         "$mod" = "SUPER";
         monitor = [
@@ -114,6 +117,20 @@
           ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+"
           ", XF86AudioLowerVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%-"
         ];
+        animations = {
+          enabled = "yes";
+          bezier = [
+            "myBezier, 0.05, 0.9, 0.1, 1.05"
+          ];
+          animation = [
+            "windows, 1, 7, myBezier"
+            "windowsOut, 1, 7, default, popin 80%"
+            "border, 1, 10, default"
+            "borderangle, 1, 8, default"
+            "fade, 1, 7, default"
+            "workspaces, 1, 6, default"
+          ];
+        };
       };
       extraConfig = ''
         # window resize
