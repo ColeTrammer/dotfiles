@@ -5,11 +5,19 @@
   ...
 }: {
   options = {
-    shell.zsh.enable =
-      lib.mkEnableOption "zsh"
-      // {
-        default = config.shell.enable;
-      };
+    shell.zsh = {
+      enable =
+        lib.mkEnableOption "zsh"
+        // {
+          default = config.shell.enable;
+        };
+
+      enableNixShellPlugin =
+        lib.mkEnableOption "zsh nix shell plugin"
+        // {
+          default = true;
+        };
+    };
   };
 
   config = lib.mkIf config.shell.zsh.enable {
@@ -35,7 +43,7 @@
 
         source ~/.config/zsh/zsh-settings.zsh
       '';
-      plugins = [
+      plugins = lib.mkIf config.shell.zsh.enableNixShellPlugin [
         {
           name = "zsh-nix-shell";
           file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
