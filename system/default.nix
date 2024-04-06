@@ -13,6 +13,7 @@
     ./hyprland.nix
     ./i18n.nix
     ./impermenence.nix
+    ./kdeconnect.nix
     ./keyring.nix
     ./network.nix
     ./nix.nix

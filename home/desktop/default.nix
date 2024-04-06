@@ -7,6 +7,7 @@
   imports = [
     ./cursor.nix
     ./gammastep.nix
+    ./kdeconnect.nix
     ./gpg.nix
     ./gtk.nix
     ./hypridle.nix
