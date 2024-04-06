@@ -13,6 +13,7 @@
     ./hyperfine.nix
     ./lf.nix
     ./nix.nix
+    ./pistol.nix
     ./ripgrep.nix
     ./starship.nix
     ./tmux.nix

@@ -20,7 +20,7 @@
 
       pager = lib.mkOption {
         type = lib.types.str;
-        default = "${pkgs.bat}/bin/bat -p --paging=always";
+        default = "${pkgs.bat}/bin/bat --paging=always --color=always -p";
         description = ''Default terminal pager'';
       };
 
@@ -40,6 +40,12 @@
         type = lib.types.str;
         default = "${config.programs.neovim.package}/bin/nvim";
         description = ''Default editor'';
+      };
+
+      previewer = lib.mkOption {
+        type = lib.types.path;
+        default = "${pkgs.pistol}/bin/pistol";
+        description = ''Default terminal previewer'';
       };
 
       font = {

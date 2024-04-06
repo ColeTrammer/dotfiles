@@ -50,7 +50,7 @@ bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
 
 # shortcuts
-bindkey -s '^O' '^U nvim\n'
+bindkey -s '^O' '^U $EDITOR\n'
 bindkey -s '^[l' '^U clear\n'
 bindkey -s '^B' '^U btm\n'
 

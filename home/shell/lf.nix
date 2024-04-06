@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: {
   options = {
@@ -79,7 +78,7 @@
       keybindings = {
         gh = "cd ~";
         gr = "cd /";
-        gw = "cd ~/Workspace";
+        gw = "cd ${config.preferences.workspacePath}";
 
         "." = "set hidden!";
 
@@ -92,7 +91,7 @@
         O = "push :touch-edit<space>";
       };
 
-      previewer.source = "${pkgs.pistol}/bin/pistol";
+      previewer.source = config.preferences.previewer;
     };
 
     xdg.configFile."lf/icons".source = ./lf-icons.txt;
