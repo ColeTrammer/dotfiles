@@ -520,6 +520,22 @@
         "type": "github"
       }
     },
+    "lf": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1712497669,
+        "narHash": "sha256-nrOD1im065mVXu4dG/GG4n7932pOM3g4grBXaR8d0AA=",
+        "owner": "gokcehan",
+        "repo": "lf",
+        "rev": "ce1211641830029000f7f3c56444dc509487d6b2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gokcehan",
+        "repo": "lf",
+        "type": "github"
+      }
+    },
     "neovim-flake": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -729,6 +745,7 @@
         "hyprlock": "hyprlock",
         "hyprpaper": "hyprpaper",
         "impermanence": "impermanence",
+        "lf": "lf",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs_7",
         "treefmt-nix": "treefmt-nix"

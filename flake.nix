@@ -79,6 +79,11 @@
       url = "github:catppuccin/delta";
       flake = false;
     };
+
+    lf = {
+      url = "github:gokcehan/lf";
+      flake = false;
+    };
   };
 
   outputs = {

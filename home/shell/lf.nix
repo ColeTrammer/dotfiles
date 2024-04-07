@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   ...
 }: {
@@ -94,13 +95,11 @@
       previewer.source = config.preferences.previewer;
     };
 
-    xdg.configFile."lf/icons".source = ./lf-icons.txt;
-    xdg.configFile."lf/colors".source = ./lf-colors.txt;
+    xdg.configFile."lf/icons".source = "${inputs.lf}/etc/icons.example";
+    xdg.configFile."lf/colors".source = "${inputs.lf}/etc/colors.example";
 
     programs.zsh.initExtra = ''
-      lfcd() {
-        cd "$(command lf -print-last-dir "$@")"
-      }
+      source ${inputs.lf}/etc/lfcd.sh
 
       bindkey -s '^F' '^U lfcd\n'
     '';
