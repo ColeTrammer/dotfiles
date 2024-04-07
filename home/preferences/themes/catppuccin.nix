@@ -141,6 +141,9 @@
         lib.mkIf enable
         "${inputs.catppuccin-alacritty}/catppuccin-mocha.toml";
 
+      # Bottom
+      xdg.configFile."bottom/bottom.toml".source = lib.mkIf default "${inputs.catppuccin-bottom}/themes/${variant}.toml";
+
       # Cursor
       preferences.cursor = {
         package = pkgs.catppuccin-cursors.mochaDark;
@@ -178,8 +181,10 @@
           })
           libsForQt5.qtstyleplugin-kvantum
           libsForQt5.qt5ct
+          libsForQt5.qt5.qtwayland
           qt6Packages.qtstyleplugin-kvantum
           qt6Packages.qt6ct
+          qt6.qtwayland
         ];
       qt = lib.mkIf desktop {
         enable = true;

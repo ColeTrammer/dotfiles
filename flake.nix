@@ -75,6 +75,11 @@
       flake = false;
     };
 
+    catppuccin-bottom = {
+      url = "github:catppuccin/bottom";
+      flake = false;
+    };
+
     catppuccin-delta = {
       url = "github:catppuccin/delta";
       flake = false;

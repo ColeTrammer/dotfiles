@@ -4,16 +4,19 @@
   ...
 }: {
   options = {
-    impermenence.enable =
-      lib.mkEnableOption "Impermenence"
-      // {
-        default = true;
-      };
+    impermenence = {
+      enable =
+        lib.mkEnableOption "Impermenence"
+        // {
+          default = true;
+        };
+
+      initrdSystemd = lib.mkEnableOption "initrd systemd";
+    };
   };
 
-  config = lib.mkIf config.impermenence.enable {
-    # Delete root volumes on boot.
-    boot.initrd.postDeviceCommands = lib.mkAfter ''
+  config = lib.mkIf config.impermenence.enable (let
+    deleteRoot = ''
       mkdir /btrfs_tmp
       mount /dev/mapper/crypted /btrfs_tmp
       if [[ -e /btrfs_tmp/root ]]; then
@@ -37,6 +40,37 @@
       btrfs subvolume create /btrfs_tmp/root
       umount /btrfs_tmp
     '';
+  in {
+    # Delete root volumes on boot.
+    boot.initrd.postDeviceCommands = lib.mkIf (!config.impermenence.initrdSystemd) (lib.mkAfter deleteRoot);
+    boot.initrd.systemd.services = lib.mkIf config.impermenence.initrdSystemd {
+      initrd-delete-root = {
+        wantedBy = ["initrd-switch-root.target"];
+        after = ["cryptsetup.target"];
+        before = ["persist.mount"];
+        description = "Delete root fs";
+        unitConfig.DefaultDependencies = "no";
+        serviceConfig = {
+          Type = "oneshot";
+        };
+        script = deleteRoot;
+      };
+      persist-early-files = {
+        description = "Link early boot files from /persist";
+        wantedBy = [
+          "initrd-switch-root.target"
+        ];
+        after = [
+          "persist.mount"
+        ];
+        unitConfig.DefaultDependencies = "no";
+        serviceConfig.Type = "oneshot";
+        script = ''
+          mkdir -p /sysroot/etc/
+          ln -snfT /persist/system/etc/machine-id /sysroot/etc/machine-id
+        '';
+      };
+    };
 
     # Need for boot to succeed.
     fileSystems."/persist".neededForBoot = true;
@@ -52,9 +86,9 @@
         "/var/db/sudo/lectured"
         "/var/lib/systemd/coredump"
       ];
-      files = [
+      files = lib.mkIf (!config.impermenence.initrdSystemd) [
         "/etc/machine-id"
       ];
     };
-  };
+  });
 }
