@@ -21,6 +21,7 @@
     variant = config.preferences.themes.tokyonight.variant;
     enable = config.preferences.themes.tokyonight.enable;
     default = config.preferences.themes.tokyonight.default;
+    desktop = config.preferences.enableDesktopTheme && default;
   in
     lib.mkIf enable {
       # Bat
@@ -77,5 +78,39 @@
       # Wezterm
       apps.wezterm.colorscheme = lib.mkIf default "tokyonight_night";
       home.file.".config/wezterm/tokyonight.toml".source = "${pkgs.vimPlugins.tokyonight-nvim}/extras/wezterm/tokyonight_night.toml";
+
+      # GTK
+      gtk = lib.mkIf desktop {
+        theme = {
+          package = pkgs.adw-gtk3;
+          name = "adw-gtk3-dark";
+        };
+
+        iconTheme = {
+          package = pkgs.gnome.adwaita-icon-theme;
+          name = "MoreWaita";
+        };
+      };
+      home.file.".local/share/themes/adw-gtk3-dark" = {
+        source = "${pkgs.adw-gtk3}/share/themes/adw-gtk3-dark";
+      };
+
+      # QT
+      home.packages = with pkgs;
+        lib.mkIf desktop [
+          qt5.qtwayland
+          qt6.qtwayland
+          qt6Packages.qtstyleplugin-kvantum
+          libsForQt5.qtstyleplugin-kvantum
+          libsForQt5.qt5ct
+          breeze-icons
+        ];
+      qt = lib.mkIf desktop {
+        enable = true;
+        platformTheme = "qtct";
+        style = {
+          name = "kvantum";
+        };
+      };
     };
 }

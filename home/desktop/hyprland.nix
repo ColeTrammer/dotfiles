@@ -45,10 +45,22 @@
         };
         decoration = {
           rounding = 10;
+
           drop_shadow = true;
           shadow_range = 30;
           shadow_render_power = 3;
           "col.shadow" = "0x66000000";
+
+          blur = {
+            enabled = true;
+            size = 8;
+            passes = 3;
+            new_optimizations = "on";
+            noise = 0.01;
+            contrast = 0.9;
+            brightness = 0.8;
+            popups = true;
+          };
         };
         exec-once = [
           "xwaylandvideobridge"

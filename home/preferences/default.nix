@@ -11,6 +11,9 @@
 
   options = {
     preferences = {
+      enable = lib.mkEnableOption "preferences" // {default = true;};
+      enableDesktopTheme = lib.mkEnableOption "desktop theme" // {default = config.desktop.enable;};
+
       theme = lib.mkOption {
         type = lib.types.str;
         default = "catppuccin";
@@ -78,19 +81,71 @@
           description = ''Default font size'';
         };
       };
+
+      cursor = {
+        package = lib.mkOption {
+          type = lib.types.package;
+          default = pkgs.phinger-cursors;
+          description = ''Default cursor package'';
+        };
+
+        name = lib.mkOption {
+          type = lib.types.str;
+          default = "phinger-cursors";
+          description = ''Default cursor theme'';
+        };
+
+        size = lib.mkOption {
+          type = lib.types.int;
+          default = 32;
+          description = ''Default cursor size'';
+        };
+      };
     };
   };
 
-  config = {
+  config = lib.mkIf config.preferences.enable {
+    # Env
     home.sessionVariables = {
       EDITOR = lib.mkForce config.preferences.editor;
       PAGER = config.preferences.pager;
     };
 
+    # Fonts
     home.packages = [
       config.preferences.font.package
     ];
+    fonts.fontconfig.enable = config.preferences.enableDesktopTheme;
 
+    # Cursor
+    home.pointerCursor = lib.mkIf config.preferences.enableDesktopTheme {
+      package = config.preferences.cursor.package;
+      name = config.preferences.cursor.name;
+      size = config.preferences.cursor.size;
+      gtk.enable = true;
+    };
+
+    # GTK dark mode
+    gtk = lib.mkIf config.preferences.enableDesktopTheme {
+      enable = true;
+
+      gtk4.extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
+      };
+
+      gtk3.extraConfig = {
+        gtk-application-prefer-dark-theme = 1;
+      };
+
+      gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
+    };
+    dconf.settings = lib.mkIf config.preferences.enableDesktopTheme {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+    };
+
+    # Customer nix theme
     preferences.themes.${config.preferences.theme} = {
       enable = true;
       default = true;

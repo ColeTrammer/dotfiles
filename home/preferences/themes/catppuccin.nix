@@ -14,13 +14,20 @@
         default = "mocha";
         description = ''Color scheme variant'';
       };
+      accent = lib.mkOption {
+        type = lib.types.str;
+        default = "peach";
+        description = ''Color scheme accent'';
+      };
     };
   };
 
   config = let
+    accent = config.preferences.themes.catppuccin.accent;
     variant = config.preferences.themes.catppuccin.variant;
     enable = config.preferences.themes.catppuccin.enable;
     default = config.preferences.themes.catppuccin.default;
+    desktop = config.preferences.enableDesktopTheme && default;
 
     catppuccin-tmux = pkgs.tmuxPlugins.catppuccin.overrideAttrs (prev: {
       version = "git";
@@ -54,6 +61,11 @@
       '';
     };
     fzfOption = fzfOptions.${variant};
+
+    accentUpperFirstLetter = builtins.substring 0 1 (lib.toUpper accent);
+    accentLength = builtins.stringLength accent;
+    accentRest = builtins.substring 1 (accentLength - 1) accent;
+    accentTitleCase = accentUpperFirstLetter + accentRest;
 
     variantUpperFirstLetter = builtins.substring 0 1 (lib.toUpper variant);
     variantLength = builtins.stringLength variant;
@@ -128,5 +140,72 @@
       xdg.configFile."alacritty/catppuccin.toml".source =
         lib.mkIf enable
         "${inputs.catppuccin-alacritty}/catppuccin-mocha.toml";
+
+      # Cursor
+      preferences.cursor = {
+        package = pkgs.catppuccin-cursors.mochaDark;
+        name = "Catppuccin-${variantTitleCase}-Dark-Cursors";
+      };
+
+      # GTK
+      gtk = lib.mkIf desktop {
+        theme = {
+          name = "Catppuccin-${variantTitleCase}-Standard-${accentTitleCase}-Dark";
+          package = pkgs.catppuccin-gtk.override {
+            accents = [accent];
+            tweaks = ["rimless"];
+            variant = variant;
+          };
+        };
+        iconTheme = {
+          name = "Papirus-Dark";
+          package = pkgs.catppuccin-papirus-folders.override {
+            flavor = variant;
+            accent = accent;
+          };
+        };
+      };
+      xdg.configFile."gtk-4.0/assets".source = lib.mkIf desktop "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+      xdg.configFile."gtk-4.0/gtk.css".source = lib.mkIf desktop "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+      xdg.configFile."gtk-4.0/gtk-dark.css".source = lib.mkIf desktop "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+
+      # Qt
+      home.packages = with pkgs;
+        lib.mkIf desktop [
+          (catppuccin-kvantum.override {
+            accent = accentTitleCase;
+            variant = variantTitleCase;
+          })
+          libsForQt5.qtstyleplugin-kvantum
+          libsForQt5.qt5ct
+          qt6Packages.qtstyleplugin-kvantum
+          qt6Packages.qt6ct
+        ];
+      qt = lib.mkIf desktop {
+        enable = true;
+        platformTheme = "qtct";
+        style.name = "kvantum";
+      };
+      xdg.configFile."Kvantum/kvantum.kvconfig".text =
+        lib.mkIf desktop
+        (lib.generators.toINI {} {
+          General = {
+            theme = "Catppuccin-${variantTitleCase}-${accentTitleCase}";
+          };
+        });
+      xdg.configFile."qt5ct/qt5ct.conf".text =
+        lib.mkIf desktop
+        (lib.generators.toINI {} {
+          Appearance = {
+            icon_theme = "Papirus-Dark";
+          };
+        });
+      xdg.configFile."qt6ct/qt6ct.conf".text =
+        lib.mkIf desktop
+        (lib.generators.toINI {} {
+          Appearance = {
+            icon_theme = "Papirus-Dark";
+          };
+        });
     };
 }

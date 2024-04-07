@@ -17,6 +17,7 @@
     ./keyring.nix
     ./network.nix
     ./nix.nix
+    ./plymouth.nix
     ./steam.nix
     ./udisks.nix
     ./warp.nix

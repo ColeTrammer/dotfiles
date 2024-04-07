@@ -6,17 +6,14 @@
 }: {
   imports = [
     ./ags
-    ./cursor.nix
     ./gammastep.nix
     ./kdeconnect.nix
     ./gpg.nix
-    ./gtk.nix
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
     ./keyring.nix
     ./mako.nix
-    ./qt.nix
     ./rofi.nix
     ./udiskie.nix
     ./warp.nix
