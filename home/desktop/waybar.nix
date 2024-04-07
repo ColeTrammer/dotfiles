@@ -21,6 +21,8 @@
       settings = {
         mainBar = {
           layer = "top";
+          height = 20;
+          spacing = 5;
           modules-left = [
             "hyprland/workspaces"
           ];
@@ -28,13 +30,33 @@
             "hyprland/window"
           ];
           modules-right = [
-            "clock"
             "tray"
+            "cpu"
+            "memory"
+            "wireplumber"
+            "clock"
           ];
           clock = {
             interval = 60;
             format = "{:%I:%M %p}";
-            max-length = 25;
+            tooltip = false;
+          };
+          wireplumber = {
+            format = "{icon} {volume}%";
+            format-icons = ["" "" "󰕾" ""];
+            tooltip = false;
+          };
+          cpu = {
+            interval = 1;
+            format = "{icon0} {icon1} {icon2} {icon3}";
+            format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
+          };
+          memory = {
+            format = "{}% ";
+          };
+          tray = {
+            icon-size = 20;
+            spacing = 13;
           };
         };
       };

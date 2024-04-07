@@ -3,7 +3,7 @@
     ./apps
     ./desktop
     ./nvim
-    ./preferences.nix
+    ./preferences
     ./shell
   ];
 

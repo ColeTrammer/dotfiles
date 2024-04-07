@@ -1,7 +1,7 @@
 {
   config,
-  pkgs,
   lib,
+  pkgs,
   ...
 }: {
   options = {
@@ -74,7 +74,10 @@
         # Clipboard
         set -s set-clipboard on
 
-        # Status bar on topset -g status-position top
+        # Focus events
+        set -g focus-events on
+
+        # Status bar on top
         set -g status-position top
 
         # Reload config
@@ -96,8 +99,6 @@
         {
           plugin = tmuxPlugins.continuum;
           extraConfig = ''
-            # The color scheme must come first so that it doesn't overwrite the status bar.
-            source ${pkgs.vimPlugins.tokyonight-nvim}/extras/tmux/tokyonight_night.tmux
             set -g @continuum-restore 'on'
             set -g @continuum-save-interval '15'
           '';

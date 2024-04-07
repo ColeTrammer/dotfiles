@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ./ags
     ./cursor.nix
     ./gammastep.nix
     ./kdeconnect.nix

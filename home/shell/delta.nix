@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  pkgs,
+  inputs,
   ...
 }: {
   options = {
@@ -28,13 +28,11 @@
           navigate = true;
           line-numbers = true;
           hyperlinks = config.shell.delta.hyperlinks;
-          syntax-theme = "tokyonight";
         };
       };
       extraConfig = {
         merge.conflictstyle = "diff3";
         diff.colorMoved = "default";
-        include.path = "${pkgs.vimPlugins.tokyonight-nvim}/extras/delta/tokyonight_night.gitconfig";
       };
     };
   };

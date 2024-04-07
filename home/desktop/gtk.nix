@@ -16,13 +16,13 @@
     gtk = {
       enable = true;
       theme = {
-        package = pkgs.gnome.gnome-themes-extra;
-        name = "Adwaita-dark";
+        package = pkgs.adw-gtk3;
+        name = "adw-gtk3-dark";
       };
 
       iconTheme = {
         package = pkgs.gnome.adwaita-icon-theme;
-        name = "Adwaita";
+        name = "MoreWaita";
       };
 
       gtk4.extraConfig = {
@@ -34,6 +34,16 @@
       };
 
       gtk2.configLocation = "${config.xdg.configHome}/gtk-2.0/gtkrc";
+    };
+
+    fonts.fontconfig.enable = true;
+
+    home.packages = [
+      config.preferences.font.package
+    ];
+
+    home.file.".local/share/themes/adw-gtk3-dark" = {
+      source = "${pkgs.adw-gtk3}/share/themes/adw-gtk3-dark";
     };
 
     dconf.settings = {

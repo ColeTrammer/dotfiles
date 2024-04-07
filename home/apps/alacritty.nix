@@ -1,7 +1,7 @@
 {
   config,
+  inputs,
   lib,
-  pkgs,
   ...
 }: {
   options = {
@@ -16,9 +16,6 @@
     programs.alacritty = {
       enable = true;
       settings = {
-        import = [
-          "${pkgs.vimPlugins.tokyonight-nvim}/extras/alacritty/tokyonight_night.toml"
-        ];
         shell = config.preferences.shell;
         window = {
           padding = {

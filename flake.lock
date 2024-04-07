@@ -1,5 +1,89 @@
 {
   "nodes": {
+    "ags": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1712250145,
+        "narHash": "sha256-8WTGn7It2kZfAmN97Epi3g/Su/w3Hbw/T4dWxE7OrBw=",
+        "owner": "Aylur",
+        "repo": "ags",
+        "rev": "d589077199ec8a055ef936bf8a1f051b7a0c7e34",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Aylur",
+        "repo": "ags",
+        "type": "github"
+      }
+    },
+    "catppuccin-alacritty": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1708974882,
+        "narHash": "sha256-HiIYxTlif5Lbl9BAvPsnXp8WAexL8YuohMDd/eCJVQ8=",
+        "owner": "catppuccin",
+        "repo": "alacritty",
+        "rev": "071d73effddac392d5b9b8cd5b4b527a6cf289f9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "alacritty",
+        "type": "github"
+      }
+    },
+    "catppuccin-bat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1710456315,
+        "narHash": "sha256-POoW2sEM6jiymbb+W/9DKIjDM1Buu1HAmrNP0yC2JPg=",
+        "owner": "catppuccin",
+        "repo": "bat",
+        "rev": "b19bea35a85a32294ac4732cad5b0dc6495bed32",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "bat",
+        "type": "github"
+      }
+    },
+    "catppuccin-delta": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711225340,
+        "narHash": "sha256-GA0n9obZlD0Y2rAbGMjcdJ5I0ij1NEPBFC7rv7J49QI=",
+        "owner": "catppuccin",
+        "repo": "delta",
+        "rev": "765eb17d0268bf07c20ca439771153f8bc79444f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "delta",
+        "type": "github"
+      }
+    },
+    "catppuccin-tmux": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711833099,
+        "narHash": "sha256-k9Ihfk8C1jYkGUvOcgLwS4UdXR8d/4Nu/Dyh03FpDZc=",
+        "owner": "catppuccin",
+        "repo": "tmux",
+        "rev": "5ed4e8a6a20c928688da268dfcdf460ac9c3cb49",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "tmux",
+        "type": "github"
+      }
+    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -630,6 +714,11 @@
     },
     "root": {
       "inputs": {
+        "ags": "ags",
+        "catppuccin-alacritty": "catppuccin-alacritty",
+        "catppuccin-bat": "catppuccin-bat",
+        "catppuccin-delta": "catppuccin-delta",
+        "catppuccin-tmux": "catppuccin-tmux",
         "disko": "disko",
         "flake-parts": "flake-parts",
         "flake-root": "flake-root",

@@ -15,7 +15,6 @@
         package = config.preferences.font.package;
         size = config.preferences.font.size;
       };
-      theme = "Tokyo Night";
       settings = {
         scrollback_lines = 10000;
         copy_on_select = "clipboard";

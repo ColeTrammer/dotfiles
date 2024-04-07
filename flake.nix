@@ -51,8 +51,33 @@
       url = "github:hyprwm/hyprpaper";
     };
 
+    ags = {
+      url = "github:Aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
+    };
+
+    catppuccin-alacritty = {
+      url = "github:catppuccin/alacritty";
+      flake = false;
+    };
+
+    catppuccin-tmux = {
+      url = "github:catppuccin/tmux";
+      flake = false;
+    };
+
+    catppuccin-bat = {
+      url = "github:catppuccin/bat";
+      flake = false;
+    };
+
+    catppuccin-delta = {
+      url = "github:catppuccin/delta";
+      flake = false;
     };
   };
 
@@ -100,6 +125,7 @@
               pkgs.marksman
               pkgs.markdownlint-cli
               pkgs.taplo
+              pkgs.nodePackages_latest.typescript-language-server
               (pkgs.writeShellScriptBin
                 "vscode-json-language-server"
                 ''${pkgs.nodePackages_latest.vscode-json-languageserver}/bin/vscode-json-languageserver "$@"'')

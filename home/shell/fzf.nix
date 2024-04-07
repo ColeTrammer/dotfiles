@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }: {
   options = {
@@ -16,13 +15,5 @@
     programs.fzf = {
       enable = true;
     };
-
-    programs.bash.initExtra = lib.mkOrder 0 ''
-      source ${pkgs.vimPlugins.tokyonight-nvim}/extras/fzf/tokyonight_night.zsh
-    '';
-
-    programs.zsh.initExtraFirst = lib.mkOrder 0 ''
-      source ${pkgs.vimPlugins.tokyonight-nvim}/extras/fzf/tokyonight_night.zsh
-    '';
   };
 }

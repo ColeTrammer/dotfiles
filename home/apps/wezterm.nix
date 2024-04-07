@@ -5,7 +5,15 @@
   ...
 }: {
   options = {
-    apps.wezterm.enable = lib.mkEnableOption "Wezterm";
+    apps.wezterm = {
+      enable = lib.mkEnableOption "Wezterm";
+
+      colorscheme = lib.mkOption {
+        type = lib.types.str;
+        default = "Catppuccin Mocha";
+        description = ''colorscheme'';
+      };
+    };
   };
 
   config = lib.mkIf config.apps.wezterm.enable {
@@ -19,7 +27,7 @@
           font = wezterm.font("${config.preferences.font.name}"),
           font_size = ${builtins.toString config.preferences.font.size},
           hide_tab_bar_if_only_one_tab = true,
-          color_scheme = "tokyonight_night",
+          color_scheme = "${config.apps.wezterm.colorscheme}",
           scrollback_lines = 10000,
           default_prog = { '${config.preferences.shell}' },
           window_padding = {
@@ -40,7 +48,5 @@
     programs.bash.initExtra = lib.mkOrder 9999 ''
       source ${pkgs.wezterm}/etc/profile.d/wezterm.sh
     '';
-
-    home.file.".config/wezterm/tokyonight.toml".source = "${pkgs.vimPlugins.tokyonight-nvim}/extras/wezterm/tokyonight_night.toml";
   };
 }

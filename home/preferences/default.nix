@@ -4,8 +4,19 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./themes/catppuccin.nix
+    ./themes/tokyonight.nix
+  ];
+
   options = {
     preferences = {
+      theme = lib.mkOption {
+        type = lib.types.str;
+        default = "catppuccin";
+        description = ''Default theme'';
+      };
+
       workspacePath = lib.mkOption {
         type = lib.types.path;
         default = "${config.home.homeDirectory}/Workspace";
@@ -79,5 +90,10 @@
     home.packages = [
       config.preferences.font.package
     ];
+
+    preferences.themes.${config.preferences.theme} = {
+      enable = true;
+      default = true;
+    };
   };
 }
