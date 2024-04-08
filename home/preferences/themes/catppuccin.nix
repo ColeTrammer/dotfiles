@@ -121,7 +121,7 @@
             set -g @catppuccin_icon_window_bell "󰂞 "
 
             set -g @catppuccin_window_default_text "#{window_name}"
-            set -g @catppuccin_window_fill_text "#{window_name}"
+            set -g @catppuccin_window_current_text "#{window_name}"
 
             set -g @catppuccin_status_background "#11111b"
             set -g @catppuccin_status_modules_right "host session"
