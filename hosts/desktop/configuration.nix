@@ -13,6 +13,8 @@
   boot.loader.systemd-boot.configurationLimit = 50;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  hardware.enableAllFirmware = true;
+
   users.users."colet" = {
     isNormalUser = true;
     hashedPasswordFile = "/persist/secrets/passwords/colet";
@@ -22,6 +24,8 @@
 
   programs.zsh.enable = true;
   steam.enable = true;
+
+  plymouth.dpi = 2.0;
 
   home-manager = {
     extraSpecialArgs = {inherit inputs;};

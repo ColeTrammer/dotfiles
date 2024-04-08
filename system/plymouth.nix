@@ -5,7 +5,15 @@
   ...
 }: {
   options = {
-    plymouth.enable = lib.mkEnableOption "plymouth" // {default = true;};
+    plymouth = {
+      enable = lib.mkEnableOption "plymouth" // {default = true;};
+
+      dpi = lib.mkOption {
+        type = lib.types.float;
+        default = 1.0;
+        description = ''Boot DPI'';
+      };
+    };
   };
 
   config = lib.mkIf config.plymouth.enable {
@@ -19,6 +27,9 @@
               variant = "mocha";
             })
         ];
+        extraConfig = ''
+          DeviceScale=${builtins.toString config.plymouth.dpi};
+        '';
       };
       initrd.systemd.enable = true;
       kernelParams = ["quiet"];

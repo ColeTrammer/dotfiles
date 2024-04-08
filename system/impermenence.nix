@@ -45,9 +45,9 @@
     boot.initrd.postDeviceCommands = lib.mkIf (!config.impermenence.initrdSystemd) (lib.mkAfter deleteRoot);
     boot.initrd.systemd.services = lib.mkIf config.impermenence.initrdSystemd {
       initrd-delete-root = {
-        wantedBy = ["initrd-switch-root.target"];
+        wantedBy = ["initrd.target"];
         after = ["cryptsetup.target"];
-        before = ["persist.mount"];
+        before = ["sysroot.mount"];
         description = "Delete root fs";
         unitConfig.DefaultDependencies = "no";
         serviceConfig = {
