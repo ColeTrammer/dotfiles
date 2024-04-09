@@ -12,9 +12,7 @@
 
   apps = {
     enable = true;
-    kitty.enable = true;
     steam.enable = true;
-    wezterm.enable = true;
   };
 
   desktop.enable = true;
