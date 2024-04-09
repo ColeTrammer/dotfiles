@@ -7,7 +7,7 @@
 }: {
   options = {
     preferences.themes.catppuccin = {
-      enable = lib.mkEnableOption "catppuccin" // {default = true;};
+      enable = lib.mkEnableOption "catppuccin" // {default = config.preferences.enable;};
       default = lib.mkEnableOption "use catppuccin by default" // {default = false;};
       variant = lib.mkOption {
         type = lib.types.str;
@@ -92,12 +92,12 @@
         };
         extraConfig.include.path = ["${config.xdg.configHome}/delta/catppuccin.gitconfig"];
       };
-      xdg.configFile."delta/catppuccin.gitconfig".source = lib.mkIf enable "${inputs.catppuccin-delta}/catppuccin.gitconfig";
+      xdg.configFile."delta/catppuccin.gitconfig".source = "${inputs.catppuccin-delta}/catppuccin.gitconfig";
 
       # Fzf
       programs.bash.initExtra = lib.mkIf default (lib.mkOrder 0 "source ${config.xdg.configHome}/fzf/catppuccin.sh");
       programs.zsh.initExtraFirst = lib.mkIf default (lib.mkOrder 0 "source ${config.xdg.configHome}/fzf/catppuccin.sh");
-      xdg.configFile."fzf/catppuccin.sh".text = lib.mkIf enable "${fzfOption}";
+      xdg.configFile."fzf/catppuccin.sh".text = "${fzfOption}";
 
       # Tmux
       programs.tmux.plugins = lib.mkIf default (lib.mkOrder 0 [
@@ -137,12 +137,12 @@
       programs.alacritty.settings.import = lib.mkIf default (lib.mkOrder 0 [
         "${config.xdg.configHome}/alacritty/catppuccin.toml"
       ]);
-      xdg.configFile."alacritty/catppuccin.toml".source =
-        lib.mkIf enable
-        "${inputs.catppuccin-alacritty}/catppuccin-mocha.toml";
+      xdg.configFile."alacritty/catppuccin.toml".source = "${inputs.catppuccin-alacritty}/catppuccin-mocha.toml";
 
       # Bottom
-      xdg.configFile."bottom/bottom.toml".source = lib.mkIf default "${inputs.catppuccin-bottom}/themes/${variant}.toml";
+      xdg.configFile."bottom/bottom.toml" = lib.mkIf default {
+        source = "${inputs.catppuccin-bottom}/themes/${variant}.toml";
+      };
 
       # Cursor
       preferences.cursor = {
@@ -168,9 +168,15 @@
           };
         };
       };
-      xdg.configFile."gtk-4.0/assets".source = lib.mkIf desktop "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-      xdg.configFile."gtk-4.0/gtk.css".source = lib.mkIf desktop "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-      xdg.configFile."gtk-4.0/gtk-dark.css".source = lib.mkIf desktop "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+      xdg.configFile."gtk-4.0/assets" = lib.mkIf desktop {
+        source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+      };
+      xdg.configFile."gtk-4.0/gtk.css" = lib.mkIf desktop {
+        source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+      };
+      xdg.configFile."gtk-4.0/gtk-dark.css" = lib.mkIf desktop {
+        source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+      };
 
       # Qt
       home.packages = with pkgs;
@@ -191,26 +197,30 @@
         platformTheme = "qtct";
         style.name = "kvantum";
       };
-      xdg.configFile."Kvantum/kvantum.kvconfig".text =
-        lib.mkIf desktop
-        (lib.generators.toINI {} {
+      xdg.configFile."Kvantum/kvantum.kvconfig" = lib.mkIf desktop {
+        text = lib.generators.toINI {} {
           General = {
             theme = "Catppuccin-${variantTitleCase}-${accentTitleCase}";
           };
-        });
-      xdg.configFile."qt5ct/qt5ct.conf".text =
+        };
+      };
+      xdg.configFile."qt5ct/qt5ct.conf" =
         lib.mkIf desktop
-        (lib.generators.toINI {} {
-          Appearance = {
-            icon_theme = "Papirus-Dark";
+        {
+          text = lib.generators.toINI {} {
+            Appearance = {
+              icon_theme = "Papirus-Dark";
+            };
           };
-        });
-      xdg.configFile."qt6ct/qt6ct.conf".text =
+        };
+      xdg.configFile."qt6ct/qt6ct.conf" =
         lib.mkIf desktop
-        (lib.generators.toINI {} {
-          Appearance = {
-            icon_theme = "Papirus-Dark";
+        {
+          text = lib.generators.toINI {} {
+            Appearance = {
+              icon_theme = "Papirus-Dark";
+            };
           };
-        });
+        };
     };
 }

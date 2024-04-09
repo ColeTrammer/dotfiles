@@ -6,7 +6,7 @@
 }: {
   options = {
     preferences.themes.tokyonight = {
-      enable = lib.mkEnableOption "tokyonight" // {default = true;};
+      enable = lib.mkEnableOption "tokyonight" // {default = config.preferences.enable;};
       default = lib.mkEnableOption "use tokyonight by default" // {default = false;};
       variant = lib.mkOption {
         type = lib.types.str;
@@ -41,12 +41,12 @@
         delta.options.syntax-theme = "tokyonight";
         extraConfig.include.path = ["${config.xdg.configHome}/delta/tokyonight.gitconfig"];
       };
-      xdg.configFile."delta/tokyonight.gitconfig".source = lib.mkIf enable "${tokyonightPlugin}/extras/delta/tokyonight_${variant}.gitconfig";
+      xdg.configFile."delta/tokyonight.gitconfig".source = "${tokyonightPlugin}/extras/delta/tokyonight_${variant}.gitconfig";
 
       # Fzf
       programs.bash.initExtra = lib.mkIf default (lib.mkOrder 0 "source ${config.xdg.configHome}/fzf/tokyonight.sh");
       programs.zsh.initExtraFirst = lib.mkIf default (lib.mkOrder 0 "source ${config.xdg.configHome}/fzf/tokyonight.sh");
-      xdg.configFile."fzf/tokyonight.sh".source = lib.mkIf enable "${tokyonightPlugin}/extras/fzf/tokyonight_${variant}.zsh";
+      xdg.configFile."fzf/tokyonight.sh".source = "${tokyonightPlugin}/extras/fzf/tokyonight_${variant}.zsh";
 
       # Tmux
       programs.tmux.plugins = lib.mkIf default (
@@ -68,9 +68,7 @@
       programs.alacritty.settings.import = lib.mkIf default (lib.mkOrder 0 [
         "${config.xdg.configHome}/alacritty/tokyonight.toml"
       ]);
-      xdg.configFile."alacritty/tokyonight.toml".source =
-        lib.mkIf enable
-        "${tokyonightPlugin}/extras/alacritty/tokyonight_${variant}.toml";
+      xdg.configFile."alacritty/tokyonight.toml".source = "${tokyonightPlugin}/extras/alacritty/tokyonight_${variant}.toml";
 
       # Kitty
       programs.kitty.theme = lib.mkIf default "Tokyo Night";
