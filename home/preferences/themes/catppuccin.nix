@@ -85,6 +85,11 @@
         };
       };
 
+      # Bottom
+      xdg.configFile."bottom/bottom.toml" = lib.mkIf default {
+        source = "${inputs.catppuccin-bottom}/themes/${variant}.toml";
+      };
+
       # Delta
       programs.git = {
         delta.options = lib.mkIf default {
@@ -139,10 +144,11 @@
       ]);
       xdg.configFile."alacritty/catppuccin.toml".source = "${inputs.catppuccin-alacritty}/catppuccin-mocha.toml";
 
-      # Bottom
-      xdg.configFile."bottom/bottom.toml" = lib.mkIf default {
-        source = "${inputs.catppuccin-bottom}/themes/${variant}.toml";
-      };
+      # Kitty
+      programs.kitty.theme = lib.mkIf default "Catppuccin-${variantTitleCase}";
+
+      # Wezterm
+      apps.wezterm.colorscheme = lib.mkIf default "Catppuccin ${variantTitleCase}";
 
       # Cursor
       preferences.cursor = {

@@ -13,6 +13,7 @@
     preferences = {
       enable = lib.mkEnableOption "preferences" // {default = true;};
       enableDesktopTheme = lib.mkEnableOption "desktop theme" // {default = config.desktop.enable;};
+      enableTerminal = lib.mkEnableOption "terminal" // {default = config.apps.enable;};
 
       theme = lib.mkOption {
         type = lib.types.str;
@@ -46,7 +47,7 @@
 
       terminal = lib.mkOption {
         type = lib.types.str;
-        default = "${pkgs.alacritty}/bin/alacritty";
+        default = "alacritty";
         description = ''Default terminal'';
       };
 
@@ -112,10 +113,13 @@
     };
 
     # Fonts
-    home.packages = [
+    home.packages = lib.mkIf (config.preferences.enableDesktopTheme || config.preferences.enableTerminal) [
       config.preferences.font.package
     ];
     fonts.fontconfig.enable = config.preferences.enableDesktopTheme;
+
+    # Terminal
+    apps.${config.preferences.terminal}.enable = true;
 
     # Cursor
     home.pointerCursor = lib.mkIf config.preferences.enableDesktopTheme {
