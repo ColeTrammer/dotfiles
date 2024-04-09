@@ -47,7 +47,7 @@
 
       terminal = lib.mkOption {
         type = lib.types.str;
-        default = "alacritty";
+        default = "kitty";
         description = ''Default terminal'';
       };
 
@@ -66,13 +66,15 @@
       font = {
         package = lib.mkOption {
           type = lib.types.package;
-          default = pkgs.fira-code-nerdfont;
+          default = pkgs.nerdfonts.override {
+            fonts = ["JetBrainsMono"];
+          };
           description = ''Default font package'';
         };
 
         name = lib.mkOption {
           type = lib.types.str;
-          default = "FiraCode Nerd Font";
+          default = "JetBrainsMono Nerd Font";
           description = ''Default font name'';
         };
 
