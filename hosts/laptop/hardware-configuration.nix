@@ -5,6 +5,7 @@
   config,
   lib,
   modulesPath,
+  pkgs,
   ...
 }: {
   imports = [
@@ -14,6 +15,7 @@
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" "hid_roccat_isku"];
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-intel"];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

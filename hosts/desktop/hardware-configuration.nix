@@ -2,6 +2,7 @@
   config,
   lib,
   modulesPath,
+  pkgs,
   ...
 }: {
   imports = [
@@ -11,6 +12,7 @@
   boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "hid_roccat_isku"];
   boot.initrd.kernelModules = ["amdgpu"];
   boot.kernelModules = ["kvm-amd"];
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [];
 
   networking.useDHCP = lib.mkDefault true;
