@@ -12,6 +12,7 @@
     ./git.nix
     ./hyperfine.nix
     ./lf.nix
+    ./nh.nix
     ./nix.nix
     ./pistol.nix
     ./ripgrep.nix
