@@ -56,8 +56,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    neovim-flake = {
+      url = "github:neovim/neovim/18ee9f9e7dbbc9709ee9c1572870b4ad31443569?dir=contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
+      inputs.neovim-flake.follows = "neovim-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     catppuccin-alacritty = {

@@ -30,11 +30,9 @@
       viAlias = true;
       vimdiffAlias = true;
 
-      # Node JS is required for GitHub copilot.
       # wl-clipboard is required for copy/paste to work on wayland desktops.
       # nil and alejandra are installed so that we can setup nix dev environments while still having formatting + LSP.
       extraPackages = with pkgs; [
-        nodejs_21
         wl-clipboard
         nil
         alejandra
