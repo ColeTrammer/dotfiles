@@ -62,16 +62,6 @@
             popups = true;
           };
         };
-        exec-once = [
-          "xwaylandvideobridge"
-        ];
-        windowrulev2 = [
-          # Hide xwaylandvideobridge
-          "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
-          "noanim,class:^(xwaylandvideobridge)$"
-          "nofocus,class:^(xwaylandvideobridge)$"
-          "noinitialfocus,class:^(xwaylandvideobridge)$"
-        ];
         bind =
           [
             "$mod, return, exec, ${config.preferences.terminal}"

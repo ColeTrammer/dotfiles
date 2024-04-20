@@ -15,6 +15,7 @@
   config = lib.mkIf config.apps.discord.enable {
     home.packages = with pkgs; [
       discord
+      vesktop
     ];
 
     home.persistence."/persist/home" = {
@@ -22,6 +23,10 @@
       directories = [
         {
           directory = ".config/discord";
+          method = "symlink";
+        }
+        {
+          directory = ".config/vesktop";
           method = "symlink";
         }
       ];
