@@ -13,6 +13,7 @@
   apps = {
     enable = true;
     steam.enable = true;
+    vscode.enable = true;
   };
 
   desktop.enable = true;

@@ -6,6 +6,7 @@
     ./kitty.nix
     ./spotify.nix
     ./steam.nix
+    ./vlc.nix
     ./vscode.nix
     ./wezterm.nix
   ];
