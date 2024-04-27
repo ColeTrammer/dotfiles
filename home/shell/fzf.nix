@@ -43,6 +43,11 @@
       changeDirWidgetOptions = ["--preview '${config.preferences.previewer} {}'"];
       fileWidgetCommand = "${fd} --hidden --strip-cwd-prefix --exclude .git";
       fileWidgetOptions = ["--preview '${config.preferences.previewer} {}'"];
+      historyWidgetOptions = [
+        "--preview '${config.preferences.pager} -lsh <<<\\\${2..} || echo -n \\\${2..}'"
+        "--preview-window up:5:hidden:wrap"
+        "--bind 'ctrl-/:toggle-preview'"
+      ];
     };
 
     programs.bash.initExtra =
