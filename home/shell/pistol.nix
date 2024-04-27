@@ -38,5 +38,10 @@
         }
       ];
     };
+
+    home.packages = with pkgs; [
+      chafa
+      termplay
+    ];
   };
 }

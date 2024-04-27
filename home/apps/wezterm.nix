@@ -31,9 +31,9 @@
           scrollback_lines = 10000,
           default_prog = { '${config.preferences.shell}' },
           window_padding = {
-            left = 4,
-            right = 4,
-            top = 16,
+            left = 0,
+            right = 0,
+            top = 0,
             bottom = 0,
           },
           keys = {
