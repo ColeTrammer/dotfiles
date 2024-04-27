@@ -100,6 +100,22 @@
         "type": "github"
       }
     },
+    "catppuccin-zsh-fsh": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1712662944,
+        "narHash": "sha256-qd/+MHmgP+dOnYm6meSu5oCZ/TunCWGHnHqAXm79ERw=",
+        "owner": "catppuccin",
+        "repo": "zsh-fsh",
+        "rev": "dd7baca6e0e943f36d1a6721820346e91f25065f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "zsh-fsh",
+        "type": "github"
+      }
+    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -767,6 +783,7 @@
         "catppuccin-bottom": "catppuccin-bottom",
         "catppuccin-delta": "catppuccin-delta",
         "catppuccin-tmux": "catppuccin-tmux",
+        "catppuccin-zsh-fsh": "catppuccin-zsh-fsh",
         "disko": "disko",
         "flake-parts": "flake-parts",
         "flake-root": "flake-root",

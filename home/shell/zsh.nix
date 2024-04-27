@@ -1,6 +1,6 @@
 {
-  lib,
   config,
+  lib,
   pkgs,
   ...
 }: {
@@ -35,21 +35,33 @@
         expireDuplicatesFirst = true;
         path = "${config.xdg.dataHome}/zsh/zsh_history";
       };
-      syntaxHighlighting = {
-        enable = true;
-      };
       initExtra = ''
-        source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
-
         source ~/.config/zsh/zsh-settings.zsh
       '';
-      plugins = lib.mkIf config.shell.zsh.enableNixShellPlugin [
-        {
-          name = "zsh-nix-shell";
-          file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
-          src = pkgs.zsh-nix-shell;
-        }
-      ];
+      plugins =
+        [
+          {
+            name = "fast-syntax-highlighting";
+            file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
+            src = pkgs.zsh-fast-syntax-highlighting;
+          }
+          {
+            name = "fzf-tab";
+            file = "share/fzf-tab/fzf-tab.plugin.zsh";
+            src = pkgs.zsh-fzf-tab;
+          }
+        ]
+        ++ (
+          if config.shell.zsh.enableNixShellPlugin
+          then [
+            {
+              name = "nix-shell";
+              file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
+              src = pkgs.zsh-nix-shell;
+            }
+          ]
+          else []
+        );
     };
 
     home.file.".config/zsh/zsh-settings.zsh".source = ./zsh-settings.zsh;

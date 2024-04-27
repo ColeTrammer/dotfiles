@@ -138,6 +138,14 @@
         }
       ]);
 
+      # Zsh fast syntax highlighting
+      programs.zsh.initExtra = lib.mkIf default ''
+        # Set syntax highlighting theme
+        # This should be doable at build time, since this trys to write a default theme file...
+        fast-theme XDG:catppuccin-${variant} >/dev/null 2>/dev/null
+      '';
+      xdg.configFile."fsh".source = "${inputs.catppuccin-zsh-fsh}/themes";
+
       # Alacritty
       programs.alacritty.settings.import = lib.mkIf default (lib.mkOrder 0 [
         "${config.xdg.configHome}/alacritty/catppuccin.toml"

@@ -15,6 +15,8 @@
   config = lib.mkIf config.shell.fzf.enable (let
     fd = "${pkgs.fd}/bin/fd";
     fzf-custom = ''
+      export FZF_DEFAULT_OPTS="--bind ctrl-u:preview-page-up --bind ctrl-d:preview-page-down --bind ctrl-/:toggle-preview $FZF_DEFAULT_OPTS"
+
       _fzf_compgen_path() {
         ${fd} --hidden --exclude .git . "$1"
       }
@@ -46,19 +48,18 @@
       historyWidgetOptions = [
         "--preview '${config.preferences.pager} -lsh <<<\\\${2..} || echo -n \\\${2..}'"
         "--preview-window up:5:hidden:wrap"
-        "--bind 'ctrl-/:toggle-preview'"
       ];
     };
 
-    programs.bash.initExtra =
+    programs.bash.initExtra = lib.mkOrder 1 (''
+        source ${pkgs.fzf-git-sh}/share/fzf-git-sh/fzf-git.sh
+      ''
+      + fzf-custom);
+    programs.zsh.initExtraFirst = lib.mkOrder 1 (
       ''
         source ${pkgs.fzf-git-sh}/share/fzf-git-sh/fzf-git.sh
       ''
-      + fzf-custom;
-    programs.zsh.initExtra =
-      ''
-        source ${pkgs.fzf-git-sh}/share/fzf-git-sh/fzf-git.sh
-      ''
-      + fzf-custom;
+      + fzf-custom
+    );
   });
 }

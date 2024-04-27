@@ -26,7 +26,7 @@
     };
 
     home.sessionVariables = {
-      BAT_PAGER = "less";
+      BAT_PAGER = "less -IFSR --mouse";
     };
   };
 }

@@ -92,6 +92,11 @@
       flake = false;
     };
 
+    catppuccin-zsh-fsh = {
+      url = "github:catppuccin/zsh-fsh";
+      flake = false;
+    };
+
     lf = {
       url = "github:gokcehan/lf";
       flake = false;
