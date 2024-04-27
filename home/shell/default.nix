@@ -17,6 +17,7 @@
     ./pistol.nix
     ./ripgrep.nix
     ./starship.nix
+    ./tldr.nix
     ./tmux.nix
     ./zoxide.nix
     ./zsh.nix
