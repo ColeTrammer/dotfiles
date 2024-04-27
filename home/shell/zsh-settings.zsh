@@ -63,6 +63,8 @@ bindkey '^D' exit_zsh
 ### FZF
 ###
 fzf-tmux-pos() {
+  unsetopt localoptions ksh_arrays
+
   local xmax=120
   local ymax=30
 
@@ -97,8 +99,12 @@ fzf-tmux-pos() {
 
 __fzfcmd() {
   if [ -z "$TMUX" ]; then
-    echo fzf
+    echo /usr/bin/env fzf
   else
     echo fzf-tmux-pos
   fi
+}
+
+function fzf() {
+  $(__fzfcmd) "$@"
 }

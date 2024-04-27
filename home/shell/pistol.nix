@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   options = {
@@ -22,6 +23,10 @@
         {
           mime = "text/*";
           command = "${config.preferences.pager} %pistol-filename%";
+        }
+        {
+          mime = "inode/directory";
+          command = "${pkgs.eza}/bin/eza --tree --git --icons --group-directories-first --color=always %pistol-filename%";
         }
       ];
     };
