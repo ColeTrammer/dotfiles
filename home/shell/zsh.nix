@@ -41,14 +41,14 @@
       plugins =
         [
           {
-            name = "fast-syntax-highlighting";
-            file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
-            src = pkgs.zsh-fast-syntax-highlighting;
-          }
-          {
             name = "fzf-tab";
             file = "share/fzf-tab/fzf-tab.plugin.zsh";
             src = pkgs.zsh-fzf-tab;
+          }
+          {
+            name = "fast-syntax-highlighting";
+            file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
+            src = pkgs.zsh-fast-syntax-highlighting;
           }
         ]
         ++ (

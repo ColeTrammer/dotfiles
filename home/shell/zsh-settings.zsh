@@ -99,6 +99,11 @@ zstyle ':fzf-tab:*' popup-min-size 80 20
 zstyle ':fzf-tab:*' popup-pad 120 0
 
 ###
+### Syntax highlighting
+###
+zle_highlight=('paste:none')
+
+###
 ### FZF
 ###
 fzf-tmux-pos() {
