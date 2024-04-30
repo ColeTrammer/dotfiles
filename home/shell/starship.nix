@@ -4,11 +4,14 @@
   ...
 }: {
   options = {
-    shell.starship.enable =
-      lib.mkEnableOption "starship"
-      // {
-        default = config.shell.enable;
-      };
+    shell.starship = {
+      enable =
+        lib.mkEnableOption "starship"
+        // {
+          default = config.shell.enable;
+        };
+      localIp = lib.mkEnableOption "show local ip over hostname";
+    };
   };
 
   config = lib.mkIf config.shell.starship.enable {
@@ -19,6 +22,193 @@
         command_timeout = 1000;
         format = "$character";
         right_format = "$all";
+        add_newline = false;
+
+        # Module config
+        aws.disabled = true;
+        localip.disabled = config.shell.starship.localIp;
+        hostname.disabled = !config.shell.starship.localIp;
+        nix_shell = {
+          style = "bold cyan";
+          format = "via [$symbol$name]($style) ";
+        };
+        directory = {
+          style = "bold blue";
+        };
+
+        # No runtime versions preset + color overrides.
+        bun = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        buf = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        cmake = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        cobol = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        crystal = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        daml = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        dart = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        deno = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        dotnet = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        elixir = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        elm = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        erlang = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        fennel = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        golang = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        gradle = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        haxe = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        helm = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        java = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        julia = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        kotlin = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        lua = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        meson = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        nim = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        nodejs = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        ocaml = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        opa = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        perl = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        php = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        pulumi = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        purescript = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        python = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        quarto = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        raku = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        red = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        rlang = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        ruby = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        rust = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        solidity = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        typst = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        swift = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        vagrant = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        vlang = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
+        zig = {
+          format = "via [$symbol]($style)";
+          style = "bold cyan";
+        };
 
         # NerdFont preset
         aws.symbol = "  ";
