@@ -84,6 +84,22 @@
         "type": "github"
       }
     },
+    "catppuccin-palette": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1711407638,
+        "narHash": "sha256-JxwBb2JtDBVm8JPeshQfnjwEPZRbUqgKlDHybJ7LQrs=",
+        "owner": "catppuccin",
+        "repo": "palette",
+        "rev": "408f081b6402d5d17b8324b75c6db5998100757d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "palette",
+        "type": "github"
+      }
+    },
     "catppuccin-tmux": {
       "flake": false,
       "locked": {
@@ -782,6 +798,7 @@
         "catppuccin-bat": "catppuccin-bat",
         "catppuccin-bottom": "catppuccin-bottom",
         "catppuccin-delta": "catppuccin-delta",
+        "catppuccin-palette": "catppuccin-palette",
         "catppuccin-tmux": "catppuccin-tmux",
         "catppuccin-zsh-fsh": "catppuccin-zsh-fsh",
         "disko": "disko",

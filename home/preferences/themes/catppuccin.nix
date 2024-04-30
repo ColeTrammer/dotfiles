@@ -16,7 +16,7 @@
       };
       accent = lib.mkOption {
         type = lib.types.str;
-        default = "peach";
+        default = "lavender";
         description = ''Color scheme accent'';
       };
     };
@@ -71,6 +71,10 @@
     variantLength = builtins.stringLength variant;
     variantRest = builtins.substring 1 (variantLength - 1) variant;
     variantTitleCase = variantUpperFirstLetter + variantRest;
+
+    colors = builtins.fromJSON (builtins.readFile "${inputs.catppuccin-palette}/palette.json");
+    crustColor = colors.${variant}.colors.crust.hex;
+    accentColor = colors.${variant}.colors.${accent}.hex;
   in
     lib.mkIf enable {
       # Bat
@@ -86,9 +90,7 @@
       };
 
       # Bottom
-      xdg.configFile."bottom/bottom.toml" = lib.mkIf default {
-        source = "${inputs.catppuccin-bottom}/themes/${variant}.toml";
-      };
+      programs.bottom.settings = lib.mkIf default (builtins.fromTOML (builtins.readFile "${inputs.catppuccin-bottom}/themes/${variant}.toml"));
 
       # Delta
       programs.git = {
@@ -116,6 +118,8 @@
             set -g @catppuccin_window_middle_separator "█ "
             set -g @catppuccin_window_status_enable "yes"
             set -g @catppuccin_window_status_icon_enable "yes"
+            set -g @catppuccin_window_default_text "#{window_name}"
+            set -g @catppuccin_window_current_text "#{window_name}"
 
             set -g @catppuccin_icon_window_last "󰖰 "
             set -g @catppuccin_icon_window_current "󰖯 "
@@ -125,10 +129,9 @@
             set -g @catppuccin_icon_window_activity "󱅫 "
             set -g @catppuccin_icon_window_bell "󰂞 "
 
-            set -g @catppuccin_window_default_text "#{window_name}"
-            set -g @catppuccin_window_current_text "#{window_name}"
+            set -g @catppuccin_pane_active_border_style "fg=${accentColor}"
 
-            set -g @catppuccin_status_background "#11111b"
+            set -g @catppuccin_status_background "${crustColor}"
             set -g @catppuccin_status_modules_right "host session"
             set -g @catppuccin_status_left_separator "█"
             set -g @catppuccin_status_right_separator "█"

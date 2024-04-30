@@ -92,6 +92,11 @@
       flake = false;
     };
 
+    catppuccin-palette = {
+      url = "github:catppuccin/palette";
+      flake = false;
+    };
+
     catppuccin-zsh-fsh = {
       url = "github:catppuccin/zsh-fsh";
       flake = false;
