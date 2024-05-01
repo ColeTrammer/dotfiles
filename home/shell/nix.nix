@@ -7,9 +7,8 @@
     package = lib.mkDefault pkgs.nix;
 
     settings = {
-      experimental-features = ["nix-command" "flakes" "repl-flake"];
+      experimental-features = ["nix-command" "flakes"];
       warn-dirty = false;
-      auto-optimise-store = true;
     };
 
     gc = {
