@@ -11,10 +11,13 @@
   config = lib.mkIf config.apps.steam.enable {
     home.packages = with pkgs; [
       steam-run
-      gamescope
       mangohud
-      gamemode
+      protonup
     ];
+
+    home.sessionVariables = {
+      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\\\${HOME}/.steam/root/compatibilitytools.d";
+    };
 
     home.persistence."/persist/home" = {
       allowOther = true;

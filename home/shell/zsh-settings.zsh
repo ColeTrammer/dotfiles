@@ -109,8 +109,8 @@ zle_highlight=('paste:none')
 fzf-tmux-pos() {
   unsetopt localoptions ksh_arrays
 
-  local xmax=120
-  local ymax=30
+  local xmax=200
+  local ymax=40
 
   local pos x y w h l
   pos=(

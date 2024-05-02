@@ -33,8 +33,15 @@
 
             # Module config
             aws.disabled = true;
-            localip.disabled = !config.shell.starship.localIp;
-            hostname.disabled = config.shell.starship.localIp;
+            localip = {
+              disabled = !config.shell.starship.localIp;
+              format = "[$localipv4]($style) in ";
+            };
+            hostname = {
+              disabled = config.shell.starship.localIp;
+              ssh_only = false;
+              detect_env_vars = ["!TMUX" "SSH_CONNECTION"];
+            };
             username.disabled = true;
             nix_shell = {
               style = "bold cyan";

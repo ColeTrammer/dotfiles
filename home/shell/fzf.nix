@@ -47,7 +47,7 @@
       fileWidgetOptions = ["--preview '${config.preferences.previewer} {}'"];
       historyWidgetOptions = [
         "--preview '${config.preferences.pager} -lsh <<<\\\${2..} || echo -n \\\${2..}'"
-        "--preview-window up:5:hidden:wrap"
+        "--preview-window wrap"
       ];
     };
 
