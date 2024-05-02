@@ -47,6 +47,9 @@
               style = "bold cyan";
               format = "via [$symbol$name]($style) ";
             };
+            c = {
+              format = "via [$symbol]($style)";
+            };
             directory = {
               style = "bold blue";
             };
