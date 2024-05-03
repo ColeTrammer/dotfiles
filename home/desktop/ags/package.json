@@ -1,0 +1,13 @@
+{
+  "name": "coletrammer-ags-dotfiles",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -noEmit && esbuild src/config.ts --bundle --outfile=config.js --format=esm"
+  },
+  "devDependencies": {
+    "esbuild": "^0.20.2",
+    "typescript": "^5.2.2"
+  }
+}

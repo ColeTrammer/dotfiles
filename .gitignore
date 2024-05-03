@@ -1,3 +1,6 @@
 result
 .direnv
 .fuse_hidden*
+home/desktop/ags/types
+home/desktop/ags/node_modules
+home/desktop/ags/config.js

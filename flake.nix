@@ -152,7 +152,9 @@
               pkgs.marksman
               pkgs.markdownlint-cli
               pkgs.taplo
+              pkgs.nodePackages_latest.npm
               pkgs.nodePackages_latest.typescript-language-server
+              pkgs.nodejs
               (pkgs.writeShellScriptBin
                 "vscode-json-language-server"
                 ''${pkgs.nodePackages_latest.vscode-json-languageserver}/bin/vscode-json-languageserver "$@"'')
