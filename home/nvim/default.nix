@@ -53,8 +53,14 @@
     home.persistence."/persist/home" = {
       allowOther = true;
       directories = [
-        ".local/state/nvim"
-        ".local/share/nvim"
+        {
+          directory = ".local/state/nvim";
+          method = "symlink";
+        }
+        {
+          directory = ".local/share/nvim";
+          method = "symlink";
+        }
       ];
     };
   };
