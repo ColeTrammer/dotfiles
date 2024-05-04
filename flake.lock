@@ -116,6 +116,22 @@
         "type": "github"
       }
     },
+    "catppuccin-zathura": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1712249512,
+        "narHash": "sha256-/vD/hOi6KcaGyAp6Az7jL5/tQSGRzIrf0oHjAJf4QbI=",
+        "owner": "catppuccin",
+        "repo": "zathura",
+        "rev": "0adc53028d81bf047461bc61c43a484d11b15220",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "zathura",
+        "type": "github"
+      }
+    },
     "catppuccin-zsh-fsh": {
       "flake": false,
       "locked": {
@@ -800,6 +816,7 @@
         "catppuccin-delta": "catppuccin-delta",
         "catppuccin-palette": "catppuccin-palette",
         "catppuccin-tmux": "catppuccin-tmux",
+        "catppuccin-zathura": "catppuccin-zathura",
         "catppuccin-zsh-fsh": "catppuccin-zsh-fsh",
         "disko": "disko",
         "flake-parts": "flake-parts",

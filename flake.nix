@@ -97,6 +97,11 @@
       flake = false;
     };
 
+    catppuccin-zathura = {
+      url = "github:catppuccin/zathura";
+      flake = false;
+    };
+
     catppuccin-zsh-fsh = {
       url = "github:catppuccin/zsh-fsh";
       flake = false;

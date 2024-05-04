@@ -161,6 +161,12 @@
       # Wezterm
       apps.wezterm.colorscheme = lib.mkIf default "Catppuccin ${variantTitleCase}";
 
+      # Zathura
+      xdg.configFile."zathura/catppuccin-${variant}".source = "${inputs.catppuccin-zathura}/src/catppuccin-${variant}";
+      programs.zathura.extraConfig = lib.mkIf default ''
+        include catppuccin-${variant}
+      '';
+
       # Cursor
       preferences.cursor = {
         package = pkgs.catppuccin-cursors.mochaDark;

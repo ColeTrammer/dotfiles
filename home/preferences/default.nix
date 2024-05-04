@@ -14,6 +14,7 @@
       enable = lib.mkEnableOption "preferences" // {default = true;};
       enableDesktopTheme = lib.mkEnableOption "desktop theme" // {default = config.desktop.enable;};
       enableTerminal = lib.mkEnableOption "terminal" // {default = config.apps.enable;};
+      enableDocumentViewer = lib.mkEnableOption "document viewer" // {default = config.apps.enable;};
 
       theme = lib.mkOption {
         type = lib.types.str;
@@ -49,6 +50,12 @@
         type = lib.types.str;
         default = "kitty";
         description = ''Default terminal'';
+      };
+
+      documentViewer = lib.mkOption {
+        type = lib.types.str;
+        default = "zathura";
+        description = ''Default document viewer'';
       };
 
       editor = lib.mkOption {
@@ -123,6 +130,12 @@
     # Terminal
     apps.${config.preferences.terminal}.enable = true;
 
+    # Document viewer
+    apps.${config.preferences.documentViewer}.enable = true;
+    xdg.mimeApps = {
+      defaultApplications."application/pdf" = ["${config.preferences.documentViewer}.desktop"];
+    };
+
     # Cursor
     home.pointerCursor = lib.mkIf config.preferences.enableDesktopTheme {
       package = config.preferences.cursor.package;
@@ -151,7 +164,7 @@
       };
     };
 
-    # Customer nix theme
+    # Custom nix theme
     preferences.themes.${config.preferences.theme} = {
       enable = true;
       default = true;
