@@ -14,12 +14,9 @@
     ./hyprlock.nix
     ./impermanence.nix
     ./keyring.nix
-    ./mako.nix
     ./rofi.nix
     ./udiskie.nix
     ./warp.nix
-    ./waybar.nix
-    ./wlogout.nix
   ];
 
   options = {
