@@ -16,7 +16,7 @@
     previewDir = pkgs.writeShellScript "preview-dir.sh" ''
       # NOTE: unset LS_COLORS to have consistent theming even on non-NixOS systems.
       export LS_COLORS=""
-      ${pkgs.eza}/bin/eza --tree --git --icons --group-directories-first --color=always "$@"
+      ${pkgs.eza}/bin/eza --tree --git --icons --group-directories-first --level=2 --color=always "$@"
     '';
   in
     lib.mkIf config.shell.pistol.enable {

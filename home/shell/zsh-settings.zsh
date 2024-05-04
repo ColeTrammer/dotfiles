@@ -85,14 +85,12 @@ zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
 	esac'
 # general preview
 zstyle ':fzf-tab:complete:*:*' fzf-preview 'pistol ${(Q)realpath} 2>/dev/null || echo "$word"'
-zstyle ':fzf-tab:complete:*:options' fzf-preview 
+zstyle ':fzf-tab:complete:*:options' fzf-preview
 zstyle ':fzf-tab:complete:*:argument-1' fzf-preview
 # switch group using `[` and `]`
 zstyle ':fzf-tab:*' switch-group '[' ']'
 # fzf default options
 zstyle ':fzf-tab:*' fzf-flags `echo $FZF_DEFAULT_OPTS`
-# use tab for continuous completions
-zstyle ':fzf-tab:*' continuous-trigger 'tab'
 # tmux popup support
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 zstyle ':fzf-tab:*' popup-min-size 80 20
