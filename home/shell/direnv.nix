@@ -19,7 +19,12 @@
 
     home.persistence."/persist/home" = {
       allowOther = true;
-      directories = [".local/share/direnv"];
+      directories = [
+        {
+          directory = ".local/share/direnv";
+          method = "symlink";
+        }
+      ];
     };
   };
 }

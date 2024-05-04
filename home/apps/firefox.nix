@@ -23,7 +23,14 @@
     home.persistence."/persist/home" = {
       allowOther = true;
       directories = [
-        ".mozilla"
+        {
+          directory = ".mozilla/extensions";
+          method = "symlink";
+        }
+        {
+          directory = ".mozilla/firefox";
+          method = "symlink";
+        }
       ];
     };
   };

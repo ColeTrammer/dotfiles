@@ -16,8 +16,14 @@
     home.persistence."/persist/home" = {
       allowOther = true;
       directories = [
-        ".vscode"
-        ".config/Code"
+        {
+          directory = ".vscode";
+          method = "symlink";
+        }
+        {
+          directory = ".config/Code";
+          method = "symlink";
+        }
       ];
     };
   };

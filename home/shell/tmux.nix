@@ -115,7 +115,12 @@
 
     home.persistence."/persist/home" = {
       allowOther = true;
-      directories = [".tmux"];
+      directories = [
+        {
+          directory = ".tmux";
+          method = "symlink";
+        }
+      ];
     };
 
     programs.bash.initExtra =

@@ -22,7 +22,12 @@
 
     home.persistence."/persist/home" = {
       allowOther = true;
-      directories = [".local/share/zoxide"];
+      directories = [
+        {
+          directory = ".local/share/zoxide";
+          method = "symlink";
+        }
+      ];
     };
   };
 }

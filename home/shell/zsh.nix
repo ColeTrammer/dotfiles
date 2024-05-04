@@ -69,7 +69,10 @@
     home.persistence."/persist/home" = {
       allowOther = true;
       directories = [
-        ".local/share/zsh"
+        {
+          directory = ".local/share/zsh";
+          method = "symlink";
+        }
       ];
     };
   };

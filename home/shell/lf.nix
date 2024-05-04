@@ -107,7 +107,10 @@
     home.persistence."/persist/home" = {
       allowOther = true;
       directories = [
-        ".local/share/lf"
+        {
+          directory = ".local/share/lf";
+          method = "symlink";
+        }
       ];
     };
   };
