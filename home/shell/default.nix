@@ -7,6 +7,7 @@
     ./direnv.nix
     ./duf.nix
     ./eza.nix
+    ./fastfetch.nix
     ./fd.nix
     ./fzf.nix
     ./git.nix
