@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   ...
@@ -12,10 +11,6 @@
     fi
   '';
 in {
-  imports = [
-    inputs.hypridle.homeManagerModules.default
-  ];
-
   options = {
     desktop.hypridle.enable =
       lib.mkEnableOption "Hypridle"
@@ -27,25 +22,29 @@ in {
   config = lib.mkIf config.desktop.hypridle.enable {
     services.hypridle = {
       enable = true;
-      beforeSleepCmd = "${pkgs.systemd}/bin/loginctl lock-session";
-      afterSleepCmd = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
-      lockCmd = "${pkgs.procps}/bin/pidof hyprlock || ${lib.getExe config.programs.hyprlock.package}";
+      settings = {
+        general = {
+          before_sleep_cmd = "${pkgs.systemd}/bin/loginctl lock-session";
+          after_sleep_cmd = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
+          lock_cmd = "${pkgs.procps}/bin/pidof hyprlock || ${lib.getExe config.programs.hyprlock.package}";
+        };
 
-      listeners = [
-        {
-          timeout = 300;
-          onTimeout = "${onlyIfNoAudio} ${pkgs.systemd}/bin/loginctl lock-session";
-        }
-        {
-          timeout = 380;
-          onTimeout = "${onlyIfNoAudio} ${pkgs.hyprland}/bin/hyprctl dispatch dpms off";
-          onResume = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
-        }
-        {
-          timeout = 1800;
-          onTimeout = "${onlyIfNoAudio} ${pkgs.systemd}/bin/systemctl suspend";
-        }
-      ];
+        listeners = [
+          {
+            timeout = 300;
+            on-timeout = "${onlyIfNoAudio} ${pkgs.systemd}/bin/loginctl lock-session";
+          }
+          {
+            timeout = 380;
+            on-timeout = "${onlyIfNoAudio} ${pkgs.hyprland}/bin/hyprctl dispatch dpms off";
+            onResume = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
+          }
+          {
+            timeout = 1800;
+            on-timeout = "${onlyIfNoAudio} ${pkgs.systemd}/bin/systemctl suspend";
+          }
+        ];
+      };
     };
   };
 }

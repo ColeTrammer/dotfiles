@@ -31,7 +31,7 @@
     };
 
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
 
     hyprland-plugins = {
@@ -41,10 +41,6 @@
 
     hyprlock = {
       url = "github:hyprwm/hyprlock";
-    };
-
-    hypridle = {
-      url = "github:hyprwm/hypridle";
     };
 
     hyprpaper = {
