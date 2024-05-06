@@ -9,7 +9,13 @@ const battery = await Service.import("battery");
 const systemtray = await Service.import("systemtray");
 
 const date = Variable("", {
-  poll: [1000, 'date "+%H:%M:%S %b %e."'],
+  poll: [
+    1000,
+    () => {
+      const now = new Date();
+      return now.toLocaleTimeString();
+    },
+  ],
 });
 
 // widgets can be only assigned as a child in one container
@@ -19,7 +25,7 @@ const date = Variable("", {
 function Workspaces() {
   const activeId = hyprland.active.workspace.bind("id");
   const workspaces = hyprland.bind("workspaces").as((ws) =>
-    ws.map(({ id }) =>
+    ws.sort().map(({ id }) =>
       Widget.Button({
         on_clicked: () => hyprland.messageAsync(`dispatch workspace ${id}`),
         child: Widget.Label(`${id}`),
@@ -134,9 +140,7 @@ function Volume() {
 
 function BatteryLabel() {
   const value = battery.bind("percent").as((p) => (p > 0 ? p / 100 : 0));
-  const icon = battery
-    .bind("percent")
-    .as((p) => `battery-level-${Math.floor(p / 10) * 10}-symbolic`);
+  const icon = battery.bind("icon_name");
 
   return Widget.Box({
     class_name: "battery",
