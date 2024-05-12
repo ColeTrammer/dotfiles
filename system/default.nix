@@ -9,6 +9,7 @@
     inputs.impermanence.nixosModules.impermanence
     ./audio.nix
     ./docker.nix
+    ./docs.nix
     ./greetd.nix
     ./hyprland.nix
     ./i18n.nix

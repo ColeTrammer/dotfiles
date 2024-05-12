@@ -25,6 +25,7 @@
   programs.zsh.enable = true;
   steam.enable = true;
   docker.enable = true;
+  docs.enable = true;
 
   plymouth.dpi = 2.0;
 
