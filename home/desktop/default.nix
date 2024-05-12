@@ -12,6 +12,7 @@
     ./hypridle.nix
     ./hyprland.nix
     ./hyprlock.nix
+    ./hyprpaper.nix
     ./impermanence.nix
     ./keyring.nix
     ./rofi.nix
