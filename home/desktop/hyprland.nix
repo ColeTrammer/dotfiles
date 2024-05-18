@@ -1,8 +1,6 @@
 {
   config,
-  inputs,
   lib,
-  pkgs,
   ...
 }: {
   options = {
@@ -16,7 +14,6 @@
   config = lib.mkIf config.desktop.hyprland.enable {
     wayland.windowManager.hyprland = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       settings = {
         "$mod" = "SUPER";
         monitor = [

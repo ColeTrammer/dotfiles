@@ -29,11 +29,6 @@
     default = config.preferences.themes.catppuccin.default;
     desktop = config.preferences.enableDesktopTheme && default;
 
-    catppuccin-tmux = pkgs.tmuxPlugins.catppuccin.overrideAttrs (prev: {
-      version = "git";
-      src = inputs.catppuccin-tmux;
-    });
-
     fzfOptions = {
       latte = ''
         export FZF_DEFAULT_OPTS=" \
@@ -109,7 +104,7 @@
       # Tmux
       programs.tmux.plugins = lib.mkIf default (lib.mkOrder 0 [
         {
-          plugin = catppuccin-tmux;
+          plugin = pkgs.tmuxPlugins.catppuccin;
           extraConfig = ''
             set -g @catppuccin_window_separator " "
             set -g @catppuccin_window_left_separator "█"

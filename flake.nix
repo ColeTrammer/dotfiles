@@ -30,46 +30,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-    };
-
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    hyprlock = {
-      url = "github:hyprwm/hyprlock";
-    };
-
-    hyprpaper = {
-      url = "github:hyprwm/hyprpaper";
-    };
-
     ags = {
       url = "github:Aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    neovim-flake = {
-      url = "github:neovim/neovim/18ee9f9e7dbbc9709ee9c1572870b4ad31443569?dir=contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs.neovim-flake.follows = "neovim-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     catppuccin-alacritty = {
       url = "github:catppuccin/alacritty";
-      flake = false;
-    };
-
-    catppuccin-tmux = {
-      url = "github:catppuccin/tmux";
       flake = false;
     };
 
