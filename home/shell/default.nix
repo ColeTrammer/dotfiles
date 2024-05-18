@@ -12,6 +12,7 @@
     ./fzf.nix
     ./git.nix
     ./hyperfine.nix
+    ./just.nix
     ./lf.nix
     ./nh.nix
     ./nix.nix
