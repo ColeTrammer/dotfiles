@@ -1,4 +1,8 @@
 {
+  "Comment.nvim": {
+    "branch": "master",
+    "commit": "0236521ea582747b58869cb72f70ccfa967d2e89"
+  },
   "LazyVim": {
     "branch": "main",
     "commit": "90809599810a46fb7b7e6e9eb8c2591f317aeacd"
@@ -47,6 +51,10 @@
     "branch": "master",
     "commit": "5182c09ac8085dc73b78ad0ea9f5479c9a866fc4"
   },
+  "dial.nvim": {
+    "branch": "master",
+    "commit": "27eb570085db2ef44bff4f620d3806039184651c"
+  },
   "dressing.nvim": {
     "branch": "master",
     "commit": "572314728cb1ce012e825fd66331f52c94acac12"
@@ -91,9 +99,21 @@
     "branch": "main",
     "commit": "49ff59aded1047a773670651cfa40e76e63c6377"
   },
+  "mini.ai": {
+    "branch": "main",
+    "commit": "a0262e61f79dfc7bb940d1719c00b0ede042ddd7"
+  },
+  "mini.hipatterns": {
+    "branch": "main",
+    "commit": "088bbfef23e17934080f125751a94a2758ba7fdf"
+  },
   "mini.pairs": {
     "branch": "main",
     "commit": "5c975d8f68dc1e11bf4b20ced71e7987ed782513"
+  },
+  "mini.surround": {
+    "branch": "main",
+    "commit": "c52aa751daf62d4a9e6ee24c4a91882ef6842f99"
   },
   "neo-tree.nvim": {
     "branch": "v3.x",
