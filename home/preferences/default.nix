@@ -90,6 +90,11 @@
           default = 12.0;
           description = ''Default font size'';
         };
+        size_int = lib.mkOption {
+          type = lib.types.int;
+          default = 12;
+          description = ''Default font size (as int)'';
+        };
       };
 
       cursor = {

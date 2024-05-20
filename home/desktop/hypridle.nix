@@ -29,7 +29,7 @@ in {
           lock_cmd = "${pkgs.procps}/bin/pidof hyprlock || ${lib.getExe config.programs.hyprlock.package}";
         };
 
-        listeners = [
+        listener = [
           {
             timeout = 300;
             on-timeout = "${onlyIfNoAudio} ${pkgs.systemd}/bin/loginctl lock-session";
@@ -37,7 +37,7 @@ in {
           {
             timeout = 380;
             on-timeout = "${onlyIfNoAudio} ${pkgs.hyprland}/bin/hyprctl dispatch dpms off";
-            onResume = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
+            on-resume = "${pkgs.hyprland}/bin/hyprctl dispatch dpms on";
           }
           {
             timeout = 1800;

@@ -68,8 +68,12 @@
     variantTitleCase = variantUpperFirstLetter + variantRest;
 
     colors = builtins.fromJSON (builtins.readFile "${inputs.catppuccin-palette}/palette.json");
-    crustColor = colors.${variant}.colors.crust.hex;
-    accentColor = colors.${variant}.colors.${accent}.hex;
+    variantColors = colors.${variant}.colors;
+    crustColorHex = variantColors.crust.hex;
+    accentColorHex = variantColors.${accent}.hex;
+
+    rgbColor = color: "rgb(${builtins.substring 1 (-1) color.hex})";
+    rgbaColor = color: alphaHex: "rgba(${builtins.substring 1 (-1) color.hex}${builtins.toString alphaHex})";
   in
     lib.mkIf enable {
       # Bat
@@ -124,9 +128,9 @@
             set -g @catppuccin_icon_window_activity "󱅫 "
             set -g @catppuccin_icon_window_bell "󰂞 "
 
-            set -g @catppuccin_pane_active_border_style "fg=${accentColor}"
+            set -g @catppuccin_pane_active_border_style "fg=${accentColorHex}"
 
-            set -g @catppuccin_status_background "${crustColor}"
+            set -g @catppuccin_status_background "${crustColorHex}"
             set -g @catppuccin_status_modules_right "host session"
             set -g @catppuccin_status_left_separator "█"
             set -g @catppuccin_status_right_separator "█"
@@ -161,6 +165,29 @@
       programs.zathura.extraConfig = lib.mkIf default ''
         include catppuccin-${variant}
       '';
+
+      # Hyprland
+      wayland.windowManager.hyprland.settings = lib.mkIf default {
+        decoration = {"col.shadow" = rgbaColor variantColors.crust 99;};
+        general = {
+          "col.active_border" = rgbColor variantColors.mantle;
+          "col.inactive_border" = rgbColor variantColors.crust;
+        };
+        group = {
+          "col.border_active" = rgbColor variantColors.mantle;
+          "col.border_locked_active" = rgbColor variantColors.mantle;
+          "col.border_inactive" = rgbColor variantColors.crust;
+          "col.border_locked_inactive" = rgbColor variantColors.crust;
+          groupbar = {
+            text_color = rgbColor variantColors.text;
+            "col.active" = rgbColor variantColors.mantle;
+            "col.locked_active" = rgbColor variantColors.mantle;
+            "col.inactive" = rgbColor variantColors.base;
+            "col.locked_inactive" = rgbColor variantColors.base;
+          };
+        };
+        misc.background_color = rgbColor variantColors.crust;
+      };
 
       # Cursor
       preferences.cursor = {

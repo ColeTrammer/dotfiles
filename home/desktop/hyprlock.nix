@@ -16,7 +16,7 @@
       enable = true;
 
       settings = {
-        backgrounds = [
+        background = [
           {
             monitor = "";
             path = "";
@@ -24,13 +24,13 @@
           }
         ];
 
-        input-fields = [
+        input-field = [
           {
             monitor = "";
           }
         ];
 
-        labels = [
+        label = [
           {
             monitor = "";
           }

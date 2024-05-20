@@ -34,6 +34,7 @@
         };
         misc = {
           disable_splash_rendering = true;
+          disable_hyprland_logo = true;
         };
         general = {
           gaps_in = 10;
@@ -46,7 +47,7 @@
           drop_shadow = true;
           shadow_range = 30;
           shadow_render_power = 3;
-          "col.shadow" = "0x66000000";
+          "col.shadow" = lib.mkDefault "0x66000000";
 
           blur = {
             enabled = true;
@@ -58,6 +59,11 @@
             brightness = 0.8;
             popups = true;
           };
+        };
+        group.groupbar = {
+          font_family = config.preferences.font.name;
+          font_size = config.preferences.font.size_int * 3 / 2;
+          height = 14 * 3 / 2;
         };
         bind =
           [

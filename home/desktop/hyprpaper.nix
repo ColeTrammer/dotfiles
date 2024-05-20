@@ -15,10 +15,10 @@
     services.hyprpaper = {
       enable = true;
       settings = {
-        preloads = [
+        preload = [
           "~/Pictures/i1.png"
         ];
-        wallpapers = [
+        wallpaper = [
           ",~/Pictures/i1.png"
         ];
       };
