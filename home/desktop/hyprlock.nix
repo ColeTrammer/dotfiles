@@ -33,6 +33,13 @@
         label = [
           {
             monitor = "";
+            text = "Hi there, $USER";
+            text_align = "center";
+            position = "0, 80";
+            font_family = "Noto Sans";
+            font_size = 25;
+            valign = "center";
+            halign = "center";
           }
         ];
       };
