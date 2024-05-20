@@ -23,7 +23,6 @@
   config = lib.mkIf config.shell.zsh.enable {
     programs.zsh = {
       enable = true;
-      autocd = true;
       dotDir = ".config/zsh";
       defaultKeymap = "viins";
       autosuggestion = {
@@ -33,6 +32,7 @@
         save = 1000000;
         size = 1000000;
         expireDuplicatesFirst = true;
+        ignoreAllDups = true;
         path = "${config.xdg.dataHome}/zsh/zsh_history";
       };
       initExtra = ''
