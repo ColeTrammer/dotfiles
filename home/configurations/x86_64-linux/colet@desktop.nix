@@ -12,6 +12,7 @@
 
   apps = {
     enable = true;
+    obs.enable = true;
     steam.enable = true;
     vscode.enable = true;
   };

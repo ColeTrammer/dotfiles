@@ -4,6 +4,7 @@
     ./discord.nix
     ./firefox.nix
     ./kitty.nix
+    ./obs.nix
     ./spotify.nix
     ./steam.nix
     ./vlc.nix
