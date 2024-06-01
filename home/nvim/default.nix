@@ -1,59 +1,45 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
 }: {
+  imports = [
+    inputs.nixvim.homeManagerModules.nixvim
+    ./editor
+    ./keymaps
+    ./settings
+    ./telescope
+    ./ui
+  ];
+
   options = {
-    nvim = {
-      enable =
-        lib.mkEnableOption "nvim"
-        // {
-          default = true;
-        };
-    };
+    nvim.enable = lib.mkEnableOption "Neovim" // {default = true;};
   };
 
   config = lib.mkIf config.nvim.enable {
-    programs.neovim = {
+    programs.nixvim = {
       enable = true;
       defaultEditor = true;
-      vimAlias = true;
-      viAlias = true;
-      vimdiffAlias = true;
 
       # wl-clipboard is required for copy/paste to work on wayland desktops.
+      # ripgrep and find is used for search + telescope
       # nil and alejandra are installed so that we can setup nix dev environments while still having formatting + LSP.
       extraPackages = with pkgs; [
         wl-clipboard
+        ripgrep
+        fd
         nil
         alejandra
       ];
     };
 
-    # We can't use lib.mkOutOfStoreSymlink because of a nix unstable issue.
-    # see https://github.com/nix-community/home-manager/issues/4692
-    home.activation = {
-      updateLinks = ''
-        export ROOT="${config.preferences.dotfilesPath}"
-        mkdir -p .config
-        rm -f .config/nvim && ln -sf "$ROOT/home/nvim" .config/nvim
-      '';
-    };
-
-    # Persist nvim data. .local/share/nvim is only needed for the Lazy and Mason package managers.
-    home.persistence."/persist/home" = {
-      allowOther = true;
-      directories = [
-        {
-          directory = ".local/state/nvim";
-          method = "symlink";
-        }
-        {
-          directory = ".local/share/nvim";
-          method = "symlink";
-        }
-      ];
+    # Aliases
+    home.shellAliases = {
+      vi = "nvim";
+      vim = "nvim";
+      vimdiff = "nvim -d";
     };
   };
 }

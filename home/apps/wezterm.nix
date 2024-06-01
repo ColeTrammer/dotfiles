@@ -39,7 +39,7 @@
           keys = {
             { key = "Backspace", mods = "CTRL", action = act.SendKey({ key = "w", mods = "CTRL" }) },
             { key = "Enter", mods = "CTRL", action = act.SendKey({ key = "^", mods = "CTRL" }) },
-            { key = "Enter", mods = "SHIFT", action = act.SendKey({ key = "^", mods = "CTRL" }) },
+            { key = "Enter", mods = "SHIFT", action = act.SendKey({ key = "]", mods = "CTRL" }) },
           },
         }
       '';

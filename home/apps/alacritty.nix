@@ -55,7 +55,7 @@
             {
               key = "Enter";
               mods = "Shift";
-              chars = "\\u001e";
+              chars = "\\u001d";
             }
           ];
         };

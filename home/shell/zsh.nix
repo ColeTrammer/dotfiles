@@ -11,7 +11,6 @@
         // {
           default = config.shell.enable;
         };
-
       enableNixShellPlugin =
         lib.mkEnableOption "zsh nix shell plugin"
         // {

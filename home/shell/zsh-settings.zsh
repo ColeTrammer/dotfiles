@@ -3,8 +3,10 @@
 ###
 
 # zsh autosuggestion
+# ^^ maps to ctrl+enter
 bindkey '^^' autosuggest-execute
-bindkey '^ ' autosuggest-accept
+# ^] maps to shift+enter
+bindkey '^]' autosuggest-accept
 bindkey '^E' autosuggest-clear
 
 # history navigation

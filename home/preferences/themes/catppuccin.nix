@@ -105,6 +105,24 @@
       programs.zsh.initExtraFirst = lib.mkIf default (lib.mkOrder 0 "source ${config.xdg.configHome}/fzf/catppuccin.sh");
       xdg.configFile."fzf/catppuccin.sh".text = "${fzfOption}";
 
+      # Neovim
+      programs.nixvim = lib.mkIf default {
+        colorschemes.catppuccin = {
+          enable = true;
+          flavour = variant;
+          integrations = {
+            neotree = true;
+            noice = true;
+            lsp_saga = true;
+            notify = true;
+            overseer = true;
+            which_key = true;
+          };
+        };
+
+        plugins.lualine.theme = "catppuccin";
+      };
+
       # Tmux
       programs.tmux.plugins = lib.mkIf default (lib.mkOrder 0 [
         {

@@ -42,6 +42,10 @@
         set -as terminal-overrides ",alacritty*:Tc"
         set-option -sa terminal-features ",xterm*:RGB"
 
+        # Extended keys
+        set -s extended-keys on
+        set -as terminal-features 'xterm*:extkeys'
+
         # Renumber windows
         set-option -g renumber-windows on
 
