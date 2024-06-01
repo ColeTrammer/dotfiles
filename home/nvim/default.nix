@@ -9,6 +9,7 @@
     inputs.nixvim.homeManagerModules.nixvim
     ./editor
     ./keymaps
+    ./lang
     ./settings
     ./telescope
     ./ui
@@ -30,8 +31,6 @@
         wl-clipboard
         ripgrep
         fd
-        nil
-        alejandra
       ];
     };
 
