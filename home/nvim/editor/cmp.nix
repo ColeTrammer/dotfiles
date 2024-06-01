@@ -44,6 +44,7 @@
               })
             '';
           };
+          autoEnableSources = false;
           sources = {
             __raw = ''
               cmp.config.sources({

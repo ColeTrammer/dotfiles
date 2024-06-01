@@ -7,6 +7,7 @@
 }: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
+    ./autocommands
     ./editor
     ./keymaps
     ./lang
@@ -23,6 +24,9 @@
     programs.nixvim = {
       enable = true;
       defaultEditor = true;
+
+      # Try with experimental lua loader.
+      luaLoader.enable = true;
 
       # wl-clipboard is required for copy/paste to work on wayland desktops.
       # ripgrep and find is used for search + telescope

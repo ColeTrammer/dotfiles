@@ -109,18 +109,18 @@
       programs.nixvim = lib.mkIf default {
         colorschemes.catppuccin = {
           enable = true;
-          flavour = variant;
-          integrations = {
-            neotree = true;
-            noice = true;
-            lsp_saga = true;
-            notify = true;
-            overseer = true;
-            which_key = true;
+          settings = {
+            flavour = variant;
+            integrations = {
+              neotree = true;
+              noice = true;
+              lsp_saga = true;
+              notify = true;
+              overseer = true;
+              which_key = true;
+            };
           };
         };
-
-        plugins.lualine.theme = "catppuccin";
       };
 
       # Tmux
@@ -257,7 +257,7 @@
         ];
       qt = lib.mkIf desktop {
         enable = true;
-        platformTheme = "qtct";
+        platformTheme.name = "qtct";
         style.name = "kvantum";
       };
       xdg.configFile."Kvantum/kvantum.kvconfig" = lib.mkIf desktop {

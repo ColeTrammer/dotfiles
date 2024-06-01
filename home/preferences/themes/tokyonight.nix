@@ -105,7 +105,7 @@
         ];
       qt = lib.mkIf desktop {
         enable = true;
-        platformTheme = "qtct";
+        platformTheme.name = "qtct";
         style = {
           name = "kvantum";
         };

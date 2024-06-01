@@ -14,7 +14,7 @@
               nil = {
                 formatting = {command = ["alejandra"];};
                 nix = {
-                  maxMemoryMB = 16 * 1024;
+                  maxMemoryMB = 4 * 1024;
                   flake = {
                     autoArchive = true;
                     autoEvalInputs = true;

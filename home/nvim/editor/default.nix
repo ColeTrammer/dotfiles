@@ -6,5 +6,6 @@
     ./lsp.nix
     ./tmux-navigator.nix
     ./treesitter.nix
+    ./yanky.nix
   ];
 }

@@ -11,7 +11,7 @@
       signcolumn = "yes";
       timeoutlen = 200;
       wrap = false;
-      wildmode = "longest,full";
+      wildmode = "longest:full,full";
 
       # Undofile
       swapfile = false;
@@ -55,5 +55,8 @@
       number = true;
       relativenumber = true;
     };
+
+    # Disable ruby provider
+    globals.loaded_ruby_provider = 0;
   };
 }
