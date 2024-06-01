@@ -60,7 +60,7 @@
 
       editor = lib.mkOption {
         type = lib.types.str;
-        default = "${config.programs.neovim.package}/bin/nvim";
+        default = "nvim";
         description = ''Default editor'';
       };
 
