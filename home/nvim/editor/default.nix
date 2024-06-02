@@ -7,6 +7,7 @@
     ./lsp.nix
     ./snippets.nix
     ./tmux-navigator.nix
+    ./treesitter-context.nix
     ./treesitter.nix
     ./yanky.nix
   ];

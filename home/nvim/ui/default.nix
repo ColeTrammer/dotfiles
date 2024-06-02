@@ -5,6 +5,7 @@
     ./dressing.nix
     ./gitsigns.nix
     ./harpoon.nix
+    ./illuminate.nix
     ./indent-blankline.nix
     ./lualine.nix
     ./mini-indentscope.nix
