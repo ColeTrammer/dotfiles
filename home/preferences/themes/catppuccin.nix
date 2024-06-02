@@ -121,6 +121,7 @@
             };
           };
         };
+        plugins.bufferline.extraOptions.highlights.__raw = "require('catppuccin.groups.integrations.bufferline').get()";
       };
 
       # Tmux

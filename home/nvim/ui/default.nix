@@ -1,5 +1,6 @@
 {
   imports = [
+    ./bufferline.nix
     ./dressing.nix
     ./indent-blankline.nix
     ./lualine.nix
