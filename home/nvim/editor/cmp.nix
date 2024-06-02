@@ -51,44 +51,5 @@
         };
       };
     };
-
-    keymaps = [
-      {
-        mode = ["i"];
-        key = "<Tab>";
-        action = {
-          __raw = ''
-            function()
-              return require("luasnip").jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
-            end
-          '';
-        };
-        options = {silent = true;};
-      }
-      {
-        mode = ["s"];
-        key = "<Tab>";
-        action = {
-          __raw = ''
-            function()
-              require("luasnip").jump(1)
-            end
-          '';
-        };
-        options = {silent = true;};
-      }
-      {
-        mode = ["i" "s"];
-        key = "<S-Tab>";
-        action = {
-          __raw = ''
-            function()
-              require("luasnip").jump(-1)
-            end
-          '';
-        };
-        options = {silent = true;};
-      }
-    ];
   };
 }

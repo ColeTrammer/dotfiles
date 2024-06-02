@@ -27,21 +27,75 @@
           severity_sort = true,
         })
       '';
-      capabilities = ''
-        capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities(), {
-          workspace = {
-            fileOperations = {
-              didRename = true,
-              willRename = true,
-            },
-          },
-        })
-      '';
       onAttach = ''
         if client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
           vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
         end
       '';
+      keymaps = {
+        extra = [
+          {
+            key = "<leader>cx";
+            action = "<CMD>LspStop<Enter>";
+            mode = ["n"];
+            options = {desc = "Lsp Stop";};
+          }
+          {
+            key = "<leader>cl";
+            action = "<CMD>LspInfo<Enter>";
+            mode = ["n"];
+            options = {desc = "Lsp Info";};
+          }
+          {
+            key = "<c-k>";
+            action.__raw = "vim.lsp.buf.signature_help";
+            mode = ["i"];
+            options = {desc = "Signature Help";};
+          }
+          {
+            key = "<leader>ca";
+            action.__raw = "vim.lsp.buf.code_action";
+            mode = ["n" "v"];
+            options = {desc = "Code Action";};
+          }
+          {
+            key = "<leader>cr";
+            action.__raw = "vim.lsp.buf.rename";
+            mode = ["n" "v"];
+            options = {desc = "Rename";};
+          }
+          {
+            key = "<leader>gd";
+            action = {__raw = "function() require('telescope.builtin').lsp_definitions({ reuse_win = true }) end";};
+            mode = ["n"];
+            options = {desc = "Goto Definition";};
+          }
+          {
+            key = "<leader>gr";
+            action = {__raw = "function() require('telescope.builtin').lsp_references({ reuse_win = true }) end";};
+            mode = ["n"];
+            options = {desc = "Goto References";};
+          }
+          {
+            key = "<leader>gI";
+            action = {__raw = "function() require('telescope.builtin').lsp_implementations({ reuse_win = true }) end";};
+            mode = ["n"];
+            options = {desc = "Goto Implementation";};
+          }
+          {
+            key = "<leader>gy";
+            action = {__raw = "function() require('telescope.builtin').lsp_type_definitions({ reuse_win = true }) end";};
+            mode = ["n"];
+            options = {desc = "Goto T[y]pe Definition";};
+          }
+          {
+            key = "<leader>gD";
+            action = {__raw = "vim.lsp.buf.declaration";};
+            mode = ["n"];
+            options = {desc = "Goto Declartion";};
+          }
+        ];
+      };
     };
   };
 }

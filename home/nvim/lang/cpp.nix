@@ -62,9 +62,6 @@
             vim.keymap.set("n", "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch Source/Header (C/C++)", })
           '';
           extraOptions = {
-            capabilities = {
-              offsetEncoding = ["utf-16"];
-            };
             init_options = {
               usePlaceholders = true;
               completeUnimported = true;
