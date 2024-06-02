@@ -11,15 +11,23 @@
       keymaps = {
         "<leader><space>" = {
           action = "find_files";
-          options.desc = "Find Files (Root Dir)";
+          options.desc = "Find Files";
         };
         "<leader>/" = {
           action = "live_grep";
-          options.desc = "Grep (Root Dir)";
+          options.desc = "Search Files";
         };
         "<leader>:" = {
           action = "command_history";
           options.desc = "Command History";
+        };
+        "<leader>," = {
+          action = "buffers sort_mru=true sort_lastused=true";
+          options.desc = "Switch Buffer";
+        };
+        "<leader>bb" = {
+          action = "buffers sort_mru=true sort_lastused=true";
+          options.desc = "Switch Buffer";
         };
       };
     };

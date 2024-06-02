@@ -20,7 +20,7 @@
           '';
         };
         mode = "n";
-        options = {desc = "Yank History (Telescope)";};
+        options = {desc = "Yank History";};
       }
       {
         key = "y";

@@ -114,9 +114,9 @@
             integrations = {
               neotree = true;
               noice = true;
-              lsp_saga = true;
               notify = true;
               overseer = true;
+              harpoon = true;
               which_key = true;
             };
           };

@@ -10,21 +10,17 @@
           virtual_text = {
             spacing = 4,
             source = "if_many",
-            prefix = function(diagnostic)
-              if diagnostic.severity == vim.diagnostic.severity.ERROR then
-                return " "
-              elseif diagnostic.severity == vim.diagnostic.severity.WARN then
-                return " "
-              elseif diagnostic.severity == vim.diagnostic.severity.HINT then
-                return " "
-              elseif diagnostic.severity == vim.diagnostic.severity.INFO then
-                return " "
-              else
-                return "●"
-              end
-            end,
+            prefix = "●",
           },
           severity_sort = true,
+          signs = {
+            text = {
+              [vim.diagnostic.severity.ERROR] = " ",
+              [vim.diagnostic.severity.WARN] = " ",
+              [vim.diagnostic.severity.HINT] = " ",
+              [vim.diagnostic.severity.INFO] = " ",
+            },
+          },
         })
       '';
       onAttach = ''
@@ -95,5 +91,6 @@
         ];
       };
     };
+    plugins.which-key.registrations."<leader>c".name = "+code";
   };
 }

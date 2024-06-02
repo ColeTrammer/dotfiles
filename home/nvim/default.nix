@@ -12,7 +12,6 @@
     ./keymaps
     ./lang
     ./settings
-    ./telescope
     ./ui
   ];
 
