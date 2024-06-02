@@ -18,6 +18,7 @@
               {find = "; after #%d+";}
               {find = "; before #%d+";}
               {find = "%d+ lines";}
+              {find = "%d+ fewer lines";}
             ];
           };
           view = "mini";

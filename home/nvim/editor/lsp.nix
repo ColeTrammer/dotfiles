@@ -65,31 +65,31 @@
             options = {desc = "Rename";};
           }
           {
-            key = "<leader>gd";
+            key = "gd";
             action = {__raw = "function() require('telescope.builtin').lsp_definitions({ reuse_win = true }) end";};
             mode = ["n"];
             options = {desc = "Goto Definition";};
           }
           {
-            key = "<leader>gr";
+            key = "gr";
             action = {__raw = "function() require('telescope.builtin').lsp_references({ reuse_win = true }) end";};
             mode = ["n"];
             options = {desc = "Goto References";};
           }
           {
-            key = "<leader>gI";
+            key = "gI";
             action = {__raw = "function() require('telescope.builtin').lsp_implementations({ reuse_win = true }) end";};
             mode = ["n"];
             options = {desc = "Goto Implementation";};
           }
           {
-            key = "<leader>gy";
+            key = "gy";
             action = {__raw = "function() require('telescope.builtin').lsp_type_definitions({ reuse_win = true }) end";};
             mode = ["n"];
             options = {desc = "Goto T[y]pe Definition";};
           }
           {
-            key = "<leader>gD";
+            key = "gD";
             action = {__raw = "vim.lsp.buf.declaration";};
             mode = ["n"];
             options = {desc = "Goto Declartion";};

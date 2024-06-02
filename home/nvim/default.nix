@@ -43,5 +43,20 @@
       vim = "nvim";
       vimdiff = "nvim -d";
     };
+
+    # Persist nvim data.
+    home.persistence."/persist/home" = {
+      allowOther = true;
+      directories = [
+        {
+          directory = ".local/state/nvim";
+          method = "symlink";
+        }
+        {
+          directory = ".local/share/nvim";
+          method = "symlink";
+        }
+      ];
+    };
   };
 }
