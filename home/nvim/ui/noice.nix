@@ -19,6 +19,7 @@
               {find = "; before #%d+";}
               {find = "%d+ lines";}
               {find = "%d+ fewer lines";}
+              {find = "Hunk %d+ of %d+";}
             ];
           };
           view = "mini";

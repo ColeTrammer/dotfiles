@@ -3,6 +3,7 @@
     ./alpha.nix
     ./bufferline.nix
     ./dressing.nix
+    ./gitsigns.nix
     ./indent-blankline.nix
     ./lualine.nix
     ./mini-indentscope.nix
