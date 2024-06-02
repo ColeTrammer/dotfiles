@@ -7,6 +7,7 @@
     ./neotree.nix
     ./noice.nix
     ./notify.nix
+    ./nui.nix
     ./whichkey.nix
   ];
 }

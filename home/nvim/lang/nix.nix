@@ -9,6 +9,7 @@
       servers = {
         nil_ls = {
           enable = true;
+          package = null;
           extraOptions = {
             settings = {
               nil = {
