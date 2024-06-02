@@ -6,6 +6,44 @@
       cmp-path = {enable = true;};
       cmp = {
         enable = true;
+        cmdline = {
+          "/" = {
+            mapping = {
+              __raw = "cmp.mapping.preset.cmdline()";
+            };
+            sources = [
+              {
+                name = "buffer";
+              }
+            ];
+          };
+          "?" = {
+            mapping = {
+              __raw = "cmp.mapping.preset.cmdline()";
+            };
+            sources = [
+              {
+                name = "buffer";
+              }
+            ];
+          };
+          ":" = {
+            mapping = {
+              __raw = "cmp.mapping.preset.cmdline()";
+            };
+            sources = [
+              {
+                name = "path";
+              }
+              {
+                name = "cmdline";
+              }
+            ];
+            matching = {
+              disallow_symbol_nonprefix_matching = false;
+            };
+          };
+        };
         settings = {
           experimental = {
             ghost_text = true;
