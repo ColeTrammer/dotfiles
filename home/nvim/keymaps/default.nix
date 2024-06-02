@@ -1,8 +1,14 @@
 {
+  imports = [
+    ./baseline.nix
+    ./edit.nix
+  ];
+
   programs.nixvim = {
     globals.mapleader = " ";
     globals.maplocalleader = "\\";
 
+    # keymaps for my customer terminal codes
     keymaps = [
       {
         mode = ["i" "s"];

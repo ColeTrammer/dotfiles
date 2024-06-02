@@ -60,7 +60,7 @@ in {
       theme = null;
       opts.margin = 5;
       layout = [
-        (padding 3)
+        (padding 4)
         (header [
           "███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗"
           "████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║"
@@ -69,16 +69,16 @@ in {
           "██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║"
           "╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝"
         ])
-        (padding 3)
+        (padding 4)
         (group [
           (button " New file" "n" "<cmd> ene <BAR> startinsert <cr>")
           (button " Recent" "r" "<cmd> Telescope oldfiles <cr>")
-          (button "󰈬 Find file" "f" "<cmd> Telescope find_files <cr>")
+          (button "󰈞 Find file" "f" "<cmd> Telescope find_files <cr>")
           (button "󰈬 Find word" "g" "<cmd> Telescope live_grep <cr>")
           (button " Config" "c" ":e ${config.preferences.dotfilesPath} | cd %:p:h | split . | wincmd k <CR>")
           (button " Quit" "q" "<cmd> qa <cr>")
         ])
-        (padding 6)
+        (padding 2)
         footer
       ];
     };

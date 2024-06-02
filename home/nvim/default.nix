@@ -25,12 +25,11 @@
       enable = true;
       defaultEditor = true;
 
-      # Try with experimental lua loader.
+      # Trying out the experimental lua loader.
       luaLoader.enable = true;
 
       # wl-clipboard is required for copy/paste to work on wayland desktops.
       # ripgrep and find is used for search + telescope
-      # nil and alejandra are installed so that we can setup nix dev environments while still having formatting + LSP.
       extraPackages = with pkgs; [
         wl-clipboard
         ripgrep

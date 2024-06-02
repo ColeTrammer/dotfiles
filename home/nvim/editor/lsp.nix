@@ -47,9 +47,9 @@
             options = {desc = "Lsp Info";};
           }
           {
-            key = "<c-k>";
+            key = "gK";
             action.__raw = "vim.lsp.buf.signature_help";
-            mode = ["i"];
+            mode = ["n"];
             options = {desc = "Signature Help";};
           }
           {
