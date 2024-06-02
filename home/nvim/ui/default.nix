@@ -8,10 +8,10 @@
     ./indent-blankline.nix
     ./lualine.nix
     ./mini-indentscope.nix
-    ./neotree.nix
     ./noice.nix
     ./notify.nix
     ./nui.nix
+    ./oil.nix
     ./telescope.nix
     ./whichkey.nix
   ];

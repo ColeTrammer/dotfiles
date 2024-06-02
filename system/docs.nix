@@ -14,9 +14,9 @@
     documentation.man.enable = true;
 
     environment.systemPackages = with pkgs; [
-      pkgs.linux-manual
-      pkgs.man-pages
-      pkgs.man-pages-posix
+      linux-manual
+      man-pages
+      man-pages-posix
     ];
   };
 }
