@@ -45,28 +45,26 @@
       "cmp.config.compare.order"
     ];
     plugins.lsp = {
-      servers = {
-        clangd = {
-          enable = true;
-          package = null;
-          cmd = [
-            "clangd"
-            "--background-index"
-            "--clang-tidy"
-            "--header-insertion=iwyu"
-            "--completion-style=detailed"
-            "--function-arg-placeholders"
-            "--fallback-style=llvm"
-          ];
-          onAttach.function = ''
-            vim.keymap.set("n", "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch Source/Header (C/C++)", })
-          '';
-          extraOptions = {
-            init_options = {
-              usePlaceholders = true;
-              completeUnimported = true;
-              clangdFileStatus = true;
-            };
+      servers.clangd = {
+        enable = true;
+        package = null;
+        cmd = [
+          "clangd"
+          "--background-index"
+          "--clang-tidy"
+          "--header-insertion=iwyu"
+          "--completion-style=detailed"
+          "--function-arg-placeholders"
+          "--fallback-style=llvm"
+        ];
+        onAttach.function = ''
+          vim.keymap.set("n", "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch Source/Header (C/C++)", })
+        '';
+        extraOptions = {
+          init_options = {
+            usePlaceholders = true;
+            completeUnimported = true;
+            clangdFileStatus = true;
           };
         };
       };

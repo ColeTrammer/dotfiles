@@ -112,7 +112,6 @@
 
           programs.alejandra.enable = true;
           programs.prettier.enable = true;
-          programs.stylua.enable = true;
           programs.shfmt.enable = true;
         };
 
@@ -120,17 +119,11 @@
           packages =
             [
               config.treefmt.build.wrapper
-              pkgs.nil
-              pkgs.lua-language-server
               pkgs.marksman
               pkgs.markdownlint-cli
               pkgs.taplo
               pkgs.nodePackages_latest.npm
-              pkgs.nodePackages_latest.typescript-language-server
               pkgs.nodejs
-              (pkgs.writeShellScriptBin
-                "vscode-json-language-server"
-                ''${pkgs.nodePackages_latest.vscode-json-languageserver}/bin/vscode-json-languageserver "$@"'')
             ]
             ++ builtins.attrValues config.treefmt.build.programs;
         };
