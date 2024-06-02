@@ -26,10 +26,17 @@
     };
     keymaps = [
       {
-        key = "<leader>bd";
+        key = "<leader>bD";
+        mode = "n";
+        action = "<cmd>bp<bar>sp<bar>bn<bar>bd<cr>";
+        options.desc = "Delete Buffer";
+        options.silent = true;
+      }
+      {
+        key = "<leader>bD";
         mode = "n";
         action = "<cmd>bdelete<cr>";
-        options.desc = "Delete Buffer";
+        options.desc = "Delete Buffer and Window";
       }
       {
         key = "<leader>br";

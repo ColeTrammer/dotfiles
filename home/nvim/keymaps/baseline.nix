@@ -107,6 +107,16 @@
           desc = "Save File";
         };
       }
+      # Quit
+      {
+        mode = ["n"];
+        key = "<leader>qq";
+        action = "<cmd>qa<cr>";
+        options = {
+          desc = "Quit All";
+        };
+      }
     ];
+    plugins.which-key.registrations."<leader>q".name = "+quit";
   };
 }
