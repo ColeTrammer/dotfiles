@@ -24,7 +24,9 @@
         })
       '';
       onAttach = ''
-        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        if client.server_capabilities.inlayHintProvider then
+          vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        end
       '';
       keymaps = {
         extra = [

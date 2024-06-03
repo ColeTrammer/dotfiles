@@ -112,12 +112,21 @@
           settings = {
             flavour = variant;
             integrations = {
-              neotree = true;
               noice = true;
               notify = true;
               overseer = true;
               harpoon = true;
               which_key = true;
+              lsp_trouble = true;
+              native_lsp = {
+                enabled = true;
+                underlines = {
+                  errors = ["undercurl"];
+                  hints = ["undercurl"];
+                  warnings = ["undercurl"];
+                  information = ["undercurl"];
+                };
+              };
             };
           };
         };
@@ -150,11 +159,12 @@
             set -g @catppuccin_pane_active_border_style "fg=${accentColorHex}"
 
             set -g @catppuccin_status_background "${crustColorHex}"
-            set -g @catppuccin_status_modules_right "host session"
+            set -g @catppuccin_status_modules_right "host session date_time"
             set -g @catppuccin_status_left_separator "█"
             set -g @catppuccin_status_right_separator "█"
             set -g @catppuccin_status_right_separator_inverse "no"
             set -g @catppuccin_status_fill "icon"
+            set -g @catppuccin_date_time_text "%m-%d %H:%M:%S"
           '';
         }
       ]);

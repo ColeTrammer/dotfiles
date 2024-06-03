@@ -14,6 +14,7 @@
     ./nui.nix
     ./oil.nix
     ./telescope.nix
+    ./trouble.nix
     ./whichkey.nix
   ];
 }

@@ -26,7 +26,7 @@
     };
     keymaps = [
       {
-        key = "<leader>bD";
+        key = "<leader>bd";
         mode = "n";
         action = "<cmd>bp<bar>sp<bar>bn<bar>bd<cr>";
         options.desc = "Delete Buffer";

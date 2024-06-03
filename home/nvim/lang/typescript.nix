@@ -52,6 +52,7 @@
   home.packages = with pkgs; [
     prettierd
     nodePackages_latest.typescript-language-server
+    nodePackages_latest.prettier
     nodePackages_latest.eslint
   ];
 }
