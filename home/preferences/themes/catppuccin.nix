@@ -79,10 +79,10 @@
       # Bat
       programs.bat = {
         config = lib.mkIf default {
-          theme = "Catppuccin ${variantTitleCase}";
+          theme = "catppuccin";
         };
         themes = {
-          "Catppuccin ${variantTitleCase}" = {
+          "catppuccin" = {
             src = "${inputs.catppuccin-bat}/themes/Catppuccin ${variantTitleCase}.tmTheme";
           };
         };

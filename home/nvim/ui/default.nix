@@ -13,7 +13,9 @@
     ./notify.nix
     ./nui.nix
     ./oil.nix
+    ./overseer.nix
     ./telescope.nix
+    ./toggleterm.nix
     ./trouble.nix
     ./whichkey.nix
   ];

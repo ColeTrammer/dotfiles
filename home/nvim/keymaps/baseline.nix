@@ -116,6 +116,15 @@
           desc = "Quit All";
         };
       }
+      # Terminal escape to normal mode
+      {
+        mode = "t";
+        key = "<esc><esc>";
+        action = "[[<C-\\><C-n>]]";
+        options = {
+          desc = "Switch to Noral Mode";
+        };
+      }
     ];
     plugins.which-key.registrations."<leader>q".name = "+quit";
   };
