@@ -47,8 +47,6 @@
           }
         ];
         lualine_c = [
-        ];
-        lualine_x = [
           {
             name = "diagnostics";
             extraConfig.symbols = {
@@ -71,6 +69,8 @@
             padding.left = 0;
             padding.right = 1;
           }
+        ];
+        lualine_x = [
         ];
         lualine_y = ["encoding" "fileformat"];
         lualine_z = [
