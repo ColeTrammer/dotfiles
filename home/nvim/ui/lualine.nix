@@ -6,10 +6,6 @@
       disabledFiletypes.statusline = [
         "alpha"
       ];
-      extensions = [
-        "man"
-        "trouble"
-      ];
       componentSeparators = {
         left = "|";
         right = "|";
