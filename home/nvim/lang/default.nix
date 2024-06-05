@@ -1,5 +1,6 @@
 {
   imports = [
+    ./cmake.nix
     ./cpp.nix
     ./json.nix
     ./nix.nix
