@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   programs.nixvim = {
     plugins.noice = {
       enable = true;
@@ -32,7 +32,7 @@
         lsp_doc_border = true;
       };
     };
-    plugins.lualine.sections.lualine_x = [
+    plugins.lualine.sections.lualine_x = lib.mkOrder 800 [
       {
         extraConfig.__raw = ''
           {

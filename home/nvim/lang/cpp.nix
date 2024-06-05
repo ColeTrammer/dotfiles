@@ -69,6 +69,23 @@
         };
       };
     };
+    plugins.dap.adapters = {
+      executables = {
+        cppdbg = {
+          command = "${pkgs.vscode-extensions.ms-vscode.cpptools}/share/vscode/extensions/ms-vscode.cpptools/debugAdapters/bin/OpenDebugAD7";
+          id = "cppdbg";
+        };
+      };
+      servers = {
+        lldb = {
+          port = "\${port}";
+          executable = {
+            command = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
+            args = ["--port" "\${port}"];
+          };
+        };
+      };
+    };
   };
 
   home.packages = with pkgs; [

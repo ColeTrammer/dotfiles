@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   programs.nixvim = {
     plugins.dap = {
       enable = true;
@@ -36,6 +36,16 @@
         };
       };
     };
+    plugins.lualine.sections.lualine_x = lib.mkOrder 900 [
+      {
+        extraConfig.__raw = ''
+          {
+            function() return " " .. require("dap").status() end,
+            cond = function() return require("dap").status() ~= "" end,
+          }
+        '';
+      }
+    ];
     extraConfigLua = ''
       -- Automatically open/close dap-ui
       local dap, dapui = require("dap"), require("dapui")
@@ -51,6 +61,12 @@
       dap.listeners.before.event_exited.dapui_config = function()
         dapui.close()
       end
+
+      -- Setup VS Code file support
+      require("dap.ext.vscode").load_launchjs(nil, {
+         lldb = { "c", "cpp" },
+         cppdbg = { "c", "cpp" },
+      })
     '';
     keymaps = [
       {
