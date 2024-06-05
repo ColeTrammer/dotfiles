@@ -5,6 +5,7 @@
     ./comment.nix
     ./conform.nix
     ./dap.nix
+    ./lint.nix
     ./lsp.nix
     ./snippets.nix
     ./tmux-navigator.nix

@@ -3,7 +3,7 @@
     keymaps = [
       {
         mode = "n";
-        key = "<leader>ul";
+        key = "<leader>un";
         action.__raw = ''
           (function()
             local number = true;
@@ -27,7 +27,7 @@
       }
       {
         mode = "n";
-        key = "<leader>uL";
+        key = "<leader>uN";
         action.__raw = ''
           function()
             vim.opt_local.relativenumber = not vim.opt_local.relativenumber:get()

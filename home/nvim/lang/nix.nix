@@ -5,6 +5,9 @@
         nix = ["alejandra"];
       };
     };
+    plugins.lint.lintersByFt = {
+      nix = ["nix"];
+    };
     plugins.lsp = {
       servers = {
         nil_ls = {
