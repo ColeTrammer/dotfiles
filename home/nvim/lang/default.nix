@@ -8,5 +8,6 @@
     ./just.nix
     ./markdown.nix
     ./typescript.nix
+    ./yaml.nix
   ];
 }
