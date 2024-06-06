@@ -3,6 +3,7 @@
     ./cmake.nix
     ./cpp.nix
     ./docker.nix
+    ./go.nix
     ./json.nix
     ./just.nix
     ./markdown.nix
