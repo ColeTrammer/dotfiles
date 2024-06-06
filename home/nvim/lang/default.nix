@@ -9,6 +9,7 @@
     ./nix.nix
     ./python.nix
     ./rust.nix
+    ./scala.nix
     ./shell.nix
     ./toml.nix
     ./typescript.nix
