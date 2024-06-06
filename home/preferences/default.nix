@@ -16,6 +16,12 @@
       enableTerminal = lib.mkEnableOption "terminal" // {default = config.apps.enable;};
       enableDocumentViewer = lib.mkEnableOption "document viewer" // {default = config.apps.enable;};
 
+      os = lib.mkOption {
+        type = lib.types.str;
+        default = builtins.head (builtins.tail (builtins.tail (builtins.split "-" (pkgs.system))));
+        description = ''Operating system'';
+      };
+
       theme = lib.mkOption {
         type = lib.types.str;
         default = "catppuccin";

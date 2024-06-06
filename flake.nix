@@ -119,9 +119,6 @@
           packages =
             [
               config.treefmt.build.wrapper
-              pkgs.marksman
-              pkgs.markdownlint-cli
-              pkgs.taplo
               pkgs.nodePackages_latest.npm
               pkgs.nodejs
             ]

@@ -34,7 +34,7 @@
         };
       };
     };
-    plugins.cmp.extraOptions.sorting.comparators = [
+    plugins.cmp.settings.sorting.comparators = [
       "cmp.config.compare.offset"
       "cmp.config.compare.exact"
       "cmp.config.compare.recently_used"
@@ -90,5 +90,7 @@
 
   home.packages = with pkgs; [
     clang-tools
+    gdb
+    lldb
   ];
 }

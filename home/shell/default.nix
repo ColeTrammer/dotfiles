@@ -22,6 +22,7 @@
     ./starship.nix
     ./tldr.nix
     ./tmux.nix
+    ./valgrind.nix
     ./zoxide.nix
     ./zsh.nix
   ];

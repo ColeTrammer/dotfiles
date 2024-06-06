@@ -27,7 +27,7 @@
 
     xdg.configFile."fastfetch/config.jsonc".text = builtins.toJSON (let
       escape = builtins.fromJSON ''"\u001b"'';
-      os = builtins.head (builtins.tail (builtins.tail (builtins.split "-" (pkgs.system))));
+      os = config.preferences.os;
       osIcon =
         if os == "linux"
         then " "
