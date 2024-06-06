@@ -8,6 +8,7 @@
     ./lint.nix
     ./lsp.nix
     ./snippets.nix
+    ./test.nix
     ./tmux-navigator.nix
     ./treesitter-context.nix
     ./treesitter.nix

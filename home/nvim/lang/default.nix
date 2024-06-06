@@ -7,7 +7,9 @@
     ./just.nix
     ./markdown.nix
     ./nix.nix
+    ./rust.nix
     ./shell.nix
+    ./toml.nix
     ./typescript.nix
     ./yaml.nix
   ];

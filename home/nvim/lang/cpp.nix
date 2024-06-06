@@ -100,13 +100,20 @@
               args = ["--port" "\${port}"];
             };
           };
+          codelldb = {
+            port = "\${port}";
+            executable = {
+              command = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
+              args = ["--port" "\${port}"];
+            };
+          };
         };
       };
     };
 
     nvim.dap.vscode-adapters =
       {
-        lldb = ["c" "cpp"];
+        codelldb = ["c" "cpp" "rust"];
       }
       // (
         if config.nvim.lang.cpp.cppdbg
@@ -118,6 +125,7 @@
 
     home.packages = with pkgs; [
       clang-tools
+      clang
       gdb
       lldb
     ];

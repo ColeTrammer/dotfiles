@@ -35,6 +35,14 @@
         },
       })
     '';
+    plugins.neotest = {
+      settings = {
+        consumers.overseer.__raw = ''require("neotest.consumers.overseer")'';
+        overseer = {
+          enabled = true;
+        };
+      };
+    };
     plugins.lualine.sections.lualine_x = lib.mkOrder 1000 [
       {
         name = "overseer";
@@ -50,48 +58,48 @@
     ];
     keymaps = [
       {
-        key = "<leader>tl";
+        key = "<leader>ol";
         mode = "n";
         action = "<cmd>OverseerToggle<cr>";
         options.desc = "Task List";
       }
       {
-        key = "<leader>tr";
+        key = "<leader>or";
         mode = "n";
         action = "<cmd>OverseerRun<cr>";
         options.desc = "Run Task";
       }
       {
-        key = "<leader>tt";
+        key = "<leader>ot";
         mode = "n";
         action = "<cmd>OverseerQuickAction<cr>";
         options.desc = "Task Action (Recent)";
       }
       {
-        key = "<leader>ti";
+        key = "<leader>oi";
         mode = "n";
         action = "<cmd>OverseerInfo<cr>";
         options.desc = "Overseer Info";
       }
       {
-        key = "<leader>tn";
+        key = "<leader>on";
         mode = "n";
         action = "<cmd>OverseerBuild<cr>";
         options.desc = "New Task";
       }
       {
-        key = "<leader>ta";
+        key = "<leader>oa";
         mode = "n";
         action = "<cmd>OverseerTaskAction<cr>";
         options.desc = "Task Action";
       }
       {
-        key = "<leader>tc";
+        key = "<leader>oc";
         mode = "n";
         action = "<cmd>OverseerClearCache<cr>";
         options.desc = "Clear Cache";
       }
     ];
-    plugins.which-key.registrations."<leader>t".name = "+task";
+    plugins.which-key.registrations."<leader>o".name = "+task";
   };
 }
