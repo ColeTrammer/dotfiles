@@ -3,6 +3,7 @@
     ./bat.nix
     ./bash.nix
     ./bottom.nix
+    ./curl.nix
     ./delta.nix
     ./direnv.nix
     ./duf.nix
@@ -23,6 +24,7 @@
     ./tldr.nix
     ./tmux.nix
     ./valgrind.nix
+    ./wget.nix
     ./zoxide.nix
     ./zsh.nix
   ];

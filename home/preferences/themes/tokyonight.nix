@@ -48,6 +48,13 @@
       programs.zsh.initExtraFirst = lib.mkIf default (lib.mkOrder 0 "source ${config.xdg.configHome}/fzf/tokyonight.sh");
       xdg.configFile."fzf/tokyonight.sh".source = "${tokyonightPlugin}/extras/fzf/tokyonight_${variant}.zsh";
 
+      programs.nixvim = lib.mkIf default {
+        colorschemes.tokyonight = {
+          enable = true;
+          style = "night";
+        };
+      };
+
       # Tmux
       programs.tmux.plugins = lib.mkIf default (
         lib.mkOrder 0 [
