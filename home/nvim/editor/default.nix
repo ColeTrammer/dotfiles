@@ -5,12 +5,15 @@
     ./comment.nix
     ./conform.nix
     ./dap.nix
+    ./flash.nix
     ./lint.nix
     ./lsp.nix
+    ./mini.nix
     ./snippets.nix
     ./test.nix
     ./tmux-navigator.nix
     ./treesitter-context.nix
+    ./treesitter-textobjects.nix
     ./treesitter.nix
     ./yanky.nix
   ];
