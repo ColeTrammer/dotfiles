@@ -222,7 +222,7 @@
       # Cursor
       preferences.cursor = {
         package = pkgs.catppuccin-cursors.mochaDark;
-        name = "Catppuccin-${variantTitleCase}-Dark-Cursors";
+        name = "catppuccin-${variant}-dark-cursors";
       };
 
       # GTK

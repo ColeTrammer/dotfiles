@@ -10,6 +10,7 @@
     ./indent-blankline.nix
     ./lualine.nix
     ./mini-indentscope.nix
+    ./neogit.nix
     ./noice.nix
     ./notify.nix
     ./nui.nix

@@ -28,19 +28,11 @@
 
             -- Navigation
             map('n', ']h', function()
-              if vim.wo.diff then
-                vim.cmd.normal({']c', bang = true})
-              else
-                gitsigns.nav_hunk('next')
-              end
+              gitsigns.nav_hunk('next')
             end, "Next Hunk")
 
             map('n', '[h', function()
-              if vim.wo.diff then
-                vim.cmd.normal({'[c', bang = true})
-              else
-                gitsigns.nav_hunk('prev')
-              end
+              gitsigns.nav_hunk('prev')
             end, "Prev Hunk")
 
             -- Actions
