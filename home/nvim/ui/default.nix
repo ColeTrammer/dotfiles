@@ -2,6 +2,7 @@
   imports = [
     ./alpha.nix
     ./bufferline.nix
+    ./diffview.nix
     ./dressing.nix
     ./gitsigns.nix
     ./harpoon.nix

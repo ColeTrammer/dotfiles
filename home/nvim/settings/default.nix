@@ -56,6 +56,10 @@
       relativenumber = true;
     };
 
+    extraConfigLua = ''
+      vim.opt.fillchars:append { diff = "╱" }
+    '';
+
     # Disable ruby provider
     globals.loaded_ruby_provider = 0;
   };

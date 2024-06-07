@@ -112,6 +112,7 @@
           settings = {
             flavour = variant;
             integrations = {
+              diffview = true;
               noice = true;
               notify = true;
               overseer = true;
