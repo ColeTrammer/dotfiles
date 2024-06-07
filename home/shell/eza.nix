@@ -23,5 +23,8 @@
         "--header"
       ];
     };
+
+    programs.bash.initExtra = "unset LS_COLORS";
+    programs.zsh.initExtra = "unset LS_COLORS";
   };
 }

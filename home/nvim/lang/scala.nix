@@ -25,6 +25,7 @@
         },
         settings = {
           showImplicitArguments = true,
+          metalsBinaryPath = "${pkgs.metals}/bin/metals",
         },
       })
 
@@ -40,6 +41,6 @@
   };
 
   home.packages = with pkgs; [
-    metals
+    coursier
   ];
 }

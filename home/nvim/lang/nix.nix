@@ -10,7 +10,7 @@
     };
     plugins.lsp = {
       servers = {
-        nil_ls = {
+        nil-ls = {
           enable = true;
           package = null;
           extraOptions = {

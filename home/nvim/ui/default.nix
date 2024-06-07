@@ -15,6 +15,7 @@
     ./nui.nix
     ./oil.nix
     ./overseer.nix
+    ./stickybuf.nix
     ./telescope.nix
     ./toggleterm.nix
     ./trouble.nix

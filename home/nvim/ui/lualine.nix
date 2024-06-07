@@ -55,10 +55,9 @@
           {
             name = "filetype";
             extraConfig.icon_only = true;
-            separator.left = "";
-            separator.right = "";
             padding.left = 1;
             padding.right = 0;
+            extraConfig.separator = "";
           }
           {
             name = "filename";
@@ -72,10 +71,9 @@
         lualine_z = [
           {
             name = "progress";
-            separator.left = " ";
-            separator.right = " ";
             padding.left = 1;
             padding.right = 0;
+            extraConfig.separator = " ";
           }
           {
             name = "location";
