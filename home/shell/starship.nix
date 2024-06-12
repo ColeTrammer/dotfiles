@@ -6,10 +6,8 @@
   options = {
     shell.starship = {
       enable =
-        lib.mkEnableOption "starship"
-        // {
-          default = config.shell.enable;
-        };
+        lib.mkEnableOption "starship";
+
       localIp = lib.mkEnableOption "show local ip over hostname";
     };
   };

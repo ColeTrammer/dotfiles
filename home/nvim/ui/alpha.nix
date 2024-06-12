@@ -83,5 +83,15 @@ in {
         footer
       ];
     };
+    keymaps = [
+      {
+        mode = "n";
+        key = "<leader>;";
+        action = "<cmd>Alpha<cr>";
+        options = {
+          desc = "Open Dashboard";
+        };
+      }
+    ];
   };
 }

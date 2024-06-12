@@ -1,0 +1,81 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
+  "final_space": true,
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "background": "transparent",
+          "foreground_templates": [
+            "{{if gt .Code 0}}red{{end}}",
+            "{{if eq .Code 0}}green{{end}}"
+          ],
+          "template": "❯"
+        }
+      ]
+    },
+    {
+      "type": "rprompt",
+      "overflow": "hidden",
+      "segments": [
+        {
+          "type": "path",
+          "style": "plain",
+          "background": "transparent",
+          "foreground": "blue",
+          "template": " {{ .Path }}",
+          "properties": {
+            "style": "folder"
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "background": "transparent",
+          "foreground": "magenta",
+          "template": "<white> on </>{{ .HEAD }}",
+          "properties": {
+            "fetch_status": true,
+            "branch_icon": " "
+          }
+        },
+        {
+          "type": "aws",
+          "style": "plain",
+          "background": "transparent",
+          "foreground": "cyan",
+          "template": "<white> using </> {{.Profile}}{{if .Region}}@{{.Region}}{{end}}"
+        },
+        {
+          "type": "executiontime",
+          "style": "plain",
+          "background": "transparent",
+          "foreground": "yellow",
+          "template": "<white> took </>{{ .FormattedMs }}",
+          "properties": {
+            "threshold": 5000,
+            "style": "round"
+          }
+        }
+      ]
+    }
+  ],
+  "secondary_prompt": {
+    "background": "transparent",
+    "foreground": "darkGray",
+    "template": "  "
+  },
+  "transient_prompt": {
+    "background": "transparent",
+    "foreground_templates": [
+      "{{if gt .Code 0}}red{{end}}",
+      "{{if eq .Code 0}}green{{end}}"
+    ],
+    "template": "❯ "
+  }
+}

@@ -18,6 +18,7 @@
     ./lf.nix
     ./nh.nix
     ./nix.nix
+    ./oh-my-posh.nix
     ./pistol.nix
     ./ripgrep.nix
     ./starship.nix

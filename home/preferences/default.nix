@@ -28,6 +28,12 @@
         description = ''Default theme'';
       };
 
+      prompt = lib.mkOption {
+        type = lib.types.str;
+        default = "oh-my-posh";
+        description = ''Shell prompt to use (starship or oh-my-posh)'';
+      };
+
       workspacePath = lib.mkOption {
         type = lib.types.path;
         default = "${config.home.homeDirectory}/Workspace";
@@ -140,6 +146,9 @@
 
     # Terminal
     apps.${config.preferences.terminal}.enable = true;
+
+    # Shell Prompt
+    shell.${config.preferences.prompt}.enable = true;
 
     # Document viewer
     apps.${config.preferences.documentViewer}.enable = true;
