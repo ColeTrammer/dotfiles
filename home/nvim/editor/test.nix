@@ -70,5 +70,6 @@
         options.desc = "Debug Nearest";
       }
     ];
+    plugins.which-key.registrations."<leader>t".name = "+test";
   };
 }

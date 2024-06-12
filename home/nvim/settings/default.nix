@@ -2,6 +2,7 @@
   programs.nixvim = {
     opts = {
       # Misc
+      autoread = true;
       autowriteall = true;
       breakindent = true;
       confirm = true;
@@ -22,9 +23,6 @@
       splitkeep = "screen";
       splitbelow = true;
       splitright = true;
-
-      # Text width
-      textwidth = 120;
 
       # Scroll context
       scrolloff = 4;
