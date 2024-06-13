@@ -79,7 +79,20 @@
         action = "<cmd>vertical resize +4<cr>";
         options = {desc = "Increase Window Width";};
       }
+      {
+        mode = "n";
+        key = "<leader>wpd";
+        action = "<cmd>:pclose<cr>";
+        options = {desc = "Close Preview Window";};
+      }
+      {
+        mode = "n";
+        key = "<leader>wpo";
+        action = "<C-w>}";
+        options = {desc = "Open Preview Window";};
+      }
     ];
     plugins.which-key.registrations."<leader>w".name = "+window";
+    plugins.which-key.registrations."<leader>wp".name = "+preview";
   };
 }

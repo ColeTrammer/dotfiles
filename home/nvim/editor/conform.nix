@@ -9,7 +9,14 @@
           if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
             return
           end
-          return { timeout_ms = 500, lsp_fallback = true }
+          return {
+            timeout_ms = 500,
+            lsp_fallback = true,
+            callback = function()
+              -- Manually re-show diagnostics after updating the buffer.
+              vim.diagnostic.show(nil, bufnr)
+            end,
+          }
         end
       '';
     };
@@ -54,5 +61,8 @@
         };
       }
     ];
+    extraConfigLua = ''
+      vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
+    '';
   };
 }

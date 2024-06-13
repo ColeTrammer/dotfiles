@@ -18,7 +18,7 @@
         group = "checktime";
         callback.__raw = ''
           function()
-            if vim.o.buftype ~= "nofile" then
+            if vim.bo.buftype ~= "nofile" then
               vim.cmd("checktime")
             end
           end

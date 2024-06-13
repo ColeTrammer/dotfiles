@@ -42,6 +42,12 @@
       mouse = "a";
       mousefocus = true;
 
+      # Fold
+      foldcolumn = "0";
+      foldlevel = 99;
+      foldlevelstart = 99;
+      foldenable = true;
+
       # Indent
       expandtab = true;
       shiftround = true;

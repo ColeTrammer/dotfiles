@@ -6,6 +6,9 @@
     extraConfigLua = ''
       local harpoon = require("harpoon")
       harpoon:setup()
+
+      -- Work around issue with UFO
+      require("harpoon"):extend(require("harpoon.extensions").builtins.command_on_nav('UfoEnableFold'))
     '';
 
     keymaps = [

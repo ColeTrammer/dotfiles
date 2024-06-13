@@ -15,6 +15,7 @@
     ./treesitter-context.nix
     ./treesitter-textobjects.nix
     ./treesitter.nix
+    ./ufo.nix
     ./yanky.nix
   ];
 }
