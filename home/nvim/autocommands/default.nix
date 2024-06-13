@@ -39,7 +39,7 @@
       {
         # Enable spell checking and word wrap for text files
         event = ["FileType"];
-        pattern = ["*.txt" "*.tex" "*.typ" "gitcommit" "markdown" "norg"];
+        pattern = ["*.txt" "*.tex" "*.typ" "gitcommit" "markdown" "norg" "COMMIT_EDITMSG"];
         group = "textfile";
         callback.__raw = ''
           function()

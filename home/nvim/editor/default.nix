@@ -9,6 +9,7 @@
     ./lint.nix
     ./lsp.nix
     ./mini.nix
+    ./neogen.nix
     ./snippets.nix
     ./test.nix
     ./tmux-navigator.nix
