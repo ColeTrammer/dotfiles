@@ -116,6 +116,32 @@
           desc = "Quit All";
         };
       }
+      # diagnostic
+      {
+        mode = "n";
+        key = "<leader>cd";
+        action.__raw = "vim.diagnostic.open_float";
+        options = {
+          desc = "Line diagnostics";
+        };
+      }
+      # Quickfix
+      {
+        mode = "n";
+        key = "<leader>xl";
+        action = "<cmd>lopen<cr>";
+        options = {
+          desc = "Location List";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>xq";
+        action = "<cmd>copen<cr>";
+        options = {
+          desc = "Quickfix List";
+        };
+      }
       # Terminal escape to normal mode
       {
         mode = "t";
@@ -127,5 +153,6 @@
       }
     ];
     plugins.which-key.registrations."<leader>q".name = "+quit";
+    plugins.which-key.registrations."<leader>x".name = "+diagnostic";
   };
 }

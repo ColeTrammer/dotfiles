@@ -3,7 +3,7 @@
     plugins.telescope = let
       find_files_with_hidden = ''
         function()
-          require('telescope.builtin').find_files({ hidden = true })()
+          require('telescope.builtin').find_files({ hidden = true })
         end
       '';
     in {
@@ -76,6 +76,10 @@
         "<leader>sD" = {
           action = "diagnostics";
           options.desc = "Diagnostics (All)";
+        };
+        "<leader>sf" = {
+          action = "find_files";
+          options.desc = "Find Files";
         };
         "<leader>sg" = {
           action = "live_grep";

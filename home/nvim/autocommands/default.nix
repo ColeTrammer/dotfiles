@@ -14,11 +14,11 @@
     autoCmd = [
       {
         # Check for file modifications when reasonable.
-        event = ["FocusGained" "TermClose" "TermLeave" "BufEnter"];
+        event = ["FocusGained" "TermClose" "TermLeave"];
         group = "checktime";
         callback.__raw = ''
           function()
-            if vim.bo.buftype ~= "nofile" then
+            if vim.o.buftype ~= "nofile" then
               vim.cmd("checktime")
             end
           end
