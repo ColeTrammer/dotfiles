@@ -8,6 +8,7 @@
     ./flash.nix
     ./lint.nix
     ./lsp.nix
+    ./refactoring.nix
     ./mini.nix
     ./neogen.nix
     ./snippets.nix
