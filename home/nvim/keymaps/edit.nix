@@ -3,7 +3,7 @@
     keymaps = [
       {
         mode = ["n"];
-        key = "<leader>r";
+        key = "<leader>ce";
         action.__raw = ''[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]'';
         options = {
           desc = "Replace Word Under Cursor";
