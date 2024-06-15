@@ -2,6 +2,7 @@
   imports = [
     ./baseline.nix
     ./edit.nix
+    ./tab.nix
     ./toggle.nix
     ./window.nix
   ];
