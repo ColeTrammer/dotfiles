@@ -1,19 +1,19 @@
+{ inputs, lib, ... }:
 {
-  inputs,
-  lib,
-  ...
-}: {
   nix = {
     settings = lib.mkMerge [
       {
-        experimental-features = ["nix-command" "flakes"];
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
         warn-dirty = false;
         auto-optimise-store = true;
       }
     ];
 
     registry.nixpkgs.flake = inputs.nixpkgs;
-    nixPath = ["nixpkgs=flake:nixpkgs"];
+    nixPath = [ "nixpkgs=flake:nixpkgs" ];
 
     gc = {
       automatic = true;

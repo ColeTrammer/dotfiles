@@ -3,11 +3,16 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     preferences.themes.tokyonight = {
-      enable = lib.mkEnableOption "tokyonight" // {default = config.preferences.enable;};
-      default = lib.mkEnableOption "use tokyonight by default" // {default = false;};
+      enable = lib.mkEnableOption "tokyonight" // {
+        default = config.preferences.enable;
+      };
+      default = lib.mkEnableOption "use tokyonight by default" // {
+        default = false;
+      };
       variant = lib.mkOption {
         type = lib.types.str;
         default = "night";
@@ -16,19 +21,18 @@
     };
   };
 
-  config = let
-    tokyonightPlugin = pkgs.vimPlugins.tokyonight-nvim;
-    variant = config.preferences.themes.tokyonight.variant;
-    enable = config.preferences.themes.tokyonight.enable;
-    default = config.preferences.themes.tokyonight.default;
-    desktop = config.preferences.enableDesktopTheme && default;
-  in
+  config =
+    let
+      tokyonightPlugin = pkgs.vimPlugins.tokyonight-nvim;
+      variant = config.preferences.themes.tokyonight.variant;
+      enable = config.preferences.themes.tokyonight.enable;
+      default = config.preferences.themes.tokyonight.default;
+      desktop = config.preferences.enableDesktopTheme && default;
+    in
     lib.mkIf enable {
       # Bat
       programs.bat = {
-        config = lib.mkIf default {
-          theme = "tokyonight";
-        };
+        config = lib.mkIf default { theme = "tokyonight"; };
         themes = {
           "tokyonight" = {
             src = "${tokyonightPlugin}/extras/sublime/tokyonight_${variant}.tmTheme";
@@ -39,13 +43,17 @@
       # Delta
       programs.git = lib.mkIf default {
         delta.options.syntax-theme = "tokyonight";
-        extraConfig.include.path = ["${config.xdg.configHome}/delta/tokyonight.gitconfig"];
+        extraConfig.include.path = [ "${config.xdg.configHome}/delta/tokyonight.gitconfig" ];
       };
       xdg.configFile."delta/tokyonight.gitconfig".source = "${tokyonightPlugin}/extras/delta/tokyonight_${variant}.gitconfig";
 
       # Fzf
-      programs.bash.initExtra = lib.mkIf default (lib.mkOrder 0 "source ${config.xdg.configHome}/fzf/tokyonight.sh");
-      programs.zsh.initExtraFirst = lib.mkIf default (lib.mkOrder 0 "source ${config.xdg.configHome}/fzf/tokyonight.sh");
+      programs.bash.initExtra = lib.mkIf default (
+        lib.mkOrder 0 "source ${config.xdg.configHome}/fzf/tokyonight.sh"
+      );
+      programs.zsh.initExtraFirst = lib.mkIf default (
+        lib.mkOrder 0 "source ${config.xdg.configHome}/fzf/tokyonight.sh"
+      );
       xdg.configFile."fzf/tokyonight.sh".source = "${tokyonightPlugin}/extras/fzf/tokyonight_${variant}.zsh";
 
       programs.nixvim = lib.mkIf default {
@@ -58,23 +66,22 @@
       # Tmux
       programs.tmux.plugins = lib.mkIf default (
         lib.mkOrder 0 [
-          (pkgs.tmuxPlugins.mkTmuxPlugin
-            {
-              pluginName = "tokyonight";
-              src = pkgs.writeShellScriptBin "tokyonight.tmux" ''
-                tmux source ${tokyonightPlugin}/extras/tmux/tokyonight_${variant}.tmux
-              '';
-              version = "${tokyonightPlugin.version}";
-              rtpFilePath = "bin/tokyonight.tmux";
-              unpack = false;
-            })
+          (pkgs.tmuxPlugins.mkTmuxPlugin {
+            pluginName = "tokyonight";
+            src = pkgs.writeShellScriptBin "tokyonight.tmux" ''
+              tmux source ${tokyonightPlugin}/extras/tmux/tokyonight_${variant}.tmux
+            '';
+            version = "${tokyonightPlugin.version}";
+            rtpFilePath = "bin/tokyonight.tmux";
+            unpack = false;
+          })
         ]
       );
 
       # Alacritty
-      programs.alacritty.settings.import = lib.mkIf default (lib.mkOrder 0 [
-        "${config.xdg.configHome}/alacritty/tokyonight.toml"
-      ]);
+      programs.alacritty.settings.import = lib.mkIf default (
+        lib.mkOrder 0 [ "${config.xdg.configHome}/alacritty/tokyonight.toml" ]
+      );
       xdg.configFile."alacritty/tokyonight.toml".source = "${tokyonightPlugin}/extras/alacritty/tokyonight_${variant}.toml";
 
       # Kitty
@@ -101,7 +108,8 @@
       };
 
       # QT
-      home.packages = with pkgs;
+      home.packages =
+        with pkgs;
         lib.mkIf desktop [
           qt5.qtwayland
           qt6.qtwayland

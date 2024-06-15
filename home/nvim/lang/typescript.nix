@@ -1,13 +1,44 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nixvim = {
     plugins.conform-nvim = {
       formattersByFt = {
-        javascript = [["prettierd" "prettier"]];
-        javascriptreact = [["prettierd" "prettier"]];
-        "javascript.jsx" = [["prettierd" "prettier"]];
-        typescript = [["prettierd" "prettier"]];
-        typescriptreact = [["prettierd" "prettier"]];
-        "typescript.tsx" = [["prettierd" "prettier"]];
+        javascript = [
+          [
+            "prettierd"
+            "prettier"
+          ]
+        ];
+        javascriptreact = [
+          [
+            "prettierd"
+            "prettier"
+          ]
+        ];
+        "javascript.jsx" = [
+          [
+            "prettierd"
+            "prettier"
+          ]
+        ];
+        typescript = [
+          [
+            "prettierd"
+            "prettier"
+          ]
+        ];
+        typescriptreact = [
+          [
+            "prettierd"
+            "prettier"
+          ]
+        ];
+        "typescript.tsx" = [
+          [
+            "prettierd"
+            "prettier"
+          ]
+        ];
       };
     };
     plugins.lsp.servers = {

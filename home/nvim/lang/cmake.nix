@@ -1,8 +1,9 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nixvim = {
     plugins.conform-nvim = {
       formattersByFt = {
-        cmake = ["cmake_format"];
+        cmake = [ "cmake_format" ];
       };
     };
     plugins.lsp.servers.cmake = {
@@ -10,7 +11,5 @@
     };
   };
 
-  home.packages = with pkgs; [
-    cmake-format
-  ];
+  home.packages = with pkgs; [ cmake-format ];
 }

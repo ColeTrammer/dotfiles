@@ -15,7 +15,9 @@
           '';
         };
         mode = "n";
-        options = {desc = "Git";};
+        options = {
+          desc = "Git";
+        };
       }
       {
         key = "<leader>gf";
@@ -29,7 +31,9 @@
           '';
         };
         mode = "n";
-        options = {desc = "Git Log (File)";};
+        options = {
+          desc = "Git Log (File)";
+        };
       }
     ];
   };

@@ -14,7 +14,10 @@
         options.desc = "Refactor";
       }
       {
-        mode = ["n" "v"];
+        mode = [
+          "n"
+          "v"
+        ];
         key = "<leader>ri";
         action.__raw = ''
           function()

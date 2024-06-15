@@ -61,7 +61,7 @@
     };
     autoCmd = [
       {
-        event = ["FileType"];
+        event = [ "FileType" ];
         pattern = [
           "help"
           "alpha"

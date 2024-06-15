@@ -3,10 +3,13 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     plymouth = {
-      enable = lib.mkEnableOption "plymouth" // {default = true;};
+      enable = lib.mkEnableOption "plymouth" // {
+        default = true;
+      };
 
       dpi = lib.mkOption {
         type = lib.types.float;
@@ -21,18 +24,13 @@
       plymouth = {
         enable = true;
         theme = "catppuccin-mocha";
-        themePackages = [
-          (pkgs.catppuccin-plymouth.override
-            {
-              variant = "mocha";
-            })
-        ];
+        themePackages = [ (pkgs.catppuccin-plymouth.override { variant = "mocha"; }) ];
         extraConfig = ''
           DeviceScale=${builtins.toString config.plymouth.dpi};
         '';
       };
       initrd.systemd.enable = true;
-      kernelParams = ["quiet"];
+      kernelParams = [ "quiet" ];
     };
 
     impermenence.initrdSystemd = true;

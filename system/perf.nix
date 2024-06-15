@@ -1,19 +1,12 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options = {
-    perf.enable =
-      lib.mkEnableOption "perf"
-      // {
-        default = true;
-      };
+    perf.enable = lib.mkEnableOption "perf" // {
+      default = true;
+    };
   };
 
   config = lib.mkIf config.perf.enable {
-    environment.systemPackages = [
-      config.boot.kernelPackages.perf
-    ];
+    environment.systemPackages = [ config.boot.kernelPackages.perf ];
   };
 }

@@ -13,7 +13,10 @@
     # keymaps for my custom terminal codes
     keymaps = [
       {
-        mode = ["i" "s"];
+        mode = [
+          "i"
+          "s"
+        ];
         key = "<C-^>";
         action = "<C-m>";
         options = {
@@ -21,7 +24,10 @@
         };
       }
       {
-        mode = ["i" "s"];
+        mode = [
+          "i"
+          "s"
+        ];
         key = "<C-]>";
         action = "<C-m>";
         options = {

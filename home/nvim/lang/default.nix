@@ -6,6 +6,7 @@
     ./go.nix
     ./json.nix
     ./just.nix
+    ./lua.nix
     ./markdown.nix
     ./nix.nix
     ./python.nix

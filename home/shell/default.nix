@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   imports = [
     ./bat.nix
     ./bash.nix
@@ -31,10 +32,8 @@
   ];
 
   options = {
-    shell.enable =
-      lib.mkEnableOption "Shell programs"
-      // {
-        default = true;
-      };
+    shell.enable = lib.mkEnableOption "Shell programs" // {
+      default = true;
+    };
   };
 }

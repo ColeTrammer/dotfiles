@@ -1,10 +1,9 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options = {
-    network.enable = lib.mkEnableOption "Networking and Bluetooth" // {default = true;};
+    network.enable = lib.mkEnableOption "Networking and Bluetooth" // {
+      default = true;
+    };
   };
 
   config = lib.mkIf config.network.enable {

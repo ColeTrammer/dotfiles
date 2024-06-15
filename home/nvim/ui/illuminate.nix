@@ -5,7 +5,7 @@
       delay = 200;
       largeFileCutoff = 10000;
       largeFileOverrides = {
-        providers = ["lsp"];
+        providers = [ "lsp" ];
       };
     };
   };

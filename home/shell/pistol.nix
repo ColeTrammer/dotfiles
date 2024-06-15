@@ -3,22 +3,22 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
-    shell.pistol.enable =
-      lib.mkEnableOption "pistol"
-      // {
-        default = config.shell.enable;
-      };
+    shell.pistol.enable = lib.mkEnableOption "pistol" // {
+      default = config.shell.enable;
+    };
   };
 
-  config = let
-    previewDir = pkgs.writeShellScript "preview-dir.sh" ''
-      # NOTE: unset LS_COLORS to have consistent theming even on non-NixOS systems.
-      export LS_COLORS=""
-      ${pkgs.eza}/bin/eza --tree --git --icons --group-directories-first --level=2 --color=always "$@"
-    '';
-  in
+  config =
+    let
+      previewDir = pkgs.writeShellScript "preview-dir.sh" ''
+        # NOTE: unset LS_COLORS to have consistent theming even on non-NixOS systems.
+        export LS_COLORS=""
+        ${pkgs.eza}/bin/eza --tree --git --icons --group-directories-first --level=2 --color=always "$@"
+      '';
+    in
     lib.mkIf config.shell.pistol.enable {
       programs.pistol = {
         enable = true;

@@ -1,4 +1,5 @@
-{config, ...}: let
+{ config, ... }:
+let
   header = text: {
     type = "text";
     opts = {
@@ -53,7 +54,8 @@
       }
     '';
   };
-in {
+in
+{
   programs.nixvim = {
     plugins.alpha = {
       enable = true;

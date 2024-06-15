@@ -1,9 +1,20 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nixvim = {
     plugins.conform-nvim = {
       formattersByFt = {
-        json = [["prettierd" "prettier"]];
-        jsonc = [["prettierd" "prettier"]];
+        json = [
+          [
+            "prettierd"
+            "prettier"
+          ]
+        ];
+        jsonc = [
+          [
+            "prettierd"
+            "prettier"
+          ]
+        ];
       };
     };
     plugins.lsp.servers.jsonls = {
@@ -14,8 +25,6 @@
       };
     };
 
-    extraPlugins = with pkgs.vimPlugins; [
-      SchemaStore-nvim
-    ];
+    extraPlugins = with pkgs.vimPlugins; [ SchemaStore-nvim ];
   };
 }

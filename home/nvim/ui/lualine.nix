@@ -3,9 +3,7 @@
     plugins.lualine = {
       enable = true;
       globalstatus = true;
-      disabledFiletypes.statusline = [
-        "alpha"
-      ];
+      disabledFiletypes.statusline = [ "alpha" ];
       componentSeparators = {
         left = "|";
         right = "|";
@@ -15,7 +13,7 @@
         right = "";
       };
       sections = {
-        lualine_a = ["mode"];
+        lualine_a = [ "mode" ];
         lualine_b = [
           {
             name = "branch";
@@ -65,9 +63,11 @@
             padding.right = 1;
           }
         ];
-        lualine_x = [
+        lualine_x = [ ];
+        lualine_y = [
+          "encoding"
+          "fileformat"
         ];
-        lualine_y = ["encoding" "fileformat"];
         lualine_z = [
           {
             name = "progress";

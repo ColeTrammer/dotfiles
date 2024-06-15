@@ -1,19 +1,20 @@
-{
-  lib,
-  inputs,
-  ...
-}: let
+{ lib, inputs, ... }:
+let
   dirs = lib.attrsets.filterAttrs (_: type: type == "directory") (builtins.readDir ./.);
   hosts = builtins.attrNames dirs;
   mkConfig = host: {
     name = host;
     value = inputs.nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [./${host}/configuration.nix];
+      specialArgs = {
+        inherit inputs;
+        helpers = import ../helpers;
+      };
+      modules = [ ./${host}/configuration.nix ];
     };
   };
   configs = builtins.map mkConfig hosts;
-in {
+in
+{
   flake = {
     nixosConfigurations = builtins.listToAttrs configs;
   };

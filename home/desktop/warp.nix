@@ -3,25 +3,22 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
-    desktop.warp.enable =
-      lib.mkEnableOption "Cloudflare Warp"
-      // {
-        default = config.desktop.enable;
-      };
+    desktop.warp.enable = lib.mkEnableOption "Cloudflare Warp" // {
+      default = config.desktop.enable;
+    };
   };
 
   config = lib.mkIf config.desktop.warp.enable {
-    home.packages = with pkgs; [
-      cloudflare-warp
-    ];
+    home.packages = with pkgs; [ cloudflare-warp ];
 
     systemd.user.services = {
       warp-taskbar = {
         Unit = {
           Description = "Cloudflare Warp taskbar";
-          After = ["graphical-session.target"];
+          After = [ "graphical-session.target" ];
         };
 
         Service = {
@@ -29,12 +26,12 @@
           ExecStop = "pkill warp-taskbar";
         };
 
-        Install.WantedBy = ["default.target"];
+        Install.WantedBy = [ "default.target" ];
       };
     };
 
     home.persistence."/persist/home" = {
-      directories = [".local/share/warp"];
+      directories = [ ".local/share/warp" ];
       allowOther = true;
     };
   };

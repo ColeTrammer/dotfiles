@@ -1,8 +1,5 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options = {
     apps.kitty.enable = lib.mkEnableOption "Kitty";
   };

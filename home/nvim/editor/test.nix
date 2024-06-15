@@ -3,8 +3,12 @@
     plugins.neotest = {
       enable = true;
       settings = {
-        status = {virtual_text = true;};
-        output = {open_on_run = true;};
+        status = {
+          virtual_text = true;
+        };
+        output = {
+          open_on_run = true;
+        };
       };
     };
     keymaps = [
@@ -41,7 +45,8 @@
       {
         key = "<leader>to";
         mode = "n";
-        action.__raw = ''          function() require("neotest").output.open({ enter = true,
+        action.__raw = ''
+          function() require("neotest").output.open({ enter = true,
               auto_close = true }) end'';
         options.desc = "Show Output";
       }

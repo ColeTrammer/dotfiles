@@ -1,14 +1,9 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options = {
-    desktop.hyprlock.enable =
-      lib.mkEnableOption "Hyprlock"
-      // {
-        default = config.desktop.enable;
-      };
+    desktop.hyprlock.enable = lib.mkEnableOption "Hyprlock" // {
+      default = config.desktop.enable;
+    };
   };
 
   config = lib.mkIf config.desktop.hyprlock.enable {
@@ -24,11 +19,7 @@
           }
         ];
 
-        input-field = [
-          {
-            monitor = "";
-          }
-        ];
+        input-field = [ { monitor = ""; } ];
 
         label = [
           {

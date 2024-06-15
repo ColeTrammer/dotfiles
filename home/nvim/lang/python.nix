@@ -1,8 +1,12 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nixvim = {
     plugins.conform-nvim = {
       formattersByFt = {
-        python = ["isort" "black"];
+        python = [
+          "isort"
+          "black"
+        ];
       };
     };
     plugins.lsp.servers.pyright = {

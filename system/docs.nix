@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     docs.enable = lib.mkEnableOption "Linux documentation";
   };

@@ -1,14 +1,9 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options = {
-    desktop.udiskie.enable =
-      lib.mkEnableOption "udiskie"
-      // {
-        default = config.desktop.enable;
-      };
+    desktop.udiskie.enable = lib.mkEnableOption "udiskie" // {
+      default = config.desktop.enable;
+    };
   };
 
   config = lib.mkIf config.desktop.udiskie.enable {

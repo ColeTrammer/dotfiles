@@ -1,14 +1,9 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options = {
-    keyring.enable =
-      lib.mkEnableOption "Gnome keyring"
-      // {
-        default = true;
-      };
+    keyring.enable = lib.mkEnableOption "Gnome keyring" // {
+      default = true;
+    };
   };
 
   config = lib.mkIf config.keyring.enable {

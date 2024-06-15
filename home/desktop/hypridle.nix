@@ -3,20 +3,20 @@
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   onlyIfNoAudio = pkgs.writeShellScript "only-if-no-audio" ''
     ${pkgs.pipewire}/bin/pw-cli i all 2>&1 | ${pkgs.ripgrep}/bin/rg running -q
     if [ $? == 1 ]; then
       "$@"
     fi
   '';
-in {
+in
+{
   options = {
-    desktop.hypridle.enable =
-      lib.mkEnableOption "Hypridle"
-      // {
-        default = config.desktop.enable;
-      };
+    desktop.hypridle.enable = lib.mkEnableOption "Hypridle" // {
+      default = config.desktop.enable;
+    };
   };
 
   config = lib.mkIf config.desktop.hypridle.enable {

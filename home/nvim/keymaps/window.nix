@@ -59,37 +59,49 @@
         mode = "n";
         key = "<leader>wk";
         action = "<cmd>resize +4<cr>";
-        options = {desc = "Increase Window Height";};
+        options = {
+          desc = "Increase Window Height";
+        };
       }
       {
         mode = "n";
         key = "<leader>wj";
         action = "<cmd>resize -4<cr>";
-        options = {desc = "Decrease Window Height";};
+        options = {
+          desc = "Decrease Window Height";
+        };
       }
       {
         mode = "n";
         key = "<leader>wh";
         action = "<cmd>vertical resize -4<cr>";
-        options = {desc = "Decrease Window Width";};
+        options = {
+          desc = "Decrease Window Width";
+        };
       }
       {
         mode = "n";
         key = "<leader>wl";
         action = "<cmd>vertical resize +4<cr>";
-        options = {desc = "Increase Window Width";};
+        options = {
+          desc = "Increase Window Width";
+        };
       }
       {
         mode = "n";
         key = "<leader>wpd";
         action = "<cmd>:pclose<cr>";
-        options = {desc = "Close Preview Window";};
+        options = {
+          desc = "Close Preview Window";
+        };
       }
       {
         mode = "n";
         key = "<leader>wpo";
         action = "<C-w>}";
-        options = {desc = "Open Preview Window";};
+        options = {
+          desc = "Open Preview Window";
+        };
       }
     ];
     plugins.which-key.registrations."<leader>w".name = "+window";

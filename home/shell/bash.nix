@@ -1,14 +1,9 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options = {
-    shell.bash.enable =
-      lib.mkEnableOption "bash"
-      // {
-        default = config.shell.enable;
-      };
+    shell.bash.enable = lib.mkEnableOption "bash" // {
+      default = config.shell.enable;
+    };
   };
 
   config = lib.mkIf config.shell.bash.enable {
@@ -24,9 +19,7 @@
 
     home.persistence."/persist/home" = {
       allowOther = true;
-      files = [
-        ".bash_history"
-      ];
+      files = [ ".bash_history" ];
     };
   };
 }

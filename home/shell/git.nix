@@ -1,15 +1,10 @@
+{ lib, config, ... }:
 {
-  lib,
-  config,
-  ...
-}: {
   options = {
     shell.git = {
-      enable =
-        lib.mkEnableOption "Git"
-        // {
-          default = config.shell.enable;
-        };
+      enable = lib.mkEnableOption "Git" // {
+        default = config.shell.enable;
+      };
 
       gpgKey = lib.mkOption {
         type = lib.types.str;
@@ -35,11 +30,9 @@
         description = ''Branch for git to use by default'';
       };
 
-      github =
-        lib.mkEnableOption "Setup GitHub CLI"
-        // {
-          default = true;
-        };
+      github = lib.mkEnableOption "Setup GitHub CLI" // {
+        default = true;
+      };
     };
   };
 
@@ -49,10 +42,7 @@
       lfs.enable = true;
       signing = {
         signByDefault = builtins.stringLength config.shell.git.gpgKey > 0;
-        key =
-          if (builtins.stringLength config.shell.git.gpgKey > 0)
-          then config.shell.git.gpgKey
-          else null;
+        key = if (builtins.stringLength config.shell.git.gpgKey > 0) then config.shell.git.gpgKey else null;
       };
       userEmail = config.shell.git.email;
       userName = config.shell.git.username;

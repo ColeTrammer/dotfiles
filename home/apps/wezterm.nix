@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     apps.wezterm = {
       enable = lib.mkEnableOption "Wezterm";

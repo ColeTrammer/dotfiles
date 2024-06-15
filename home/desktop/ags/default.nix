@@ -4,35 +4,33 @@
   inputs,
   pkgs,
   ...
-}: {
-  imports = [
-    inputs.ags.homeManagerModules.default
-  ];
+}:
+{
+  imports = [ inputs.ags.homeManagerModules.default ];
 
   options = {
     ags = {
-      enable =
-        lib.mkEnableOption "ags"
-        // {
-          default = config.desktop.enable;
-        };
+      enable = lib.mkEnableOption "ags" // {
+        default = config.desktop.enable;
+      };
     };
   };
 
-  config = let
-    ags-config = pkgs.buildNpmPackage {
-      pname = "coletrammer-ags-config";
-      version = "0.0.1";
+  config =
+    let
+      ags-config = pkgs.buildNpmPackage {
+        pname = "coletrammer-ags-config";
+        version = "0.0.1";
 
-      src = ./.;
+        src = ./.;
 
-      npmDepsHash = "sha256-SW4nQZ3rONKnYSGMBmj7mPBF3NFIxysp5nPSXiVPs3M=";
+        npmDepsHash = "sha256-SW4nQZ3rONKnYSGMBmj7mPBF3NFIxysp5nPSXiVPs3M=";
 
-      postPatch = ''
-        cp -r ${config.programs.ags.package}/share/com.github.Aylur.ags/types .
-      '';
-    };
-  in
+        postPatch = ''
+          cp -r ${config.programs.ags.package}/share/com.github.Aylur.ags/types .
+        '';
+      };
+    in
     lib.mkIf config.ags.enable {
       programs.ags = {
         enable = true;
@@ -44,7 +42,7 @@
       systemd.user.services.ags = {
         Unit = {
           Description = "AGS";
-          After = ["graphical-session-pre.target"];
+          After = [ "graphical-session-pre.target" ];
         };
 
         Service = {
@@ -53,7 +51,7 @@
           Restart = "on-failure";
         };
 
-        Install.WantedBy = ["default.target"];
+        Install.WantedBy = [ "default.target" ];
       };
 
       # We can't use lib.mkOutOfStoreSymlink because of a nix unstable issue.

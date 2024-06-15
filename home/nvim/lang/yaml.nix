@@ -2,11 +2,16 @@
   programs.nixvim = {
     plugins.conform-nvim = {
       formattersByFt = {
-        yaml = [["prettierd" "prettier"]];
+        yaml = [
+          [
+            "prettierd"
+            "prettier"
+          ]
+        ];
       };
     };
     plugins.lint.lintersByFt = {
-      markdown = ["markdownlint"];
+      markdown = [ "markdownlint" ];
     };
     plugins.lsp.servers.yamlls = {
       enable = true;

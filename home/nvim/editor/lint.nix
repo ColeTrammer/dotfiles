@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   programs.nixvim = {
     plugins.lint = {
       enable = true;
@@ -15,7 +16,11 @@
           '';
           desc = "Trigger Linting";
         };
-        event = ["BufWritePost" "BufReadPost" "InsertLeave"];
+        event = [
+          "BufWritePost"
+          "BufReadPost"
+          "InsertLeave"
+        ];
       };
     };
     userCommands = {

@@ -3,11 +3,15 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   programs.nixvim = {
     plugins.conform-nvim = {
       formattersByFt = {
-        go = ["goimports" "gofmt"];
+        go = [
+          "goimports"
+          "gofmt"
+        ];
       };
     };
     plugins.lsp = {
@@ -47,7 +51,13 @@
           usePlaceholders = true;
           completeUnimported = true;
           staticcheck = true;
-          directoryFilters = ["-.git" "-.vscode" "-.idea" "-.vscode-test" "-node_modules"];
+          directoryFilters = [
+            "-.git"
+            "-.vscode"
+            "-.idea"
+            "-.vscode-test"
+            "-node_modules"
+          ];
           semanticTokens = true;
         };
       };
@@ -57,12 +67,14 @@
     };
     plugins.neotest.adapters.go = {
       enable = true;
-      settings = {recursive_run = true;};
+      settings = {
+        recursive_run = true;
+      };
     };
   };
 
   nvim.dap.vscode-adapters = {
-    delve = ["go"];
+    delve = [ "go" ];
   };
 
   home.packages = with pkgs; [

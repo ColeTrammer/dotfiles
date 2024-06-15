@@ -3,7 +3,10 @@
     keymaps = [
       # Better up/down (accounts for word wrap)
       {
-        mode = ["n" "x"];
+        mode = [
+          "n"
+          "x"
+        ];
         key = "j";
         action = "v:count == 0 ? 'gj' : 'j'";
         options = {
@@ -13,7 +16,10 @@
         };
       }
       {
-        mode = ["n" "x"];
+        mode = [
+          "n"
+          "x"
+        ];
         key = "k";
         action = "v:count == 0 ? 'gk' : 'k'";
         options = {
@@ -24,7 +30,10 @@
       }
       # Clear search on escape
       {
-        mode = ["i" "n"];
+        mode = [
+          "i"
+          "n"
+        ];
         key = "<esc>";
         action = "<cmd>noh<CR><esc>";
         options = {
@@ -50,7 +59,7 @@
       }
       # Auto-center screen when scolling.
       {
-        mode = ["n"];
+        mode = [ "n" ];
         key = "<C-d>";
         action = "<C-d>zz";
         options = {
@@ -58,7 +67,7 @@
         };
       }
       {
-        mode = ["n"];
+        mode = [ "n" ];
         key = "<C-u>";
         action = "<C-u>zz";
         options = {
@@ -67,7 +76,7 @@
       }
       # Move around in insert mode
       {
-        mode = ["i"];
+        mode = [ "i" ];
         key = "<C-h>";
         action = "<Left>";
         options = {
@@ -75,7 +84,7 @@
         };
       }
       {
-        mode = ["i"];
+        mode = [ "i" ];
         key = "<C-l>";
         action = "<Right>";
         options = {
@@ -83,7 +92,7 @@
         };
       }
       {
-        mode = ["i"];
+        mode = [ "i" ];
         key = "<C-k>";
         action = "<Up>";
         options = {
@@ -91,7 +100,7 @@
         };
       }
       {
-        mode = ["i"];
+        mode = [ "i" ];
         key = "<C-j>";
         action = "<Down>";
         options = {
@@ -100,7 +109,12 @@
       }
       # Save file
       {
-        mode = ["n" "x" "s" "i"];
+        mode = [
+          "n"
+          "x"
+          "s"
+          "i"
+        ];
         key = "<C-s>";
         action = "<cmd>w<cr><esc>";
         options = {
@@ -116,7 +130,7 @@
       }
       # Quit
       {
-        mode = ["n"];
+        mode = [ "n" ];
         key = "<leader>qq";
         action = "<cmd>qa<cr>";
         options = {

@@ -4,7 +4,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./autocommands
@@ -16,7 +17,9 @@
   ];
 
   options = {
-    nvim.enable = lib.mkEnableOption "Neovim" // {default = true;};
+    nvim.enable = lib.mkEnableOption "Neovim" // {
+      default = true;
+    };
   };
 
   config = lib.mkIf config.nvim.enable {

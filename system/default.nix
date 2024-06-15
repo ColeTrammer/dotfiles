@@ -1,8 +1,5 @@
+{ inputs, pkgs, ... }:
 {
-  inputs,
-  pkgs,
-  ...
-}: {
   imports = [
     inputs.disko.nixosModules.default
     inputs.home-manager.nixosModules.default

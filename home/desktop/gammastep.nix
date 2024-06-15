@@ -1,14 +1,9 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options = {
-    desktop.gammastep.enable =
-      lib.mkEnableOption "Gammastep"
-      // {
-        default = config.desktop.enable;
-      };
+    desktop.gammastep.enable = lib.mkEnableOption "Gammastep" // {
+      default = config.desktop.enable;
+    };
   };
 
   config = lib.mkIf config.desktop.gammastep.enable {

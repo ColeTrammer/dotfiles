@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     apps.obs.enable = lib.mkEnableOption "OBS";
   };

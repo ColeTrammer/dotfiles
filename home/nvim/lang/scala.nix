@@ -1,8 +1,7 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nixvim = {
-    extraPlugins = with pkgs; [
-      vimPlugins.nvim-metals
-    ];
+    extraPlugins = with pkgs; [ vimPlugins.nvim-metals ];
     extraConfigLua = ''
       local metals = require("metals")
       local metals_config = vim.tbl_deep_extend("force", metals.bare_config(), {
@@ -40,7 +39,5 @@
     '';
   };
 
-  home.packages = with pkgs; [
-    coursier
-  ];
+  home.packages = with pkgs; [ coursier ];
 }

@@ -3,21 +3,17 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     shell.tmux = {
-      enable =
-        lib.mkEnableOption "tmux"
-        // {
-          default =
-            config.shell.enable;
-        };
+      enable = lib.mkEnableOption "tmux" // {
+        default = config.shell.enable;
+      };
 
-      autostart =
-        lib.mkEnableOption "tmux autostart"
-        // {
-          default = true;
-        };
+      autostart = lib.mkEnableOption "tmux autostart" // {
+        default = true;
+      };
     };
   };
 
@@ -112,9 +108,7 @@
 
     programs.fzf.tmux = {
       enableShellIntegration = true;
-      shellIntegrationOptions = [
-        "-p"
-      ];
+      shellIntegrationOptions = [ "-p" ];
     };
 
     home.persistence."/persist/home" = {
@@ -127,24 +121,22 @@
       ];
     };
 
-    programs.bash.initExtra =
-      lib.mkIf config.shell.tmux.autostart
-      (lib.mkOrder
-        10000 ''
-          [ -z "$TMUX" ] && [ "$TERM_PROGRAM" != "vscode" ] && { tmux attach || exec tmux new-session; }
-        '');
+    programs.bash.initExtra = lib.mkIf config.shell.tmux.autostart (
+      lib.mkOrder 10000 ''
+        [ -z "$TMUX" ] && [ "$TERM_PROGRAM" != "vscode" ] && { tmux attach || exec tmux new-session; }
+      ''
+    );
 
-    programs.zsh.initExtraFirst =
-      lib.mkIf config.shell.tmux.autostart
-      (lib.mkOrder
-        5 ''
-          [ -z "$TMUX" ] && [ "$TERM_PROGRAM" != "vscode" ] && { tmux attach || exec tmux new-session; }
-        '');
+    programs.zsh.initExtraFirst = lib.mkIf config.shell.tmux.autostart (
+      lib.mkOrder 5 ''
+        [ -z "$TMUX" ] && [ "$TERM_PROGRAM" != "vscode" ] && { tmux attach || exec tmux new-session; }
+      ''
+    );
 
     systemd.user.services.tmux = {
       Unit = {
         Description = "Tmux";
-        After = ["graphical-session-pre.target"];
+        After = [ "graphical-session-pre.target" ];
       };
 
       Service = {
@@ -153,7 +145,7 @@
         ExecStop = "${config.programs.tmux.package}/bin/tmux kill-server";
       };
 
-      Install.WantedBy = ["default.target"];
+      Install.WantedBy = [ "default.target" ];
     };
   };
 }

@@ -1,8 +1,5 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options = {
     docker.enable = lib.mkEnableOption "Docker";
   };
@@ -14,9 +11,7 @@
 
     environment.persistence."/persist/system" = {
       hideMounts = true;
-      directories = [
-        "/var/lib/docker"
-      ];
+      directories = [ "/var/lib/docker" ];
     };
   };
 }

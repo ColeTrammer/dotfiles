@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./themes/catppuccin.nix
     ./themes/tokyonight.nix
@@ -11,10 +12,18 @@
 
   options = {
     preferences = {
-      enable = lib.mkEnableOption "preferences" // {default = true;};
-      enableDesktopTheme = lib.mkEnableOption "desktop theme" // {default = config.desktop.enable;};
-      enableTerminal = lib.mkEnableOption "terminal" // {default = config.apps.enable;};
-      enableDocumentViewer = lib.mkEnableOption "document viewer" // {default = config.apps.enable;};
+      enable = lib.mkEnableOption "preferences" // {
+        default = true;
+      };
+      enableDesktopTheme = lib.mkEnableOption "desktop theme" // {
+        default = config.desktop.enable;
+      };
+      enableTerminal = lib.mkEnableOption "terminal" // {
+        default = config.apps.enable;
+      };
+      enableDocumentViewer = lib.mkEnableOption "document viewer" // {
+        default = config.apps.enable;
+      };
 
       os = lib.mkOption {
         type = lib.types.str;
@@ -85,9 +94,7 @@
       font = {
         package = lib.mkOption {
           type = lib.types.package;
-          default = pkgs.nerdfonts.override {
-            fonts = ["JetBrainsMono"];
-          };
+          default = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
           description = ''Default font package'';
         };
 
@@ -139,9 +146,9 @@
     };
 
     # Fonts
-    home.packages = lib.mkIf (config.preferences.enableDesktopTheme || config.preferences.enableTerminal) [
-      config.preferences.font.package
-    ];
+    home.packages = lib.mkIf (
+      config.preferences.enableDesktopTheme || config.preferences.enableTerminal
+    ) [ config.preferences.font.package ];
     fonts.fontconfig.enable = config.preferences.enableDesktopTheme;
 
     # Terminal
@@ -153,7 +160,7 @@
     # Document viewer
     apps.${config.preferences.documentViewer}.enable = true;
     xdg.mimeApps = {
-      defaultApplications."application/pdf" = ["${config.preferences.documentViewer}.desktop"];
+      defaultApplications."application/pdf" = [ "${config.preferences.documentViewer}.desktop" ];
     };
 
     # Cursor

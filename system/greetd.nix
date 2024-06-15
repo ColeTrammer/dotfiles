@@ -3,13 +3,12 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
-    greetd.enable =
-      lib.mkEnableOption "greetd and tuigreet"
-      // {
-        default = true;
-      };
+    greetd.enable = lib.mkEnableOption "greetd and tuigreet" // {
+      default = true;
+    };
   };
 
   config = lib.mkIf config.greetd.enable {

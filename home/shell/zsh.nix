@@ -3,19 +3,16 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     shell.zsh = {
-      enable =
-        lib.mkEnableOption "zsh"
-        // {
-          default = config.shell.enable;
-        };
-      enableNixShellPlugin =
-        lib.mkEnableOption "zsh nix shell plugin"
-        // {
-          default = true;
-        };
+      enable = lib.mkEnableOption "zsh" // {
+        default = config.shell.enable;
+      };
+      enableNixShellPlugin = lib.mkEnableOption "zsh nix shell plugin" // {
+        default = true;
+      };
     };
   };
 
@@ -51,15 +48,16 @@
           }
         ]
         ++ (
-          if config.shell.zsh.enableNixShellPlugin
-          then [
-            {
-              name = "nix-shell";
-              file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
-              src = pkgs.zsh-nix-shell;
-            }
-          ]
-          else []
+          if config.shell.zsh.enableNixShellPlugin then
+            [
+              {
+                name = "nix-shell";
+                file = "share/zsh-nix-shell/nix-shell.plugin.zsh";
+                src = pkgs.zsh-nix-shell;
+              }
+            ]
+          else
+            [ ]
         );
     };
 

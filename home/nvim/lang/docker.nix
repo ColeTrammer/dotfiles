@@ -1,7 +1,8 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nixvim = {
     plugins.lint.lintersByFt = {
-      dockerfile = ["hadolint"];
+      dockerfile = [ "hadolint" ];
     };
     plugins.lsp.servers.dockerls = {
       enable = true;
@@ -22,7 +23,5 @@
     '';
   };
 
-  home.packages = with pkgs; [
-    hadolint
-  ];
+  home.packages = with pkgs; [ hadolint ];
 }

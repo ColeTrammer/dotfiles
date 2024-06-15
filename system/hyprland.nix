@@ -1,14 +1,9 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options = {
-    hyprland.enable =
-      lib.mkEnableOption "Hyprland"
-      // {
-        default = true;
-      };
+    hyprland.enable = lib.mkEnableOption "Hyprland" // {
+      default = true;
+    };
   };
 
   config = lib.mkIf config.hyprland.enable {
@@ -16,6 +11,6 @@
       enable = true;
     };
 
-    security.pam.services.hyprlock = {};
+    security.pam.services.hyprlock = { };
   };
 }

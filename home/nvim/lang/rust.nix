@@ -1,8 +1,9 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nixvim = {
     plugins.conform-nvim = {
       formattersByFt = {
-        rust = ["rustfmt"];
+        rust = [ "rustfmt" ];
       };
     };
     plugins.rustaceanvim = {
@@ -16,7 +17,10 @@
             port = "\${port}";
             executable = {
               command = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
-              args = ["--port" "\${port}"];
+              args = [
+                "--port"
+                "\${port}"
+              ];
             };
           };
 
@@ -41,7 +45,9 @@
         };
       };
     };
-    plugins.neotest.adapters.rust = {enable = true;};
+    plugins.neotest.adapters.rust = {
+      enable = true;
+    };
     plugins.crates-nvim = {
       enable = true;
       extraOptions = {
@@ -57,7 +63,7 @@
         end
       end, { buffer = bufnr })
     '';
-    plugins.cmp.settings.sources = [{name = "crates";}];
+    plugins.cmp.settings.sources = [ { name = "crates"; } ];
   };
 
   home.packages = with pkgs; [

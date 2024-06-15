@@ -1,14 +1,9 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options = {
-    apps.firefox.enable =
-      lib.mkEnableOption "Firefox"
-      // {
-        default = config.apps.enable;
-      };
+    apps.firefox.enable = lib.mkEnableOption "Firefox" // {
+      default = config.apps.enable;
+    };
   };
 
   config = lib.mkIf config.apps.firefox.enable {

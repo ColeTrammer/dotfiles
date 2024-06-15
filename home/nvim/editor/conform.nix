@@ -1,10 +1,12 @@
+{ helpers, ... }:
 {
   programs.nixvim = {
     plugins.conform-nvim = {
       enable = true;
       notifyOnError = true;
-      formatOnSave = ''
-        function(bufnr)
+      formatters.injected.options.ignore_errors = true;
+      formatOnSave = helpers.luaExpr ''
+        return function(bufnr)
           -- Disable with a global or buffer-local variable
           if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
             return
@@ -22,8 +24,8 @@
     };
     userCommands = {
       FormatToggle = {
-        command.__raw = ''
-          function(args)
+        command = helpers.luaRawExpr ''
+          return function(args)
             if args.bang then
               vim.b.disable_autoformat = not vim.b.disable_autoformat
             else
@@ -36,7 +38,8 @@
                 .. "]\nBuffer Auto-Format: ["
                 .. (vim.b.disable_autoformat and "" or "")
                 .. "]\n",
-              vim.log.levels.info)
+              vim.log.levels.info
+            )
           end
         '';
         desc = "Toggle Format on Save";
@@ -59,6 +62,18 @@
         options = {
           desc = "Toggle Format on Save (Buffer)";
         };
+      }
+      {
+        mode = [
+          "n"
+          "v"
+        ];
+        key = "<leader>cF";
+        action = helpers.luaRawExpr ''
+          return function()
+            require("conform").format({ formatters = { "injected" }, timeout_ms = 3000 })
+          end
+        '';
       }
     ];
     extraConfigLua = ''

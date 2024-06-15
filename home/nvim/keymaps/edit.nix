@@ -2,7 +2,7 @@
   programs.nixvim = {
     keymaps = [
       {
-        mode = ["n"];
+        mode = [ "n" ];
         key = "<leader>ce";
         action.__raw = ''[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]'';
         options = {

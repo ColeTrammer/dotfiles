@@ -3,13 +3,12 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
-    shell.nh.enable =
-      lib.mkEnableOption "nh"
-      // {
-        default = config.shell.enable;
-      };
+    shell.nh.enable = lib.mkEnableOption "nh" // {
+      default = config.shell.enable;
+    };
   };
 
   config = lib.mkIf config.shell.nh.enable {

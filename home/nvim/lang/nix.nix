@@ -1,12 +1,16 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nixvim = {
     plugins.conform-nvim = {
       formattersByFt = {
-        nix = ["alejandra"];
+        nix = [
+          "nixfmt"
+          "injected"
+        ];
       };
     };
     plugins.lint.lintersByFt = {
-      nix = ["nix"];
+      nix = [ "nix" ];
     };
     plugins.lsp = {
       servers = {
@@ -16,7 +20,9 @@
           extraOptions = {
             settings = {
               nil = {
-                formatting = {command = ["alejandra"];};
+                formatting = {
+                  command = [ "nixfmt" ];
+                };
                 nix = {
                   maxMemoryMB = 4 * 1024;
                   flake = {
@@ -34,6 +40,6 @@
 
   home.packages = with pkgs; [
     nil
-    alejandra
+    nixfmt-rfc-style
   ];
 }

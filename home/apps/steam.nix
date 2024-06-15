@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
     apps.steam.enable = lib.mkEnableOption "Steam";
   };

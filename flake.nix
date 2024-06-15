@@ -86,13 +86,14 @@
     };
   };
 
-  outputs = {
-    flake-parts,
-    home-manager,
-    nixpkgs,
-    ...
-  } @ inputs:
-    flake-parts.lib.mkFlake {inherit inputs;} {
+  outputs =
+    {
+      flake-parts,
+      home-manager,
+      nixpkgs,
+      ...
+    }@inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "x86_64-linux"
         "aarch64-linux"
@@ -107,28 +108,24 @@
         home/configurations/flake-module.nix
       ];
 
-      perSystem = {
-        config,
-        pkgs,
-        ...
-      }: {
-        treefmt.config = {
-          inherit (config.flake-root) projectRootFile;
+      perSystem =
+        { config, pkgs, ... }:
+        {
+          treefmt.config = {
+            inherit (config.flake-root) projectRootFile;
 
-          programs.alejandra.enable = true;
-          programs.prettier.enable = true;
-          programs.shfmt.enable = true;
-        };
+            programs.nixfmt-rfc-style.enable = true;
+            programs.prettier.enable = true;
+            programs.shfmt.enable = true;
+          };
 
-        devShells.default = pkgs.mkShell {
-          packages =
-            [
+          devShells.default = pkgs.mkShell {
+            packages = [
               config.treefmt.build.wrapper
               pkgs.nodePackages_latest.npm
               pkgs.nodejs
-            ]
-            ++ builtins.attrValues config.treefmt.build.programs;
+            ] ++ builtins.attrValues config.treefmt.build.programs;
+          };
         };
-      };
     };
 }

@@ -1,4 +1,5 @@
-{lib, ...}: {
+{ lib, ... }:
+{
   imports = [
     ./alacritty.nix
     ./discord.nix
@@ -14,7 +15,6 @@
   ];
 
   options = {
-    apps.enable =
-      lib.mkEnableOption "GUI Applications";
+    apps.enable = lib.mkEnableOption "GUI Applications";
   };
 }

@@ -1,11 +1,7 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options = {
-    apps.zathura.enable =
-      lib.mkEnableOption "Zathura";
+    apps.zathura.enable = lib.mkEnableOption "Zathura";
   };
 
   config = lib.mkIf config.apps.zathura.enable {

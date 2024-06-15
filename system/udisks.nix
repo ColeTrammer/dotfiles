@@ -3,19 +3,16 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
-    udisks.enable =
-      lib.mkEnableOption "udisks"
-      // {
-        default = true;
-      };
+    udisks.enable = lib.mkEnableOption "udisks" // {
+      default = true;
+    };
   };
 
   config = lib.mkIf config.udisks.enable {
-    environment.systemPackages = with pkgs; [
-      ntfs3g
-    ];
+    environment.systemPackages = with pkgs; [ ntfs3g ];
 
     services.udisks2 = {
       enable = true;

@@ -1,14 +1,15 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nixvim = {
     plugins.conform-nvim = {
       formattersByFt = {
-        sh = ["shfmt"];
+        sh = [ "shfmt" ];
       };
     };
     plugins.lint.lintersByFt = {
       # NOTE: no need to setup the linter since bashls does so automatically.
       # sh = ["shellcheck"];
-      zsh = ["zsh"];
+      zsh = [ "zsh" ];
     };
     plugins.lsp.servers.bashls = {
       enable = true;

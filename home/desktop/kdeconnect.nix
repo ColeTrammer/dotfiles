@@ -1,14 +1,9 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options = {
-    desktop.kdeconnect.enable =
-      lib.mkEnableOption "kdeconnect"
-      // {
-        default = config.desktop.enable;
-      };
+    desktop.kdeconnect.enable = lib.mkEnableOption "kdeconnect" // {
+      default = config.desktop.enable;
+    };
   };
 
   config = lib.mkIf config.desktop.kdeconnect.enable {
@@ -19,9 +14,7 @@
 
     home.persistence."/persist/home" = {
       allowOther = true;
-      directories = [
-        ".config/kdeconnect"
-      ];
+      directories = [ ".config/kdeconnect" ];
     };
   };
 }

@@ -1,10 +1,12 @@
 {
+  helpers,
   inputs,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
-    (import ../../system/btrfs-luks.nix {device = "/dev/nvme0n1";})
+    (import ../../system/btrfs-luks.nix { device = "/dev/nvme0n1"; })
     ./hardware-configuration.nix
     ../../system
   ];
@@ -19,7 +21,10 @@
     isNormalUser = true;
     hashedPasswordFile = "/persist/secrets/passwords/colet";
     shell = pkgs.zsh;
-    extraGroups = ["wheel" "docker"];
+    extraGroups = [
+      "wheel"
+      "docker"
+    ];
   };
 
   programs.zsh.enable = true;
@@ -30,7 +35,10 @@
   plymouth.dpi = 2.0;
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = {
+      inherit helpers;
+      inherit inputs;
+    };
     users = {
       "colet" = import (../../home/configurations/x86_64-linux + "/colet@desktop.nix");
     };

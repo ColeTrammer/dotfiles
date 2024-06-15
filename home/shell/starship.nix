@@ -1,22 +1,18 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options = {
     shell.starship = {
-      enable =
-        lib.mkEnableOption "starship";
+      enable = lib.mkEnableOption "starship";
 
       localIp = lib.mkEnableOption "show local ip over hostname";
     };
   };
 
-  config = let
-    presets = "${config.programs.starship.package}/share/starship/presets";
-  in
-    lib.mkIf config.shell.starship.enable
-    {
+  config =
+    let
+      presets = "${config.programs.starship.package}/share/starship/presets";
+    in
+    lib.mkIf config.shell.starship.enable {
       programs.starship = {
         enable = true;
         settings = lib.mkMerge [
@@ -38,7 +34,10 @@
             hostname = {
               disabled = config.shell.starship.localIp;
               ssh_only = false;
-              detect_env_vars = ["!TMUX" "SSH_CONNECTION"];
+              detect_env_vars = [
+                "!TMUX"
+                "SSH_CONNECTION"
+              ];
             };
             username.disabled = true;
             nix_shell = {

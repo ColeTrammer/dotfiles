@@ -1,14 +1,9 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options = {
-    shell.eza.enable =
-      lib.mkEnableOption "eza"
-      // {
-        default = config.shell.enable;
-      };
+    shell.eza.enable = lib.mkEnableOption "eza" // {
+      default = config.shell.enable;
+    };
   };
 
   config = lib.mkIf config.shell.eza.enable {

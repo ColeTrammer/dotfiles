@@ -3,13 +3,12 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
-    desktop.gpg.enable =
-      lib.mkEnableOption "GPG"
-      // {
-        default = config.desktop.enable;
-      };
+    desktop.gpg.enable = lib.mkEnableOption "GPG" // {
+      default = config.desktop.enable;
+    };
   };
 
   config = lib.mkIf config.desktop.gpg.enable {
@@ -21,7 +20,7 @@
 
     home.persistence."/persist/home" = {
       allowOther = true;
-      directories = [".gnupg"];
+      directories = [ ".gnupg" ];
     };
   };
 }

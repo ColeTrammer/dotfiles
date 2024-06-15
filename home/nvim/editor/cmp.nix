@@ -16,10 +16,10 @@
           ghost_text = true;
         };
         sources = [
-          {name = "nvim_lsp";}
-          {name = "luasnip";}
-          {name = "path";}
-          {name = "buffer";}
+          { name = "nvim_lsp"; }
+          { name = "luasnip"; }
+          { name = "path"; }
+          { name = "buffer"; }
         ];
         window = {
           completion.__raw = "cmp.config.window.bordered()";
@@ -83,33 +83,21 @@
           mapping = {
             __raw = "cmp.mapping.preset.cmdline()";
           };
-          sources = [
-            {
-              name = "buffer";
-            }
-          ];
+          sources = [ { name = "buffer"; } ];
         };
         "?" = {
           mapping = {
             __raw = "cmp.mapping.preset.cmdline()";
           };
-          sources = [
-            {
-              name = "buffer";
-            }
-          ];
+          sources = [ { name = "buffer"; } ];
         };
         ":" = {
           mapping = {
             __raw = "cmp.mapping.preset.cmdline()";
           };
           sources = [
-            {
-              name = "path";
-            }
-            {
-              name = "cmdline";
-            }
+            { name = "path"; }
+            { name = "cmdline"; }
           ];
           matching = {
             disallow_symbol_nonprefix_matching = false;

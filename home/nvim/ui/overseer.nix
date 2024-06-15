@@ -1,12 +1,7 @@
+{ lib, pkgs, ... }:
 {
-  lib,
-  pkgs,
-  ...
-}: {
   programs.nixvim = {
-    extraPlugins = with pkgs.vimPlugins; [
-      overseer-nvim
-    ];
+    extraPlugins = with pkgs.vimPlugins; [ overseer-nvim ];
     extraConfigLua = ''
       require("overseer").setup({
         strategy = "toggleterm",

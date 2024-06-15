@@ -1,6 +1,8 @@
 {
   programs.nixvim = {
-    plugins.todo-comments = {enable = true;};
+    plugins.todo-comments = {
+      enable = true;
+    };
     keymaps = [
       {
         mode = "n";

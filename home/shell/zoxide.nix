@@ -1,14 +1,9 @@
+{ config, lib, ... }:
 {
-  config,
-  lib,
-  ...
-}: {
   options = {
-    shell.zoxide.enable =
-      lib.mkEnableOption "zoxide"
-      // {
-        default = config.shell.enable;
-      };
+    shell.zoxide.enable = lib.mkEnableOption "zoxide" // {
+      default = config.shell.enable;
+    };
   };
 
   config = lib.mkIf config.shell.zoxide.enable {

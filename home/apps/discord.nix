@@ -3,13 +3,12 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
-    apps.discord.enable =
-      lib.mkEnableOption "Discord"
-      // {
-        default = config.apps.enable;
-      };
+    apps.discord.enable = lib.mkEnableOption "Discord" // {
+      default = config.apps.enable;
+    };
   };
 
   config = lib.mkIf config.apps.discord.enable {

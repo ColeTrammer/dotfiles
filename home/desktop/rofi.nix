@@ -3,13 +3,12 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   options = {
-    desktop.rofi.enable =
-      lib.mkEnableOption "Rofi"
-      // {
-        default = config.desktop.enable;
-      };
+    desktop.rofi.enable = lib.mkEnableOption "Rofi" // {
+      default = config.desktop.enable;
+    };
   };
 
   config = lib.mkIf config.desktop.rofi.enable {

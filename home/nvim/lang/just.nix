@@ -1,13 +1,15 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.nixvim = {
     plugins.conform-nvim = {
       formattersByFt = {
-        just = ["just"];
+        just = [
+          "just"
+          "injected"
+        ];
       };
     };
   };
 
-  home.packages = with pkgs; [
-    just
-  ];
+  home.packages = with pkgs; [ just ];
 }

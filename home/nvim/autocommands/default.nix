@@ -14,7 +14,11 @@
     autoCmd = [
       {
         # Check for file modifications when reasonable.
-        event = ["FocusGained" "TermClose" "TermLeave"];
+        event = [
+          "FocusGained"
+          "TermClose"
+          "TermLeave"
+        ];
         group = "checktime";
         callback.__raw = ''
           function()
@@ -26,7 +30,7 @@
       }
       {
         # Resize window splits when resized.
-        event = ["VimResized"];
+        event = [ "VimResized" ];
         group = "resize";
         callback.__raw = ''
           function()
@@ -38,8 +42,16 @@
       }
       {
         # Enable spell checking and word wrap for text files
-        event = ["FileType"];
-        pattern = ["*.txt" "*.tex" "*.typ" "gitcommit" "markdown" "norg" "COMMIT_EDITMSG"];
+        event = [ "FileType" ];
+        pattern = [
+          "*.txt"
+          "*.tex"
+          "*.typ"
+          "gitcommit"
+          "markdown"
+          "norg"
+          "NeogitCommitMessage"
+        ];
         group = "textfile";
         callback.__raw = ''
           function()
