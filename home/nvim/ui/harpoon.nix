@@ -9,6 +9,13 @@
 
       -- Work around issue with UFO
       require("harpoon"):extend(require("harpoon.extensions").builtins.command_on_nav('UfoEnableFold'))
+
+      -- This is probably not needed but shows diagnostics after loading the buffer.
+      require("harpoon"):extend({
+        NAVIGATE = function(ctx)
+          vim.diagnostic.show(nil, ctx.bufnr)
+        end,
+      })
     '';
 
     keymaps = [

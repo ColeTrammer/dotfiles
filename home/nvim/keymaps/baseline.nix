@@ -107,6 +107,13 @@
           desc = "Save File";
         };
       }
+      # Enter normal mode
+      {
+        mode = "i";
+        key = "<C-c>";
+        action = "<esc>";
+        options.desc = "Enter Normal Mode";
+      }
       # Quit
       {
         mode = ["n"];

@@ -34,7 +34,7 @@
       };
       keymaps = {
         "<leader><space>" = {
-          action = "find_files";
+          action = "find_files find_command=rg,--ignore,--hidden,--files,--glob,!**/.git/*";
           options.desc = "Find Files";
         };
         "<leader>/" = {
@@ -78,8 +78,12 @@
           options.desc = "Diagnostics (All)";
         };
         "<leader>sf" = {
+          action = "git_files";
+          options.desc = "Find Git Files";
+        };
+        "<leader>sF" = {
           action = "find_files";
-          options.desc = "Find Files";
+          options.desc = "Find Hidden Files";
         };
         "<leader>sg" = {
           action = "live_grep";
