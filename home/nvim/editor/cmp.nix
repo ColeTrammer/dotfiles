@@ -20,6 +20,7 @@
           { name = "luasnip"; }
           { name = "path"; }
           { name = "buffer"; }
+          { name = "neorg"; }
         ];
         window = {
           completion.__raw = "cmp.config.window.bordered()";

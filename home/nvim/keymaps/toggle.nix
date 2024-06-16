@@ -106,6 +106,38 @@
           desc = "Toggle Treesitter";
         };
       }
+      {
+        mode = "n";
+        key = "<leader>uc";
+        action.__raw = ''
+          function()
+            if vim.opt_local.conceallevel:get() > 0 then
+              vim.opt_local.conceallevel = 0
+            else
+              vim.opt_local.conceallevel = 2
+            end
+          end
+        '';
+        options = {
+          desc = "Toggle Conceal";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>uC";
+        action.__raw = ''
+          function()
+            if next(vim.opt_local.concealcursor:get()) == nil then
+              vim.opt_local.concealcursor = "nc"
+            else
+              vim.opt_local.concealcursor = ""
+            end
+          end
+        '';
+        options = {
+          desc = "Toggle Conceal Cursor";
+        };
+      }
     ];
     plugins.which-key.registrations."<leader>u".name = "+toggle";
   };

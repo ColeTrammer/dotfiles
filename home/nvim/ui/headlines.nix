@@ -16,19 +16,15 @@
         settings = {
           markdown = {
             headline_highlights = highlights;
-            bullets = false;
           };
           norg = {
             headline_highlights = highlights;
-            bullets = false;
           };
           rmd = {
             headline_highlights = highlights;
-            bullets = false;
           };
           org = {
             headline_highlights = highlights;
-            bullets = false;
           };
         };
       };

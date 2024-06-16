@@ -44,6 +44,7 @@
 
       # Conceal
       conceallevel = 2;
+      concealcursor = "nc";
 
       # Fold
       foldcolumn = "0";

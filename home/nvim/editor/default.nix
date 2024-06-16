@@ -11,6 +11,7 @@
     ./refactoring.nix
     ./mini.nix
     ./neogen.nix
+    ./neorg.nix
     ./snippets.nix
     ./test.nix
     ./tmux-navigator.nix
