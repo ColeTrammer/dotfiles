@@ -42,6 +42,9 @@
       mouse = "a";
       mousefocus = true;
 
+      # Conceal
+      conceallevel = 2;
+
       # Fold
       foldcolumn = "0";
       foldlevel = 99;
@@ -61,7 +64,7 @@
     };
 
     extraConfigLua = ''
-      vim.opt.fillchars:append { diff = "╱" }
+      vim.opt.fillchars:append({ diff = "╱" })
     '';
 
     # Disable ruby provider

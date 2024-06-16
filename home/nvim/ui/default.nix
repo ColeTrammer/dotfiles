@@ -8,6 +8,7 @@
     ./harpoon.nix
     ./headlines.nix
     ./illuminate.nix
+    ./image.nix
     ./indent-blankline.nix
     ./lualine.nix
     ./neogit.nix

@@ -71,6 +71,9 @@
         # Passthrough
         set -g allow-passthrough on
 
+        # Visual Activity
+        set -g visual-activity off
+
         # Clipboard
         set -s set-clipboard on
 
