@@ -15,7 +15,7 @@
         description = "Neorg workspaces";
       };
       defaultWorkspace = lib.mkOption {
-        type = with lib.types; string;
+        type = with lib.types; str;
         default = "notes";
         description = "Neorg default workspace";
       };
@@ -58,6 +58,7 @@
           };
         };
       };
+      plugins.cmp.settings.sources = [ { name = "neorg"; } ];
       plugins.which-key.registrations."<leader>n".name = "+neorg";
     };
   };

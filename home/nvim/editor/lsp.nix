@@ -24,11 +24,7 @@
           },
         })
       '';
-      onAttach = helpers.lua ''
-        if client.server_capabilities.inlayHintProvider then
-          vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-        end
-      '';
+      inlayHints = true;
       keymaps = {
         extra = [
           {

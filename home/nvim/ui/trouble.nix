@@ -1,17 +1,8 @@
 { helpers, pkgs, ... }:
 {
   programs.nixvim = {
-    # Use trouble v3 until it gets merged into nixpkgs.
-    extraPlugins = [
-      (pkgs.vimPlugins.trouble-nvim.overrideAttrs {
-        version = "3.1.0";
-        src = builtins.fetchGit {
-          url = "https://github.com/folke/trouble.nvim";
-          ref = "main";
-          rev = "46a19388d3507f4c4bebb9994bf821a79b3bc342";
-        };
-      })
-    ];
+    # Don't use the nixvim way to configure this plugin since it needs to init before lualine.
+    extraPlugins = [ pkgs.vimPlugins.trouble-nvim ];
     plugins.lualine.sections.lualine_c = [
       {
         extraConfig = helpers.luaRawExpr ''
