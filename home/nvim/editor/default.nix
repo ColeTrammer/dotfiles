@@ -14,6 +14,7 @@
     ./neogen.nix
     ./neorg.nix
     ./snippets.nix
+    ./spectre.nix
     ./test.nix
     ./tmux-navigator.nix
     ./treesitter-context.nix

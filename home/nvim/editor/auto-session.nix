@@ -7,8 +7,10 @@
       bypassSessionSaveFileTypes = [
         "gitcommit"
         "alpha"
+        "oil"
+        "NeogitStatus"
       ];
-      autoRestore.enabled = false;
+      autoRestore.enabled = true;
       autoSession = {
         suppressDirs = [
           "~/"

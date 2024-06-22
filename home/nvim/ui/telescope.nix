@@ -127,11 +127,11 @@
             action = "quickfix";
             options.desc = "Quickfix List";
           };
-          "<leader>sr" = {
+          "<leader>sR" = {
             action = "oldfiles";
             options.desc = "Recent Files";
           };
-          "<leader>sR" = {
+          "<leader>sz" = {
             action = "resume";
             options.desc = "Telescope Resume";
           };

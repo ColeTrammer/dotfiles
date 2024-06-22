@@ -44,6 +44,7 @@
       vi = "nvim";
       vim = "nvim";
       vimdiff = "nvim -d";
+      dvim = "echo | nvim";
     };
 
     # Persist nvim data.

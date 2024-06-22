@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   programs.nixvim = {
     plugins.conform-nvim = {
@@ -43,6 +43,23 @@
         };
       };
     };
+
+    # Lazydev for lua LSP configuration that resolves Neovim plugins.
+    extraPlugins = [
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "lazydev";
+        src = inputs.nvim-lazydev;
+      })
+    ];
+    extraConfigLua = ''
+      require("lazydev").setup()
+    '';
+    plugins.cmp.settings.sources = [
+      {
+        name = "lazydev";
+        group_index = 0;
+      }
+    ];
   };
 
   home.packages = with pkgs; [
