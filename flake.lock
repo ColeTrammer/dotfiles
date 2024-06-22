@@ -733,22 +733,6 @@
         "type": "github"
       }
     },
-    "nvim-lazydev": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1718447010,
-        "narHash": "sha256-sMwSh79gTzwY/TPUB5nOi73o1p+y31LR7WEieHq5Q84=",
-        "owner": "folke",
-        "repo": "lazydev.nvim",
-        "rev": "6184ebbbc8045d70077659b7d30c705a588dc62f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "folke",
-        "repo": "lazydev.nvim",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "ags": "ags",
@@ -769,7 +753,6 @@
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_3",
         "nixvim": "nixvim",
-        "nvim-lazydev": "nvim-lazydev",
         "stickybuf-nvim": "stickybuf-nvim",
         "treefmt-nix": "treefmt-nix_2",
         "yazi-flavors": "yazi-flavors",

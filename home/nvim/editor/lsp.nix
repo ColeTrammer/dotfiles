@@ -79,17 +79,6 @@
             };
           }
           {
-            key = "<leader>cr";
-            action.__raw = "vim.lsp.buf.rename";
-            mode = [
-              "n"
-              "v"
-            ];
-            options = {
-              desc = "Rename";
-            };
-          }
-          {
             key = "gd";
             action = helpers.luaRawExpr ''
               return function()

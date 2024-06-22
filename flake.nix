@@ -103,11 +103,6 @@
       url = "github:yazi-rs/plugins";
       flake = false;
     };
-
-    nvim-lazydev = {
-      url = "github:folke/lazydev.nvim";
-      flake = false;
-    };
   };
 
   outputs =

@@ -45,12 +45,7 @@
     };
 
     # Lazydev for lua LSP configuration that resolves Neovim plugins.
-    extraPlugins = [
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "lazydev";
-        src = inputs.nvim-lazydev;
-      })
-    ];
+    extraPlugins = with pkgs.vimPlugins; [ lazydev-nvim ];
     extraConfigLua = ''
       require("lazydev").setup()
     '';

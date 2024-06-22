@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ helpers, lib, ... }:
 {
   programs.nixvim = {
     plugins.noice = {
@@ -51,5 +51,94 @@
         '';
       }
     ];
+    keymaps = [
+      {
+        key = "<leader>snl";
+        mode = "n";
+        action = helpers.luaRawExpr ''
+          return function()
+            require("noice").cmd("last")
+          end
+        '';
+        options.desc = "Noice Last Message";
+      }
+      {
+        key = "<leader>snh";
+        mode = "n";
+        action = helpers.luaRawExpr ''
+          return function()
+            require("noice").cmd("history")
+          end
+        '';
+        options.desc = "Noice History";
+      }
+      {
+        key = "<leader>sna";
+        mode = "n";
+        action = helpers.luaRawExpr ''
+          return function()
+            require("noice").cmd("all")
+          end
+        '';
+        options.desc = "Noice All";
+      }
+      {
+        key = "<leader>snd";
+        mode = "n";
+        action = helpers.luaRawExpr ''
+          return function()
+            require("noice").cmd("dismiss")
+          end
+        '';
+        options.desc = "Dismiss All";
+      }
+      {
+        key = "<leader>snt";
+        mode = "n";
+        action = helpers.luaRawExpr ''
+          return function()
+            require("noice").cmd("pick")
+          end
+        '';
+        options.desc = "Noice Picker (Telescope/FzfLua)";
+      }
+      {
+        key = "<c-f>";
+        mode = [
+          "i"
+          "n"
+          "s"
+        ];
+        action = helpers.luaRawExpr ''
+          return function()
+            if not require("noice.lsp").scroll(4) then
+              return "<c-f>"
+            end
+          end
+        '';
+        options.desc = "Scroll Forward";
+        options.silent = true;
+        options.expr = true;
+      }
+      {
+        key = "<c-b>";
+        mode = [
+          "i"
+          "n"
+          "s"
+        ];
+        action = helpers.luaRawExpr ''
+          return function()
+            if not require("noice.lsp").scroll(-4) then
+              return "<c-b>"
+            end
+          end
+        '';
+        options.desc = "Scroll Backward";
+        options.silent = true;
+        options.expr = true;
+      }
+    ];
+    plugins.which-key.registrations."<leader>sn".name = "+notifications";
   };
 }
