@@ -96,7 +96,7 @@
         {
           plugin = tmuxPlugins.resurrect;
           extraConfig = ''
-            set -g @resurrect-strategy-nvim 'session'
+            set -g @resurrect-processes '"~nvim->nvim" "~vim->vim" "~vi->vi"'
           '';
         }
         {

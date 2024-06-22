@@ -1,5 +1,6 @@
 {
   imports = [
+    ./auto-session.nix
     ./autopairs.nix
     ./cmp.nix
     ./comment.nix

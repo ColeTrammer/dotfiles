@@ -28,11 +28,27 @@
       keymaps = {
         extra = [
           {
-            key = "<leader>cx";
+            key = "<leader>cX";
             action = "<CMD>LspStop<Enter>";
             mode = [ "n" ];
             options = {
               desc = "Lsp Stop";
+            };
+          }
+          {
+            key = "<leader>cx";
+            action = "<CMD>LspRestart<Enter>";
+            mode = [ "n" ];
+            options = {
+              desc = "Lsp Restart";
+            };
+          }
+          {
+            key = "<leader>cL";
+            action = "<CMD>LspStart<Enter>";
+            mode = [ "n" ];
+            options = {
+              desc = "Lsp Start";
             };
           }
           {

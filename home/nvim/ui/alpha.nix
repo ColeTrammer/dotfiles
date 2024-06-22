@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, helpers, ... }:
 let
   header = text: {
     type = "text";
@@ -42,18 +42,16 @@ let
     };
     val = label;
   };
-  footer = {
-    __raw = ''
-      {
-        type = "text",
-        opts = {
-          hl = "AlphaFooter",
-          position = "center",
-        },
-        val = require'alpha.fortune'(),
-      }
-    '';
-  };
+  footer = helpers.luaRawExpr ''
+    return {
+      type = "text",
+      opts = {
+        hl = "AlphaFooter",
+        position = "center",
+      },
+      val = require("alpha.fortune")(),
+    }
+  '';
 in
 {
   programs.nixvim = {
@@ -73,13 +71,14 @@ in
         ])
         (padding 4)
         (group [
+          (button "󰈞 Find file" "f" "<cmd> Telescope find_files <cr>")
           (button " New file" "n" "<cmd> ene <BAR> startinsert <cr>")
           (button " Recent" "r" "<cmd> Telescope oldfiles <cr>")
-          (button "󰈞 Find file" "f" "<cmd> Telescope find_files <cr>")
           (button "󰈬 Search files" "s" "<cmd> Telescope live_grep <cr>")
-          (button " File Explorer" "-" "<cmd> Oil <cr>")
           (button " Git" "g" "<cmd> Neogit <cr>")
+          (button " File Explorer" "-" "<cmd> Oil <cr>")
           (button " Config" "c" ":e ${config.preferences.dotfilesPath} <CR>")
+          (button " Restore Session" "w" "<cmd> SessionRestore <cr>")
           (button " Quit" "q" "<cmd> qa <cr>")
         ])
         (padding 2)

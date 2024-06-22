@@ -32,6 +32,9 @@
       # System clipboard integration
       clipboard = "unnamedplus";
 
+      # Session
+      sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions";
+
       # Search
       ignorecase = true;
 
