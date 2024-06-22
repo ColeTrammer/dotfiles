@@ -185,6 +185,18 @@
         ]
       );
 
+      # Yazi
+      programs.yazi = {
+        theme = {
+          flavor = {
+            use = "catppuccin-${variant}";
+          };
+        };
+        flavors = {
+          "catppuccin-${variant}.yazi" = "${inputs.yazi-flavors}/catppuccin-${variant}.yazi";
+        };
+      };
+
       # Zsh fast syntax highlighting
       programs.zsh.initExtra = lib.mkIf default (
         lib.mkOrder 1100 ''

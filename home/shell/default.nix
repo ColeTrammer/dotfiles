@@ -18,6 +18,7 @@
     ./just.nix
     ./lf.nix
     ./nh.nix
+    ./nix-index.nix
     ./nix.nix
     ./oh-my-posh.nix
     ./pistol.nix
@@ -27,6 +28,7 @@
     ./tmux.nix
     ./valgrind.nix
     ./wget.nix
+    ./yazi.nix
     ./zoxide.nix
     ./zsh.nix
   ];

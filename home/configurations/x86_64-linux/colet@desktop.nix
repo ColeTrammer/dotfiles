@@ -19,6 +19,7 @@
   };
 
   desktop.enable = true;
+  shell.nix-index.enable = true;
   shell.git.gpgKey = "60DCAA3C4B6F51E3";
 
   nvim.lang.cpp.queryDriver = [

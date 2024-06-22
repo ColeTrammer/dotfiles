@@ -6,9 +6,7 @@
 }:
 {
   options = {
-    shell.lf.enable = lib.mkEnableOption "lf" // {
-      default = config.shell.enable;
-    };
+    shell.lf.enable = lib.mkEnableOption "lf";
   };
 
   config = lib.mkIf config.shell.lf.enable {

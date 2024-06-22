@@ -555,6 +555,26 @@
         "type": "github"
       }
     },
+    "nix-index-database": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1718507237,
+        "narHash": "sha256-xBEWCxWeRpWQggFFp8ugJCDa63cOJsVvx71R9F0Eowg=",
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "rev": "6af2c5e58c20311276f59d247341cafeebfcb6f4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1644486793,
@@ -730,10 +750,13 @@
         "impermanence": "impermanence",
         "lf": "lf",
         "neorg-overlay": "neorg-overlay",
+        "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_3",
         "nixvim": "nixvim",
         "stickybuf-nvim": "stickybuf-nvim",
-        "treefmt-nix": "treefmt-nix_2"
+        "treefmt-nix": "treefmt-nix_2",
+        "yazi-flavors": "yazi-flavors",
+        "yazi-plugins": "yazi-plugins"
       }
     },
     "stickybuf-nvim": {
@@ -818,6 +841,38 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "yazi-flavors": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1713617364,
+        "narHash": "sha256-gT3aMiBspYypkMdx1TDVwElK7aotolE1JJuJtkC9RRc=",
+        "owner": "yazi-rs",
+        "repo": "flavors",
+        "rev": "55e4bf55fb07b41927a9dd3528a4fa1b269531af",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yazi-rs",
+        "repo": "flavors",
+        "type": "github"
+      }
+    },
+    "yazi-plugins": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1718976859,
+        "narHash": "sha256-+amnL025nNHcP/gXY57FYUhUXNlPRqbQHS4EkOL/INs=",
+        "owner": "yazi-rs",
+        "repo": "plugins",
+        "rev": "a882e3828cdeee243ede2bff0524cbe7e27104cf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "yazi-rs",
+        "repo": "plugins",
         "type": "github"
       }
     }

@@ -55,6 +55,13 @@
         description = ''Path to dotfiles source.'';
       };
 
+      terminalFileManager = lib.mkOption {
+        type = lib.types.str;
+        default = "yazi";
+        description = ''Terminal file manager.'';
+        example = "lf";
+      };
+
       pager = lib.mkOption {
         type = lib.types.str;
         default = "${pkgs.bat}/bin/bat --paging=always --color=always -p";
@@ -156,6 +163,9 @@
 
     # Shell Prompt
     shell.${config.preferences.prompt}.enable = true;
+
+    # Terminal File Manager
+    shell.${config.preferences.terminalFileManager}.enable = true;
 
     # Document viewer
     apps.${config.preferences.documentViewer}.enable = true;

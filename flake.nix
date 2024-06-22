@@ -30,6 +30,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim";
     };
@@ -86,6 +91,16 @@
 
     lf = {
       url = "github:gokcehan/lf";
+      flake = false;
+    };
+
+    yazi-flavors = {
+      url = "github:yazi-rs/flavors";
+      flake = false;
+    };
+
+    yazi-plugins = {
+      url = "github:yazi-rs/plugins";
       flake = false;
     };
   };
