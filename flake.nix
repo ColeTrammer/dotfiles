@@ -133,6 +133,7 @@
           treefmt.config = {
             inherit (config.flake-root) projectRootFile;
 
+            programs.stylua.enable = true;
             programs.nixfmt-rfc-style.enable = true;
             programs.prettier.enable = true;
             programs.shfmt.enable = true;
