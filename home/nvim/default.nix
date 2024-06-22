@@ -12,6 +12,7 @@
     ./editor
     ./keymaps
     ./lang
+    ./plugins
     ./settings
     ./ui
   ];

@@ -5,7 +5,10 @@
       formattersByFt = {
         go = [
           "goimports"
-          "gofmt"
+          [
+            "gofmt"
+            "gofumpt"
+          ]
         ];
       };
     };

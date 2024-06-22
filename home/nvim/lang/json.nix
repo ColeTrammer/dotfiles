@@ -7,12 +7,14 @@
           [
             "prettierd"
             "prettier"
+            "jq"
           ]
         ];
         jsonc = [
           [
             "prettierd"
             "prettier"
+            "jq"
           ]
         ];
       };

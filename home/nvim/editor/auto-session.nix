@@ -1,65 +1,94 @@
-{ config, helpers, ... }:
 {
-  programs.nixvim = {
-    plugins.auto-session = {
-      enable = true;
-      logLevel = "error";
-      bypassSessionSaveFileTypes = [
-        "gitcommit"
-        "alpha"
-        "oil"
-        "NeogitStatus"
-      ];
-      autoRestore.enabled = true;
-      autoSession = {
-        suppressDirs = [
-          "~/"
-          "~/Projects"
-          "~/${config.preferences.workspacePath}"
-          "/"
-        ];
+  config,
+  lib,
+  helpers,
+  ...
+}:
+{
+  options = {
+    nvim.auto-session = {
+      preSaveCmds = lib.mkOption {
+        type = with lib.types; listOf anything;
+        default = [ ];
+      };
+      preRestoreCmds = lib.mkOption {
+        type = with lib.types; listOf anything;
+        default = [ ];
+      };
+      postRestoreCmds = lib.mkOption {
+        type = with lib.types; listOf anything;
+        default = [ ];
       };
     };
-    # Save the session every 5 minutes.
-    extraConfigLua = ''
-      local session_autosave_timer = assert(vim.uv.new_timer())
-      session_autosave_timer:start(
-        5 * 60 * 1000,
-        5 * 60 * 1000,
-        vim.schedule_wrap(function()
-          vim.cmd("SessionSave")
-        end)
-      )
-    '';
-    keymaps = [
-      {
-        mode = "n";
-        key = "<leader>qs";
-        action = "<cmd>SessionSave<cr>";
-        options.desc = "Save Session";
-      }
-      {
-        mode = "n";
-        key = "<leader>qr";
-        action = "<cmd>SessionRestore<cr>";
-        options.desc = "Restore Session";
-      }
-      {
-        mode = "n";
-        key = "<leader>qd";
-        action = "<cmd>SessionDelete<cr>";
-        options.desc = "Restore Session";
-      }
-      {
-        mode = "n";
-        key = "<leader>sq";
-        action = helpers.luaRawExpr ''
-          return function()
-            require("auto-session.session-lens").search_session()
-          end
-        '';
-        options.desc = "Sessions";
-      }
-    ];
+  };
+
+  config = {
+    programs.nixvim = {
+      plugins.auto-session = {
+        enable = true;
+        logLevel = "error";
+        bypassSessionSaveFileTypes = [
+          "gitcommit"
+          "alpha"
+          "oil"
+          "NeogitStatus"
+        ];
+        autoRestore.enabled = true;
+        autoSession = {
+          suppressDirs = [
+            "~/"
+            "~/Projects"
+            "~/${config.preferences.workspacePath}"
+            "/"
+          ];
+        };
+        extraOptions = {
+          pre_save_cmds = config.nvim.auto-session.preSaveCmds;
+          pre_restore_cmds = config.nvim.auto-session.preRestoreCmds;
+          post_restore_cmds = config.nvim.auto-session.postRestoreCmds;
+        };
+      };
+      # Save the session every 5 minutes.
+      extraConfigLua = ''
+        local session_autosave_timer = assert(vim.uv.new_timer())
+        session_autosave_timer:start(
+          5 * 60 * 1000,
+          5 * 60 * 1000,
+          vim.schedule_wrap(function()
+            vim.cmd("SessionSave")
+          end)
+        )
+      '';
+      keymaps = [
+        {
+          mode = "n";
+          key = "<leader>qs";
+          action = "<cmd>SessionSave<cr>";
+          options.desc = "Save Session";
+        }
+        {
+          mode = "n";
+          key = "<leader>qr";
+          action = "<cmd>SessionRestore<cr>";
+          options.desc = "Restore Session";
+        }
+        {
+          mode = "n";
+          key = "<leader>qd";
+          action = "<cmd>SessionDelete<cr>";
+          options.desc = "Restore Session";
+        }
+        {
+          mode = "n";
+          key = "<leader>sq";
+          action = helpers.luaRawExpr ''
+            return function()
+              require("auto-session.session-lens").search_session()
+            end
+          '';
+          options.desc = "Sessions";
+        }
+      ];
+    };
   };
 }
