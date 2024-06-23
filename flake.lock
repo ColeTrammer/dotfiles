@@ -733,6 +733,22 @@
         "type": "github"
       }
     },
+    "nvim-neotest-golang": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1718959540,
+        "narHash": "sha256-7bnPiKBpWPZEg2F3SPK0EU+vYX/vhVk5MZ6GPcg2MQo=",
+        "owner": "fredrikaverpil",
+        "repo": "neotest-golang",
+        "rev": "7d0c75265cbd4567f4a41795c263913c354c7a91",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fredrikaverpil",
+        "repo": "neotest-golang",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "ags": "ags",
@@ -753,6 +769,7 @@
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_3",
         "nixvim": "nixvim",
+        "nvim-neotest-golang": "nvim-neotest-golang",
         "stickybuf-nvim": "stickybuf-nvim",
         "treefmt-nix": "treefmt-nix_2",
         "yazi-flavors": "yazi-flavors",

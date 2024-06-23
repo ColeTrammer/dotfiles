@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ helpers, pkgs, ... }:
 {
   programs.nixvim = {
     plugins.conform-nvim = {
@@ -6,48 +6,40 @@
         rust = [ "rustfmt" ];
       };
     };
-    plugins.rustaceanvim = {
-      enable = true;
-      rustAnalyzerPackage = null;
-      settings = {
-        dap = {
-          adapter = {
-            type = "server";
-            name = "codelldb";
-            port = "\${port}";
-            executable = {
-              command = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
-              args = [
-                "--port"
-                "\${port}"
-              ];
-            };
-          };
-
-          autoload_configurations = true;
-        };
-        server = {
-          on_attach = ''
-            function(_, bufnr)
-              vim.keymap.set("n", "<leader>cR", function()
-                vim.cmd.RustLsp("codeAction")
-              end, { desc = "Rust Action", buffer = bufnr })
-              vim.keymap.set("n", "<leader>dr", function()
-                vim.cmd.RustLsp("debuggables")
-              end, { desc = "Rust Debuggables", buffer = bufnr })
-            end
-          '';
-          default_settings = {
-            check = {
-              command = "clippy";
-            };
-          };
-        };
-      };
-    };
-    plugins.neotest.adapters.rust = {
-      enable = true;
-    };
+    # NOTE: we have to set this up manually since neotest gets loaded before this plugin would with nixvim.
+    extraPlugins = with pkgs.vimPlugins; [ rustaceanvim ];
+    extraConfigLuaPre = ''
+      vim.g.rustaceanvim = {
+          ["dap"] = {
+              ["adapter"] = {
+                  ["executable"] = {
+                      ["args"] = { "--port", "''${port}" },
+                      ["command"] = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb",
+                  },
+                  ["name"] = "codelldb",
+                  ["port"] = "''${port}",
+                  ["type"] = "server",
+              },
+              ["autoload_configurations"] = true,
+          },
+          ["server"] = {
+              ["default_settings"] = { ["check"] = { ["command"] = "clippy" } },
+              ["on_attach"] = function(_, bufnr)
+                  vim.keymap.set("n", "<leader>cR", function()
+                      vim.cmd.RustLsp("codeAction")
+                  end, { desc = "Rust Action", buffer = bufnr })
+                  vim.keymap.set("n", "<leader>dr", function()
+                      vim.cmd.RustLsp("debuggables")
+                  end, { desc = "Rust Debuggables", buffer = bufnr })
+              end,
+          },
+      }
+    '';
+    plugins.neotest.settings.adapters = [
+      (helpers.luaExpr ''
+        return require("rustaceanvim.neotest")
+      '')
+    ];
     plugins.crates-nvim = {
       enable = true;
       extraOptions = {

@@ -1,3 +1,4 @@
+{ helpers, ... }:
 {
   programs.nixvim = {
     keymaps = [
@@ -105,6 +106,21 @@
         options = {
           desc = "Toggle Treesitter";
         };
+      }
+      {
+        mode = "n";
+        key = "<leader>ua";
+        action = helpers.luaRaw ''
+          (function()
+            local enabled = true
+            local cmp = require("cmp")
+            return function()
+              cmp.setup.buffer({ enabled = not enabled })
+              enabled = not enabled
+            end
+          end)()
+        '';
+        options.desc = ''Toogle Auto-Complete'';
       }
       {
         mode = "n";

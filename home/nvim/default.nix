@@ -27,6 +27,8 @@
     programs.nixvim = {
       enable = true;
       defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
 
       # Trying out the experimental lua loader.
       luaLoader.enable = true;
@@ -42,8 +44,6 @@
 
     # Aliases
     home.shellAliases = {
-      vi = "nvim";
-      vim = "nvim";
       vimdiff = "nvim -d";
       dvim = "echo | nvim";
     };

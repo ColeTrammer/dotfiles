@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  helpers,
+  inputs,
+  pkgs,
+  ...
+}:
 {
   programs.nixvim = {
     plugins.conform-nvim = {
@@ -16,9 +21,6 @@
       servers.gopls = {
         enable = true;
         package = null;
-        onAttach.function = ''
-          vim.keymap.set("n", "<leader>td", "<cmd>lua require('dap-go').debug_test()<cr>", { desc = "Debug Nearest (Go)", })
-        '';
         settings = {
           codelenses = {
             gc_details = false;
@@ -63,12 +65,21 @@
     plugins.dap.extensions.dap-go = {
       enable = true;
     };
-    plugins.neotest.adapters.go = {
-      enable = true;
-      settings = {
-        recursive_run = true;
-      };
-    };
+    plugins.neotest.settings.adapters = [
+      (helpers.luaExpr ''
+        return (function()
+          local neotest_golang = require("neotest-golang")
+          neotest_golang({ go_test_args = { "-v", "-count=1", "-timeout=60s" }, dap_go_enabled = true })
+          return neotest_golang
+        end)()
+      '')
+    ];
+    extraPlugins = [
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "neotest-golang";
+        src = inputs.nvim-neotest-golang;
+      })
+    ];
   };
 
   nvim.dap.vscode-adapters = {
