@@ -51,6 +51,7 @@
         consumers.overseer.__raw = ''require("neotest.consumers.overseer")'';
         overseer = {
           enabled = true;
+          force_default = false;
         };
       };
     };
