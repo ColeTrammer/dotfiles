@@ -11,5 +11,10 @@
     };
   };
 
+  nvim.otter = {
+    langs = [ "just" ];
+    allLangs = [ "just" ];
+  };
+
   home.packages = with pkgs; [ just ];
 }

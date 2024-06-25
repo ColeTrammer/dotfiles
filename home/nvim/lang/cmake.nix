@@ -10,6 +10,7 @@
       enable = true;
     };
   };
+  nvim.otter.allLangs = [ "cmake" ];
 
   home.packages = with pkgs; [ cmake-format ];
 }

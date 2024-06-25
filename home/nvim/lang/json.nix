@@ -29,4 +29,6 @@
 
     extraPlugins = with pkgs.vimPlugins; [ SchemaStore-nvim ];
   };
+
+  nvim.otter.allLangs = [ "json jsonc" ];
 }

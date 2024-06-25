@@ -4,4 +4,5 @@
       enable = true;
     };
   };
+  nvim.otter.allLangs = [ "toml" ];
 }

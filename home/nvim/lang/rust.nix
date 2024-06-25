@@ -58,6 +58,8 @@
     plugins.cmp.settings.sources = [ { name = "crates"; } ];
   };
 
+  nvim.otter.allLangs = [ "rust" ];
+
   home.packages = with pkgs; [
     cargo-nextest
     cargo

@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 {
   programs.nixvim = {
     plugins.conform-nvim = {
@@ -56,6 +56,8 @@
       }
     ];
   };
+
+  nvim.otter.allLangs = [ "lua" ];
 
   home.packages = with pkgs; [
     stylua

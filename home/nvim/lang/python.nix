@@ -13,6 +13,9 @@
       enable = true;
     };
   };
+
+  nvim.otter.allLangs = [ "python" ];
+
   home.packages = with pkgs; [
     isort
     black

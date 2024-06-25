@@ -39,5 +39,7 @@
     '';
   };
 
+  nvim.otter.allLangs = [ "scala" ];
+
   home.packages = with pkgs; [ coursier ];
 }

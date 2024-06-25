@@ -187,6 +187,11 @@
             { }
         );
 
+      nvim.otter.allLangs = [
+        "c"
+        "cpp"
+      ];
+
       home.packages = with pkgs; [
         clang
         clangTools

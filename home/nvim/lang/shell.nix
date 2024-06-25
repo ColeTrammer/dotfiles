@@ -16,6 +16,8 @@
     };
   };
 
+  nvim.otter.allLangs = [ "sh" ];
+
   home.packages = with pkgs; [
     shellcheck
     shfmt

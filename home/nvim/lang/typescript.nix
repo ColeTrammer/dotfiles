@@ -80,6 +80,15 @@
     };
   };
 
+  nvim.otter.allLangs = [
+    "javascript"
+    "javascriptreact"
+    "javascript.jsx"
+    "typescript"
+    "typescriptreact"
+    "typescript.tsx"
+  ];
+
   home.packages = with pkgs; [
     prettierd
     nodePackages_latest.typescript-language-server

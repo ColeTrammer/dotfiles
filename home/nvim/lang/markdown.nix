@@ -29,5 +29,16 @@
     };
   };
 
+  nvim.otter = {
+    langs = [
+      "markdown"
+      "markdown.mdx"
+    ];
+    allLangs = [
+      "markdown"
+      "markdown.mdx"
+    ];
+  };
+
   home.packages = with pkgs; [ markdownlint-cli ];
 }

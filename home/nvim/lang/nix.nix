@@ -38,6 +38,11 @@
     };
   };
 
+  nvim.otter = {
+    langs = [ "nix" ];
+    allLangs = [ "nix" ];
+  };
+
   home.packages = with pkgs; [
     nil
     nixfmt-rfc-style

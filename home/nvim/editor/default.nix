@@ -10,10 +10,11 @@
     ./inc-rename.nix
     ./lint.nix
     ./lsp.nix
-    ./refactoring.nix
     ./mini.nix
     ./neogen.nix
     ./neorg.nix
+    ./otter.nix
+    ./refactoring.nix
     ./snippets.nix
     ./spectre.nix
     ./test.nix

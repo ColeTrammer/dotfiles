@@ -61,5 +61,7 @@
       plugins.cmp.settings.sources = [ { name = "neorg"; } ];
       plugins.which-key.registrations."<leader>n".name = "+neorg";
     };
+
+    nvim.otter.langs = [ "norg" ];
   };
 }

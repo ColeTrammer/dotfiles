@@ -86,6 +86,8 @@
     delve = [ "go" ];
   };
 
+  nvim.otter.allLangs = [ "go" ];
+
   home.packages = with pkgs; [
     delve
     gopls

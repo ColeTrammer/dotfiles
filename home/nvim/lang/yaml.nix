@@ -29,4 +29,6 @@
       };
     };
   };
+
+  nvim.otter.allLangs = [ "yaml" ];
 }
