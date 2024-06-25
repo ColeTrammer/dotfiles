@@ -259,7 +259,8 @@
       # GTK
       gtk = lib.mkIf desktop {
         theme = {
-          name = "Catppuccin-${variantTitleCase}-Standard-${accentTitleCase}-Dark";
+          # TODO: this theme is archived and will need to be replaced by something else.
+          name = "catppuccin-${variant}-${accent}-standard+rimless";
           package = pkgs.catppuccin-gtk.override {
             accents = [ accent ];
             tweaks = [ "rimless" ];
