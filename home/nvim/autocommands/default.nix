@@ -1,3 +1,4 @@
+{ helpers, ... }:
 {
   programs.nixvim = {
     autoGroups = {
@@ -10,6 +11,9 @@
       textfile = {
         clear = true;
       };
+      normalMode = {
+        clear = true;
+      };
     };
     autoCmd = [
       {
@@ -20,8 +24,8 @@
           "TermLeave"
         ];
         group = "checktime";
-        callback.__raw = ''
-          function()
+        callback = helpers.luaRawExpr ''
+          return function()
             if vim.o.buftype ~= "nofile" then
               vim.cmd("checktime")
             end
@@ -32,8 +36,8 @@
         # Resize window splits when resized.
         event = [ "VimResized" ];
         group = "resize";
-        callback.__raw = ''
-          function()
+        callback = helpers.luaRawExpr ''
+          return function()
             local current_tab = vim.fn.tabpagenr()
             vim.cmd("tabdo wincmd =")
             vim.cmd("tabnext " .. current_tab)
@@ -53,8 +57,8 @@
           "NeogitCommitMessage"
         ];
         group = "textfile";
-        callback.__raw = ''
-          function()
+        callback = helpers.luaRawExpr ''
+          return function()
             vim.opt_local.wrap = true
             vim.opt_local.spell = true
           end

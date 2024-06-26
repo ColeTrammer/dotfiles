@@ -45,7 +45,13 @@
         extraOptions = {
           pre_save_cmds = config.nvim.auto-session.preSaveCmds;
           pre_restore_cmds = config.nvim.auto-session.preRestoreCmds;
-          post_restore_cmds = config.nvim.auto-session.postRestoreCmds;
+          post_restore_cmds = config.nvim.auto-session.postRestoreCmds ++ [
+            (helpers.luaRawExpr ''
+              return function()
+                vim.cmd("stopinsert")
+              end
+            '')
+          ];
         };
       };
       # Save the session every 5 minutes.
