@@ -1,9 +1,10 @@
+{ helpers, ... }:
 {
   programs.nixvim = {
     plugins.yanky = {
       enable = true;
       ring = {
-        storage = "sqlite";
+        storage = "shada";
         historyLength = 1000;
       };
       highlight.timer = 200;
@@ -12,13 +13,11 @@
     keymaps = [
       {
         key = "<leader>p";
-        action = {
-          __raw = ''
-            function()
-              require("telescope").extensions.yank_history.yank_history()
-            end
-          '';
-        };
+        action = helpers.luaRawExpr ''
+          return function()
+            require("telescope").extensions.yank_history.yank_history()
+          end
+        '';
         mode = "n";
         options = {
           desc = "Yank History";
