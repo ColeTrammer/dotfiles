@@ -147,5 +147,22 @@
         options.desc = ''Toogle Auto-Complete'';
       }
     ];
+    autoGroups.disableCmp.clear = true;
+    autoCmd = [
+      {
+        event = [ "FileType" ];
+        pattern = [
+          "NeogitCommitMessage"
+          "gitcommit"
+        ];
+        group = "disableCmp";
+        callback = helpers.luaRawExpr ''
+          return function()
+            local cmp = require("cmp")
+            cmp.setup.buffer({ enabled = false })
+          end
+        '';
+      }
+    ];
   };
 }
