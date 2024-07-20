@@ -82,6 +82,6 @@
         '';
       }
     ];
-    plugins.which-key.registrations."gs".name = "+surround";
+    plugins.which-key.registrations."gs".group = "+surround";
   };
 }

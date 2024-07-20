@@ -193,7 +193,7 @@
           };
         };
         flavors = {
-          "catppuccin-${variant}.yazi" = "${inputs.yazi-flavors}/catppuccin-${variant}.yazi";
+          "catppuccin-${variant}" = "${inputs.yazi-flavors}/catppuccin-${variant}.yazi";
         };
       };
 

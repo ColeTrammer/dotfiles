@@ -8,9 +8,7 @@
   imports = [ inputs.nix-index-database.hmModules.nix-index ];
 
   options = {
-    shell.nix-index.enable = lib.mkEnableOption "nix-index" // {
-      default = false;
-    };
+    shell.nix-index.enable = lib.mkEnableOption "nix-index";
   };
 
   config = lib.mkIf config.shell.nix-index.enable {

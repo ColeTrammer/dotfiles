@@ -139,6 +139,6 @@
         options.expr = true;
       }
     ];
-    plugins.which-key.registrations."<leader>sn".name = "+notifications";
+    plugins.which-key.registrations."<leader>sn".group = "+notifications";
   };
 }

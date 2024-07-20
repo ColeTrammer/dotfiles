@@ -104,7 +104,7 @@
         };
       }
     ];
-    plugins.which-key.registrations."<leader>w".name = "+window";
-    plugins.which-key.registrations."<leader>wp".name = "+preview";
+    plugins.which-key.registrations."<leader>w".group = "+window";
+    plugins.which-key.registrations."<leader>wp".group = "+preview";
   };
 }

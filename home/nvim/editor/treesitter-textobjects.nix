@@ -33,12 +33,14 @@
       };
     };
     plugins.treesitter = {
-      incrementalSelection = {
-        enable = true;
-        keymaps = {
-          initSelection = "<enter>";
-          nodeIncremental = "<enter>";
-          nodeDecremental = "<bs>";
+      settings = {
+        incremental_selection = {
+          enable = true;
+          keymaps = {
+            init_selection = "<enter>";
+            node_incremental = "<enter>";
+            node_decremental = "<bs>";
+          };
         };
       };
     };

@@ -173,7 +173,7 @@
         };
       }
     ];
-    plugins.which-key.registrations."<leader>q".name = "+session";
-    plugins.which-key.registrations."<leader>x".name = "+diagnostic";
+    plugins.which-key.registrations."<leader>q".group = "+session";
+    plugins.which-key.registrations."<leader>x".group = "+diagnostic";
   };
 }

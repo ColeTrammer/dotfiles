@@ -3,11 +3,13 @@
   programs.nixvim = {
     plugins.yanky = {
       enable = true;
-      ring = {
-        storage = "shada";
-        historyLength = 1000;
+      settings = {
+        ring = {
+          storage = "shada";
+          historyLength = 1000;
+        };
+        highlight.timer = 200;
       };
-      highlight.timer = 200;
     };
 
     keymaps = [

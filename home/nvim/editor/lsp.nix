@@ -138,6 +138,6 @@
         ];
       };
     };
-    plugins.which-key.registrations."<leader>c".name = "+code";
+    plugins.which-key.registrations."<leader>c".group = "+code";
   };
 }

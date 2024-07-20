@@ -7,7 +7,7 @@
       harpoon:setup()
 
       -- Work around issue with UFO
-      require("harpoon"):extend(require("harpoon.extensions").builtins.command_on_nav('UfoEnableFold'))
+      require("harpoon"):extend(require("harpoon.extensions").builtins.command_on_nav("UfoEnableFold"))
 
       -- This is probably not needed but shows diagnostics after loading the buffer.
       require("harpoon"):extend({
@@ -123,6 +123,6 @@
         };
       }
     ];
-    plugins.which-key.registrations."<leader>j".name = "+harpoon";
+    plugins.which-key.registrations."<leader>j".group = "+harpoon";
   };
 }

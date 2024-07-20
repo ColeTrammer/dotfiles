@@ -81,6 +81,6 @@
         options.desc = "Prev Buffer";
       }
     ];
-    plugins.which-key.registrations."<leader>b".name = "+buffer";
+    plugins.which-key.registrations."<leader>b".group = "+buffer";
   };
 }

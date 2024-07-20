@@ -217,7 +217,7 @@
             options.desc = "Eval";
           }
         ];
-        plugins.which-key.registrations."<leader>d".name = "+debug";
+        plugins.which-key.registrations."<leader>d".group = "+debug";
       };
     };
 }

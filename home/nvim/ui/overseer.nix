@@ -118,7 +118,7 @@
         options.desc = "Restart Last Task";
       }
     ];
-    plugins.which-key.registrations."<leader>o".name = "+task";
+    plugins.which-key.registrations."<leader>o".group = "+task";
   };
   nvim.auto-session =
     let

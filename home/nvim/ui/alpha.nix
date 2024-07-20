@@ -42,16 +42,17 @@ let
     };
     val = label;
   };
-  footer = helpers.luaRawExpr ''
-    return {
-      type = "text",
-      opts = {
-        hl = "AlphaFooter",
-        position = "center",
-      },
-      val = require("alpha.fortune")(),
-    }
-  '';
+  footer = {
+    type = "text";
+    opts = {
+      hl = "AlphaFooter";
+      position = "center";
+    };
+    val = "Quote...";
+    # val = helpers.luaRawExpr ''
+    #   return require("alpha.fortune")()
+    # '';
+  };
 in
 {
   programs.nixvim = {

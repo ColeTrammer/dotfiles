@@ -107,6 +107,6 @@
         options.desc = "Debug Print Variable";
       }
     ];
-    plugins.which-key.registrations."<leader>r".name = "+refactor";
+    plugins.which-key.registrations."<leader>r".group = "+refactor";
   };
 }

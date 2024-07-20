@@ -140,6 +140,6 @@
         };
       }
     ];
-    plugins.which-key.registrations."<leader>u".name = "+toggle";
+    plugins.which-key.registrations."<leader>u".group = "+toggle";
   };
 }

@@ -44,6 +44,6 @@
         options.desc = "Previous Tab";
       }
     ];
-    plugins.which-key.registrations."<leader><tab>".name = "+tab";
+    plugins.which-key.registrations."<leader><tab>".group = "+tab";
   };
 }

@@ -66,6 +66,6 @@
         '';
       };
     };
-    plugins.which-key.registrations."<leader>g".name = "+git";
+    plugins.which-key.registrations."<leader>g".group = "+git";
   };
 }

@@ -101,7 +101,7 @@
           };
           "<leader>sj" = {
             action = "jumplist";
-            options.desc = "Justlist";
+            options.desc = "Jumplist";
           };
           "<leader>sk" = {
             action = "keymaps";
@@ -157,6 +157,6 @@
           };
         };
       };
-    plugins.which-key.registrations."<leader>s".name = "+search";
+    plugins.which-key.registrations."<leader>s".group = "+search";
   };
 }

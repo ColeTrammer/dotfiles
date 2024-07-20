@@ -8,7 +8,7 @@
   options = {
     nvim.neorg = {
       workspaces = lib.mkOption {
-        type = with lib.types; attrsOf string;
+        type = with lib.types; attrsOf str;
         default = {
           notes = "~/Workspace/notes";
         };
@@ -59,7 +59,7 @@
         };
       };
       plugins.cmp.settings.sources = [ { name = "neorg"; } ];
-      plugins.which-key.registrations."<leader>n".name = "+neorg";
+      plugins.which-key.registrations."<leader>n".group = "+neorg";
     };
 
     nvim.otter.langs = [ "norg" ];
