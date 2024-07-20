@@ -11,8 +11,10 @@
     ./eza.nix
     ./fastfetch.nix
     ./fd.nix
+    ./ffmpeg.nix
     ./fzf.nix
     ./git.nix
+    ./gstreamer.nix
     ./hyperfine.nix
     ./jq.nix
     ./just.nix
