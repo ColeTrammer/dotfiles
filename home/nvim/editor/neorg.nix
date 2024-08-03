@@ -59,7 +59,12 @@
         };
       };
       plugins.cmp.settings.sources = [ { name = "neorg"; } ];
-      plugins.which-key.registrations."<leader>n".group = "+neorg";
+      plugins.which-key.settings.spec = [
+        {
+          __unkeyed-1 = "<leader>n";
+          group = "+neorg";
+        }
+      ];
     };
 
     nvim.otter.langs = [ "norg" ];

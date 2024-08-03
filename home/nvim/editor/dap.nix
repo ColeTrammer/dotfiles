@@ -217,7 +217,12 @@
             options.desc = "Eval";
           }
         ];
-        plugins.which-key.registrations."<leader>d".group = "+debug";
+        plugins.which-key.settings.spec = [
+          {
+            __unkeyed-1 = "<leader>d";
+            group = "+debug";
+          }
+        ];
       };
     };
 }

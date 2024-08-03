@@ -157,6 +157,11 @@
           };
         };
       };
-    plugins.which-key.registrations."<leader>s".group = "+search";
+    plugins.which-key.settings.spec = [
+      {
+        __unkeyed-1 = "<leader>s";
+        group = "+search";
+      }
+    ];
   };
 }

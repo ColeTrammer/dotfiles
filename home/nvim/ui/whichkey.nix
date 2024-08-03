@@ -3,9 +3,23 @@
     plugins.which-key = {
       enable = true;
     };
-    plugins.which-key.registrations."g".group = "+goto";
-    plugins.which-key.registrations."z".group = "+fold";
-    plugins.which-key.registrations."]".group = "+next";
-    plugins.which-key.registrations."[".group = "+prev";
+    plugins.which-key.settings.spec = [
+      {
+        __unkeyed-1 = "g";
+        group = "+goto";
+      }
+      {
+        __unkeyed-1 = "z";
+        group = "+fold";
+      }
+      {
+        __unkeyed-1 = "]";
+        group = "+next";
+      }
+      {
+        __unkeyed-1 = "[";
+        group = "+prev";
+      }
+    ];
   };
 }

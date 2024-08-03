@@ -123,6 +123,11 @@
         };
       }
     ];
-    plugins.which-key.registrations."<leader>j".group = "+harpoon";
+    plugins.which-key.settings.spec = [
+      {
+        __unkeyed-1 = "<leader>j";
+        group = "+harpoon";
+      }
+    ];
   };
 }

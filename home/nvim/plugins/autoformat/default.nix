@@ -72,7 +72,12 @@
         options.desc = "Formatter Override";
       }
     ];
-    plugins.which-key.registrations."<leader>uf".group = "+autoformatting";
+    plugins.which-key.settings.spec = [
+      {
+        __unkeyed-1 = "<leader>uf";
+        group = "+autoformatting";
+      }
+    ];
   };
   nvim.auto-session =
     let

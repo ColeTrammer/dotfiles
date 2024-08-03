@@ -138,6 +138,11 @@
         ];
       };
     };
-    plugins.which-key.registrations."<leader>c".group = "+code";
+    plugins.which-key.settings.spec = [
+      {
+        __unkeyed-1 = "<leader>c";
+        group = "+code";
+      }
+    ];
   };
 }

@@ -173,7 +173,15 @@
         };
       }
     ];
-    plugins.which-key.registrations."<leader>q".group = "+session";
-    plugins.which-key.registrations."<leader>x".group = "+diagnostic";
+    plugins.which-key.settings.spec = [
+      {
+        __unkeyed-1 = "<leader>q";
+        group = "+session";
+      }
+      {
+        __unkeyed-1 = "<leader>x";
+        group = "+diagnostic";
+      }
+    ];
   };
 }

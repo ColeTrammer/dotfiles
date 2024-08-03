@@ -104,7 +104,15 @@
         };
       }
     ];
-    plugins.which-key.registrations."<leader>w".group = "+window";
-    plugins.which-key.registrations."<leader>wp".group = "+preview";
+    plugins.which-key.settings.spec = [
+      {
+        __unkeyed-1 = "<leader>w";
+        group = "+window";
+      }
+      {
+        __unkeyed-1 = "<leader>wp";
+        group = "+preview";
+      }
+    ];
   };
 }

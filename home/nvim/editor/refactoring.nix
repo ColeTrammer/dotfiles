@@ -107,6 +107,11 @@
         options.desc = "Debug Print Variable";
       }
     ];
-    plugins.which-key.registrations."<leader>r".group = "+refactor";
+    plugins.which-key.settings.spec = [
+      {
+        __unkeyed-1 = "<leader>r";
+        group = "+refactor";
+      }
+    ];
   };
 }

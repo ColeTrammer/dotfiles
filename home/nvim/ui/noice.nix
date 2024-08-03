@@ -139,6 +139,11 @@
         options.expr = true;
       }
     ];
-    plugins.which-key.registrations."<leader>sn".group = "+notifications";
+    plugins.which-key.settings.spec = [
+      {
+        __unkeyed-1 = "<leader>sn";
+        group = "+notifications";
+      }
+    ];
   };
 }

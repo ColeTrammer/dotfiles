@@ -81,6 +81,11 @@
         options.desc = "Prev Buffer";
       }
     ];
-    plugins.which-key.registrations."<leader>b".group = "+buffer";
+    plugins.which-key.settings.spec = [
+      {
+        __unkeyed-1 = "<leader>b";
+        group = "+buffer";
+      }
+    ];
   };
 }

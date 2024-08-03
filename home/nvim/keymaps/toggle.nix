@@ -140,6 +140,11 @@
         };
       }
     ];
-    plugins.which-key.registrations."<leader>u".group = "+toggle";
+    plugins.which-key.settings.spec = [
+      {
+        __unkeyed-1 = "<leader>u";
+        group = "+toggle";
+      }
+    ];
   };
 }

@@ -44,6 +44,11 @@
         options.desc = "Previous Tab";
       }
     ];
-    plugins.which-key.registrations."<leader><tab>".group = "+tab";
+    plugins.which-key.settings.spec = [
+      {
+        __unkeyed-1 = "<leader><tab>";
+        group = "+tab";
+      }
+    ];
   };
 }

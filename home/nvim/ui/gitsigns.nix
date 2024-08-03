@@ -66,6 +66,11 @@
         '';
       };
     };
-    plugins.which-key.registrations."<leader>g".group = "+git";
+    plugins.which-key.settings.spec = [
+      {
+        __unkeyed-1 = "<leader>g";
+        group = "+git";
+      }
+    ];
   };
 }
