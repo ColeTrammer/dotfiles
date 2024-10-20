@@ -97,6 +97,19 @@
         };
       }
       {
+        key = "<leader>jg";
+        mode = "n";
+        action.__raw = ''
+          function()
+            local harpoon = require("harpoon")
+            harpoon:list():select(5)
+          end
+        '';
+        options = {
+          desc = "Harpoon Open File 5";
+        };
+      }
+      {
         key = "<leader>jj";
         mode = "n";
         action.__raw = ''

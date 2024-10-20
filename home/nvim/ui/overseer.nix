@@ -55,16 +55,14 @@
         };
       };
     };
-    plugins.lualine.sections.lualine_x = lib.mkOrder 1000 [
+    plugins.lualine.settings.sections.lualine_x = lib.mkOrder 1000 [
       {
-        name = "overseer";
-        extraConfig = {
-          symbols = {
-            "CANCELED" = " ";
-            "FAILURE" = " ";
-            "SUCCESS" = " ";
-            "RUNNING" = " ";
-          };
+        __unkeyed-1 = "overseer";
+        symbols = {
+          "CANCELED" = " ";
+          "FAILURE" = " ";
+          "SUCCESS" = " ";
+          "RUNNING" = " ";
         };
       }
     ];

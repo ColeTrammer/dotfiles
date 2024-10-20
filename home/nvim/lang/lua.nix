@@ -2,7 +2,7 @@
 {
   programs.nixvim = {
     plugins.conform-nvim = {
-      formattersByFt = {
+      settings.formatters_by_ft = {
         lua = [ "stylua" ];
       };
     };
@@ -11,7 +11,7 @@
     };
     plugins.lsp = {
       servers = {
-        lua-ls = {
+        lua_ls = {
           enable = true;
           package = null;
           extraOptions = {

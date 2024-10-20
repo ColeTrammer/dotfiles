@@ -2,7 +2,7 @@
 {
   programs.nixvim = {
     plugins.conform-nvim = {
-      formattersByFt = {
+      settings.formatters_by_ft = {
         nix = [
           "nixfmt"
           "injected"
@@ -14,7 +14,7 @@
     };
     plugins.lsp = {
       servers = {
-        nil-ls = {
+        nil_ls = {
           enable = true;
           package = null;
           extraOptions = {

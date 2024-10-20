@@ -26,23 +26,21 @@
     programs.nixvim = {
       plugins.auto-session = {
         enable = true;
-        logLevel = "error";
-        bypassSessionSaveFileTypes = [
-          "gitcommit"
-          "alpha"
-          "oil"
-          "NeogitStatus"
-        ];
-        autoRestore.enabled = true;
-        autoSession = {
-          suppressDirs = [
+        settings = {
+          log_level = "error";
+          bypass_siave_filetypes = [
+            "gitcommit"
+            "alpha"
+            "oil"
+            "NeogitStatus"
+          ];
+          auto_restore = true;
+          supressed_dirs = [
             "~/"
             "~/Projects"
             "~/${config.preferences.workspacePath}"
             "/"
           ];
-        };
-        extraOptions = {
           pre_save_cmds = config.nvim.auto-session.preSaveCmds;
           pre_restore_cmds = config.nvim.auto-session.preRestoreCmds;
           post_restore_cmds = config.nvim.auto-session.postRestoreCmds ++ [

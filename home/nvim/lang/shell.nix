@@ -2,7 +2,7 @@
 {
   programs.nixvim = {
     plugins.conform-nvim = {
-      formattersByFt = {
+      settings.formatters_by_ft = {
         sh = [ "shfmt" ];
       };
     };

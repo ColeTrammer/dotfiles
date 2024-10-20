@@ -3,32 +3,30 @@
   programs.nixvim = {
     # Don't use the nixvim way to configure this plugin since it needs to init before lualine.
     extraPlugins = [ pkgs.vimPlugins.trouble-nvim ];
-    plugins.lualine.sections.lualine_c = [
-      {
-        extraConfig = helpers.luaRawExpr ''
-          return (function()
-            local trouble = require("trouble")
+    plugins.lualine.settings.sections.lualine_c = [
+      (helpers.luaRawExpr ''
+        return (function()
+          local trouble = require("trouble")
 
-            -- This is required since trouble would otherwise get loaded after lualine...
-            trouble.setup({ use_diagnostic_signs = true })
+          -- This is required since trouble would otherwise get loaded after lualine...
+          trouble.setup({ use_diagnostic_signs = true })
 
-            local symbols = trouble.statusline({
-              mode = "lsp_document_symbols",
-              groups = {},
-              title = false,
-              filter = { range = true },
-              format = "{kind_icon}{symbol.name:Normal}",
-              -- The following line is needed to fix the background color
-              -- Set it to the lualine section you want to use
-              hl_group = "lualine_c_normal",
-            })
-            return {
-              symbols.get,
-              cond = symbols.has,
-            }
-          end)()
-        '';
-      }
+          local symbols = trouble.statusline({
+            mode = "lsp_document_symbols",
+            groups = {},
+            title = false,
+            filter = { range = true },
+            format = "{kind_icon}{symbol.name:Normal}",
+            -- The following line is needed to fix the background color
+            -- Set it to the lualine section you want to use
+            hl_group = "lualine_c_normal",
+          })
+          return {
+            symbols.get,
+            cond = symbols.has,
+          }
+        end)()
+      '')
     ];
     plugins.telescope.settings.defaults.mappings = {
       i."<c-t>".__raw = ''require("trouble.sources.telescope").open'';

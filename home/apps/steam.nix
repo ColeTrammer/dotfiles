@@ -36,6 +36,10 @@
           directory = ".local/share/Celeste";
           method = "symlink";
         }
+        {
+          directory = ".factorio";
+          method = "symlink";
+        }
       ];
     };
   };

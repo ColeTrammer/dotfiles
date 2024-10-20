@@ -7,6 +7,7 @@
     ./conform.nix
     ./dap.nix
     ./flash.nix
+    ./icons.nix
     ./inc-rename.nix
     ./lint.nix
     ./lsp.nix

@@ -144,7 +144,7 @@
             };
           };
         };
-        plugins.bufferline.extraOptions.highlights.__raw = "require('catppuccin.groups.integrations.bufferline').get()";
+        plugins.bufferline.settings.options.highlights.__raw = "require('catppuccin.groups.integrations.bufferline').get()";
       };
 
       # Tmux
@@ -214,7 +214,7 @@
       xdg.configFile."alacritty/catppuccin.toml".source = "${inputs.catppuccin-alacritty}/catppuccin-mocha.toml";
 
       # Kitty
-      programs.kitty.theme = lib.mkIf default "Catppuccin-${variantTitleCase}";
+      programs.kitty.themeFile = lib.mkIf default "Catppuccin-${variantTitleCase}";
 
       # Wezterm
       apps.wezterm.colorscheme = lib.mkIf default "Catppuccin ${variantTitleCase}";

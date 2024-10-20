@@ -3,9 +3,11 @@
   programs.nixvim = {
     plugins.conform-nvim = {
       enable = true;
-      notifyOnError = true;
-      formattersByFt."_" = [ "trim_whitespace" ];
-      formatters.injected.options.ignore_errors = true;
+      settings = {
+        notify_on_error = true;
+        formatters_by_ft."_" = [ "trim_whitespace" ];
+        formatters.injected.options.ignore_errors = true;
+      };
     };
     keymaps = [
       {

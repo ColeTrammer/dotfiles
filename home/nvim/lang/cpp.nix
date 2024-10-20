@@ -66,7 +66,7 @@
     {
       programs.nixvim = {
         plugins.conform-nvim = {
-          formattersByFt = {
+          settings.formatters_by_ft = {
             c = [ "clang-format" ];
             cpp = [ "clang-format" ];
           };

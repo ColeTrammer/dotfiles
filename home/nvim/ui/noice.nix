@@ -33,9 +33,9 @@
         lsp_doc_border = true;
       };
     };
-    plugins.lualine.sections.lualine_x = lib.mkOrder 800 [
+    plugins.lualine.settings.sections.lualine_x = lib.mkOrder 800 [
       {
-        extraConfig.__raw = ''
+        __raw = ''
           {
             require("noice").api.status.mode.get,
             cond = require("noice").api.status.mode.has,
@@ -43,7 +43,7 @@
         '';
       }
       {
-        extraConfig.__raw = ''
+        __raw = ''
           {
             require("noice").api.status.command.get,
             cond = require("noice").api.status.command.has,

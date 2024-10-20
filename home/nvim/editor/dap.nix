@@ -69,9 +69,9 @@
             };
           };
         };
-        plugins.lualine.sections.lualine_x = lib.mkOrder 900 [
+        plugins.lualine.settings.sections.lualine_x = lib.mkOrder 900 [
           {
-            extraConfig.__raw = ''
+            __raw = ''
               {
                 function() return " " .. require("dap").status() end,
                 cond = function() return require("dap").status() ~= "" end,

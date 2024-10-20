@@ -2,7 +2,7 @@
 {
   programs.nixvim = {
     plugins.conform-nvim = {
-      formattersByFt = {
+      settings.formatters_by_ft = {
         javascript = [
           [
             "prettierd"
@@ -42,7 +42,7 @@
       };
     };
     plugins.lsp.servers = {
-      tsserver = {
+      ts_ls = {
         enable = true;
         package = null;
         extraOptions.settings = {
