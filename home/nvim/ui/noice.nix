@@ -21,6 +21,7 @@
               { find = "%d+ lines"; }
               { find = "%d+ fewer lines"; }
               { find = "Hunk %d+ of %d+"; }
+              { find = "Saved session: %s"; }
             ];
           };
           view = "mini";

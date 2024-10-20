@@ -55,6 +55,11 @@
       flake = false;
     };
 
+    grug-far = {
+      url = "github:MagicDuck/grug-far.nvim";
+      flake = false;
+    };
+
     ags = {
       url = "github:Aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";

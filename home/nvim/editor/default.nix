@@ -7,6 +7,7 @@
     ./conform.nix
     ./dap.nix
     ./flash.nix
+    ./grug-far.nix
     ./icons.nix
     ./inc-rename.nix
     ./lint.nix
@@ -17,7 +18,6 @@
     ./otter.nix
     ./refactoring.nix
     ./snippets.nix
-    ./spectre.nix
     ./test.nix
     ./tmux-navigator.nix
     ./treesitter-context.nix

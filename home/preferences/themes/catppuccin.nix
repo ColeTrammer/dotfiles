@@ -131,7 +131,7 @@
               harpoon = true;
               which_key = true;
               lsp_trouble = true;
-              headlines = true;
+              grug_far = true;
               native_lsp = {
                 enabled = true;
                 underlines = {
