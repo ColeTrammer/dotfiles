@@ -3,20 +3,18 @@
   programs.nixvim = {
     plugins.conform-nvim = {
       settings.formatters_by_ft = {
-        json = [
-          [
-            "prettierd"
-            "prettier"
-            "jq"
-          ]
-        ];
-        jsonc = [
-          [
-            "prettierd"
-            "prettier"
-            "jq"
-          ]
-        ];
+        json = {
+          __unkeyed-1 = "prettierd";
+          __unkeyed-2 = "prettier";
+          __unkeyed-3 = "jq";
+          stop_after_first = true;
+        };
+        jsonc = {
+          __unkeyed-1 = "prettierd";
+          __unkeyed-2 = "prettier";
+          __unkeyed-3 = "jq";
+          stop_after_first = true;
+        };
       };
     };
     plugins.lsp.servers.jsonls = {

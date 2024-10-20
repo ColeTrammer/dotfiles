@@ -6,7 +6,6 @@
     ./dressing.nix
     ./gitsigns.nix
     ./harpoon.nix
-    ./headlines.nix
     ./illuminate.nix
     ./image.nix
     ./indent-blankline.nix

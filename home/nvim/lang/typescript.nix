@@ -3,42 +3,36 @@
   programs.nixvim = {
     plugins.conform-nvim = {
       settings.formatters_by_ft = {
-        javascript = [
-          [
-            "prettierd"
-            "prettier"
-          ]
-        ];
-        javascriptreact = [
-          [
-            "prettierd"
-            "prettier"
-          ]
-        ];
-        "javascript.jsx" = [
-          [
-            "prettierd"
-            "prettier"
-          ]
-        ];
-        typescript = [
-          [
-            "prettierd"
-            "prettier"
-          ]
-        ];
-        typescriptreact = [
-          [
-            "prettierd"
-            "prettier"
-          ]
-        ];
-        "typescript.tsx" = [
-          [
-            "prettierd"
-            "prettier"
-          ]
-        ];
+        javascript = {
+          __unkeyed-0 = "prettierd";
+          __unkeyed-1 = "prettier";
+          stop_after_first = true;
+        };
+        javascriptreact = {
+          __unkeyed-0 = "prettierd";
+          __unkeyed-1 = "prettier";
+          stop_after_first = true;
+        };
+        "javascript.jsx" = {
+          __unkeyed-0 = "prettierd";
+          __unkeyed-1 = "prettier";
+          stop_after_first = true;
+        };
+        typescript = {
+          __unkeyed-0 = "prettierd";
+          __unkeyed-1 = "prettier";
+          stop_after_first = true;
+        };
+        typescriptreact = {
+          __unkeyed-0 = "prettierd";
+          __unkeyed-1 = "prettier";
+          stop_after_first = true;
+        };
+        "typescript.tsx" = {
+          __unkeyed-0 = "prettierd";
+          __unkeyed-1 = "prettier";
+          stop_after_first = true;
+        };
       };
     };
     plugins.lsp.servers = {

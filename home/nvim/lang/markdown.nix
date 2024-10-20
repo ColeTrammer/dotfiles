@@ -1,21 +1,15 @@
-{ pkgs, ... }:
+{ helpers, pkgs, ... }:
 {
   programs.nixvim = {
     plugins.conform-nvim = {
       settings.formatters_by_ft = {
         markdown = [
-          [
-            "prettierd"
-            "prettier"
-          ]
+          "prettier"
           "markdownlint"
           "injected"
         ];
         "markdown.mdx" = [
-          [
-            "prettierd"
-            "prettier"
-          ]
+          "prettier"
           "markdownlint"
           "injected"
         ];
@@ -27,6 +21,28 @@
     plugins.lsp.servers.marksman = {
       enable = true;
     };
+    plugins.render-markdown = {
+      enable = true;
+      settings = {
+        file_types = [
+          "markdown"
+          "markdown.mdx"
+          "norg"
+        ];
+      };
+    };
+    keymaps = [
+      {
+        mode = "n";
+        key = "<leader>um";
+        action = helpers.luaRawExpr ''
+          return function()
+            require("render-markdown").toggle()
+          end
+        '';
+        options.desc = "Toggle Markdown Rendering";
+      }
+    ];
   };
 
   nvim.otter = {
