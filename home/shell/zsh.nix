@@ -32,6 +32,9 @@
         path = "${config.xdg.dataHome}/zsh/zsh_history";
       };
       initExtra = ''
+        # Options
+        setopt interactivecomments
+
         source ~/.config/zsh/zsh-settings.zsh
       '';
       plugins =
