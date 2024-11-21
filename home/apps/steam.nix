@@ -19,6 +19,7 @@
         ${config.home.homeDirectory}/.local/bin/mons add main '${config.home.homeDirectory}/.local/share/Steam/steamapps/common/Celeste'
         ${pkgs.steam-run}/bin/steam-run ${config.home.homeDirectory}/.local/bin/mons install main stable
       '')
+      everest-mons
     ];
 
     home.sessionVariables = {
@@ -34,11 +35,11 @@
         }
         {
           directory = ".local/share/Celeste";
-          method = "symlink";
+          # method = "symlink";
         }
         {
           directory = ".factorio";
-          method = "symlink";
+          # method = "symlink";
         }
       ];
     };

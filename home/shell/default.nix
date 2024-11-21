@@ -1,13 +1,15 @@
 { lib, ... }:
 {
   imports = [
-    ./bat.nix
     ./bash.nix
+    ./bat.nix
     ./bottom.nix
     ./curl.nix
     ./delta.nix
     ./direnv.nix
+    ./dua.nix
     ./duf.nix
+    ./dust.nix
     ./eza.nix
     ./fastfetch.nix
     ./fd.nix

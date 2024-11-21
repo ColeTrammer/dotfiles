@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  config,
+  nixosConfig,
+  pkgs,
+  ...
+}:
 {
   programs.nixvim = {
     plugins.conform-nvim = {
@@ -14,22 +19,19 @@
     };
     plugins.lsp = {
       servers = {
-        nil_ls = {
+        nixd = {
           enable = true;
           package = null;
-          extraOptions = {
-            settings = {
-              nil = {
-                formatting = {
-                  command = [ "nixfmt" ];
-                };
-                nix = {
-                  maxMemoryMB = 4 * 1024;
-                  flake = {
-                    autoArchive = true;
-                    autoEvalInputs = true;
-                  };
-                };
+          settings = {
+            nixpkgs = {
+              expr = "import <nixpkgs> { }";
+            };
+            formatting = {
+              command = [ "nixfmt" ];
+            };
+            options = {
+              nixos = {
+                expr = "(builtins.getFlake \"${config.preferences.dotfilesPath}\").nixosConfigurations.${nixosConfig.networking.hostName}.options";
               };
             };
           };
@@ -44,7 +46,7 @@
   };
 
   home.packages = with pkgs; [
-    nil
+    nixd
     nixfmt-rfc-style
   ];
 }
