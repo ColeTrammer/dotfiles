@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -20,6 +21,10 @@
   config = lib.mkIf config.shell.tmux.enable {
     programs.tmux = {
       enable = true;
+      package = pkgs.tmux.overrideAttrs {
+        version = "git";
+        src = inputs.tmux;
+      };
       aggressiveResize = true;
       baseIndex = 1;
       historyLimit = 50000;

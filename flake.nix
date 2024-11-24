@@ -65,6 +65,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    tmux = {
+      url = "github:tmux/tmux/826ba515beef76dff7d8865599a19e06ae1c4f6a";
+      flake = false;
+    };
+
     catppuccin-alacritty = {
       url = "github:catppuccin/alacritty";
       flake = false;
