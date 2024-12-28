@@ -19,6 +19,7 @@
         Unit = {
           Description = "Cloudflare Warp taskbar";
           After = [ "graphical-session.target" ];
+          PartOf = [ "graphical-session.target" ];
         };
 
         Service = {
@@ -26,7 +27,7 @@
           ExecStop = "pkill warp-taskbar";
         };
 
-        Install.WantedBy = [ "default.target" ];
+        Install.WantedBy = [ "graphical-session.target" ];
       };
     };
 

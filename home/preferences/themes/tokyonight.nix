@@ -45,7 +45,8 @@
         delta.options.syntax-theme = "tokyonight";
         extraConfig.include.path = [ "${config.xdg.configHome}/delta/tokyonight.gitconfig" ];
       };
-      xdg.configFile."delta/tokyonight.gitconfig".source = "${tokyonightPlugin}/extras/delta/tokyonight_${variant}.gitconfig";
+      xdg.configFile."delta/tokyonight.gitconfig".source =
+        "${tokyonightPlugin}/extras/delta/tokyonight_${variant}.gitconfig";
 
       # Fzf
       programs.bash.initExtra = lib.mkIf default (
@@ -54,7 +55,8 @@
       programs.zsh.initExtraFirst = lib.mkIf default (
         lib.mkOrder 0 "source ${config.xdg.configHome}/fzf/tokyonight.sh"
       );
-      xdg.configFile."fzf/tokyonight.sh".source = "${tokyonightPlugin}/extras/fzf/tokyonight_${variant}.zsh";
+      xdg.configFile."fzf/tokyonight.sh".source =
+        "${tokyonightPlugin}/extras/fzf/tokyonight_${variant}.zsh";
 
       programs.nixvim = lib.mkIf default {
         colorschemes.tokyonight = {
@@ -82,14 +84,19 @@
       programs.alacritty.settings.import = lib.mkIf default (
         lib.mkOrder 0 [ "${config.xdg.configHome}/alacritty/tokyonight.toml" ]
       );
-      xdg.configFile."alacritty/tokyonight.toml".source = "${tokyonightPlugin}/extras/alacritty/tokyonight_${variant}.toml";
+      xdg.configFile."alacritty/tokyonight.toml".source =
+        "${tokyonightPlugin}/extras/alacritty/tokyonight_${variant}.toml";
 
       # Kitty
       programs.kitty.theme = lib.mkIf default "Tokyo Night";
 
+      # Ghostty
+      apps.ghostty.theme = lib.mkIf default "tokyonight";
+
       # Wezterm
       apps.wezterm.colorscheme = lib.mkIf default "tokyonight_night";
-      home.file.".config/wezterm/tokyonight.toml".source = "${pkgs.vimPlugins.tokyonight-nvim}/extras/wezterm/tokyonight_night.toml";
+      home.file.".config/wezterm/tokyonight.toml".source =
+        "${pkgs.vimPlugins.tokyonight-nvim}/extras/wezterm/tokyonight_night.toml";
 
       # GTK
       gtk = lib.mkIf desktop {

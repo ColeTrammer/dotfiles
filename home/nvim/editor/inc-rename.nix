@@ -23,6 +23,6 @@
         };
       }
     ];
-    plugins.noice.presets.inc_rename = true;
+    plugins.noice.settings.presets.inc_rename = true;
   };
 }

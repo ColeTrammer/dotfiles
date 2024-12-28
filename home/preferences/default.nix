@@ -76,7 +76,7 @@
 
       terminal = lib.mkOption {
         type = lib.types.str;
-        default = "kitty";
+        default = "ghostty";
         description = ''Default terminal'';
       };
 
@@ -101,7 +101,7 @@
       font = {
         package = lib.mkOption {
           type = lib.types.package;
-          default = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+          default = pkgs.nerd-fonts.jetbrains-mono;
           description = ''Default font package'';
         };
 
@@ -178,6 +178,7 @@
       package = config.preferences.cursor.package;
       name = config.preferences.cursor.name;
       size = config.preferences.cursor.size;
+      hyprcursor.enable = true;
       gtk.enable = true;
     };
 

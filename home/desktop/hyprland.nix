@@ -36,13 +36,18 @@
           gaps_out = 14;
           border_size = 0;
         };
+        cursor = {
+          hide_on_key_press = true;
+        };
         decoration = {
           rounding = 10;
 
-          drop_shadow = true;
-          shadow_range = 30;
-          shadow_render_power = 3;
-          "col.shadow" = lib.mkDefault "0x66000000";
+          shadow = {
+            enabled = true;
+            range = 30;
+            render_power = 3;
+            color = lib.mkDefault "0x66000000";
+          };
 
           blur = {
             enabled = true;

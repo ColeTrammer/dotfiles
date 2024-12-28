@@ -42,7 +42,11 @@
       systemd.user.services.ags = {
         Unit = {
           Description = "AGS";
-          After = [ "graphical-session-pre.target" ];
+          After = [ "graphical-session.target" ];
+          PartOf = [
+            "graphical-session.target"
+            "tray.target"
+          ];
         };
 
         Service = {
@@ -51,7 +55,7 @@
           Restart = "on-failure";
         };
 
-        Install.WantedBy = [ "default.target" ];
+        Install.WantedBy = [ "graphical-session.target" ];
       };
 
       # We can't use lib.mkOutOfStoreSymlink because of a nix unstable issue.

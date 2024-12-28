@@ -1,4 +1,9 @@
 ###
+### Env
+###
+source /persist/secrets/env.sh
+
+###
 ### Keybindings
 ###
 

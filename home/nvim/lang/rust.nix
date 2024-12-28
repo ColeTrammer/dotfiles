@@ -40,9 +40,9 @@
         return require("rustaceanvim.neotest")
       '')
     ];
-    plugins.crates-nvim = {
+    plugins.crates = {
       enable = true;
-      extraOptions = {
+      settings = {
         completion.cmp.enabled = true;
       };
     };

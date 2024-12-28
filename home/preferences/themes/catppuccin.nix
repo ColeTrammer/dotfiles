@@ -106,7 +106,8 @@
         delta.options = lib.mkIf default { features = "catppuccin-${variant}"; };
         extraConfig.include.path = [ "${config.xdg.configHome}/delta/catppuccin.gitconfig" ];
       };
-      xdg.configFile."delta/catppuccin.gitconfig".source = "${inputs.catppuccin-delta}/catppuccin.gitconfig";
+      xdg.configFile."delta/catppuccin.gitconfig".source =
+        "${inputs.catppuccin-delta}/catppuccin.gitconfig";
 
       # Fzf
       programs.bash.initExtra = lib.mkIf default (
@@ -144,7 +145,8 @@
             };
           };
         };
-        plugins.bufferline.settings.options.highlights.__raw = "require('catppuccin.groups.integrations.bufferline').get()";
+        plugins.bufferline.settings.options.highlights.__raw =
+          "require('catppuccin.groups.integrations.bufferline').get()";
       };
 
       # Tmux
@@ -208,19 +210,24 @@
       xdg.configFile."fsh".source = "${inputs.catppuccin-zsh-fsh}/themes";
 
       # Alacritty
-      programs.alacritty.settings.import = lib.mkIf default (
+      programs.alacritty.settings.general.import = lib.mkIf default (
         lib.mkOrder 0 [ "${config.xdg.configHome}/alacritty/catppuccin.toml" ]
       );
-      xdg.configFile."alacritty/catppuccin.toml".source = "${inputs.catppuccin-alacritty}/catppuccin-mocha.toml";
+      xdg.configFile."alacritty/catppuccin.toml".source =
+        "${inputs.catppuccin-alacritty}/catppuccin-mocha.toml";
 
       # Kitty
       programs.kitty.themeFile = lib.mkIf default "Catppuccin-${variantTitleCase}";
+
+      # Ghostty
+      apps.ghostty.theme = lib.mkIf default "catppuccin-${variant}";
 
       # Wezterm
       apps.wezterm.colorscheme = lib.mkIf default "Catppuccin ${variantTitleCase}";
 
       # Zathura
-      xdg.configFile."zathura/catppuccin-${variant}".source = "${inputs.catppuccin-zathura}/src/catppuccin-${variant}";
+      xdg.configFile."zathura/catppuccin-${variant}".source =
+        "${inputs.catppuccin-zathura}/src/catppuccin-${variant}";
       programs.zathura.extraConfig = lib.mkIf default ''
         include catppuccin-${variant}
       '';
@@ -228,7 +235,7 @@
       # Hyprland
       wayland.windowManager.hyprland.settings = lib.mkIf default {
         decoration = {
-          "col.shadow" = rgbaColor variantColors.crust 99;
+          shadow.color = rgbaColor variantColors.crust 99;
         };
         general = {
           "col.active_border" = rgbColor variantColors.mantle;
@@ -290,8 +297,8 @@
         with pkgs;
         lib.mkIf desktop [
           (catppuccin-kvantum.override {
-            accent = accentTitleCase;
-            variant = variantTitleCase;
+            accent = accent;
+            variant = variant;
           })
           libsForQt5.qtstyleplugin-kvantum
           libsForQt5.qt5ct

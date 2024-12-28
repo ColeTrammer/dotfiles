@@ -5,6 +5,7 @@
       (pkgs.vimUtils.buildVimPlugin {
         name = "autoformatting";
         src = ./.;
+        dependencies = [ pkgs.vimPlugins.plenary-nvim ];
       })
     ];
     extraConfigLua = ''

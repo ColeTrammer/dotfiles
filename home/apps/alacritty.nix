@@ -8,7 +8,6 @@
     programs.alacritty = {
       enable = true;
       settings = {
-        shell = config.preferences.shell;
         window = {
           padding = {
             x = 0;
@@ -32,6 +31,7 @@
         };
         terminal = {
           osc52 = "CopyPaste";
+          shell = config.preferences.shell;
         };
         mouse = {
           hide_when_typing = true;

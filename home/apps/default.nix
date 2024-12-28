@@ -4,6 +4,7 @@
     ./alacritty.nix
     ./discord.nix
     ./firefox.nix
+    ./ghostty.nix
     ./kitty.nix
     ./obs.nix
     ./spotify.nix

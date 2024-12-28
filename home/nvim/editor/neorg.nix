@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   ...
 }:
@@ -23,37 +22,39 @@
   };
 
   config = {
-    nixpkgs.overlays = [ inputs.neorg-overlay.overlays.default ];
     programs.nixvim = {
       plugins.neorg = {
         enable = true;
-        modules = {
-          "core.defaults" = {
-            __empty = null;
-          };
-          "core.concealer" = {
-            __empty = null;
-          };
-          "core.dirman" = {
-            config = {
-              workspaces = config.nvim.neorg.workspaces;
-              default_workspace = config.nvim.neorg.defaultWorkspace;
+        telescopeIntegration.enable = true;
+        settings = {
+          load = {
+            "core.defaults" = {
+              __empty = null;
             };
-          };
-          "core.completion" = {
-            config = {
-              engine = "nvim-cmp";
+            "core.concealer" = {
+              __empty = null;
             };
-          };
-          "core.integrations.nvim-cmp" = {
-            __empty = null;
-          };
-          "core.integrations.telescope" = {
-            __empty = null;
-          };
-          "core.keybinds" = {
-            config = {
-              neorg_leader = "<leader>n";
+            "core.dirman" = {
+              config = {
+                workspaces = config.nvim.neorg.workspaces;
+                default_workspace = config.nvim.neorg.defaultWorkspace;
+              };
+            };
+            "core.completion" = {
+              config = {
+                engine = "nvim-cmp";
+              };
+            };
+            "core.integrations.nvim-cmp" = {
+              __empty = null;
+            };
+            "core.integrations.telescope" = {
+              __empty = null;
+            };
+            "core.keybinds" = {
+              config = {
+                neorg_leader = "<leader>n";
+              };
             };
           };
         };

@@ -40,18 +40,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    neorg-overlay = {
-      url = "github:nvim-neorg/nixpkgs-neorg-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     stickybuf-nvim = {
       url = "github:stevearc/stickybuf.nvim";
-      flake = false;
-    };
-
-    nvim-neotest-golang = {
-      url = "github:fredrikaverpil/neotest-golang";
       flake = false;
     };
 
@@ -60,8 +50,14 @@
       flake = false;
     };
 
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+      inputs.nixpkgs-unstable.follows = "nixpkgs";
+      inputs.nixpkgs-stable.follows = "nixpkgs";
+    };
+
     ags = {
-      url = "github:Aylur/ags";
+      url = "github:Aylur/ags/v1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -124,8 +120,6 @@
   outputs =
     {
       flake-parts,
-      home-manager,
-      nixpkgs,
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
@@ -153,6 +147,14 @@
             programs.nixfmt.enable = true;
             programs.prettier.enable = true;
             programs.shfmt.enable = true;
+
+            settings.excludes = [
+              ".editorconfig"
+              "**/*.zsh"
+              "LICENSE"
+              "flake.lock"
+              ".gitignore"
+            ];
           };
 
           devShells.default = pkgs.mkShell {

@@ -1,6 +1,5 @@
 {
   helpers,
-  inputs,
   pkgs,
   ...
 }:
@@ -74,11 +73,8 @@
         end)()
       '')
     ];
-    extraPlugins = [
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "neotest-golang";
-        src = inputs.nvim-neotest-golang;
-      })
+    extraPlugins = with pkgs; [
+      vimPlugins.neotest-golang
     ];
   };
 

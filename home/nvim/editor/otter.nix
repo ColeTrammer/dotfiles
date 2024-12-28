@@ -3,7 +3,6 @@
   helpers,
   inputs,
   lib,
-  pkgs,
   ...
 }:
 {
@@ -24,7 +23,7 @@
 
   config =
     let
-      nixvimHelpers = inputs.nixvim.lib.${pkgs.system}.helpers;
+      nixvimHelpers = inputs.nixvim.lib.nixvim;
     in
     {
       programs.nixvim = {

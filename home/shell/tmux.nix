@@ -144,7 +144,6 @@
     systemd.user.services.tmux = {
       Unit = {
         Description = "Tmux";
-        After = [ "graphical-session-pre.target" ];
       };
 
       Service = {
