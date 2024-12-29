@@ -49,13 +49,16 @@
     extraConfigLua = ''
       require("lazydev").setup()
     '';
-    plugins.cmp.settings.sources = [
-      {
-        name = "lazydev";
-        group_index = 0;
-      }
-    ];
+    plugins.blink-cmp.settings.sources = {
+      providers.lazydev = {
+        name = "LazyDev";
+        module = "lazydev.integrations.blink";
+        score_offset = 100;
+      };
+    };
   };
+
+  nvim.blink-cmp.extraSources = [ "lazydev" ];
 
   nvim.otter.allLangs = [ "lua" ];
 

@@ -126,6 +126,7 @@
           settings = {
             flavour = variant;
             integrations = {
+              blink_cmp = true;
               diffview = true;
               noice = true;
               notify = true;

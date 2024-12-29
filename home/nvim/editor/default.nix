@@ -2,7 +2,7 @@
   imports = [
     ./auto-session.nix
     ./autopairs.nix
-    ./cmp.nix
+    ./blink.nix
     ./comment.nix
     ./conform.nix
     ./dap.nix

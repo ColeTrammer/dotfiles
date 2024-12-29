@@ -42,6 +42,7 @@
     ];
     plugins.crates = {
       enable = true;
+      lazyLoad.settings.event = "BufRead Cargo.toml";
       settings = {
         completion.cmp.enabled = true;
       };
@@ -55,7 +56,6 @@
         end
       end, { buffer = bufnr })
     '';
-    plugins.cmp.settings.sources = [ { name = "crates"; } ];
   };
 
   nvim.otter.allLangs = [ "rust" ];
