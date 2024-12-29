@@ -1,1 +1,6 @@
-{ imports = [ ./autoformat ]; }
+{
+  imports = [
+    ./autoformat
+    ./lazyload.nix
+  ];
+}

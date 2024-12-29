@@ -44,12 +44,7 @@
                 default_workspace = config.nvim.neorg.defaultWorkspace;
               };
             };
-            "core.completion" = {
-              config = {
-                engine = "nvim-cmp";
-              };
-            };
-            "core.integrations.nvim-cmp" = {
+            "core.export.markdown" = {
               __empty = null;
             };
             "core.integrations.telescope" = {

@@ -19,7 +19,7 @@
     programs.nixvim = {
       plugins.blink-cmp = {
         enable = true;
-        lazyLoad.settings.event = "BufEnter";
+        lazyLoad.settings.event = "InsertEnter";
         settings = {
           appearance = {
             use_nvim_cmp_as_default = false;

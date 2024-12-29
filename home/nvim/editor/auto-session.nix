@@ -26,6 +26,7 @@
     programs.nixvim = {
       plugins.auto-session = {
         enable = true;
+        lazyLoad.settings.lazy = false;
         settings = {
           log_level = "error";
           bypass_siave_filetypes = [

@@ -1,4 +1,4 @@
-{ lib, inputs, ... }:
+{ lib, inputs, ... }@args:
 let
   dirs = lib.attrsets.filterAttrs (_: type: type == "directory") (builtins.readDir ./.);
   hosts = builtins.attrNames dirs;
@@ -7,7 +7,7 @@ let
     value = inputs.nixpkgs.lib.nixosSystem {
       specialArgs = {
         inherit inputs;
-        helpers = import ../helpers;
+        helpers = (import ../helpers) args;
       };
       modules = [ ./${host}/configuration.nix ];
     };

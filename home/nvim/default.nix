@@ -33,9 +33,6 @@
       # Trying out the experimental lua loader.
       luaLoader.enable = true;
 
-      # Lazy load plugins.
-      plugins.lz-n.enable = true;
-
       # wl-clipboard is required for copy/paste to work on wayland desktops.
       # ripgrep and find is used for search + telescope
       extraPackages = with pkgs; [

@@ -1,5 +1,13 @@
+{ lib, ... }:
 let
-  luaExpr = s: builtins.substring 7 (-1) s;
+  luaExpr =
+    s:
+    let
+      prefix = builtins.substring 0 7 s;
+      check = lib.assertMsg (prefix == "return ") "Lua expressions must begin with `return '";
+    in
+    assert check;
+    builtins.substring 7 (-1) s;
   lazyKeyMap =
     spec:
     {

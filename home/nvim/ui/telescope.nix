@@ -10,6 +10,9 @@
       in
       {
         enable = true;
+        lazyLoad.settings = {
+          cmd = "Telescope";
+        };
         settings = {
           defaults = {
             prompt_prefix = " ";

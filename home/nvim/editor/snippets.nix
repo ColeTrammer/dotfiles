@@ -30,7 +30,7 @@
 
     plugins.luasnip = {
       enable = true;
-      lazyLoad.settings.event = "BufEnter";
+      lazyLoad.settings.lazy = true;
       settings = {
         enable_autosnippets = true;
         store_selection_keys = "<Tab>";
@@ -43,5 +43,6 @@
       ];
     };
   };
+  nvim.plugins.blink-cmp.dependencies = [ "luasnip" ];
   nvim.blink-cmp.extraSources = [ "luasnip" ];
 }
