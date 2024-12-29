@@ -122,6 +122,7 @@
       programs.nixvim = lib.mkIf default {
         colorschemes.catppuccin = {
           enable = true;
+          lazyLoad.enable = true;
           settings = {
             flavour = variant;
             integrations = {
