@@ -31,6 +31,9 @@
         ignoreAllDups = true;
         path = "${config.xdg.dataHome}/zsh/zsh_history";
       };
+      initExtraFirst = lib.mkOrder 0 ''
+        ZVM_INIT_MODE=sourcing
+      '';
       initExtra = ''
         # Options
         setopt interactivecomments

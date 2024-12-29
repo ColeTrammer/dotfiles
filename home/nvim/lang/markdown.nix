@@ -21,16 +21,22 @@
     plugins.lsp.servers.marksman = {
       enable = true;
     };
-    plugins.render-markdown = {
-      enable = true;
-      settings = {
+    plugins.render-markdown =
+      let
         file_types = [
           "markdown"
           "markdown.mdx"
           "norg"
         ];
+      in
+      {
+        enable = true;
+        lazyLoad.settings.ft = file_types;
+        settings = {
+          file_types = [
+          ];
+        };
       };
-    };
     keymaps = [
       {
         mode = "n";
