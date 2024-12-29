@@ -215,13 +215,15 @@
         lib.mkOrder 0 [ "${config.xdg.configHome}/alacritty/catppuccin.toml" ]
       );
       xdg.configFile."alacritty/catppuccin.toml".source =
-        "${inputs.catppuccin-alacritty}/catppuccin-mocha.toml";
+        "${inputs.catppuccin-alacritty}/catppuccin-${variant}.toml";
 
       # Kitty
       programs.kitty.themeFile = lib.mkIf default "Catppuccin-${variantTitleCase}";
 
       # Ghostty
       apps.ghostty.theme = lib.mkIf default "catppuccin-${variant}";
+      xdg.configFile."ghostty/themes/catppuccin-${variant}".source =
+        "${inputs.catppuccin-ghostty}/catppuccin-${variant}.conf";
 
       # Wezterm
       apps.wezterm.colorscheme = lib.mkIf default "Catppuccin ${variantTitleCase}";

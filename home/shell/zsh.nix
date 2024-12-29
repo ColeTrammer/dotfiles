@@ -77,6 +77,11 @@
             file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
             src = pkgs.zsh-fast-syntax-highlighting;
           }
+          {
+            name = "vi-mode";
+            src = pkgs.zsh-vi-mode;
+            file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+          }
         ]
         ++ (
           if config.shell.zsh.enableNixShellPlugin then

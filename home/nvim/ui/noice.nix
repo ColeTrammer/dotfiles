@@ -28,6 +28,22 @@
             view = "mini";
           }
         ];
+        format = {
+          lsp_progress_done = [
+            {
+              __unkeyed-1 = "✓ ";
+              hl_group = "NoiceLspProgressSpinner";
+            }
+            {
+              __unkeyed-1 = "{data.progress.title} ";
+              hl_group = "NoiceLspProgressTitle";
+            }
+            {
+              __unkeyed-1 = "{data.progress.client} ";
+              hl_group = "NoiceLspProgressClient";
+            }
+          ];
+        };
         presets = {
           bottom_search = true;
           command_palette = true;

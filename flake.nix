@@ -91,6 +91,11 @@
       flake = false;
     };
 
+    catppuccin-ghostty = {
+      url = "github:catppuccin/ghostty";
+      flake = false;
+    };
+
     catppuccin-zathura = {
       url = "github:catppuccin/zathura";
       flake = false;

@@ -46,6 +46,9 @@
         window-decoration = "false";
 
         cursor-style-blink = "false";
+        adjust-cursor-thickness = "3";
+        cursor-color = "#cccccc";
+        cursor-text = "#111111";
 
         focus-follows-mouse = "true";
 

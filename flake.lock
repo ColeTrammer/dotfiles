@@ -86,6 +86,22 @@
         "type": "github"
       }
     },
+    "catppuccin-ghostty": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1726442227,
+        "narHash": "sha256-YHHOGeXNlVdUdUXHQW4G+6Nl8xyHo2tuJ9b+/1LfGos=",
+        "owner": "catppuccin",
+        "repo": "ghostty",
+        "rev": "1cb0c33770a411160cbe14b48b831455a2244ee3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "ghostty",
+        "type": "github"
+      }
+    },
     "catppuccin-palette": {
       "flake": false,
       "locked": {
@@ -631,6 +647,7 @@
         "catppuccin-bat": "catppuccin-bat",
         "catppuccin-bottom": "catppuccin-bottom",
         "catppuccin-delta": "catppuccin-delta",
+        "catppuccin-ghostty": "catppuccin-ghostty",
         "catppuccin-palette": "catppuccin-palette",
         "catppuccin-zathura": "catppuccin-zathura",
         "catppuccin-zsh-fsh": "catppuccin-zsh-fsh",
