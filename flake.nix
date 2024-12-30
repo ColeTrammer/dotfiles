@@ -50,12 +50,6 @@
       flake = false;
     };
 
-    ghostty = {
-      url = "github:ghostty-org/ghostty";
-      inputs.nixpkgs-unstable.follows = "nixpkgs";
-      inputs.nixpkgs-stable.follows = "nixpkgs";
-    };
-
     ags = {
       url = "github:Aylur/ags/v1";
       inputs.nixpkgs.follows = "nixpkgs";

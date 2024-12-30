@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   ...
@@ -26,8 +25,8 @@
       keyValue = pkgs.formats.keyValue keyValueSettings;
     in
     lib.mkIf config.apps.ghostty.enable {
-      home.packages = [
-        inputs.ghostty.packages.${pkgs.system}.ghostty
+      home.packages = with pkgs; [
+        ghostty
       ];
 
       xdg.configFile."ghostty/config".source = keyValue.generate "ghostty-config" {

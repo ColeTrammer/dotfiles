@@ -48,7 +48,6 @@
         };
         presets = {
           bottom_search = true;
-          inc_rename = true;
           long_message_to_split = true;
         };
       };

@@ -34,7 +34,7 @@
       luaLoader.enable = true;
 
       # wl-clipboard is required for copy/paste to work on wayland desktops.
-      # ripgrep and find is used for search + telescope
+      # ripgrep and find is used for search
       extraPackages = with pkgs; [
         wl-clipboard
         ripgrep

@@ -4,6 +4,7 @@
     ./bufferline.nix
     ./diffview.nix
     ./dressing.nix
+    ./fzf.nix
     ./gitsigns.nix
     ./harpoon.nix
     ./illuminate.nix

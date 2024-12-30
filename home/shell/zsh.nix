@@ -45,35 +45,7 @@
           {
             name = "fzf-tab";
             file = "share/fzf-tab/fzf-tab.plugin.zsh";
-            src = pkgs.zsh-fzf-tab.overrideAttrs {
-              nativeBuildInputs = [ pkgs.autoconf ];
-              configurePhase = ''
-                runHook preConfigure
-
-                pushd modules
-
-                tar -xf ${pkgs.zsh.src}
-                ln -s $(pwd)/Src/fzftab.c zsh-${pkgs.zsh.version}/Src/Modules/
-                ln -s $(pwd)/Src/fzftab.mdd zsh-${pkgs.zsh.version}/Src/Modules/
-
-                pushd zsh-${pkgs.zsh.version}
-
-                # Apply patches from zsh
-                ${lib.concatStringsSep "\n" (map (patch: "patch -p1 -i ${patch}") pkgs.zsh.patches)}
-
-                if [[ ! -f ./configure ]]; then
-                  ./Util/preconfig
-                fi
-                if [[ ! -f ./Makefile ]]; then
-                  ./configure --disable-gdbm --without-tcsetpgrp
-                fi
-
-                popd
-                popd
-
-                runHook postConfigure
-              '';
-            };
+            src = pkgs.zsh-fzf-tab;
           }
           {
             name = "fast-syntax-highlighting";
