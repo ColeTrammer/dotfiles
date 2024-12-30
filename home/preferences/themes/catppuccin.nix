@@ -1,5 +1,6 @@
 {
   config,
+  helpers,
   inputs,
   lib,
   pkgs,
@@ -125,6 +126,21 @@
           lazyLoad.enable = true;
           settings = {
             flavour = variant;
+            styles = {
+              conditionals = [ "italic" ];
+              loops = [ "italic" ];
+            };
+            custom_highlights = helpers.luaRawExpr ''
+              return function(C)
+                return {
+                  BlinkCmpKind = { fg = C.blue },
+                  BlinkCmpMenu = { fg = C.text },
+                  BlinkCmpMenuBorder = { fg = C.blue },
+                  BlinkCmpDocBorder = { fg = C.blue },
+                  BlinkCmpSignatureHelpActiveParameter = { fg = C.mauve },
+                }
+              end
+            '';
             integrations = {
               blink_cmp = true;
               diffview = true;

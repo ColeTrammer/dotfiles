@@ -19,7 +19,8 @@
     programs.nixvim = {
       plugins.blink-cmp = {
         enable = true;
-        lazyLoad.settings.event = "InsertEnter";
+        # DeferredUIEnter and not InsertEnter so we get completions in command mode.
+        lazyLoad.settings.event = "DeferredUIEnter";
         settings = {
           appearance = {
             use_nvim_cmp_as_default = false;
