@@ -48,7 +48,9 @@
         };
         presets = {
           bottom_search = true;
+          command_palette = false;
           long_message_to_split = true;
+          lsp_doc_border = true;
         };
       };
     };
@@ -119,7 +121,7 @@
             require("noice").cmd("pick")
           end
         '';
-        options.desc = "Noice Picker (Telescope/FzfLua)";
+        options.desc = "Noice Picker";
       }
       {
         key = "<c-f>";

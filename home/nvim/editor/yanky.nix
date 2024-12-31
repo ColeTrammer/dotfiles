@@ -7,11 +7,7 @@
         keys = helpers.lazyKeyMaps [
           {
             key = "<leader>p";
-            action = helpers.luaRawExpr ''
-              return function()
-                require("telescope").extensions.yank_history.yank_history()
-              end
-            '';
+            action = "YankyRingHistory";
             mode = "n";
             options = {
               desc = "Yank History";

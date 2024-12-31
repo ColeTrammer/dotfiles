@@ -7,12 +7,16 @@
         cmd = "Refactor";
         keys = helpers.lazyKeyMaps [
           {
-            mode = "v";
+            mode = [
+              "n"
+              "x"
+            ];
             key = "<leader>rs";
             action = helpers.luaRawExpr ''
               return function()
-                require("telescope").extensions.refactoring.refactors()
-              end'';
+                require("refactoring").select_refactor()
+              end
+            '';
             options.desc = "Refactor";
           }
           {
@@ -24,7 +28,8 @@
             action = helpers.luaRawExpr ''
               return function()
                 require("refactoring").refactor("Inline Variable")
-              end'';
+              end
+            '';
             options.desc = "Inline Variable";
           }
           {
@@ -33,7 +38,8 @@
             action = helpers.luaRawExpr ''
               return function()
                 require("refactoring").refactor("Extract Block")
-              end'';
+              end
+            '';
             options.desc = "Extract Block";
           }
           {
@@ -42,7 +48,8 @@
             action = helpers.luaRawExpr ''
               return function()
                 require("refactoring").refactor("Extract Block To File")
-              end'';
+              end
+            '';
             options.desc = "Extract Block To File";
           }
           {
@@ -51,7 +58,8 @@
             action = helpers.luaRawExpr ''
               return function()
                 require("refactoring").debug.printf({ below = false })
-              end'';
+              end
+            '';
             options.desc = "Debug Print";
           }
           {
@@ -60,7 +68,8 @@
             action = helpers.luaRawExpr ''
               return function()
                 require("refactoring").debug.print_var({ normal = true })
-              end'';
+              end
+            '';
             options.desc = "Debug Print Variable";
           }
           {
@@ -69,7 +78,8 @@
             action = helpers.luaRawExpr ''
               return function()
                 require("refactoring").debug.cleanup({})
-              end'';
+              end
+            '';
             options.desc = "Debug Cleanup";
           }
           {
@@ -78,7 +88,8 @@
             action = helpers.luaRawExpr ''
               return function()
                 require("refactoring").refactor("Extract Function")
-              end'';
+              end
+            '';
             options.desc = "Extract Function";
           }
           {
@@ -87,7 +98,8 @@
             action = helpers.luaRawExpr ''
               return function()
                 require("refactoring").refactor("Extract Function To File")
-              end'';
+              end
+            '';
             options.desc = "Extract Function To File";
           }
           {
@@ -96,7 +108,8 @@
             action = helpers.luaRawExpr ''
               return function()
                 require("refactoring").refactor("Extract Variable")
-              end'';
+              end
+            '';
             options.desc = "Extract Variable";
           }
           {
@@ -105,7 +118,8 @@
             action = helpers.luaRawExpr ''
               return function()
                 require("refactoring").debug.print_var()
-              end'';
+              end
+            '';
             options.desc = "Debug Print Variable";
           }
         ];

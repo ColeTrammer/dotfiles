@@ -75,10 +75,10 @@ in
         ])
         (padding 4)
         (group [
-          (button "󰈞 Find file" "f" "<cmd> Telescope find_files <cr>")
+          (button "󰈞 Find file" "f" "<cmd> FzfLua find_files <cr>")
           (button " New file" "n" "<cmd> ene <BAR> startinsert <cr>")
-          (button " Recent" "r" "<cmd> Telescope oldfiles <cr>")
-          (button "󰈬 Search files" "s" "<cmd> Telescope live_grep <cr>")
+          (button " Recent" "r" "<cmd> FzfLua oldfiles <cr>")
+          (button "󰈬 Search files" "s" "<cmd> FzfLua live_grep <cr>")
           (button " Git" "g" "<cmd> Neogit <cr>")
           (button " File Explorer" "-" "<cmd> Oil <cr>")
           (button " Config" "c" ":e ${config.preferences.dotfilesPath} <CR>")

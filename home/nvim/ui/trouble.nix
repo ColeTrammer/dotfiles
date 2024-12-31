@@ -119,10 +119,9 @@
         '')
       ];
     };
-    plugins.telescope = {
-      settings.defaults.mappings = {
-        i."<c-t>" = helpers.luaRaw ''require("trouble.sources.telescope").open'';
-        n."<c-t>" = helpers.luaRaw ''require("trouble.sources.telescope").open'';
+    plugins.fzf-lua = {
+      settings.defaults.actions = {
+        "ctrl-t" = helpers.luaRaw ''require("trouble.sources.fzf").actions.open'';
       };
     };
     autoCmd = [
@@ -138,6 +137,6 @@
 
   nvim.plugins = {
     lualine.dependencies = [ "trouble" ];
-    telescope.dependencies = [ "trouble" ];
+    fzf-lua.dependencies = [ "trouble" ];
   };
 }

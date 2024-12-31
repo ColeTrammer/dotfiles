@@ -80,11 +80,7 @@
           }
           {
             key = "gd";
-            action = helpers.luaRawExpr ''
-              return function()
-                require("telescope.builtin").lsp_definitions({ reuse_win = true })
-              end
-            '';
+            action = "<cmd>FzfLua lsp_definitions jump_to_single_result=true ignore_current_line=true<cr>";
             mode = [ "n" ];
             options = {
               desc = "Goto Definition";
@@ -92,12 +88,7 @@
           }
           {
             key = "gr";
-            action = helpers.luaRawExpr ''
-              return function()
-                require("telescope.builtin").lsp_references({ reuse_win = true })
-              end
-            '';
-
+            action = "<cmd>FzfLua lsp_references jump_to_single_result=true ignore_current_line=true<cr>";
             mode = [ "n" ];
             options = {
               desc = "Goto References";
@@ -105,11 +96,7 @@
           }
           {
             key = "gI";
-            action = helpers.luaRawExpr ''
-              return function()
-                require("telescope.builtin").lsp_implementations({ reuse_win = true })
-              end
-            '';
+            action = "<cmd>FzfLua lsp_implementations jump_to_single_result=true ignore_current_line=true<cr>";
             mode = [ "n" ];
             options = {
               desc = "Goto Implementation";
@@ -117,11 +104,7 @@
           }
           {
             key = "gy";
-            action = helpers.luaRawExpr ''
-              return function()
-                require("telescope.builtin").lsp_type_definitions({ reuse_win = true })
-              end
-            '';
+            action = "<cmd>FzfLua lsp_typedefs jump_to_single_result=true ignore_current_line=true<cr>";
             mode = [ "n" ];
             options = {
               desc = "Goto T[y]pe Definition";

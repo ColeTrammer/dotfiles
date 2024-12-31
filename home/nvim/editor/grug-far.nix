@@ -37,7 +37,7 @@
             options.desc = "Search current file (Grug Far)";
           }
           {
-            key = "<leader>sw";
+            key = "<leader>sW";
             mode = "n";
             action = helpers.luaRawExpr ''
               return function()
@@ -47,14 +47,14 @@
             options.desc = "Search current word (Grug Far)";
           }
           {
-            key = "<leader>sw";
+            key = "<leader>sW";
             mode = "v";
             action = helpers.luaRawExpr ''
               return function()
                 require("grug-far").with_visual_selection({})
               end
             '';
-            options.desc = "Search current word (Grug Far)";
+            options.desc = "Search current selection (Grug Far)";
           }
         ];
       };

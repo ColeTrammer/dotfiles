@@ -18,7 +18,6 @@
     ./oil.nix
     ./overseer.nix
     ./stickybuf.nix
-    ./telescope.nix
     ./todo-comments.nix
     ./toggleterm.nix
     ./trouble.nix

@@ -10,9 +10,6 @@
             vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
           end
 
-          vim.keymap.set("n", "<leader>cm", function()
-            require("telescope").extensions.metals.commands()
-          end, { buffer = bufnr, desc = "Metals Commands" })
           vim.keymap.set("n", "<leader>cc", function()
             require("metals").compile_cascade()
           end, { buffer = bufnr, desc = "Metals Compile Cascade" })

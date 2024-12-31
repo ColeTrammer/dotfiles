@@ -114,7 +114,6 @@
           pattern = [
             "NeogitCommitMessage"
             "gitcommit"
-            "TelescopePrompt"
           ];
           group = "disableCmp";
           callback = helpers.luaRawExpr ''

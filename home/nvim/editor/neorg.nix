@@ -25,7 +25,6 @@
     programs.nixvim = {
       plugins.neorg = {
         enable = true;
-        telescopeIntegration.enable = true;
         lazyLoad.settings = {
           cmd = "Neorg";
           ft = "norg";
@@ -45,9 +44,6 @@
               };
             };
             "core.export.markdown" = {
-              __empty = null;
-            };
-            "core.integrations.telescope" = {
               __empty = null;
             };
             "core.keybinds" = {

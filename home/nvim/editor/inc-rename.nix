@@ -23,6 +23,5 @@
         };
       }
     ];
-    plugins.noice.settings.presets.inc_rename = true;
   };
 }
