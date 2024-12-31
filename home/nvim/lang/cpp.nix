@@ -1,5 +1,6 @@
 {
   config,
+  helpers,
   lib,
   pkgs,
   ...
@@ -8,6 +9,10 @@
   options = {
     nvim.lang.cpp = {
       cppdbg = lib.mkEnableOption "VS Code Cpp Tools Debugger" // {
+        default = config.preferences.os == "linux";
+      };
+
+      lldb = lib.mkEnableOption "VS Code LLDB" // {
         default = config.preferences.os == "linux";
       };
 
@@ -113,7 +118,7 @@
               "--fallback-style=llvm"
               "--query-driver=${queryDriver}"
             ];
-            onAttach.function = ''
+            onAttach.function = helpers.lua ''
               vim.keymap.set("n", "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch Source/Header (C/C++)", })
             '';
             extraOptions = {
@@ -132,7 +137,7 @@
               id = "cppdbg";
             };
           };
-          servers = {
+          servers = lib.mkIf config.nvim.lang.cpp.lldb {
             lldb = {
               port = "\${port}";
               executable = {
@@ -158,24 +163,23 @@
       };
 
       nvim.dap.vscode-adapters =
-        {
-          codelldb = [
-            "c"
-            "cpp"
-            "rust"
-          ];
-        }
-        // (
-          if config.nvim.lang.cpp.cppdbg then
-            {
-              cppdbg = [
-                "c"
-                "cpp"
-              ];
-            }
-          else
-            { }
-        );
+        let
+          lldbConfig = {
+            codelldb = [
+              "c"
+              "cpp"
+              "rust"
+            ];
+          };
+          cppdbgConfig = {
+            cppdbg = [
+              "c"
+              "cpp"
+            ];
+          };
+        in
+        (if config.nvim.lang.cpp.lldb then lldbConfig else { })
+        // (if config.nvim.lang.cpp.cppdbg then cppdbgConfig else { });
 
       nvim.otter.allLangs = [
         "c"

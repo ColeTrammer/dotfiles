@@ -1,4 +1,4 @@
-{ lib, inputs, ... }:
+{ lib, inputs, ... }@args:
 let
   dirs = lib.attrsets.filterAttrs (_: type: type == "directory") (builtins.readDir ./.);
   systems = builtins.attrNames dirs;
@@ -16,7 +16,7 @@ let
         extraSpecialArgs = {
           inherit inputs;
 
-          helpers = import ../../helpers;
+          helpers = (import ../../helpers) args;
         };
         modules = [ ./${system}/${name}.nix ];
       };

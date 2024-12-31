@@ -38,15 +38,6 @@
       terminal = "tmux-256color";
 
       extraConfig = ''
-        # Terminal features
-        set-option -sa terminal-overrides ",xterm*:Tc"
-        set -as terminal-overrides ",alacritty*:Tc"
-        set-option -sa terminal-features ",xterm*:RGB"
-
-        # Extended keys
-        set -s extended-keys on
-        set -as terminal-features 'xterm*:extkeys'
-
         # Renumber windows
         set-option -g renumber-windows on
 
@@ -73,9 +64,6 @@
         bind '-' split-window -v -c "#{pane_current_path}"
         bind '|' split-window -h -c "#{pane_current_path}"
 
-        # Passthrough
-        set -g allow-passthrough on
-
         # Visual Activity
         set -g visual-activity off
 
@@ -101,7 +89,20 @@
         {
           plugin = tmuxPlugins.resurrect;
           extraConfig = ''
+            # Resurrect Config
             set -g @resurrect-processes '"~nvim->nvim"'
+
+            # Terminal features
+            set-option -sa terminal-overrides ",xterm*:Tc"
+            set -as terminal-overrides ",alacritty*:Tc"
+            set-option -sa terminal-features ",xterm*:RGB"
+
+            # Extended keys
+            set -s extended-keys on
+            set -as terminal-features 'xterm*:extkeys'
+
+            # Passthrough
+            set -g allow-passthrough on
           '';
         }
         {

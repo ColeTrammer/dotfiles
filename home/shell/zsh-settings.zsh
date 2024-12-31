@@ -1,7 +1,7 @@
 ###
-### Env
+### Options
 ###
-source /persist/secrets/env.sh
+setopt interactivecomments
 
 ###
 ### Keybindings

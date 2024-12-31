@@ -10,6 +10,11 @@
       enable = lib.mkEnableOption "zsh" // {
         default = config.shell.enable;
       };
+      extraInitScripts = lib.mkOption {
+        type = with lib.types; listOf path;
+        default = [ ];
+        description = "Extra zsh files to load";
+      };
       enableNixShellPlugin = lib.mkEnableOption "zsh nix shell plugin" // {
         default = true;
       };
@@ -32,14 +37,14 @@
         path = "${config.xdg.dataHome}/zsh/zsh_history";
       };
       initExtraFirst = lib.mkOrder 0 ''
+        # Ensure FZF keybindings work with zsh vi mode
         ZVM_INIT_MODE=sourcing
       '';
-      initExtra = ''
-        # Options
-        setopt interactivecomments
-
-        source ~/.config/zsh/zsh-settings.zsh
-      '';
+      initExtra =
+        let
+          files = [ ./zsh-settings.zsh ] ++ config.shell.zsh.extraInitScripts;
+        in
+        files |> map (f: "source ${f}") |> lib.strings.concatLines;
       plugins =
         [
           {
@@ -71,8 +76,6 @@
             [ ]
         );
     };
-
-    home.file.".config/zsh/zsh-settings.zsh".source = ./zsh-settings.zsh;
 
     home.persistence."/persist/home" = {
       allowOther = true;

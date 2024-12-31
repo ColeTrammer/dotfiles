@@ -22,6 +22,10 @@
   shell.nix-index.enable = true;
   shell.git.gpgKey = "60DCAA3C4B6F51E3";
 
+  programs.zsh.initExtra = ''
+    source /persist/secrets/env.sh
+  '';
+
   nvim.lang.cpp.queryDriver = [
     "/nix/store/*/bin/clang*"
     "/nix/store/*/bin/gcc*"

@@ -7,7 +7,7 @@
 {
   options = {
     shell.valgrind.enable = lib.mkEnableOption "valgrind" // {
-      default = config.shell.enable;
+      default = config.shell.enable && config.preferences.os == "linux";
     };
   };
 

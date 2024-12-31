@@ -8,6 +8,9 @@
   options = {
     apps.ghostty = {
       enable = lib.mkEnableOption "ghostty";
+      enablePackage = lib.mkEnableOption "Install ghostty package" // {
+        default = config.apps.ghostty.enable && config.preferences.os == "linux";
+      };
       theme = lib.mkOption {
         type = lib.types.str;
         default = "catppuccin-mocha";
@@ -25,8 +28,8 @@
       keyValue = pkgs.formats.keyValue keyValueSettings;
     in
     lib.mkIf config.apps.ghostty.enable {
-      home.packages = with pkgs; [
-        ghostty
+      home.packages = lib.mkIf config.apps.ghostty.enablePackage [
+        pkgs.ghostty
       ];
 
       xdg.configFile."ghostty/config".source = keyValue.generate "ghostty-config" {
