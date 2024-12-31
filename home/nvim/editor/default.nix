@@ -23,6 +23,7 @@
     ./treesitter-textobjects.nix
     ./treesitter.nix
     ./ufo.nix
+    ./undotree.nix
     ./yanky.nix
   ];
 }
