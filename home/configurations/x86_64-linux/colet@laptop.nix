@@ -12,6 +12,7 @@
   };
 
   apps.enable = true;
+  apps.steam.enable = true;
   desktop.enable = true;
 
   nixpkgs.config.allowUnfree = true;
