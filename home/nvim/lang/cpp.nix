@@ -186,12 +186,14 @@
         "cpp"
       ];
 
-      home.packages = with pkgs; [
-        clang
-        clangTools
-        clangd
-        gdb
-        lldb
-      ];
+      home.packages =
+        with pkgs;
+        [
+          clang
+          clangTools
+          clangd
+        ]
+        ++ (if config.nvim.lang.cpp.lldb then [ lldb ] else [ ])
+        ++ (if config.nvim.lang.cpp.cppdbg then [ gdb ] else [ ]);
     };
 }

@@ -27,6 +27,6 @@
         gst-plugins-ugly
         gst-libav
       ]
-      ++ (if config.shell.gstreamer.enableVaapi then [ pkgs.gst_all_1.gst-vaapi ] else [ ]);
+      ++ (if config.shell.gstreamer.enableVaapi then [ gst-vaapi ] else [ ]);
   };
 }
