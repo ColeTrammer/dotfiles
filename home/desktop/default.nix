@@ -5,22 +5,6 @@
   ...
 }:
 {
-  imports = [
-    ./ags
-    ./gammastep.nix
-    ./kdeconnect.nix
-    ./gpg.nix
-    ./hypridle.nix
-    ./hyprland.nix
-    ./hyprlock.nix
-    ./hyprpaper.nix
-    ./impermanence.nix
-    ./keyring.nix
-    ./rofi.nix
-    ./udiskie.nix
-    ./warp.nix
-  ];
-
   options = {
     desktop.enable = lib.mkEnableOption "Desktop Environment";
   };

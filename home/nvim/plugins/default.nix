@@ -1,6 +1,0 @@
-{
-  imports = [
-    ./autoformat
-    ./lazyload.nix
-  ];
-}

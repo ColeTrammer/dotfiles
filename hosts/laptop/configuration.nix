@@ -6,7 +6,7 @@
 }:
 {
   imports = [
-    (import ../../system/btrfs-luks.nix { device = "/dev/nvme0n1"; })
+    (import ../common/btrfs-luks.nix { device = "/dev/nvme0n1"; })
     ./hardware-configuration.nix
     ../../system
   ];

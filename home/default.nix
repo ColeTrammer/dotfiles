@@ -1,11 +1,8 @@
-{ ... }:
+{ helpers, ... }:
 {
-  imports = [
-    ./apps
-    ./desktop
-    ./nvim
-    ./preferences
-    ./shell
+  imports = helpers.globNix ./. [
+    ./default.nix
+    ./configurations
   ];
 
   programs.home-manager.enable = true;

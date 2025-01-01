@@ -1,12 +1,4 @@
 {
-  imports = [
-    ./baseline.nix
-    ./edit.nix
-    ./tab.nix
-    ./toggle.nix
-    ./window.nix
-  ];
-
   programs.nixvim = {
     globals.mapleader = " ";
     globals.maplocalleader = "\\";

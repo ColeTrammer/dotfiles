@@ -1,5 +1,5 @@
 { lib, ... }@args:
 let
-  modules = [ ./nvim.nix ];
+  modules = lib.filesystem.listFilesRecursive ./. |> builtins.filter (name: name != ./default.nix);
 in
 modules |> map (f: (import f) args) |> lib.attrsets.mergeAttrsList

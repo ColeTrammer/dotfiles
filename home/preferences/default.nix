@@ -1,16 +1,10 @@
 {
   config,
-  nixosConfig,
   lib,
   pkgs,
   ...
 }:
 {
-  imports = [
-    ./themes/catppuccin.nix
-    ./themes/tokyonight.nix
-  ];
-
   options = {
     preferences = {
       enable = lib.mkEnableOption "preferences" // {

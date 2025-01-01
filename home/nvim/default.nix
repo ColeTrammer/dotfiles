@@ -8,13 +8,6 @@
 {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    ./autocommands
-    ./editor
-    ./keymaps
-    ./lang
-    ./plugins
-    ./settings
-    ./ui
   ];
 
   options = {
