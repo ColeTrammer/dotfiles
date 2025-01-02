@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ inputs, lib, ... }:
 let
   luaExpr =
     s:
@@ -23,4 +23,6 @@ in
   luaRaw = s: { __raw = s; };
   lua = s: s;
   lazyKeyMaps = map lazyKeyMap;
+
+  nixvim = inputs.nixvim.lib.nixvim;
 }

@@ -21,34 +21,30 @@
     };
   };
 
-  config =
-    let
-      nixvimHelpers = inputs.nixvim.lib.nixvim;
-    in
-    {
-      programs.nixvim = {
-        plugins.otter = {
-          enable = true;
-          autoActivate = false;
-          settings = {
-            handle_leading_whitespace = true;
-          };
+  config = {
+    programs.nixvim = {
+      plugins.otter = {
+        enable = true;
+        autoActivate = false;
+        settings = {
+          handle_leading_whitespace = true;
         };
-
-        autoGroups.otter.clear = true;
-        autoCmd = [
-          {
-            event = [ "FileType" ];
-            pattern = config.nvim.otter.langs;
-            callback = helpers.luaRawExpr ''
-              return function()
-                local otter = require("otter")
-                local languages = ${nixvimHelpers.toLuaObject config.nvim.otter.allLangs}
-                otter.activate(languages, true, true, nil)
-              end
-            '';
-          }
-        ];
       };
+
+      autoGroups.otter.clear = true;
+      autoCmd = [
+        {
+          event = [ "FileType" ];
+          pattern = config.nvim.otter.langs;
+          callback = helpers.luaRawExpr ''
+            return function()
+              local otter = require("otter")
+              local languages = ${helpers.nixvim.toLuaObject config.nvim.otter.allLangs}
+              otter.activate(languages, true, true, nil)
+            end
+          '';
+        }
+      ];
     };
+  };
 }

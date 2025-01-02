@@ -26,10 +26,6 @@
           end
         '';
       };
-
-      # Make snippets show up first with exact matches. Otherwise
-      # snippets are getting buried by gopls.
-      sources.providers.luasnip.score_offset = 1;
     };
 
     plugins.luasnip = {
