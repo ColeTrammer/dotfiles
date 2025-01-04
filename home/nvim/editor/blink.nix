@@ -94,10 +94,12 @@
                   end
                 end
               '';
-            providers.luasnip.should_show_items = helpers.luaRawExpr ''
-              return function(ctx)
-                return ctx.trigger.initial_kind ~= "trigger_character"
-              end
+            providers.luasnip = helpers.luaRawExpr ''
+              return {
+                should_show_items = function(ctx)
+                  return ctx.trigger.initial_kind ~= "trigger_character"
+                end,
+              }
             '';
           };
           keymap = {
