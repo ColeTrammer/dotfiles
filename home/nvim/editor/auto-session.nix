@@ -29,17 +29,18 @@
         lazyLoad.settings.lazy = false;
         settings = {
           log_level = "error";
-          bypass_siave_filetypes = [
+          bypass_save_filetypes = [
             "gitcommit"
             "alpha"
             "oil"
             "NeogitStatus"
           ];
+          use_git_branch = true;
           auto_restore = true;
+          show_auto_restore_notif = false;
           supressed_dirs = [
-            "~/"
-            "~/Projects"
-            "~/${config.preferences.workspacePath}"
+            "${config.home.homeDirectory}"
+            "${config.preferences.workspacePath}"
             "/"
           ];
           pre_save_cmds = config.nvim.auto-session.preSaveCmds;
