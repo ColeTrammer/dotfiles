@@ -28,11 +28,14 @@
           };
           completion = {
             list = {
-              selection = helpers.luaRawExpr ''
-                return function(ctx)
-                  return ctx.mode == "cmdline" and "auto_insert" or "preselect"
-                end
-              '';
+              selection = {
+                preselect = helpers.luaRawExpr ''
+                  return function(ctx)
+                    return ctx.mode ~= "cmdline" and not require("blink.cmp").snippet_active({ direction = 1 })
+                  end
+                '';
+                auto_insert = true;
+              };
             };
             menu = {
               auto_show = helpers.luaRawExpr ''
@@ -80,6 +83,7 @@
                   "lsp"
                   "path"
                   "buffer"
+                  "snippets"
                 ] ++ config.nvim.blink-cmp.extraSources;
               in
               helpers.luaRawExpr ''
@@ -88,13 +92,13 @@
                   if success and node and vim.tbl_contains({ "comment", "line_comment", "block_comment" }, node:type()) then
                     return { "buffer" }
                   elseif vim.b.only_snippets then
-                    return { "luasnip" }
+                    return { "snippets" }
                   else
                     return ${helpers.nixvim.toLuaObject sources}
                   end
                 end
               '';
-            providers.luasnip = helpers.luaRawExpr ''
+            providers.snippets = helpers.luaRawExpr ''
               return {
                 should_show_items = function(ctx)
                   return ctx.trigger.initial_kind ~= "trigger_character"

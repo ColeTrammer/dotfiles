@@ -1,5 +1,4 @@
 {
-  helpers,
   pkgs,
   ...
 }:
@@ -7,24 +6,7 @@
   programs.nixvim = {
     plugins.blink-cmp.settings = {
       snippets = {
-        expand = helpers.luaRawExpr ''
-          return function(snippet)
-            require("luasnip").lsp_expand(snippet)
-          end
-        '';
-        active = helpers.luaRawExpr ''
-          return function(filter)
-            if filter and filter.direction then
-              return require("luasnip").jumpable(filter.direction)
-            end
-            return require("luasnip").in_snippet()
-          end
-        '';
-        jump = helpers.luaRawExpr ''
-          return function(direction)
-            require("luasnip").jump(direction)
-          end
-        '';
+        preset = "luasnip";
       };
     };
 
@@ -44,5 +26,4 @@
     };
   };
   nvim.plugins.blink-cmp.dependencies = [ "luasnip" ];
-  nvim.blink-cmp.extraSources = [ "luasnip" ];
 }
