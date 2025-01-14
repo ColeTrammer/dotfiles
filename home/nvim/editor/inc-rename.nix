@@ -4,6 +4,7 @@
     plugins.inc-rename = {
       enable = true;
     };
+    plugins.noice.settings.presets.inc_rename = true;
     plugins.lsp.keymaps.extra = [
       {
         key = "<leader>cr";
