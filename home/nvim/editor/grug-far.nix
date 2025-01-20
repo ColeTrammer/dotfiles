@@ -1,7 +1,5 @@
 {
   helpers,
-  inputs,
-  pkgs,
   ...
 }:
 {
@@ -62,11 +60,5 @@
         headerMaxWidth = 80;
       };
     };
-    extraPlugins = [
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "grug-far";
-        src = inputs.grug-far;
-      })
-    ];
   };
 }

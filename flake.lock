@@ -325,22 +325,6 @@
         "type": "github"
       }
     },
-    "grug-far": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1736562341,
-        "narHash": "sha256-kLRWuUg4KeuLYuYqX/jBKOMkcGXzlhwT7U3nrgk5xiw=",
-        "owner": "MagicDuck",
-        "repo": "grug-far.nvim",
-        "rev": "8e8f3429038d45a6d4144c0642d92f470e5480f3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "MagicDuck",
-        "repo": "grug-far.nvim",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -591,7 +575,6 @@
         "disko": "disko",
         "flake-parts": "flake-parts",
         "flake-root": "flake-root",
-        "grug-far": "grug-far",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "lf": "lf",
