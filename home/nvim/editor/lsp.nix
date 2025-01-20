@@ -1,18 +1,27 @@
 { helpers, ... }:
 {
   programs.nixvim = {
+    plugins.lsp-lines = {
+      enable = true;
+      lazyLoad.settings.event = "DeferredUIEnter";
+    };
     plugins.lsp = {
       enable = true;
       preConfig = helpers.lua ''
         -- Setup diagnostics.
+        local virtual_text_config = {
+          spacing = 4,
+          source = "if_many",
+          prefix = "●",
+        }
+        local virtual_lines_config = true
+
+        vim.g.lsp_lines_enabled = false
         vim.diagnostic.config({
           underline = true,
           update_in_insert = false,
-          virtual_text = {
-            spacing = 4,
-            source = "if_many",
-            prefix = "●",
-          },
+          virtual_text = virtual_text_config,
+          virtual_lines = false,
           severity_sort = true,
           signs = {
             text = {
@@ -23,6 +32,15 @@
             },
           },
         })
+        vim.keymap.set("n", "<leader>uD", function()
+          if vim.g.lsp_lines_enabled then
+            vim.diagnostic.config({ virtual_lines = false })
+            vim.g.lsp_lines_enabled = false
+          else
+            vim.diagnostic.config({ virtual_lines = virtual_lines_config })
+            vim.g.lsp_lines_enabled = true
+          end
+        end, { desc = "Toogle Diagnostic Virtual Lines" })
       '';
       inlayHints = true;
       keymaps = {
