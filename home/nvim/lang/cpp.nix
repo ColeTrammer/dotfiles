@@ -46,7 +46,7 @@
         installPhase = ''
           mkdir -p $out/bin
           cp ${clangToolsBase}/bin/* $out/bin
-          rm $out/bin/clangd
+rm $out/bin/clangd
         '';
       });
 
@@ -78,7 +78,7 @@
         };
         plugins.clangd-extensions = {
           enable = true;
-          extraOptions = {
+          settings = {
             # We now have native support for inlay hints
             inlay_hints = {
               inline = false;
@@ -119,7 +119,7 @@
               "--query-driver=${queryDriver}"
             ];
             onAttach.function = helpers.lua ''
-              vim.keymap.set("n", "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch Source/Header (C/C++)", })
+              vim.keymap.set("n", "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch Source/Header (C/C++)" })
             '';
             extraOptions = {
               init_options = {

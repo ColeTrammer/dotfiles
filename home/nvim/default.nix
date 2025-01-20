@@ -58,6 +58,9 @@
         # Trying out the experimental lua loader.
         luaLoader.enable = true;
 
+        # Use nixpkgs in sync with home manager.
+        nixpkgs.useGlobalPackages = true;
+
         # wl-clipboard is required for copy/paste to work on wayland desktops.
         # ripgrep and find is used for search
         extraPackages = with pkgs; [
