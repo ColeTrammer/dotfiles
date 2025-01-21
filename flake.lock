@@ -425,6 +425,22 @@
         "type": "github"
       }
     },
+    "multicursor-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1733109630,
+        "narHash": "sha256-0bFqoTq4d49/REDu6Rnmvms3kDIyEl0N57CpxYp0ImU=",
+        "owner": "jake-stewart",
+        "repo": "multicursor.nvim",
+        "rev": "f454cac9d03ccaf20008f4793f05b159f5547e78",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jake-stewart",
+        "repo": "multicursor.nvim",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -578,6 +594,7 @@
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "lf": "lf",
+        "multicursor-nvim": "multicursor-nvim",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",

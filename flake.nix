@@ -45,6 +45,11 @@
       flake = false;
     };
 
+    multicursor-nvim = {
+      url = "github:jake-stewart/multicursor.nvim";
+      flake = false;
+    };
+
     ags = {
       url = "github:Aylur/ags/v1";
       inputs.nixpkgs.follows = "nixpkgs";
