@@ -58,7 +58,7 @@
         };
       };
     };
-    plugins.dap.extensions.dap-go = {
+    plugins.dap-go = {
       enable = true;
     };
     plugins.neotest.settings.adapters = [

@@ -39,16 +39,11 @@
             mime = "image/*";
             command = "${pkgs.chafa}/bin/chafa -O 9 --format symbols %pistol-filename%";
           }
-          {
-            mime = "video/*";
-            command = "${pkgs.termplay}/bin/termplay -q %pistol-filename%";
-          }
         ];
       };
 
       home.packages = with pkgs; [
         chafa
-        termplay
       ];
     };
 }

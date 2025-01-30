@@ -49,20 +49,20 @@
             texthl = "DapStopped";
           };
         };
-        extensions = {
-          dap-ui = {
-            enable = true;
-            floating.mappings = {
-              close = [
-                "<ESC>"
-                "q"
-              ];
-            };
-          };
-          dap-virtual-text = {
-            enable = true;
+      };
+      plugins.dap-ui = {
+        enable = true;
+        settings = {
+          floating.mappings = {
+            close = [
+              "<ESC>"
+              "q"
+            ];
           };
         };
+      };
+      plugins.dap-virtual-text = {
+        enable = true;
       };
       plugins.lualine.settings.sections.lualine_x = lib.mkOrder 900 [
         {
