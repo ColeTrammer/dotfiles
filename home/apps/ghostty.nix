@@ -1,12 +1,16 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }:
 {
   options = {
     apps.ghostty = {
       enable = lib.mkEnableOption "ghostty";
+      enablePackage = lib.mkEnableOption "ghostty package" // {
+        default = config.preferences.os == "linux";
+      };
       theme = lib.mkOption {
         type = lib.types.str;
         default = "catppuccin-mocha";
@@ -50,9 +54,10 @@
     lib.mkIf config.apps.ghostty.enable {
       programs.ghostty = {
         enable = true;
+        package = if config.apps.ghostty.enablePackage then pkgs.ghostty else null;
         enableBashIntegration = true;
         enableZshIntegration = true;
-        installVimSyntax = true;
+        installVimSyntax = config.apps.ghostty.enablePackage;
         clearDefaultKeybinds = true;
         settings = {
           auto-update = "off";
@@ -92,6 +97,8 @@
         };
       };
 
-      programs.nixvim.extraPlugins = [ config.programs.ghostty.package.vim ];
+      programs.nixvim.extraPlugins = lib.mkIf config.apps.ghostty.enablePackage [
+        config.programs.ghostty.package.vim
+      ];
     };
 }
