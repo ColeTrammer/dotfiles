@@ -10,6 +10,7 @@
         ];
         warn-dirty = false;
         auto-optimise-store = true;
+        trusted-users = [ "colet" ];
       }
     ];
 
