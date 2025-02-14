@@ -14,6 +14,9 @@
       normalMode = {
         clear = true;
       };
+      formatopts = {
+        clear = true;
+      };
     };
     autoCmd = [
       {
@@ -61,6 +64,16 @@
           return function()
             vim.opt_local.wrap = true
             vim.opt_local.spell = true
+          end
+        '';
+      }
+      {
+        # Disable comment continuation when using `o`.
+        event = "BufEnter";
+        group = "formatopts";
+        callback = helpers.luaRawExpr ''
+          return function()
+            vim.opt.formatoptions:remove({ "o" })
           end
         '';
       }

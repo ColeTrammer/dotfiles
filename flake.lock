@@ -277,6 +277,22 @@
         "type": "github"
       }
     },
+    "fzf-lua": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1739486751,
+        "narHash": "sha256-GvEs/2PBmg5ke3/Jf2XkiK/ICl/KFElJPSwTASUYrR4=",
+        "owner": "ibhagwan",
+        "repo": "fzf-lua",
+        "rev": "8633175d4e74cd6013f75af7682c7e8ac133056a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ibhagwan",
+        "repo": "fzf-lua",
+        "type": "github"
+      }
+    },
     "git-hooks": {
       "inputs": {
         "flake-compat": [
@@ -591,6 +607,7 @@
         "disko": "disko",
         "flake-parts": "flake-parts",
         "flake-root": "flake-root",
+        "fzf-lua": "fzf-lua",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "lf": "lf",
