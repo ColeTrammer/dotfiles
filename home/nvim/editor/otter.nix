@@ -25,6 +25,7 @@
     programs.nixvim = {
       plugins.otter = {
         enable = true;
+        lazyLoad.settings.ft = config.nvim.otter.langs;
         autoActivate = false;
         settings = {
           handle_leading_whitespace = true;
@@ -46,5 +47,6 @@
         }
       ];
     };
+    nvim.plugins.otter.dependencies = [ "lsp" ];
   };
 }

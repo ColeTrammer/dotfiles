@@ -3,20 +3,6 @@
     plugins.nvim-ufo = {
       enable = true;
     };
-    plugins.lsp.capabilities = ''
-      capabilities = vim.tbl_deep_extend(
-        "force",
-        capabilities,
-        {
-          textDocument = {
-            foldingRange = {
-              dynamicRegistration = false,
-              lineFoldingOnly = true,
-            },
-          },
-        }
-      )
-    '';
     keymaps = [
       {
         mode = "n";

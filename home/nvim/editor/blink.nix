@@ -197,5 +197,6 @@
         }
       ];
     };
+    nvim.plugins.lsp.dependencies = [ "blink-cmp" ];
   };
 }

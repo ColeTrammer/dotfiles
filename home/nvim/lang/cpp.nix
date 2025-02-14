@@ -44,8 +44,8 @@
         version = clangToolsBase.version;
         unpackPhase = "true";
         installPhase = ''
-          mkdir -p $out/bin
-          cp ${clangToolsBase}/bin/* $out/bin
+                                                                                                    mkdir -p $out/bin
+                                                                                                    cp ${clangToolsBase}/bin/* $out/bin
 rm $out/bin/clangd
         '';
       });
@@ -78,6 +78,10 @@ rm $out/bin/clangd
         };
         plugins.clangd-extensions = {
           enable = true;
+          lazyLoad.settings.ft = [
+            "c"
+            "cpp"
+          ];
           settings = {
             # We now have native support for inlay hints
             inlay_hints = {
@@ -185,6 +189,8 @@ rm $out/bin/clangd
         "c"
         "cpp"
       ];
+
+      nvim.plugins.clangd-extensions.dependencies = [ "lsp" ];
 
       home.packages =
         with pkgs;

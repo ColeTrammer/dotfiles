@@ -3,6 +3,7 @@
   programs.nixvim = {
     plugins.noice = {
       enable = true;
+      lazyLoad.settings.event = "DeferredUIEnter";
       settings = {
         cmdline = {
           view = "cmdline";
@@ -175,4 +176,6 @@
       }
     ];
   };
+  nvim.plugins.lsp.dependencies = [ "noice" ];
+  nvim.plugins.lualine.dependencies = [ "noice" ];
 }

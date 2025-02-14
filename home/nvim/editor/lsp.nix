@@ -7,6 +7,7 @@
     };
     plugins.lsp = {
       enable = true;
+      lazyLoad.settings.event = "DeferredUIEnter";
       preConfig = helpers.lua ''
         -- Setup diagnostics.
         local virtual_text_config = {
