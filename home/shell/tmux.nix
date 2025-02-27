@@ -12,9 +12,7 @@
         default = config.shell.enable;
       };
 
-      autostart = lib.mkEnableOption "tmux autostart" // {
-        default = true;
-      };
+      autostart = lib.mkEnableOption "tmux autostart";
     };
   };
 
