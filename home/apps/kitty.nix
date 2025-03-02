@@ -27,9 +27,9 @@
         shell = config.preferences.shell;
       };
       keybindings = {
-        "ctrl+backspace" = "send_text all \\u0017";
-        "ctrl+enter" = "send_text all \\u001e";
-        "shift+enter" = "send_text all \\u001d";
+        "ctrl+backspace" = "send_text all \\u001b[127;5u";
+        "ctrl+enter" = "send_text all \\u001b[13;5u";
+        "shift+enter" = "send_text all \\u001b[13;2u";
       };
       shellIntegration = {
         enableBashIntegration = true;

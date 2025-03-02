@@ -38,9 +38,9 @@
             bottom = 0,
           },
           keys = {
-            { key = "Backspace", mods = "CTRL", action = act.SendKey({ key = "w", mods = "CTRL" }) },
-            { key = "Enter", mods = "CTRL", action = act.SendKey({ key = "^", mods = "CTRL" }) },
-            { key = "Enter", mods = "SHIFT", action = act.SendKey({ key = "]", mods = "CTRL" }) },
+            { key = "Backspace", mods = "CTRL", action = act.SendString '\x1b[127;5u' },
+            { key = "Enter", mods = "CTRL", action = act.SendString '\x1b[13;5u' },
+            { key = "Enter", mods = "SHIFT", action = act.SendString '\x1b[13;2u' },
           },
         }
       '';
