@@ -41,17 +41,17 @@
             {
               key = "Backspace";
               mods = "Control";
-              chars = "\\u001b[127;5u";
+              chars = "\\u0017";
             }
             {
               key = "Enter";
               mods = "Control";
-              chars = "\\u001b[13;5u";
+              chars = "\\u001e";
             }
             {
               key = "Enter";
               mods = "Shift";
-              chars = "\\u001b[13;2u";
+              chars = "\\u001d";
             }
           ];
         };

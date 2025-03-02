@@ -8,10 +8,10 @@ setopt interactivecomments
 ###
 
 # zsh autosuggestion
-# ctrl+enter as kitty escape sequence
-bindkey '^[[13;5u' autosuggest-execute
-# shift+enter as kitty escape sequence
-bindkey '^[[13;2u' autosuggest-accept
+# ^^ maps to ctrl+enter
+bindkey '^^' autosuggest-execute
+# ^] maps to shift+enter
+bindkey '^]' autosuggest-accept
 bindkey '^E' autosuggest-clear
 
 # history navigation
@@ -28,15 +28,13 @@ bindkey "^[[3;3~" kill-word
 bindkey "^[[3~" delete-char
 bindkey "^[[5~" beginning-of-buffer-or-history
 bindkey "^[[6~" end-of-buffer-or-history
+bindkey "^W" backward-kill-word
 bindkey "^[[H" beginning-of-line
 bindkey "^[OH" beginning-of-line
 bindkey "^[[F" end-of-line
 bindkey "^[OF" end-of-line
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
-
-# ctrl+backspace as kitty escape sequence
-bindkey "^[[127;5u" backward-kill-word
 
 # shortcuts
 bindkey -s '^O' '^U $EDITOR\n'

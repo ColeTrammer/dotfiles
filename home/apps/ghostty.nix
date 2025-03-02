@@ -88,10 +88,11 @@
           macos-option-as-alt = true;
 
           keybind = [
-            # Always use kitty escape sequence for these keys
-            "ctrl+backspace=text:\\x1b[127;5u"
-            "ctrl+enter=text:\\x1b[13;5u"
-            "shift+enter=text:\\x1b[13;2u"
+            # Custom escape codes
+            "ctrl+backspace=text:\\x17"
+            "ctrl+enter=text:\\x1e"
+            "shift+enter=text:\\x1d"
+            "shift+backspace=text:\\x7f"
           ] ++ uiBinds;
         };
       };
