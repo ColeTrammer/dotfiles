@@ -140,14 +140,19 @@
               '')
               "fallback"
             ];
-            cmdline = {
-              preset = "default";
-              "<Tab>" = [
-                "select_next"
-                "fallback"
-              ];
-              "<S-Tab>" = [
-                "select_prev"
+          };
+          cmdline = {
+            enabled = true;
+            keymap = {
+              # ctrl+enter on with my terminal setup
+              "<C-^>" = [
+                (helpers.luaRawExpr ''
+                  return function(cmp)
+                    if cmp.is_ghost_text_visible() or cmp.is_menu_visible() then
+                      return cmp.accept_and_enter()
+                    end
+                  end
+                '')
                 "fallback"
               ];
             };

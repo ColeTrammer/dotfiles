@@ -1,7 +1,6 @@
 {
   config,
   helpers,
-  inputs,
   lib,
   pkgs,
   ...
@@ -10,10 +9,6 @@
   programs.nixvim = {
     plugins.fzf-lua = {
       enable = true;
-      package = pkgs.vimPlugins.fzf-lua.overrideAttrs {
-        src = inputs.fzf-lua;
-        version = "git";
-      };
       lazyLoad.settings = {
         cmd = [
           "FzfLua"

@@ -167,7 +167,10 @@
       programs.tmux.plugins = lib.mkIf default (
         lib.mkOrder 0 [
           {
-            plugin = pkgs.tmuxPlugins.catppuccin;
+            plugin = pkgs.tmuxPlugins.catppuccin.overrideAttrs (x: {
+              src = inputs.catppuccin-tmux;
+              version = "0.3.0";
+            });
             extraConfig = ''
               set -g @catppuccin_window_separator " "
               set -g @catppuccin_window_left_separator "█"

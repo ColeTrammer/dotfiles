@@ -40,11 +40,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    fzf-lua = {
-      url = "github:ibhagwan/fzf-lua";
-      flake = false;
-    };
-
     stickybuf-nvim = {
       url = "github:stevearc/stickybuf.nvim";
       flake = false;
@@ -92,6 +87,11 @@
 
     catppuccin-ghostty = {
       url = "github:catppuccin/ghostty";
+      flake = false;
+    };
+
+    catppuccin-tmux = {
+      url = "github:catppuccin/tmux/v0.3.0";
       flake = false;
     };
 
