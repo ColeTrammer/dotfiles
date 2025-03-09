@@ -167,6 +167,31 @@
         "type": "github"
       }
     },
+    "di": {
+      "inputs": {
+        "flake-parts": [
+          "ttx",
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "ttx",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1741467362,
+        "narHash": "sha256-KHLdzPHox6Y3gvRCsWLkJ5lbDZ0atXjOwhac/D7PWAs=",
+        "owner": "coletrammer",
+        "repo": "di",
+        "rev": "ca087fe65be0d4929f226ef4d05646564c3ca680",
+        "type": "github"
+      },
+      "original": {
+        "owner": "coletrammer",
+        "repo": "di",
+        "type": "github"
+      }
+    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -184,6 +209,35 @@
       "original": {
         "owner": "nix-community",
         "repo": "disko",
+        "type": "github"
+      }
+    },
+    "dius": {
+      "inputs": {
+        "di": [
+          "ttx",
+          "di"
+        ],
+        "flake-parts": [
+          "ttx",
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "ttx",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1741465832,
+        "narHash": "sha256-uR1XKqWYcJx7hhiXmonZkDG8JiMG2kzJ43JBSZdC8zA=",
+        "owner": "coletrammer",
+        "repo": "dius",
+        "rev": "99e2ec708969ccc06150dcf329ffbb4e8fa111ff",
+        "type": "github"
+      },
+      "original": {
+        "owner": "coletrammer",
+        "repo": "dius",
         "type": "github"
       }
     },
@@ -218,6 +272,27 @@
         "owner": "hercules-ci",
         "repo": "flake-parts",
         "rev": "32ea77a06711b758da0ad9bd6a844c5740a87abd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_3": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "ttx",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1740872218,
+        "narHash": "sha256-ZaMw0pdoUKigLpv9HiNDH2Pjnosg7NBYMJlHTIsHEUo=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "3876f6b87db82f33775b1ef5ea343986105db764",
         "type": "github"
       },
       "original": {
@@ -491,6 +566,7 @@
         "stickybuf-nvim": "stickybuf-nvim",
         "tmux": "tmux",
         "treefmt-nix": "treefmt-nix",
+        "ttx": "ttx",
         "yazi-flavors": "yazi-flavors",
         "yazi-plugins": "yazi-plugins"
       }
@@ -573,6 +649,29 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "ttx": {
+      "inputs": {
+        "di": "di",
+        "dius": "dius",
+        "flake-parts": "flake-parts_3",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1741497468,
+        "narHash": "sha256-Hw6kVWeH2pRBfCOHOGdGr74kLSS+/ERktWQIXGWYqq0=",
+        "owner": "coletrammer",
+        "repo": "ttx",
+        "rev": "105df9108daefd6487b7914a05edd0c770e212df",
+        "type": "github"
+      },
+      "original": {
+        "owner": "coletrammer",
+        "repo": "ttx",
         "type": "github"
       }
     },

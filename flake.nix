@@ -25,6 +25,11 @@
       url = "github:nix-community/impermanence";
     };
 
+    ttx = {
+      url = "github:coletrammer/ttx";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
