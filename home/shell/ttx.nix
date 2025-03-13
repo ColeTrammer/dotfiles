@@ -17,7 +17,7 @@
 
   config = lib.mkIf config.shell.ttx.enable {
     programs.ttx = {
-      enable = config.preferences.os == "linux";
+      enable = true;
       settings = {
         prefix = "A";
         shell = "${config.preferences.shell}";
