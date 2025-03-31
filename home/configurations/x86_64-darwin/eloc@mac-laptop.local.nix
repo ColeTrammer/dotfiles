@@ -25,6 +25,8 @@
       wezterm.enable = true;
     };
 
+    shell.vttest.enable = true;
+
     nvim.lang.cpp.queryDriver = [
       "/nix/store/*/bin/clang*"
       "/nix/store/*/bin/gcc*"

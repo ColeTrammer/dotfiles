@@ -14,6 +14,7 @@
   apps.enable = true;
   apps.steam.enable = true;
   desktop.enable = true;
+  shell.vttest.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 }

@@ -23,6 +23,7 @@
 
   desktop.enable = true;
   shell.git.gpgKey = "60DCAA3C4B6F51E3";
+  shell.vttest.enable = true;
 
   programs.zsh.initExtra = ''
     source /persist/secrets/env.sh
